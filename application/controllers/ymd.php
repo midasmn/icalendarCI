@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Ymd extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,17 +19,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('tbl_calendar_model');
-        // $this->sample->name = $this->input->post('name');
-        // $this->sample->address = $this->input->post('address');
-        // $this->sample->insert();
-
-		$this->load->view('welcome_message');
-		//
-		// $this->load->model('tbl_ymd');
+		$this->load->model('ymd');
 		// $this->input->post('title');
-		// $this->load->view('include/header');
-		// $this->load->view('include/footer');
+		$this->load->view('include/header');
+		$this->load->view('include/footer');
 	}
 }
 
