@@ -1,66 +1,6 @@
+<?php
+?>
 <!-- フッター -->
-<!-- フッター用設定 -->
-<style>
-html,
-body {
-  height: 100%;
-  /* html と body 要素はパディングやマージンを持てません。*/
-}
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  /* Negative indent footer by its height */
-  margin: 0 auto -90px;
-  /* Pad bottom by footer height */
-  padding: 0 0 90px;
-}
-.bs-footer {
-  height: 90px;
-  color: #777;
-  background-color:#FFF;
-  /*text-align: center;*/
-  margin-bottom: -20px;
-  border-top: 1px solid #e5e5e5;
-  text-align: left;
-}
-/*
-  Social sharing
-*/
-.bs-social {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.bs-social-buttons {
-  display: inline-block;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-.bs-social-buttons li {
-  display: inline-block;
-  line-height: 1;
-  padding: 5px 8px;
-}
-.bs-social-buttons .facebook-btn {
-  width: 130px !important;
-}
-.bs-social-buttons .twitter-follow-button {
-  width: 225px !important;
-}
-.bs-social-buttons .twitter-share-button {
-  width: 98px !important;
-}
-@media screen and (min-width: 768px) {
-  .bs-social {
-    text-align: left;
-  }
-  .bs-social-buttons li:first-child {
-    padding-left: 0;
-  }
-}
-</style>
 <!-- フッター用設定 -->
 <footer class="bs-footer" role="contentinfo">
 	<div class="container">
@@ -101,7 +41,7 @@ body {
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url('/application/views/assets/js/bootstrap.min.js') ?>"></script>
 <!-- ドロップダウン用 -->
 <script>
 $(function(){

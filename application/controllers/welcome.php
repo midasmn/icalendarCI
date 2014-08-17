@@ -2,6 +2,12 @@
 
 class Welcome extends CI_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url');
+	}
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -24,12 +30,12 @@ class Welcome extends CI_Controller {
         // $this->sample->address = $this->input->post('address');
         // $this->sample->insert();
 
-		$this->load->view('welcome_message');
+		// $this->load->view('welcome_message');
 		//
 		// $this->load->model('tbl_ymd');
 		// $this->input->post('title');
-		// $this->load->view('include/header');
-		// $this->load->view('include/footer');
+		$this->load->view('include/header');
+		$this->load->view('include/footer');
 	}
 }
 

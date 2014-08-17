@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -7,9 +9,9 @@
     <title>iCalendar | </title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('/application/views/assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <!-- footer -->
-    <link href="<?php echo base_url('assets/css/footer.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('/application/views/assets/css/footer.css'); ?>" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

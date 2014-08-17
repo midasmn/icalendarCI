@@ -1,3 +1,6 @@
+<?php
+$titel = "YO";
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -67,7 +70,7 @@
 <body>
 
 <div id="container">
-	<h1>CodeIgniter へようこそ!</h1>
+	<h1>CodeIgniter へようこそ!<?php echo $titel; ?></h1>
 
 	<div id="body">
 		<p>今ご覧のこのページは、CodeIgniter によって動的に生成されました。</p>

@@ -38,6 +38,10 @@
 |
 */
 
+$route['blog'] = "blog/index";
+
+
+
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
