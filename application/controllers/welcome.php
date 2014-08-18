@@ -26,8 +26,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-		 	'title' => 'MittelLogeについて',
-		 	'note' => 'MittelLogeについて'
+		 	'title' => 'iCalendarにようこそ',
+		 	'note' => 'iCalendarにようこそ'
             );
 
 		$this->load->model('tbl_calendar_model');
@@ -37,15 +37,6 @@ class Welcome extends CI_Controller {
 		//
 		// $this->load->model('tbl_ymd');
 		// $this->input->post('title');
-		$this->load->view('include/header',$data);
-		$this->load->view('include/footer',$data);
-	}
-	public function about()
-	{
-		$data = array(
-		 	'title' => 'iCalendarについて',
-		 	'note' => 'iCalendarについて'
-            );
 		$this->load->view('include/header',$data);
 		$this->load->view('include/footer',$data);
 	}

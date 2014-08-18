@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Register extends CI_Controller{
+class Password extends CI_Controller{
 
     function __construct()
     {
@@ -20,15 +20,15 @@ class Register extends CI_Controller{
     public function index()
     {
         $data = array(
-            'title' => 'iCalendarID(無料)を登録する',
-            'note' => 'iCalendarID(無料)を登録する'
+            'title' => 'パスワードを再設定する',
+            'note' => 'パスワードを再設定する'
             );
 
         // $this->load->model('tbl_calendar_model', 'calendar');
         // $this->calendar->name = $this->input->post('name');
 
         $this->load->view('include/header',$data);
-        $this->load->view('register',$data);
+        $this->load->view('password',$data);
         $this->load->view('include/footer',$data);
     }
 }

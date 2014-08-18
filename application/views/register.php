@@ -20,7 +20,7 @@
 						<input class="form-control middle" placeholder="メールアドレス" name="email" type="text" value="">			    	
 						<input class="form-control middle" placeholder="パスワード" name="password" type="password" value="">			    	
 						<input class="form-control bottom" placeholder="パスワード(確認)" name="password_confirmation" type="password" value="">				    
-						<input class="btn btn-lg btn-primary btn-block" type="submit" value="Register">		
+						<input class="btn btn-lg btn-primary btn-block" type="submit" value="登録する">		
 						<p class="text-center" style="margin-top:10px;">OR</p>
 						<a class="btn btn-lg btn-default btn-block" href="facebook">
 							<i class="icon-github"></i> Facebookアカウントを使って登録
@@ -36,4 +36,4 @@
 	<!-- 登録 -->
 </div>
 <!-- ページメイン -->
-<!-- </div> -->
+</div>

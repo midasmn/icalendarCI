@@ -37,8 +37,12 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+// カレンダー一覧
+$route['smart'] = "calist/index/smart";
+$route['newer'] = "calist/index/newer";
+$route['random'] = "calist/index/random";
 
-
+// 静的ページ
 $route['about'] = "staticpages/about";
 $route['terms'] = "staticpages/terms";
 $route['privacy'] = "staticpages/privacy";
