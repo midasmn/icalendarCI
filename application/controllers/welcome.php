@@ -25,17 +25,29 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data = array(
+		 	'title' => 'MittelLogeについて',
+		 	'note' => 'MittelLogeについて'
+            );
+
 		$this->load->model('tbl_calendar_model');
-        // $this->sample->name = $this->input->post('name');
-        // $this->sample->address = $this->input->post('address');
-        // $this->sample->insert();
+		$this->load->model('tbl_ymd_model');
 
 		// $this->load->view('welcome_message');
 		//
 		// $this->load->model('tbl_ymd');
 		// $this->input->post('title');
-		$this->load->view('include/header');
-		$this->load->view('include/footer');
+		$this->load->view('include/header',$data);
+		$this->load->view('include/footer',$data);
+	}
+	public function about()
+	{
+		$data = array(
+		 	'title' => 'iCalendarについて',
+		 	'note' => 'iCalendarについて'
+            );
+		$this->load->view('include/header',$data);
+		$this->load->view('include/footer',$data);
 	}
 }
 

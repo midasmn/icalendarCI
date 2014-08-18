@@ -1,4 +1,6 @@
 <?php
+// $title = "iCalendarテスト";
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -6,8 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>iCalendar | </title>
-
+    <title><?=$title?></title>
     <!-- Bootstrap -->
     <link href="<?php echo base_url('/application/views/assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <!-- footer -->

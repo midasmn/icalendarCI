@@ -1,4 +1,5 @@
 <?php
+$copy = "iCalendar by ";
 ?>
 <!-- フッター -->
 <!-- フッター用設定 -->
@@ -28,11 +29,11 @@
 		<!-- ソーシャルボタン -->
 
 		<!-- リンク -->
-		<p>iCalendar.xyz by 
+		<p><?=$copy?>
 			<a href="http://atomb.it" target="_blank">atomb.it</a>. | 
 			<a href="#" target="_blank" rel="publisher">Google+</a> | 
-			<a href="#" target="_blank" rel="publisher">利用規約</a> | 
-			<a href="privacy" target="_blank">プライバシーポリシー</a>
+			<a href="terms" target="_blank" rel="publisher">利用規約</a> | 
+			<a href="privacy">プライバシーポリシー</a>
 		</p>
 		<!-- リンク -->
 

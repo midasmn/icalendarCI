@@ -183,14 +183,14 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 |
 */
 // $config['log_threshold'] = 0;
-$config['log_threshold'] = 4;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
 | Error Logging Directory Path
 |--------------------------------------------------------------------------
 |
-| Leave this BLANK unless you would like to set something other than the default
+| Leave this BLANK unless you would like to set something other than the defaul1
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */

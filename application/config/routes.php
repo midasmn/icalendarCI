@@ -38,7 +38,12 @@
 |
 */
 
-$route['blog'] = "blog/index";
+
+$route['about'] = "staticpages/about";
+$route['terms'] = "staticpages/terms";
+$route['privacy'] = "staticpages/privacy";
+$route['faq'] = "staticpages/faq";
+$route['supportform'] = "staticpages/supportform";
 
 
 
