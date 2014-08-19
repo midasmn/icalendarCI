@@ -22,7 +22,25 @@ class Tbl_calendar_model extends MY_Model {
         parent::__construct();
     }
 
-    public function find_calist($sort) {
+    public function find_calist_all() {
+        $this->db->select('tbl_calendar.id as cal_id');
+        //
+        $this->db->from('tbl_calendar');
+        $this->db->from('tbl_ymd');
+        $this->db->where("tbl_ymd.calendar_id = tbl_calendar.id"); 
+        $this->db->where('tbl_calendar.onflg', 'ON'); 
+        $this->db->where('tbl_ymd.order', 1); 
+        $this->db->group_by('tbl_ymd.calendar_id');
+        //
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+
+
+        // return $count;
+    }
+    //ofset limit
+    public function find_calist($sort,$limit,$offset) {
         $this->db->select('tbl_ymd.img_path as cal_img');
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->select('tbl_calendar.title as cal_title');
@@ -45,11 +63,9 @@ class Tbl_calendar_model extends MY_Model {
         }elseif($sort=='random'){
             $this->db->order_by('rand()'); 
         }
-
+        $this->db->limit($limit,$offset);
         $query = $this->db->get();
-
 // echo $this->db->last_query();
-
         return $query->result();
     }
 }

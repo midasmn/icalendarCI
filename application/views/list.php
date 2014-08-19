@@ -4,10 +4,10 @@
 // cal_title
 // cal_tags
 // cal_description
-// if($out){
-// 	// echo "<br>OUT".$out."<br>";
-// 	print_r($out);
-// }
+if($out){
+	echo "<br>OUT".$out."<br>";
+	// print_r($out);
+}
 // calist
 
 ?>
@@ -29,7 +29,7 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2>カレンダー一覧<small>（<?=$exm_title?>）</small></h2> 
+			<h2><?=$exm_title?><small>カレンダーリスト</small></h2> 
 		</div>
 		<!-- 検索窓 -->
 		<div class="col-md-4"  style="margin-top:20px;">

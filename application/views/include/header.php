@@ -83,17 +83,17 @@
 		       			</a>
 		       			<ul class="dropdown-menu">
 		          			<li class="">
-		          				<a href="smart">
+		          				<a href="/smart/">
 		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
 		          				</a>
 		          			</li>
 							<li class="">
-								<a href="newer">
+								<a href="/newer/">
 		          					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> 新着順
 								</a>
 							</li>
 							<li class="">
-								<a href="random">
+								<a href="/random/">
 									<span class="glyphicon glyphicon-align-center"></span> ランダム
 								</a>
 							</li>

@@ -5,74 +5,45 @@ class Calist extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
-
-        # 3番目のURIセグメントより、アイテムIDを取得します。セグメントデータがない
-        # 場合は、1を設定します。
-        // $exm = $this->uri->segment(1, "newer");
-
-
-        // $exm = $this->uri->rsegment(1);
     }
 
     public function index()
     {
         $data = array();
-
-        $exm = $this->uri->uri_string();
-        // $data['out'] = $exm;
+        $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');
         //リスト判定
         switch ($exm) {
             case 'smart':
-            	$data['title'] = "カレンダー一覧(人気順)";
+            	$data['title'] = "人気順カレンダーリスト";
                 $data['exm_title'] = "人気順";
                 break;
             case 'newer':
-            	$data['title'] = "カレンダー一覧(新着順)";
+            	$data['title'] = "新着順カレンダーリスト";
                 $data['exm_title'] = "新着順";
                 break;
             case 'random':
-            	$data['title'] = "カレンダー一覧(ランダム)";
+            	$data['title'] = "ランダム順カレンダーリスト";
                 $data['exm_title'] = "ランダム";
                 break;
-            
             default:
-            	$data['title'] = "カレンダー一覧(新着順)";
+            	$data['title'] = "新着順一覧";
                 $data['exm_title'] = "新着順";
                 break;
         }
-
-        $this->load->model('tbl_calendar_model', 'calendar');
-        $data['calist'] = $this->calendar->find_calist($exm);
-        // $data['out'] = $this->calendar->find_calist($exm);
-
+        $limit = 30; //1ページ数
+        $offset=$this->uri->segment(2); //ページ番号セグメント
+        $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
+        $data['total'] = $this->calendar->find_calist_all();    //全件取得
+        $total_cnt = count($data['total'] );                    //ページネーション用全件       
+        // データ取得のリミットとオフセット
+        $data['calist'] = $this->calendar->find_calist($exm,$limit,$offset);
+        //ページネーション設定
         $this->load->library('pagination');
-        // $config['base_url'] = 'http://icalendar.xyz/calist/index/'.$exm.'/page/';
-        $config['base_url'] = 'http://icalendar.xyz/'.$exm.'/';
-        // $config['total_rows'] = 200;
-        $config['total_rows'] = count($data['calist'] );
-        $config['per_page'] = 20; 
-        $config['num_links'] = 5; 
-
-        //最初のリンク
-        $config['first_link'] = '&laquo;';
-        $config['first_tag_open'] = '<li class="disabled"><span>';
-        $config['first_tag_close'] = '</span></li>';
-        //最後のリンク
-        $config['last_link'] = '&raquo;';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-        $config['prev_link'] = '';
-        $config['next_link'] = '';
-        //現在ページタグ
-        $config['cur_tag_open'] = '<li class="active"><span>';
-        $config['cur_tag_close'] = '</span></li>';
-        //
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-
+        $config['base_url'] = 'http://icalendar.xyz/'.$exm;
+        $config['total_rows'] = $total_cnt;
+        $config['per_page'] = $limit; 
         $this->pagination->initialize($config); 
         $data['page_link'] = $this->pagination->create_links();
 
