@@ -38,6 +38,10 @@
 |
 */
 // カレンダー一覧
+// $route['smart/page/'] = "calist/index/smart/page/";
+// $route['newer/page/'] = "calist/index/newer/page/";
+// $route['random/page/'] = "calist/index/random/page/";
+
 $route['smart'] = "calist/index/smart";
 $route['newer'] = "calist/index/newer";
 $route['random'] = "calist/index/random";

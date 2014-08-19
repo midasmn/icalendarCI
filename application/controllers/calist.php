@@ -47,6 +47,35 @@ class Calist extends CI_Controller{
         $data['calist'] = $this->calendar->find_calist($exm);
         // $data['out'] = $this->calendar->find_calist($exm);
 
+        $this->load->library('pagination');
+        // $config['base_url'] = 'http://icalendar.xyz/calist/index/'.$exm.'/page/';
+        $config['base_url'] = 'http://icalendar.xyz/'.$exm.'/';
+        // $config['total_rows'] = 200;
+        $config['total_rows'] = count($data['calist'] );
+        $config['per_page'] = 20; 
+        $config['num_links'] = 5; 
+
+        //最初のリンク
+        $config['first_link'] = '&laquo;';
+        $config['first_tag_open'] = '<li class="disabled"><span>';
+        $config['first_tag_close'] = '</span></li>';
+        //最後のリンク
+        $config['last_link'] = '&raquo;';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['prev_link'] = '';
+        $config['next_link'] = '';
+        //現在ページタグ
+        $config['cur_tag_open'] = '<li class="active"><span>';
+        $config['cur_tag_close'] = '</span></li>';
+        //
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config); 
+        $data['page_link'] = $this->pagination->create_links();
+
         $this->load->view('include/header',$data);
         $this->load->view('list',$data);
         $this->load->view('include/footer',$data);
