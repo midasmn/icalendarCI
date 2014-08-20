@@ -56,7 +56,8 @@ $route['supportform'] = "staticpages/supportform";
 
 
 $route['default_controller'] = "welcome";
-$route['404_override'] = '';
+// $route['404_override'] = '';
+$route['404_override'] = 'error/error_404';
 
 
 /* End of file routes.php */

@@ -78,7 +78,6 @@ position: relative;
 					</tr>
 					<!-- 1件目 -->
 					<?php endforeach;?>
-
 				</tbody>
 			</table>
 		</div>
@@ -95,22 +94,6 @@ position: relative;
 </div>
 <!--  -->
 <!-- ページネーション		 -->
-<div class="row">
-	<div class="col-md-12">
-		<div class="text-center">
-			<ul class="pagination pagination-large">
-
-				<?php echo $page_link; ?> 
-				
-	<!-- 			<li class="disabled"><span>&laquo;</span></li>
-				<li class="active"><span>1</span></li>
-				<li><a href="http://bootsnipp.com/search?page=2&q=form">2</a></li>
-				<li><a href="http://bootsnipp.com/search?page=2&q=form">&raquo;</a></li>	 -->
-			</ul>
-		</div>
-	</div>
-</div>
+<?php echo $page_link; ?> 
 <!-- ページネーション		 -->
-
-
 </div>

@@ -7,6 +7,7 @@ class Calist extends CI_Controller{
         $this->load->helper('url');
 
         $this->output->enable_profiler(TRUE);
+        $this->output->cache(360);
     }
 
     public function index()
