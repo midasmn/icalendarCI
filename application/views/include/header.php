@@ -47,31 +47,31 @@
 		       			</a>
 		       			<ul class="dropdown-menu">
 		          			<li class="">
-		          				<a href="about">
+		          				<a href="/about/">
 		          					<span class="glyphicon glyphicon-info-sign"></span> iCalendarについて
 		          				</a>
 		          			</li>
 		          			<li class="divider"></li>
 							<li class="">
-								<a href="terms">
+								<a href="/terms/">
 									<span class="glyphicon glyphicon-list-alt"></span> 利用規約
 								</a>
 							</li>
 							<li class="">
-								<a href="privacy">
+								<a href="/privacy/">
 									<span class="glyphicon glyphicon-list-alt"></span> プライバシーポリシー
 								</a>
 							</li>
 							<li class="divider"></li>
 							<li class="dropdown-header">よくある質問</li>
 							<li class="">
-								<a href="faq">
+								<a href="/faq/">
 									<span class="glyphicon glyphicon-book"></span> FAQ
 								</a>
 							</li>  
 							<li class="divider"></li>
 							<li class="">
-								<a href="supportform">
+								<a href="/supportform/">
 									<span class="glyphicon glyphicon-envelope"></span> お問い合わせフォーム
 								</a>
 							</li> 
