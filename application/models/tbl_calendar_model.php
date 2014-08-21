@@ -63,6 +63,9 @@ class Tbl_calendar_model extends MY_Model {
         }elseif($sort=='random'){
             $this->db->order_by('rand()'); 
         }
+
+        // $this->db->order_by('tbl_ymd.id desc'); 
+
         $this->db->limit($limit,$offset);
         $query = $this->db->get();
 // echo $this->db->last_query();
