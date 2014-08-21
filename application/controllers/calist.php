@@ -8,6 +8,8 @@ class Calist extends CI_Controller{
 
         $this->output->enable_profiler(TRUE);
         $this->output->cache(360);
+
+        $this->load->library('session');
     }
 
     public function index()
