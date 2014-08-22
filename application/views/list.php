@@ -73,7 +73,7 @@ position: relative;
 						</td>
 						<td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td>
 						<td style="vertical-align:middle;">
-							<a class="btn btn-block btn-info" href="calendar/<?php echo $row->cal_id;?>">開く</a>
+							<a class="btn btn-block btn-info" href="/calendar/<?php echo $row->cal_id;?>">開く</a>
 						</td>
 					</tr>
 					<!-- 1件目 -->

@@ -1,24 +1,61 @@
 <?php
+foreach ($ymd_list as $row) {
+	echo $row->dd.'<img src="'.$row->img_path.'">'.$row->img_alt.'</a><br>';
+}
+foreach ($cal_info as $rowR) {
+	//echo $row->dd.'<img src="'.$row->img_path.'">'.$row->img_alt.'</a><br>';
+}
 
+
+// cal_info
+
+// cal_id
+// cal_title
+// cal_tags
+// cal_description
+
+// $data['cal_id'] = $calendar_id;
+//         $data['yyyy'] = $yyyy;
+//         $data['mm'] = $mm;
+
+/*
+<?php foreach ($calist as $row):?>
+<!-- 1件目 -->
+<tr>
+<td>
+<img src="<?php echo $row->cal_img;?>" class="img-responsive" alt="第1位" style="background-color:#428bca;">
+</td>
+<td style="vertical-align:middle;"><?php echo $row->cal_title;?></td>
+<td style="vertical-align: middle;" class="hidden-xs">
+<?php echo $row->cal_description;?>
+</td>
+<td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td>
+<td style="vertical-align:middle;">
+<a class="btn btn-block btn-info" href="calendar/<?php echo $row->cal_id;?>">開く</a>
+</td>
+</tr>
+<!-- 1件目 -->
+<?php endforeach;?>
+*/
 ?>
 
 <!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
 		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h1 style="font-weight:300;text-transform:uppercase;letter-spacing:4px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">Flexible Calendar</h1>
+			<h1 style="font-weight:200;text-transform:uppercase;letter-spacing:4px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h2 style="font-weight:300;line-height:30px;text-transform:uppercase;letter-spacing:2px;text-align:right;padding-right:5px;">
-				<a href="http://icalendar.xyz">
+				<a href="/calendar/<?=$cal_id?>/<?=$p_yyyy?>/<?=$p_mm?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
-				<span>July</span>
-				<span>2014</span>
-				<a href="http://icalendar.xyz">
+				<span><?=$mm_st?></span>
+				<span><?=$yyyy?></span>
+				<a href="/calendar/<?=$cal_id?>/<?=$n_yyyy?>/<?=$n_mm?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
-				<a href="http://icalendar.xyz" title="Go to current date">
+				<a href="/calendar/<?=$cal_id?>/<?=date('Y')?>/<?=date('n')?>" title="Go to current date">
 					<span class="glyphicon glyphicon-check"></span>
 				</a>
 			</h2>

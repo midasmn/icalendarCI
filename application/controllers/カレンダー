@@ -1,0 +1,106 @@
+<?php 
+session_start();//ページの最初に呼び出す
+function calendar(){
+	if($_SESSION["nen"] == ""){
+		$_SESSION["nen"] = date(Y);
+}
+	if($_SESSION["tuki"] == ""){
+		$_SESSION["tuki"] = date(n);
+}
+$nowday = date(Ynj);//　今日の日付
+$nen = date(Y);
+$tuki = date(n);
+//今月の初めの曜日//
+$start_youbi = date("N", mktime(0, 0, 0,$tuki,1,$nen));
+///↑↑date(N)は1が月曜日 7が日曜日(PHP 5.1から)↑↑///
+$tuki_owari = date(t); //　その月の終りの日数
+/////////ココから←先月の処理/////////////
+if(@$_POST['sengetu']){
+//unixtimeスタンプが1970年からのため下の1行を加えとく
+	if($_SESSION["nen"]>=1970){
+	if($_SESSION["tuki"]==1){
+$_SESSION["nen"]=$_SESSION["nen"]-1;
+$_SESSION["tuki"] = 12;//　１月だったら、年を１減らして１２月にする
+$start_youbi = 
+date("N", mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+$tuki_owari = 
+date("t",mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+	}else{  //以下は　1月以外の処理
+	
+$_SESSION["tuki"]=$_SESSION["tuki"]-1;
+$start_youbi = 
+date("N", mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+$tuki_owari = 
+date("t",mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+		}
+	}
+}
+/////////ココから来月→の処理////////////
+if(@$_POST['raigetu']){
+	if($_SESSION["tuki"]==12){
+$_SESSION["nen"]=$_SESSION["nen"]+1;
+$_SESSION["tuki"] = 1; //１２月だったら１月にして年を１増やす
+$start_youbi = 
+date("N", mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+$tuki_owari = 
+date("t",mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+	}else{	//以下は12月以外の処理
+	
+$_SESSION["tuki"]=$_SESSION["tuki"]+1;
+$start_youbi = 
+date("N", mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+$tuki_owari = 
+date("t",mktime(0, 0, 0,$_SESSION["tuki"],1, $_SESSION["nen"]));
+	}
+}
+//////////////フォーム部分///////////////////////
+echo<<<EOT
+<form action="" method="post">
+<input type="submit" name="sengetu" value="<<">
+<input type="hidden" name="nen" value="{$_SESSION["nen"]}">
+<input type="hidden" name="tuki" value="{$_SESSION["tuki"]}">
+{$_SESSION["nen"]}年{$_SESSION["tuki"]}月
+<input type="submit" name="raigetu" value=">>">
+</form>
+<table class="calendar">
+<tr><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+<th class="doyoubi">土</font></th>
+<th class="nitiyoubi">日</font></th></tr>
+<tr>
+EOT;
+$cnt = 1;
+$orikaesi =0;
+if($start_youbi != 1){//月曜始まりでなければ空セル発射！
+for($i=2 ; $i<=$start_youbi ; $i++){
+echo "<td>&nbsp;</td>";
+$orikaesi++;
+		}
+	}
+while($cnt<=$tuki_owari){
+	if($nowday==$_SESSION["nen"].$_SESSION["tuki"].$cnt){
+	$td="honjitu";//本日の色
+}elseif($orikaesi == 5){
+	$td= "doyoubi";//土曜日の色
+}elseif($orikaesi == 6){
+	$td= "nitiyoubi";//日曜日の色
+}else{
+	$td = "heijitu";//平日の色
+			}
+		echo '<td class="'.$td.'">'.$cnt.'</td>';
+		$cnt++;
+		$orikaesi++;
+	if(($orikaesi ==7)&&($tuki_owari != $cnt-1)){
+	echo "</tr><tr>";//折り返し
+	$orikaesi =0;//折り返しカウンタリセット
+		}
+	}
+	if($orikaesi!=0){//日曜終りでなければ空セル発射
+		while($orikaesi<7){
+	echo "<td>&nbsp;</td>";
+	$orikaesi++;		
+		}	
+	}	
+echo "</tr>";
+echo "</table>";
+}
+?>

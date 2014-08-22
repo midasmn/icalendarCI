@@ -37,6 +37,10 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+//カレンダー
+$route['calendar/:num'] = "calendar/index";
+$route['calendar/:num/:num/:num'] = "calendar/index";
+
 // カレンダー一覧
 $route['smart/:num'] = "calist/index/smart";
 $route['newer/:num'] = "calist/index/newer";

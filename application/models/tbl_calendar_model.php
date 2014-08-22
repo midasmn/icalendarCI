@@ -31,7 +31,6 @@ class Tbl_calendar_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
-
     //カレンダーリスト(smart,newer,random)
     public function find_calist($sort,$limit,$offset) {
         $this->db->start_cache();
@@ -55,6 +54,19 @@ class Tbl_calendar_model extends MY_Model {
             $this->db->order_by('rand()'); 
         }
         $this->db->limit($limit,$offset);
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
+    //カレンダー情報
+    public function get_calist_info($calendar_id) {
+        $this->db->start_cache();
+        $this->db->select('tbl_calendar.id as cal_id');
+        $this->db->select('tbl_calendar.title as cal_title');
+        $this->db->select('tbl_calendar.tags as cal_tags');
+        $this->db->select('tbl_calendar.description as cal_description');
+        $this->db->from('tbl_calendar');
+        $this->db->where('tbl_calendar.id', $calendar_id); 
         $query = $this->db->get();
 // echo $this->db->last_query();
         return $query->result();
