@@ -1,42 +1,7 @@
 <?php
-foreach ($ymd_list as $row) {
-	echo $row->dd.'<img src="'.$row->img_path.'">'.$row->img_alt.'</a><br>';
-}
 foreach ($cal_info as $rowR) {
 	//echo $row->dd.'<img src="'.$row->img_path.'">'.$row->img_alt.'</a><br>';
 }
-
-
-// cal_info
-
-// cal_id
-// cal_title
-// cal_tags
-// cal_description
-
-// $data['cal_id'] = $calendar_id;
-//         $data['yyyy'] = $yyyy;
-//         $data['mm'] = $mm;
-
-/*
-<?php foreach ($calist as $row):?>
-<!-- 1件目 -->
-<tr>
-<td>
-<img src="<?php echo $row->cal_img;?>" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-</td>
-<td style="vertical-align:middle;"><?php echo $row->cal_title;?></td>
-<td style="vertical-align: middle;" class="hidden-xs">
-<?php echo $row->cal_description;?>
-</td>
-<td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td>
-<td style="vertical-align:middle;">
-<a class="btn btn-block btn-info" href="calendar/<?php echo $row->cal_id;?>">開く</a>
-</td>
-</tr>
-<!-- 1件目 -->
-<?php endforeach;?>
-*/
 ?>
 
 <!-- ページ -->
@@ -47,15 +12,17 @@ foreach ($cal_info as $rowR) {
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h2 style="font-weight:300;line-height:30px;text-transform:uppercase;letter-spacing:2px;text-align:right;padding-right:5px;">
-				<a href="/calendar/<?=$cal_id?>/<?=$p_yyyy?>/<?=$p_mm?>">
+				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
 				<span><?=$mm_st?></span>
 				<span><?=$yyyy?></span>
-				<a href="/calendar/<?=$cal_id?>/<?=$n_yyyy?>/<?=$n_mm?>">
+				<a href="/calendar/<?=$cal_id?>/<?=$next?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
-				<a href="/calendar/<?=$cal_id?>/<?=date('Y')?>/<?=date('n')?>" title="Go to current date">
+				<!-- <a href="/calendar/<?=$cal_id?>/<?=date('Y')?>/<?=date('n')?>" title="Go to current date"> -->
+				<a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
+				
 					<span class="glyphicon glyphicon-check"></span>
 				</a>
 			</h2>
@@ -102,69 +69,19 @@ foreach ($cal_info as $rowR) {
 	 	<table class="table table-condensed">
 		    <!-- <tr class="fc-head"> -->
 		    <tr>
-	<!-- 			<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Mon</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Tue</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Wed</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Thu</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Fri</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Sat</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">Sun</td> -->
+				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">日</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">月</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">火</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">水</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">木</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">金</td>
 				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">土</td>
-				<td class="col-xs-1 col-sm-1 col-md-1 fc-head">日</td>
 		    </tr>
-		    <!-- 1 -->
-			<tr>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-				<td class="col-xs-1 col-sm-1 col-md-1">
-					<a  href="item.php?id=1114433" class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" data-title="売上第1位" data-content="【XXXX">
-					<span>25</span>
-					<img src="http://image.moshimo.com/item_image/0143702000341/1/l.jpg" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-					</a>
-				</td>
-			</tr>
-			<!-- 1 -->
-
-		    
+		    <!-- カレンダーメイン -->
+			<?php 
+			foreach($cal_tbl as $week){echo $week;}
+			?>
+			<!-- カレンダーメイン -->
 		</table>
 	</div>
 	<!--  -->

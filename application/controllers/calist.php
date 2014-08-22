@@ -35,7 +35,7 @@ class Calist extends CI_Controller{
                 $data['exm_title'] = "新着順";
                 break;
         }
-        $limit = 30; //1ページ数
+        $limit = 100; //1ページ数
         $offset=$this->uri->segment(2); //ページ番号セグメント
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
         $data['total'] = $this->calendar->find_calist_all();    //全件取得

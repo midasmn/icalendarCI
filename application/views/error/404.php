@@ -39,10 +39,10 @@ a {
 </head>
 <body>
 <p>ここには何もありません。</p>
-<video src="//icalendar.xyz/application/video/Nightview.mp4" autoplay loop>
+<video src="//icalendar.xyz/application/video/Nightview.mov" autoplay loop>
 	<source src="//icalendar.xyz/application/video/Nightview.ogv">
-	<source src="//icalendar.xyz/application/video/Nightview.mov">
 	<source src="//icalendar.xyz/application/video/Nightview.webm">
+	<source src="//icalendar.xyz/application/video/Nightview.mp4">
 	<img src="//icalendar.xyz/application/video/Nightview.png" alt="Placeholder">
 	<p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
 </video>
