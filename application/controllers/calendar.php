@@ -15,8 +15,11 @@ class Calendar extends CI_Controller{
         $data = array();
         //セグメント取得
         $exm=$this->uri->segment(1);    //calendar
+// echo "<br>1:".$exm;
         $calendar_id=$this->uri->segment(2);    //カレンダID
+// echo "<br>2:".$calendar_id;
         $yyyy=$this->uri->segment(3);
+// echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
         //日付チェック
         if($yyyy&&$mm){
@@ -65,7 +68,7 @@ class Calendar extends CI_Controller{
         {
             //1日から最終日まで
             $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
-            $week .= '<a  href="/item/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
+            $week .= '<a  href="/daylist/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
             $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" ';
             $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['img_alt'].'">';
             $week .= '<span>'.$day.'</span>';

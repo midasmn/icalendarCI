@@ -41,6 +41,31 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">
 				<ul class="nav navbar-nav">
+					<!-- リスト -->
+					<li class="dropdown ">
+		       			<a href="list" class="dropdown-toggle" data-toggle="dropdown">
+		       				<span class="glyphicon glyphicon-calendar"></span> カレンダ一覧 <b class="caret"></b>
+		       			</a>
+		       			<ul class="dropdown-menu">
+		          			<li class="">
+		          				<a href="/smart/">
+		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
+		          				</a>
+		          			</li>
+							<li class="">
+								<a href="/newer/">
+		          					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> 新着順
+								</a>
+							</li>
+							<li class="">
+								<a href="/random/">
+									<span class="glyphicon glyphicon-align-center"></span> ランダム
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- リスト -->
+					<!-- ガイド -->
 					<li class="dropdown ">
 		       			<a href="guide" class="dropdown-toggle" data-toggle="dropdown">
 		       				<span class="glyphicon glyphicon-book"></span> ガイド <b class="caret"></b>
@@ -77,28 +102,8 @@
 							</li> 
 						</ul>
 					</li>
-					<li class="dropdown ">
-		       			<a href="list" class="dropdown-toggle" data-toggle="dropdown">
-		       				<span class="glyphicon glyphicon-calendar"></span> カレンダ一覧 <b class="caret"></b>
-		       			</a>
-		       			<ul class="dropdown-menu">
-		          			<li class="">
-		          				<a href="/smart/">
-		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
-		          				</a>
-		          			</li>
-							<li class="">
-								<a href="/newer/">
-		          					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> 新着順
-								</a>
-							</li>
-							<li class="">
-								<a href="/random/">
-									<span class="glyphicon glyphicon-align-center"></span> ランダム
-								</a>
-							</li>
-						</ul>
-					</li>
+					<!-- ガイド -->
+
 				</ul>
 				<!-- Split button -->
 <!-- 		        <div class="btn-group navbar-form">
@@ -119,19 +124,17 @@
 		        </div> -->
 					
 				<div class="btn-group navbar-form">
-					<form action="index.php" method="GET">
-                		<select class="form-control" name="calselect"  onchange="submit(this.form)">
+					<form action="/calendar/" method="POST">
+                		<select class="form-control" name="index"  onchange="submit(this.form)">
                   			<li class=" selected version-chooser">
                   				<option selected value="1">誕生石</option>
+                  			</li>
                   			<li class=" version-chooser">
-                  				<option value="2">誕生花</option>          
+                  				<option value="2">誕生花</option> 
+                  			</li>         
                 		</select>
                 	</form>
             	</div>
-
-
-
-
 
 
 				<!-- Split button -->

@@ -4,7 +4,7 @@ foreach ($cal_info as $rowR) {
 }
 ?>
 
-<!-- ページ -->
+	<!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
 		<div class="col-xs-12 col-sm-7 col-md-7">
@@ -65,6 +65,7 @@ foreach ($cal_info as $rowR) {
 	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 </style>
+
 	<div class="container">
 	 	<table class="table table-condensed">
 		    <!-- <tr class="fc-head"> -->
