@@ -16,7 +16,7 @@ mysql_select_db($dbname);
 
 
 //リセット
-$sql = "UPDATE `tbl_ymd` SET `keyimg` = 'OFF' WHERE keyimg = KEY'";
+$sql = "UPDATE `tbl_ymd` SET `keyimg` = 'OFF' WHERE keyimg = 'KEY'";
 $result = mysql_query($sql, $db_conn);
 
 
@@ -29,7 +29,7 @@ function f_keyimg_update($db_conn,$id)
 
 /////////////////
 // デイリーアイテム
-$strSQL = "SELECT  max(`id`)  FROM `tbl_ymd` WHERE `order` = 1 and `yyyy` <> 9999 group by `calendar_id` order by id desc";
+$strSQL = "SELECT  max(`id`)  FROM `tbl_ymd` WHERE `order` = 1 and `yyyy` <> 9999 group by `calendar_id`";
 $tbl_tmp = mysql_query($strSQL, $db_conn);
 if($tbl_tmp)
 {

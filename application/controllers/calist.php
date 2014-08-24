@@ -14,6 +14,12 @@ class Calist extends CI_Controller{
     {
         $data = array();
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
+        // ogタグ初期値
+        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
+        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
+        $data['og_url'] = "http://icalendar.xyz" ;
+        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        // ogタグ
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');
         //リスト判定
@@ -49,7 +55,11 @@ class Calist extends CI_Controller{
         $config['per_page'] = $limit; 
         $this->pagination->initialize($config); 
         $data['page_link'] = $this->pagination->create_links();
-
+        // OGタグ設定
+        $data['og_title'] = $data['title'];
+        $data['og_url'] = $config['base_url']."/".$config['per_page'];
+        $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
+        // OGタグ設定
         $this->load->view('include/header',$data);
         $this->load->view('list',$data);
         $this->load->view('include/footer',$data);

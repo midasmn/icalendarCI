@@ -14,13 +14,13 @@ $copy = "iCalendar by ";
 				</li>
 				<li class="follow-btn">
 					<iframe allowtransparency="true" frameborder="0" scrolling="no"
-						src="//platform.twitter.com/widgets/follow_button.html?screen_name=bootsnipp"
+						src="//platform.twitter.com/widgets/follow_button.html?screen_name=icalendar.xyz"
 						style="width:236px; height:20px;" class="twitter-follow-button twitter-follow-button">
 					</iframe>
 				</li>
 				<li class="tweet-btn">
 					<iframe allowtransparency="true" frameborder="0" scrolling="no"
-					src="https://platform.twitter.com/widgets/tweet_button.html?lang=en&via=bootsnipp&url=http%3A%2F%2Fbootsnipp.com&text=RT%20Design%20elements%20and%20code%20snippets%20for%20%23twbootstrap%20HTML%2FCSS%2FJS%20framework"
+					src="https://platform.twitter.com/widgets/tweet_button.html?lang=en&via=icalendar.xyz&url=http%3A%2F%2Fbootsnipp.com&text=RT%20Design%20elements%20and%20code%20snippets%20for%20%23twbootstrap%20HTML%2FCSS%2FJS%20framework"
 					style="width:107; height:20px;" class="twitter-share-button twitter-count-horizontal">
 					</iframe>
 				</li>
@@ -31,7 +31,7 @@ $copy = "iCalendar by ";
 		<!-- リンク -->
 		<p><?=$copy?>
 			<a href="http://atomb.it" target="_blank">atomb.it</a>. | 
-			<a href="#" target="_blank" rel="publisher">Google+</a> | 
+			<a href="https://plus.google.com/110272837598113958103" rel="publisher">Google+</a> | 
 			<a href="terms" target="_blank" rel="publisher">利用規約</a> | 
 			<a href="privacy">プライバシーポリシー</a>
 		</p>
@@ -64,6 +64,16 @@ $('.tooltip-tool').tooltip({
   selector: "a[data-toggle=tooltip]"
 })
 $("a[data-toggle=popover]").popover()
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54129226-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
 </body>
 </html>

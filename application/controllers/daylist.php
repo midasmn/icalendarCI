@@ -22,6 +22,12 @@ class Daylist extends CI_Controller{
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);     //MM
         $dd=$this->uri->segment(5);     //MM
+        // ogタグ初期値
+        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
+        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
+        $data['og_url'] = "http://icalendar.xyz" ;
+        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        // ogタグ
         //日付チェック
         if($yyyy&&$mm){
             $timeStamp = strtotime($yyyy .'-'.$mm. "-".$dd);

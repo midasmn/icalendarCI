@@ -8,10 +8,11 @@ foreach ($cal_info as $rowR) {
 	<div class="container">
 		<!-- ページヘッダー -->
 		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h1 style="font-weight:200;text-transform:uppercase;letter-spacing:4px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
+			<h1 style="font-weight:100;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
+			<!-- <h1 style="font-weight:100;text-transform:uppercase;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1> -->
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
-			<h2 style="font-weight:300;line-height:30px;text-transform:uppercase;letter-spacing:2px;text-align:right;padding-right:5px;">
+			<h2 style="font-weight:100;line-height:30px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:5px;">
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>

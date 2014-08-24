@@ -21,6 +21,12 @@ class Calendar extends CI_Controller{
         $yyyy=$this->uri->segment(3);
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
+        // ogタグ初期値
+        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
+        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
+        $data['og_url'] = "http://icalendar.xyz" ;
+        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        // ogタグ
         //日付チェック
         if($yyyy&&$mm){
             $timeStamp = strtotime($yyyy .'-'.$mm. "-01");
@@ -47,7 +53,8 @@ class Calendar extends CI_Controller{
         $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
         //カレンダー情報
         $data['cal_info'] = $this->calendar->get_calist_info($calendar_id);
-        foreach ($cal_info as $rowR) {$data['title'] = $rowR->cal_title;}
+        foreach ($data['cal_info'] as $rowRR) {$data['title'] = $rowRR->cal_title;}
+
         //DBカレンダアイテム
         $calitem = $this->ymd->find_month_list($calendar_id,$yyyy,$mm);
         foreach ($calitem as $value) { //3回繰り返し
@@ -93,6 +100,11 @@ class Calendar extends CI_Controller{
         }
         $data['cal_tbl'] = $weeks;
         //////////////////////////
+        // OGタグ設定
+        $data['og_title'] = $data['title']."カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
+        $data['og_url'] = "/".$this->uri->uri_string();
+        $data['og_description'] = $data['og_title']." : iCalendar.xyz." ;
+        // OGタグ設定
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);
         $this->load->view('include/footer',$data);

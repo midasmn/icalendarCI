@@ -1,6 +1,5 @@
 <?php
 // $title = "iCalendarテスト";
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,6 +8,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?=$title?></title>
+    <!-- ファビコン・アイコン -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+	<!-- ファビコン・アイコン -->
+	<!-- OGP -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="<?=$og_title?>" />
+	<meta property="og:image" content="<?=$og_image?>" />
+	<meta property="og:url" content="<?=$og_url?>" />
+	<meta property="og:site_name" content="iCalendar" />
+	<meta property="og:description" content="<?=$og_description?>" />
+	<meta property=”og:locale” content=”ja_JP” />
+	<meta itemprop="name" content="iCalendar" />
+	<meta itemprop="description" content="<?=$og_description?>" />
+	<meta property="fb:app_id" content="1459017077694190" /> 
+	<meta property="article:publisher" content="https://www.facebook.com/icalendar.xyz" />
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@icalendar_xyz">
+	<meta property="twitter:account_id" content="2761857000" />
+	<!-- OGP -->
     <!-- Bootstrap -->
     <link href="<?php echo base_url('/application/views/assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <!-- footer -->
@@ -37,7 +63,6 @@
 				</button>
 				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz">iCalendar</a></div>
 			</div>
-
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">
 				<ul class="nav navbar-nav">
@@ -105,24 +130,7 @@
 					<!-- ガイド -->
 
 				</ul>
-				<!-- Split button -->
-<!-- 		        <div class="btn-group navbar-form">
-					<button type="button" class="btn">
-						<span id="visibleValue">Action</span>
-					</button>
-					<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue" visibleTag="#visibleValue">
-						<li><a href="javascript:void(0)" value="Action">Action</a></li>
-						<li><a href="javascript:void(0)" value="Another action">Another action</a></li>
-						<li><a href="javascript:void(0)" value="SSomething else hereXXXXXXXXX">Something else hereXXXXXXXXX</a></li>
-						<li class="divider"></li>
-						<li><a href="javascript:void(0)" value="Separated link">Separated link</a></li>
-					</ul>
-					<input type="hidden" id="hiddenValue" value="">
-		        </div> -->
-					
+				<!-- お気に入りセレクト -->
 				<div class="btn-group navbar-form">
 					<form action="/calendar/" method="POST">
                 		<select class="form-control" name="index"  onchange="submit(this.form)">
@@ -135,28 +143,15 @@
                 		</select>
                 	</form>
             	</div>
+				<!-- お気に入りセレクト -->
 
-
-				<!-- Split button -->
-				<!-- 検索窓 -->
-<!-- 			    <div class="col-sm-3 col-md-3">
-			        <form class="navbar-form" role="search" action="http://bootsnipp.com/search" method="GET" id="search-form">
-			        <div class="input-group">
-			            <input type="text" class="form-control" placeholder="Search featured snippets" name="q" style="padding:6px 6px;">
-			            <div class="input-group-btn">
-			                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-			            </div>
-			        </div>
-			        </form>
-			    </div> -->
-				<!-- 検索窓 -->
 				<!-- ログイン前 -->
 				<ul class="nav navbar-nav navbar-right">
             		<li id="nav-register-btn" class="">
-            			<a href="register">登録</a>
+            			<a href="/register/">登録</a>
             		</li>
        				<li id="nav-login-btn" class="">
-       					<a href="login">
+       					<a href="/login/">
        					<i class="icon-login"></i> ログイン</a>
        				</li>
          		</ul>
