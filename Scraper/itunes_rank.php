@@ -22,20 +22,6 @@ function f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$img_path,
 {
    mb_language('Japanese');//←これ
    // $img_alt=mb_convert_encoding($img_alt,'UTF-8','auto');
-
-   // echo "<br>calendar_id:".$calendar_id;
-   // echo "<br>yyyy:".$yyyy;
-   // echo "<br>mm:".$mm;
-   // echo "<br>dd:".$dd;
-   // echo "<br>list_title:".$list_title;
-   // echo "<br>img_path:".$img_path;
-   // echo "<br>img_alt:".$img_alt;
-   // echo "<br>href:".$href;
-   // echo "<br>order:".$order;
-
-
-
-
     $sql = "INSERT INTO `tbl_ymd`(`id`, `calendar_id`, `yyyy`, `mm`, `dd`, `name`,`img_path`, `img_alt`, `href`, `order`, `createdate`) VALUES (NULL, '$calendar_id', '$yyyy', '$mm', '$dd', '$list_title','$img_path', '$img_alt', '$href', '$order', CURRENT_TIMESTAMP)";
     $result = mysql_query($sql, $db_conn);
     if(!$result)
@@ -93,17 +79,12 @@ switch ($calendar_id) {
         break;
 }
 
-
-//http://www.oricon.co.jp/rank/ja/d/2014-08-03/ 
-// $get_href .= $yyyy."-".$mm."-".$dd."/";
-// $get_url = "https://
- // echo $list_title;
-
 $rtn = array();
 $rnk_cnt = 0;
 $url_cnt = 0;
 $img_cnt = 0;
 $title_cnt = 0;
+$auth_cnt = 0;
 
 
 $ccnt = 0;
@@ -121,7 +102,7 @@ foreach ($html->find('li strong') as $element)
     $rnk_cnt++;
 }
 //画像
- foreach ($html->find('img') as $element)
+ foreach ($html->find('li a img') as $element)
 {
     $rtn['alt'][$img_cnt] = $element->alt; 
     $rtn['img_url'][$img_cnt] = $element->src; 
@@ -138,35 +119,24 @@ foreach ($html->find('li strong') as $element)
     // echo "<br>".$title_cnt."url".$rtn['url'][$title_cnt];
     $title_cnt++;
 }
+//作家
+ foreach ($html->find('h4 a') as $element)
+{
+    $rtn['auth'][$auth_cnt] = $element->plaintext; 
+    // echo "<br>".$title_cnt."title".$rtn['title'][$title_cnt];
+    // echo "<br>".$title_cnt."url".$rtn['url'][$title_cnt];
+    $auth_cnt++;
+}
+
+
 $rtn_imgs = $rtn;
 //z
 $cnt = count($rtn_imgs['title']);
 $i = 0;
 while ($i<$cnt) 
 {
-    //insert
 
-
-// $img_alt  = $rtn_imgs['title'][$i];
-// $img_path = $rtn_imgs['img_url'][$i];
-// $href = $rtn_imgs['url'][$i];
-// $order = $rtn_imgs['rnk'][$i];
-
-// $alt2 = $rtn_imgs['alt'][$i];
-
-
-// echo "<br>calendarid:".$calendar_id;
-// echo "<br>yyyy:".$yyyy;
-// echo "<br>mm:".$mm;
-// echo "<br>dd:".$dd;
-// echo "<br>list_title:".$list_title;
-// echo "<br>img_path:".$img_path;
-// echo "<br>img_alt:".$img_alt;
-// echo "<br>img_alt2:".$alt2;
-// echo "<br>href:".$href;
-// echo "<br>calendarid:".$order;
-
-    $rtnB = f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn_imgs['img_url'][$i],$rtn_imgs['title'][$i],$rtn_imgs['url'][$i],$rtn_imgs['rnk'][$i]);
+    $rtnB = f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn_imgs['img_url'][$i],$rtn_imgs['title'][$i].'-'.$rtn_imgs['auth'][$i],$rtn_imgs['url'][$i],$rtn_imgs['rnk'][$i]);
     // $rtn = f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn_imgs['img'][$i],$rtn_imgs['title'][$i].'-'.$rtn_imgs['artist'][$i],"",$i+1);
     $i++;
 // echo "<br>".$i;

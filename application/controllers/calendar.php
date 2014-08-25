@@ -69,7 +69,15 @@ class Calendar extends CI_Controller{
         $weeks = array();
         $week = '';
         //
-        $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
+        //公告枠
+        if($youbi>=3){
+            //広告枠
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+            $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi-1);    //空埋め
+        }else{
+             $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
+        }
+       
         //
         for($day = 1; $day <= $lastDay; $day++, $youbi++)
         {
@@ -92,7 +100,15 @@ class Calendar extends CI_Controller{
             {       
                 if($day == $lastDay)
                 {
-                    $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
+                    //広告枠
+                    if((6 - ($youbi % 7))>=3){
+                        //公告枠
+                        $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7)-1);
+                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+                    }else{
+                        $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
+                    }
+                    
                 }
                 $weeks[]= '<tr>'.$week.'</tr>';
                 $week = '';

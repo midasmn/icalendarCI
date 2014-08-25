@@ -67,16 +67,6 @@ position: relative;
 			</div>
 		</div>
 		<?php endforeach;?>
-	
-		<div class="row" style="margin-bottom: 30px;">
-			<div class="col-md-12">
-				<a href="https://bootstrapmade.com?ref=4" target="_blank" class="btn btn-lg btn-default btn-block">
-					View more from Bootstrapmade
-				</a>
-			</div>
-		</div>
-
-
 		<!--  -->
 		<div class="row">
 			<div class="col-md-10"></div>
