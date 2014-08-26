@@ -18,9 +18,9 @@ position: relative;
 <!-- ページ -->
 <div class="container">
 	<!-- 一覧 -->
-	<div class="row" style="margin-top:20px;"  id="listroot">
+	<div class="row" style="margin-top:20px;">
 
-		<div class="col-md-1">
+		<div class="col-md-1" >
 			<a href="/daylist/<?=$cal_id?>/<?=$prev?>">
 				<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
@@ -38,7 +38,7 @@ position: relative;
 
 	</div>
 	<!--  -->
-	<hr id="1">
+	<hr >
 	<div class="row" style="margin-top:5px;">
 
 		<?php foreach ($dayitem as $rowD):?>

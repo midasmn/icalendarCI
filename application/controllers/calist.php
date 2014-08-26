@@ -6,8 +6,8 @@ class Calist extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         $this->output->enable_profiler(TRUE);
-        $this->output->cache(360);
-        // $this->load->library('session');
+        // $this->output->cache(360);
+        $this->load->library('session');
     }
 
     public function index()
@@ -45,7 +45,10 @@ class Calist extends CI_Controller{
         $offset=$this->uri->segment(2); //ページ番号セグメント
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
         $data['total'] = $this->calendar->find_calist_all();    //全件取得
-        $total_cnt = count($data['total'] );                    //ページネーション用全件       
+        $total_cnt = count($data['total'] );                    //ページネーション用全件     
+        //カレンダー遷移用セッション
+        $cal_page = array('exm'  => $exm);
+        $this->session->set_userdata($cal_page);
         // データ取得のリミットとオフセット
         $data['calist'] = $this->calendar->find_calist($exm,$limit,$offset);
         //ページネーション設定

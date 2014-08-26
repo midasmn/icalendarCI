@@ -7,7 +7,7 @@ class Calendar extends CI_Controller{
         $this->load->helper('url');
         $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
-        // $this->load->library('session');
+        $this->load->library('session');
     }
 
     public function index()
@@ -27,6 +27,30 @@ class Calendar extends CI_Controller{
         $data['og_url'] = "http://icalendar.xyz" ;
         $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
         // ogタグ
+        //カレンダーページ遷移用セッション
+        $exm = $this->session->userdata('exm');
+        $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
+        $data['calist'] = $this->calendar->find_calist($exm);
+        $ch_arr = array();
+        $n = 0;
+        foreach ($data['calist'] as $rowS) 
+        {
+            $ch_arr[$n] = $rowS->cal_id;
+            $n++;
+        }
+        $rtn_id = array_search($calendar_id,$ch_arr);
+        if($rtn_id==0){
+            $pr_cal = "";
+            $nex_cal = $ch_arr[$rtn_id+1];
+        }else{
+            $pr_cal = $ch_arr[$rtn_id-1];
+            $nex_cal = $ch_arr[$rtn_id+1];
+        }
+
+echo "<br>pr_cal=".$pr_cal;
+echo "<br>nex_cal=".$nex_cal;
+
+
         //日付チェック
         if($yyyy&&$mm){
             $timeStamp = strtotime($yyyy .'-'.$mm. "-01");
@@ -49,12 +73,11 @@ class Calendar extends CI_Controller{
         $data['next'] = str_replace("-", "/", date("Y-m",mktime(0,0,0,$mm+1,1,$yyyy))); //翌月リンク用
         //
         // カレンダーテーブル
-        $this->load->model('tbl_calendar_model', 'calendar');   //カレンダー
+        // $this->load->model('tbl_calendar_model', 'calendar');   //カレンダー
         $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
         //カレンダー情報
         $data['cal_info'] = $this->calendar->get_calist_info($calendar_id);
         foreach ($data['cal_info'] as $rowRR) {$data['title'] = $rowRR->cal_title;}
-
         //DBカレンダアイテム
         $calitem = $this->ymd->find_month_list($calendar_id,$yyyy,$mm);
         foreach ($calitem as $value) { //3回繰り返し
