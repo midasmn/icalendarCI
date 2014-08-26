@@ -47,7 +47,7 @@ class Calist extends CI_Controller{
         $data['total'] = $this->calendar->find_calist_all();    //全件取得
         $total_cnt = count($data['total'] );                    //ページネーション用全件     
         //カレンダー遷移用セッション
-        $cal_page = array('exm'  => $exm);
+        $cal_page = array('exm'  => $exm,'total_cnt' => $total_cnt );
         $this->session->set_userdata($cal_page);
         // データ取得のリミットとオフセット
         $data['calist'] = $this->calendar->find_calist($exm,$limit,$offset);

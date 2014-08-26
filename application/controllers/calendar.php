@@ -21,6 +21,12 @@ class Calendar extends CI_Controller{
         $yyyy=$this->uri->segment(3);
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
+        //log
+        // $this->load->model('tbl_log_model','log_model');   //テーブル
+        // $this->log_model->set('item1', $exm);
+        // $this->log_model->set('item2', $calendar_id);
+        // $this->log_model->set('item3', $yyyy);
+        // $this->log_model->insert();
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
@@ -29,6 +35,7 @@ class Calendar extends CI_Controller{
         // ogタグ
         //カレンダーページ遷移用セッション
         $exm = $this->session->userdata('exm');
+        $total_cnt = $this->session->userdata('total_cnt');
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
         $data['calist'] = $this->calendar->find_calist($exm);
         $ch_arr = array();
@@ -39,18 +46,9 @@ class Calendar extends CI_Controller{
             $n++;
         }
         $rtn_id = array_search($calendar_id,$ch_arr);
-        if($rtn_id==0){
-            $pr_cal = "";
-            $nex_cal = $ch_arr[$rtn_id+1];
-        }else{
-            $pr_cal = $ch_arr[$rtn_id-1];
-            $nex_cal = $ch_arr[$rtn_id+1];
-        }
-
-echo "<br>pr_cal=".$pr_cal;
-echo "<br>nex_cal=".$nex_cal;
-
-
+        $data['pr_cal'] = $ch_arr[$rtn_id-1]; //前月リンク用
+        $data['nex_cal'] = $ch_arr[$rtn_id+1]; //翌月リンク用
+        if($rtn_id==0){$data['pr_cal'] = "";}elseif($rtn_id==$total_cnt){$data['nex_cal'] = "";}
         //日付チェック
         if($yyyy&&$mm){
             $timeStamp = strtotime($yyyy .'-'.$mm. "-01");

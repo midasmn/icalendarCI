@@ -1,12 +1,25 @@
 <?php
-foreach ($cal_info as $rowR) {
-	//echo $row->dd.'<img src="'.$row->img_path.'">'.$row->img_alt.'</a><br>';
-}
+foreach ($cal_info as $rowR) {}
 ?>
 
 	<!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12" >
+				<?php if(!$pr_cal){}else{ ?>
+				<a href="/calendar/<?=$pr_cal?>/">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<?php }
+				if(!$nex_cal){}else{ ?>
+				<a href="/calendar/<?=$nex_cal?>/">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+				<?php }?>
+			</div>
+		</div>
+
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-weight:100;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
 			<!-- <h1 style="font-weight:100;text-transform:uppercase;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1> -->

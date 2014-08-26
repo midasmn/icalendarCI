@@ -33,7 +33,7 @@ class Tbl_calendar_model extends MY_Model {
     }
     //カレンダーリスト(smart,newer,random)
     public function find_calist($sort,$limit,$offset) {
-        $this->db->start_cache();
+        // $this->db->start_cache();
         $this->db->select('tbl_ymd.img_path as cal_img');
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->select('tbl_calendar.title as cal_title');

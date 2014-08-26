@@ -20,22 +20,20 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;">
 
-		<div class="col-md-1" >
+		<div class="col-md-12" >
 			<a href="/daylist/<?=$cal_id?>/<?=$prev?>">
 				<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
-		</div>
-		<div class="col-md-10"></div>
-		<div class="col-md-1">
 			<a href="/daylist/<?=$cal_id?>/<?=$next?>">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</div>
+	</div>
 
+	<div class="row" style="margin-top:20px;">
 		<div class="col-md-10">
 			<h2><?=$yyyy?>年<?=$mm?>月<?=$dd?>日<small><a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$rowR->cal_title?></a></small></h2> 
 		</div>
-
 	</div>
 	<!--  -->
 	<hr >
