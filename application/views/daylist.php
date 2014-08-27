@@ -19,21 +19,21 @@ position: relative;
 <div class="container">
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;">
-
 		<div class="col-md-12" >
-			<a href="/daylist/<?=$cal_id?>/<?=$prev?>">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a href="/daylist/<?=$cal_id?>/<?=$next?>">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+			<a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$rowR->cal_title?></a>
 		</div>
 	</div>
 
-	<div class="row" style="margin-top:20px;">
-		<div class="col-md-10">
-			<h2><?=$yyyy?>年<?=$mm?>月<?=$dd?>日<small><a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$rowR->cal_title?></a></small></h2> 
-		</div>
+	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px;">
+		<h2 style="font-size:20px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
+			<a href="/daylist/<?=$cal_id?>/<?=$prev?>">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<?=$yyyy?>年<?=$mm?>月<?=$dd?>日
+			<a href="/daylist/<?=$cal_id?>/<?=$next?>">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</h2>
 	</div>
 	<!--  -->
 	<hr >

@@ -29,7 +29,7 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2><?=$exm_title?><small>カレンダーリスト</small></h2> 
+			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト</small></h2> 
 		</div>
 		<!-- 検索窓 -->
 		<div class="col-md-4"  style="margin-top:20px;">

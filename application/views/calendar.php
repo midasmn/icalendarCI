@@ -2,30 +2,35 @@
 foreach ($cal_info as $rowR) {}
 ?>
 
+</style>
 	<!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
 		<div class="row" style="margin-top:20px;">
-			<div class="col-md-12" >
+			<div class="col-xs-6 col-sm-4 col-md-2" >
 				<?php if(!$pr_cal){}else{ ?>
 				<a href="/calendar/<?=$pr_cal?>/">
-					<span class="glyphicon glyphicon-chevron-left"></span>
+					<!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+					前のカレンダー
 				</a>
+			</div>
+			<div class="col-sm-4 col-md-8" ></div>
+			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
 				<?php }
 				if(!$nex_cal){}else{ ?>
 				<a href="/calendar/<?=$nex_cal?>/">
-					<span class="glyphicon glyphicon-chevron-right"></span>
+					次のカレンダー
+					<!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
 				</a>
 				<?php }?>
 			</div>
 		</div>
 
 		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h1 style="font-weight:100;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
-			<!-- <h1 style="font-weight:100;text-transform:uppercase;letter-spacing:1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1> -->
+			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
-			<h2 style="font-weight:100;line-height:30px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:5px;">
+			<h2 style="font-size:19px;font-weight:200;line-height:15px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:2px;">
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
@@ -46,14 +51,6 @@ foreach ($cal_info as $rowR) {}
 	<!--  -->
 <style>
 .fc-head{
-/*	background: rgba(255,100,255,0.2);
-	color: rgba(255,100,255,0.9);
-	box-shadow: inset 0 1px 0 rgba(255,100,255,0.2);
-	border-radius: 20px 20px 0 0;
-	height: 20px;
-	line-height: 20px;
-	padding: 0 20px;
-*/
 	font-weight: 300;
 	text-transform: uppercase;
 	font-size: 12px;
