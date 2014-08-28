@@ -103,7 +103,7 @@ class Calendar extends CI_Controller{
         for($day = 1; $day <= $lastDay; $day++, $youbi++)
         {
             //1日から最終日まで
-            $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1" >';
             $week .= '<a  href="/daylist/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
             $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" ';
             $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['img_alt'].'">';

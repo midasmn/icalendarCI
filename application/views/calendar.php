@@ -8,21 +8,19 @@ foreach ($cal_info as $rowR) {}
 		<!-- ページヘッダー -->
 		<div class="row" style="margin-top:20px;">
 			<div class="col-xs-6 col-sm-4 col-md-2" >
-				<?php if(!$pr_cal){}else{ ?>
-				<a href="/calendar/<?=$pr_cal?>/">
-					<!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
-					前のカレンダー
-				</a>
+				<?php 
+				if(!$pr_cal){
+				}else{
+					echo '<a href="/calendar/'.$pr_cal.'">前のカレンダー</a>';
+				}
+				?>
 			</div>
 			<div class="col-sm-4 col-md-8" ></div>
 			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
-				<?php }
-				if(!$nex_cal){}else{ ?>
-				<a href="/calendar/<?=$nex_cal?>/">
-					次のカレンダー
-					<!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-				</a>
-				<?php }?>
+				<?php
+				if(!$nex_cal){}else{
+					echo '<a href="/calendar/'.$nex_cal.'">次のカレンダー</a>';
+			 	}?>
 			</div>
 		</div>
 

@@ -51,19 +51,22 @@ position: relative;
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
+						<th class="col-md-1 fc-head"><span class="glyphicon glyphicon-star"></span></th>
 						<th class="col-md-1 fc-head">画像</th>
-						<th class="col-md-3 fc-head">タイトル</th>
+						<th class="col-md-5 fc-head">タイトル</th>
 						<th class="col-md-4  fc-head hidden-xs">詳細</th>
-						<th class="col-md-3 fc-head hidden-xs">タグ</th>
-						<th class="col-md-1 fc-head">URL</th>
+						<th class="col-md-1  fc-head">URL</th>
 					</tr>
 				</thead>
 				<tbody>
+
+
 
 					
 					<?php foreach ($calist as $row):?>
 					<!-- 1件目 -->
 					<tr>
+						<td style="text-align: center;vertical-align:middle;"><span class="glyphicon glyphicon-star-empty"></span></td>
 						<td>
 							<img src="<?php echo $row->cal_img;?>" class="img-responsive" alt="第1位" style="background-color:#428bca;">
 						</td>
@@ -71,7 +74,7 @@ position: relative;
 						<td style="vertical-align: middle;" class="hidden-xs">
 						<?php echo $row->cal_description;?>
 						</td>
-						<td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td>
+						<!-- <td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td> -->
 						<td style="vertical-align:middle;">
 							<a class="btn btn-block btn-info" href="/calendar/<?php echo $row->cal_id;?>">開く</a>
 						</td>
