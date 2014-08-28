@@ -6,23 +6,17 @@ $copy = "iCalendar by ";
 <footer class="bs-footer" role="contentinfo">
 	<div class="container">
 		<!-- ソーシャルボタン -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<div class="bs-social">
 			<ul class="bs-social-buttons">
 				<li class="facebook-button">
-					<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbootsnipp.com&amp;width=130&amp;height=20&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=true&amp;appId=112989545392380" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:20px;" class="facebook-btn" allowTransparency="true">
-					</iframe>
+					<a href="https://www.facebook.com/icalendar.xyz"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
 				</li>
 				<li class="follow-btn">
-					<iframe allowtransparency="true" frameborder="0" scrolling="no"
-						src="//platform.twitter.com/widgets/follow_button.html?screen_name=icalendar.xyz"
-						style="width:236px; height:20px;" class="twitter-follow-button twitter-follow-button">
-					</iframe>
+					<a href="https://twitter.com/icalendar_xyz"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
 				</li>
 				<li class="tweet-btn">
-					<iframe allowtransparency="true" frameborder="0" scrolling="no"
-					src="https://platform.twitter.com/widgets/tweet_button.html?lang=en&via=icalendar.xyz&url=http%3A%2F%2Fbootsnipp.com&text=RT%20Design%20elements%20and%20code%20snippets%20for%20%23twbootstrap%20HTML%2FCSS%2FJS%20framework"
-					style="width:107; height:20px;" class="twitter-share-button twitter-count-horizontal">
-					</iframe>
+					<a href="https://plus.google.com/110272837598113958103/posts/p/pub"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
 				</li>
 			</ul>
 		</div>

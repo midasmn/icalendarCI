@@ -25,7 +25,7 @@ foreach ($cal_info as $rowR) {}
 		</div>
 
 		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$rowR->cal_title?></h1>
+			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><span class="glyphicon glyphicon-star-empty"></span><?=$rowR->cal_title?></h1>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h2 style="font-size:19px;font-weight:200;line-height:15px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:2px;">
