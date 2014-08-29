@@ -40,7 +40,7 @@ position: relative;
 	<div class="row" style="margin-top:5px;">
 
 		<?php foreach ($dayitem as $rowD):?>
-		<div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
+		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
 			<div class="thumbnail bootsnipp-thumb">
 				<div>
 					<p class="lead product-title text-center">
