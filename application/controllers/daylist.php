@@ -12,6 +12,8 @@ class Daylist extends CI_Controller{
 
     public function index()
     {
+        //UserID
+        $userid = "";
         $data = array();
         //セグメント取得
         $exm=$this->uri->segment(1);    //daylist
@@ -22,6 +24,11 @@ class Daylist extends CI_Controller{
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);     //MM
         $dd=$this->uri->segment(5);     //MM
+        /////// ログ
+        $this->load->model('tbl_log_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'item1' => $exm , 'item2' => $calendar_id , 'item3' => $yyyy , 'item4' => $mm , 'item5' => $dd);
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;

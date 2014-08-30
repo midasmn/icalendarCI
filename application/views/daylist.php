@@ -15,11 +15,13 @@ text-align: center;
 position: relative;
 }
 </style>
+
+
 <!-- ページ -->
 <div class="container">
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;">
-		<div class="col-md-12" >
+		<div class="col-md-12" id="listroot">
 			<a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$rowR->cal_title?></a>
 		</div>
 	</div>
@@ -36,7 +38,9 @@ position: relative;
 		</h2>
 	</div>
 	<!--  -->
+
 	<hr >
+
 	<div class="row" style="margin-top:5px;">
 
 		<?php foreach ($dayitem as $rowD):?>

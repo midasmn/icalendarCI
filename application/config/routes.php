@@ -39,7 +39,7 @@
 */
 //bookmark
 
-
+$route['test'] = "jquery/index";
 //カレンダー
 // $route['calendar/?bookmark/:num'] = "calendar/index";
 $route['calendar/:num'] = "calendar/index";

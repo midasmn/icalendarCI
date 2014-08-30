@@ -26,6 +26,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//$ursrid
+		$userid = "";
+		$exm=$this->uri->segment(1);  
+		/////// ログ
+        $this->load->model('tbl_log_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'item1' => $exm );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
+
 		$data = array(
 		 	'title' => 'iCalendarにようこそ',
 		 	'note' => 'iCalendarにようこそ'

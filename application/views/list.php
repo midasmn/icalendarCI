@@ -24,6 +24,21 @@ text-align: center;
 position: relative;
 }
 </style>
+
+ <!-- /////// google広告 -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ical -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6625574146245875"
+     data-ad-slot="8541631202"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+ <!-- /////// google広告 -->
+
+
 <!-- ページ -->
 <div class="container">
 	<!-- 一覧 -->
@@ -45,6 +60,8 @@ position: relative;
 		<!-- 検索窓 -->
 	</div>
 	<!--  -->
+
+
 	<hr id="1">
 	<div class="row">
 		<div class="col-md-12">
@@ -59,10 +76,6 @@ position: relative;
 					</tr>
 				</thead>
 				<tbody>
-
-
-
-					
 					<?php foreach ($calist as $row):?>
 					<!-- 1件目 -->
 					<tr>

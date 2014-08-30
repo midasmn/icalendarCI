@@ -12,6 +12,8 @@ class Calist extends CI_Controller{
 
     public function index()
     {
+        //ユーザID
+        $userid = "";
         $data = array();
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // ogタグ初期値
@@ -43,6 +45,11 @@ class Calist extends CI_Controller{
         }
         $limit = 100; //1ページ数
         $offset=$this->uri->segment(2); //ページ番号セグメント
+        /////// ログ
+        $this->load->model('tbl_log_model', 'logr'); //ログ
+        $logdata = array( 'userid' => $userid, 'item1' => $exm , 'item2' => $offset);
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
         $data['total'] = $this->calendar->find_calist_all();    //全件取得
         $total_cnt = count($data['total'] );                    //ページネーション用全件     

@@ -12,6 +12,8 @@ class Calendar extends CI_Controller{
 
     public function index()
     {
+        //ユーザID
+        $userid = "";
         $data = array();
         //セグメント取得
         $exm=$this->uri->segment(1);    //calendar
@@ -21,12 +23,11 @@ class Calendar extends CI_Controller{
         $yyyy=$this->uri->segment(3);
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
-        //log
-        // $this->load->model('tbl_log_model','log_model');   //テーブル
-        // $this->log_model->set('item1', $exm);
-        // $this->log_model->set('item2', $calendar_id);
-        // $this->log_model->set('item3', $yyyy);
-        // $this->log_model->insert();
+        /////// ログ
+        $this->load->model('tbl_log_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'item1' => $exm , 'item2' => $calendar_id , 'item3' => $yyyy, 'item4' => $mm);
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
@@ -93,18 +94,8 @@ class Calendar extends CI_Controller{
         //公告枠
         if($youbi>=3){
             //広告枠
-             /////// google広告
-            $week .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
-            $week .= '<!-- ical -->';
-            $week .= '<ins class="adsbygoogle"';
-            $week .= '     style="display:block"';
-            $week .= '     data-ad-client="ca-pub-6625574146245875"';
-            $week .= '     data-ad-slot="8541631202"';
-            $week .= '     data-ad-format="auto"></ins>';
-            $week .= '<script>';
-            $week .= '(adsbygoogle = window.adsbygoogle || []).push({});';
-            $week .= '</script>';
-            // $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+            
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
             $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi-1);    //空埋め
         }else{
              $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
@@ -136,18 +127,8 @@ class Calendar extends CI_Controller{
                     if((6 - ($youbi % 7))>=3){
                         //公告枠
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7)-1);
-                        /////// google広告
-                        $week .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
-                        $week .= '<!-- ical -->';
-                        $week .= '<ins class="adsbygoogle"';
-                        $week .= '     style="display:block"';
-                        $week .= '     data-ad-client="ca-pub-6625574146245875"';
-                        $week .= '     data-ad-slot="8541631202"';
-                        $week .= '     data-ad-format="auto"></ins>';
-                        $week .= '<script>';
-                        $week .= '(adsbygoogle = window.adsbygoogle || []).push({});';
-                        $week .= '</script>';
-                        // $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+
+                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
                     }else{
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
                     }
