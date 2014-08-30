@@ -1,15 +1,6 @@
 <?php
-// cal_img
-// cal_id
-// cal_title
-// cal_tags
-// cal_description
-if($out){
-	echo "<br>OUT".$out."<br>";
-	// print_r($out);
-}
-// calist
-
+// $this->load->model('tbl_star_model', 'star'); //お気に入り
+// $rtn_id = $this->star->insert_update_chck($exm,$itemid,$userid);
 ?>
 <style>
 .fc-head{
@@ -79,7 +70,18 @@ position: relative;
 					<?php foreach ($calist as $row):?>
 					<!-- 1件目 -->
 					<tr>
-						<td style="text-align: center;vertical-align:middle;"><span class="glyphicon glyphicon-star-empty"></span></td>
+						<td style="text-align: center;vertical-align:middle;">
+							<a href="javascript: void(0)" id="star">
+							<?php 
+							// if($row->$cal_id>=1)
+       //  					{
+            					echo '<span class="glyphicon glyphicon-star"></span>';
+        					// }else{
+            					// echo '<span class="glyphicon glyphicon-star-empty"></span>';
+ 							// }
+ 							?>
+							</a>
+						</td>
 						<td>
 							<img src="<?php echo $row->cal_img;?>" class="img-responsive" alt="第1位" style="background-color:#428bca;">
 						</td>

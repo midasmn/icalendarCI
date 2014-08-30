@@ -5,7 +5,7 @@ class Calendar extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
     }
@@ -13,7 +13,7 @@ class Calendar extends CI_Controller{
     public function index()
     {
         //ユーザID
-        $userid = "";
+        $userid = "99";
         $data = array();
         //セグメント取得
         $exm=$this->uri->segment(1);    //calendar
@@ -28,6 +28,10 @@ class Calendar extends CI_Controller{
         $logdata = array(  'userid' => $userid,'item1' => $exm , 'item2' => $calendar_id , 'item3' => $yyyy, 'item4' => $mm);
         $rtn = $this->logr->insert($logdata);
         /////// ログ
+        // スター
+        $this->load->model('tbl_star_model', 'star'); //ログ
+        $rtn_starflg = $this->star->insert_update_chck("calendar",$calendar_id,$userid);
+        // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
@@ -36,6 +40,7 @@ class Calendar extends CI_Controller{
         // ogタグ
         //カレンダーページ遷移用セッション
         $exm = $this->session->userdata('exm');
+        $data['exm'] = $exm;
         $total_cnt = $this->session->userdata('total_cnt');
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル
         $data['calist'] = $this->calendar->find_calist($exm);
@@ -100,7 +105,6 @@ class Calendar extends CI_Controller{
         }else{
              $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
         }
-       
         //
         for($day = 1; $day <= $lastDay; $day++, $youbi++)
         {
@@ -145,6 +149,15 @@ class Calendar extends CI_Controller{
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title']." : iCalendar.xyz." ;
         // OGタグ設定
+        // スター
+        // $rtn_starflg = 1;
+        if($rtn_starflg>=1)
+        {
+            $data['starflg'] = "ON";
+        }else{
+            $data['starflg'] = "OFF";       
+        }    
+        // スター
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);
         $this->load->view('include/footer',$data);

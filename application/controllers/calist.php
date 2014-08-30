@@ -5,7 +5,7 @@ class Calist extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
     }
@@ -13,8 +13,9 @@ class Calist extends CI_Controller{
     public function index()
     {
         //ユーザID
-        $userid = "";
+        $userid = "99";
         $data = array();
+        $data['userid'] = $userid;
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";

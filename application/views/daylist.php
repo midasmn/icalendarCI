@@ -58,10 +58,10 @@ position: relative;
 				</a>
 				<div class="caption">
 					<p class="product-description">
-						Elemental is a clean, elegant  and comes in three variations.</p>
+						説明</p>
 					<p>
 						<a href="#" target="_blank" class="btn btn-primary btn-block">
-							View and Buy 
+							アマゾンで購入
 							<span class="glyphicon glyphicon-shopping-cart"></span>
 						</a>
 					</p>

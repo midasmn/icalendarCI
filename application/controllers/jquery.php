@@ -20,11 +20,11 @@ class Jquery extends CI_Controller{
 
         $this->load->model('tbl_star_model', 'star'); //ログ
         $rtn_id = $this->star->insert_update_chck($exm,$itemid,$userid);
-        if($rtn_id=="UP")
+        if($rtn_id>=1)
         {
             $rtn_id = $this->star->update($exm,$itemid,$userid,$rtn_id);
         }else{
-            $rtn_id = $this->star->insert($exm,$itemid,$userid);
+            $rtn_id = $this->star->insert($exm,$itemid,$userid);          
         }      
 
         // $rtn_id = $exm;

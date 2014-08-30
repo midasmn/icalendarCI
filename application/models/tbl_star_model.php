@@ -13,26 +13,21 @@ class Tbl_star_model extends MY_Model {
     //       item = アイテムID
     // 
     public function insert_update_chck($exm,$itemid,$userid) {
-        //処理判断
+        //処理判断starFlg
         $this->db->select('id');
         $this->db->from('tbl_star');
         $this->db->where('exm', $exm); 
         $this->db->where('itemid', $itemid); 
         $this->db->where('userid', $userid); 
+        $this->db->where('starflg', "ON"); 
         $query = $this->db->get();
         $sw = $query->num_rows();
-        if($sw>=1)
-        {
-            //アップデート
-            return  "UP";
-        }else{
-            //インサート
-            return  "IN";
-        }
+        return  $sw;
     }
     public function insert($exm,$itemid,$userid) {
         //インサート
-        $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid);
+        $now = $this->now();
+        $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
         $this->db->insert('tbl_star', $data); 
         return  $this->db->insert_id();
         // return $sw;
@@ -44,9 +39,11 @@ class Tbl_star_model extends MY_Model {
            'exm' => $exm,
            'itemid' => $itemid,
            'userid' => $userid,
+           'starflg' => "OFF",
            'updatedate' => $now
         );
-        $this->db->where('id', $sw);
+        $this->db->where('id', $id);
+        $this->db->where('starflg', "ON");
         $this->db->update('tbl_star', $data); 
         return  $id;
     }
