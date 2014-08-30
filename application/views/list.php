@@ -1,6 +1,10 @@
 <?php
 // $this->load->model('tbl_star_model', 'star'); //お気に入り
 // $rtn_id = $this->star->insert_update_chck($exm,$itemid,$userid);
+
+
+// echo $calist['cal_id'];
+// $calist
 ?>
 <style>
 .fc-head{
@@ -71,15 +75,10 @@ position: relative;
 					<!-- 1件目 -->
 					<tr>
 						<td style="text-align: center;vertical-align:middle;">
-							<a href="javascript: void(0)" id="star">
-							<?php 
-							// if($row->$cal_id>=1)
-       //  					{
-            					echo '<span class="glyphicon glyphicon-star"></span>';
-        					// }else{
-            					// echo '<span class="glyphicon glyphicon-star-empty"></span>';
- 							// }
- 							?>
+							<a href="javascript: void(0)" id="starexm">
+			
+							<span class="glyphicon glyphicon-star"></span>
+        			
 							</a>
 						</td>
 						<td>

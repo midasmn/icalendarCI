@@ -47,5 +47,15 @@ class Tbl_star_model extends MY_Model {
         $this->db->update('tbl_star', $data); 
         return  $id;
     }
+    public function get_calendar_starflg($userid) {
+        //処理判断starFlg
+        $this->db->select('itemid');
+        $this->db->select('starflg');
+        $this->db->from('tbl_star');
+        $this->db->where('exm', "calendar"); 
+        $this->db->where('userid', $userid); 
+        $query = $this->db->get();
+        return  $query->result();
+    }
 }
 ?>
