@@ -1,10 +1,5 @@
 <?php
-// $this->load->model('tbl_star_model', 'star'); //お気に入り
-// $rtn_id = $this->star->insert_update_chck($exm,$itemid,$userid);
-
-
-// echo $calist['cal_id'];
-// $calist
+foreach ($star as $key1 => $star_id){}
 ?>
 <style>
 .fc-head{
@@ -20,6 +15,9 @@ position: relative;
 }
 </style>
 
+<!-- ページ -->
+<div class="container">
+
  <!-- /////// google広告 -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- ical -->
@@ -32,10 +30,7 @@ position: relative;
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
  <!-- /////// google広告 -->
-
-
-<!-- ページ -->
-<div class="container">
+ 
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
@@ -55,8 +50,6 @@ position: relative;
 		<!-- 検索窓 -->
 	</div>
 	<!--  -->
-
-
 	<hr id="1">
 	<div class="row">
 		<div class="col-md-12">
@@ -71,30 +64,48 @@ position: relative;
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($calist as $row):?>
-					<!-- 1件目 -->
-					<tr>
-						<td style="text-align: center;vertical-align:middle;">
-							<a href="javascript: void(0)" id="starexm">
-			
-							<span class="glyphicon glyphicon-star"></span>
-        			
-							</a>
-						</td>
-						<td>
-							<img src="<?php echo $row->cal_img;?>" class="img-responsive" alt="第1位" style="background-color:#428bca;">
-						</td>
-						<td style="vertical-align:middle;"><?php echo $row->cal_title;?></td>
-						<td style="vertical-align: middle;" class="hidden-xs">
-						<?php echo $row->cal_description;?>
-						</td>
-						<!-- <td style="vertical-align: middle;" class="hidden-xs"><?php echo $row->cal_tags;?></td> -->
-						<td style="vertical-align:middle;">
-							<a class="btn btn-block btn-info" href="/calendar/<?php echo $row->cal_id;?>">開く</a>
-						</td>
-					</tr>
-					<!-- 1件目 -->
-					<?php endforeach;?>
+					<?php 
+					foreach ($calist as $key1 => $item)
+					{
+						foreach ($item as $key2 => $value)
+						{
+					// <!-- 1件目 -->
+						if($key2=='cal_img'){$htm_cal_img=$value;}
+						elseif($key2=='cal_title'){$htm_cal_title=$value;}
+						elseif($key2=='cal_description'){$htm_cal_description=$value;}
+						elseif($key2=='cal_id'){$htm_cal_id=$value;}
+						}
+						// }
+						echo '<tr>';
+						echo '<td style="text-align: center;vertical-align:middle;">';
+						echo '<a href="javascript: void(0)" id="starexm">';
+						//スター付与チェック
+						if (in_array($htm_cal_id,$star_id)) 
+						{
+   		 					echo '<span class="glyphicon glyphicon-star"></span>';
+						}
+						else {
+						    echo '<span class="glyphicon glyphicon-star-empty"></span>';
+						}
+						//スター付与チェック
+						echo '</a>';
+						echo '</td>';
+						echo '<td>';
+						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
+						echo '</td>';
+						echo '<td style="vertical-align:middle;">';
+						echo $htm_cal_title;
+						echo '</td>';
+						echo '<td style="vertical-align: middle;" class="hidden-xs">';
+						echo $htm_cal_description;
+						echo '</td>';
+						echo '<td style="vertical-align:middle;">';
+						echo '<a class="btn btn-block btn-info" href="/calendar/'.$htm_cal_id.'">開く</a>';
+						echo '</td>';
+						echo '</tr>';
+					// <!-- 1件目 -->
+					}
+					?>
 				</tbody>
 			</table>
 		</div>

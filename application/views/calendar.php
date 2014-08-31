@@ -1,7 +1,7 @@
 <?php
 foreach ($cal_info as $rowR) {}
+foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_flg = $value;}}
 ?>
-
 </style>
 	<!-- ページ -->
 	<div class="container">
@@ -28,7 +28,7 @@ foreach ($cal_info as $rowR) {}
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
 				<a href="javascript: void(0)" id="star">
 				<?php
-				if($starflg=="ON")
+				if($star_flg=="ON")
 				{
 					echo '<span class="glyphicon glyphicon-star"></span>';
 				}else{

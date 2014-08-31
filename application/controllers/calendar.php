@@ -5,7 +5,7 @@ class Calendar extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
     }
@@ -30,7 +30,8 @@ class Calendar extends CI_Controller{
         /////// ログ
         // スター
         $this->load->model('tbl_star_model', 'star'); //ログ
-        $rtn_starflg = $this->star->insert_update_chck("calendar",$calendar_id,$userid);
+        $data['starflg'] = $this->star->get_calendar_starflg_read("calendar",$calendar_id,$userid);
+
         // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
@@ -149,15 +150,6 @@ class Calendar extends CI_Controller{
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title']." : iCalendar.xyz." ;
         // OGタグ設定
-        // スター
-        // $rtn_starflg = 1;
-        if($rtn_starflg>=1)
-        {
-            $data['starflg'] = "ON";
-        }else{
-            $data['starflg'] = "OFF";       
-        }    
-        // スター
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);
         $this->load->view('include/footer',$data);

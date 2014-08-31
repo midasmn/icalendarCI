@@ -5,7 +5,8 @@ class Calist extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->output->enable_profiler(TRUE);
+        $this->load->helper('array');
+        // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
     }
@@ -19,7 +20,7 @@ class Calist extends CI_Controller{
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // スター
         $this->load->model('tbl_star_model', 'star'); //ログ
-        $data['star'] = $this->star->get_calendar_starflg($userid) ;
+        $data['star'] = $this->star->get_calendar_starlist($userid) ;
         // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
@@ -62,7 +63,7 @@ class Calist extends CI_Controller{
         $cal_page = array('exm'  => $exm,'total_cnt' => $total_cnt );
         $this->session->set_userdata($cal_page);
         // データ取得のリミットとオフセット
-        $data['calist'] = $this->calendar->find_calist($exm,$limit,$offset);
+        $data['calist'] = $this->calendar->find_calist_arr($exm,$limit,$offset);
         //ページネーション設定
         $this->load->library('pagination');
         $config['base_url'] = 'http://icalendar.xyz/'.$exm;
