@@ -17,20 +17,6 @@ position: relative;
 
 <!-- ページ -->
 <div class="container">
-
- <!-- /////// google広告 -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- ical -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6625574146245875"
-     data-ad-slot="8541631202"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
- <!-- /////// google広告 -->
- 
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
@@ -82,10 +68,10 @@ position: relative;
 						//スター付与チェック
 						if (in_array($htm_cal_id,$star_id)) 
 						{
-   		 					echo '<span class="glyphicon glyphicon-star"></span>';
+   		 					echo '<span id="starexm" class="glyphicon glyphicon-star"></span>';
 						}
 						else {
-						    echo '<span class="glyphicon glyphicon-star-empty"></span>';
+						    echo '<span id="starexm" class="glyphicon glyphicon-star-empty"></span>';
 						}
 						//スター付与チェック
 						echo '</a>';
@@ -124,4 +110,6 @@ position: relative;
 <!-- ページネーション		 -->
 <?php echo $page_link; ?> 
 <!-- ページネーション		 -->
+
 </div>
+

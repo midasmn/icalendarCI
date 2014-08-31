@@ -25,9 +25,9 @@ $copy = "iCalendar by ";
 		<!-- リンク -->
 		<p><?=$copy?>
 			<a href="http://atomb.it" target="_blank">atomb.it</a>. | 
-			<a href="https://plus.google.com/110272837598113958103" rel="publisher">Google+</a> | 
-			<a href="terms" target="_blank" rel="publisher">利用規約</a> | 
-			<a href="privacy">プライバシーポリシー</a>
+			<!-- <a href="/terms/" target="_blank" rel="publisher">利用規約</a> |  -->
+			<a href="/terms/" >利用規約</a> | 
+			<a href="/privacy/">プライバシーポリシー</a>
 		</p>
 		<!-- リンク -->
 

@@ -59,8 +59,8 @@ class Staticpages extends CI_Controller{
 	{
 		// $this->output->cache(3600); //キャッシュ
 		$data = array(
-			'title' => 'お問い合わせフォーム',
-		 	'note' => 'お問い合わせフォーム'
+			'title' => 'お問い合わせ',
+		 	'note' => 'お問い合わせ'
             );
 
 		$this->load->view('include/header',$data);
