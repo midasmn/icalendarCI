@@ -68,7 +68,7 @@
 				<ul class="nav navbar-nav">
 					<!-- リスト -->
 					<li class="dropdown ">
-		       			<a href="list" class="dropdown-toggle" data-toggle="dropdown">
+		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
 		       				<span class="glyphicon glyphicon-calendar"></span> カレンダ一覧 <b class="caret"></b>
 		       			</a>
 		       			<ul class="dropdown-menu">
