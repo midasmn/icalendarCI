@@ -145,39 +145,48 @@
             	</div>
 				<!-- お気に入りセレクト -->
 
-				<!-- ログイン前 -->
-				<ul class="nav navbar-nav navbar-right">
-            		<li id="nav-register-btn" class="">
-            			<a href="/register/">登録</a>
-            		</li>
-       				<li id="nav-login-btn" class="">
-       					<a href="/login/">
-       					<i class="icon-login"></i> ログイン</a>
-       				</li>
-         		</ul>
-				<!-- ログイン前 -->
-				<!-- ログイン後 -->
-<!-- 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="new">
-						<span class="glyphicon glyphicon-plus"></span>新規</a>
-					</li>
-					<li class="active"><a href="user">
-						<span class="glyphicon glyphicon-th-list"></span>マイカレンダー</a>
-					</li>
-					<li class="dropdown ">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="http://bootsnipp.com/img/avatars/1392936b2a44e53420370564ffec3377f26d27da.jpg" width="18px" class="user-avatar-mini">プロフィール
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li class=""><a href="favorites">お気に入り</a></li>
-							<li class=""><a href="settings">設定</a></li>
-							<li><a href="logout">ログアウト</a>
-							</li>
-						</ul>
-					</li>
-				</ul> -->
-				<!-- ログイン後 -->
+				<?php
+				if($status=="LOGIN")
+				{
+					echo '<!-- ログイン後 -->';
+					echo '<ul class="nav navbar-nav navbar-right">';
+					echo '<li><a href="/add/">';
+					echo '<span class="glyphicon glyphicon-plus"></span>新規</a>';
+					echo '</li>';
+					echo '<li class="active">';
+					echo '<a href="/mycalendar/">';
+					echo '<span class="glyphicon glyphicon-th-list"></span>マイカレンダー</a>';
+					echo '</li>';
+					echo '<li class="dropdown ">';
+					echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
+					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini">';
+					echo 'プロフィール';
+					echo '<b class="caret"></b>';
+					echo '</a>';
+					echo '<ul class="dropdown-menu">';
+					echo '<li class=""><a href="/favorites/">お気に入り</a></li>';
+					echo '<li class=""><a href="/settings/">設定</a></li>';
+					echo '<li><a href="/logout/">ログアウト</a>';
+					echo '</li>';
+					echo '</ul>';
+					echo '</li>';
+					echo '</ul>';
+					echo '<!-- ログイン後 -->';
+				}else{
+					echo '<!-- ログイン前 -->';
+					echo '<ul class="nav navbar-nav navbar-right">';
+            		echo '<li id="nav-register-btn" class="">';
+            		echo '<a href="/register/">登録</a>';
+            		echo '</li>';
+       				echo '<li id="nav-login-btn" class="">';
+       				echo '<a href="/login/">';
+       				echo '<i class="icon-login"></i> ログイン</a>';
+       				echo '</li>';
+         			echo '</ul>';
+					echo '<!-- ログイン前 -->';
+				}
+				?>
+				
 
   			</div><!-- /.navbar-collapse -->
   		</div>

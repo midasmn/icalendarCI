@@ -4,19 +4,25 @@ class Calist extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
         $this->load->helper('array');
         // $this->output->enable_profiler(TRUE);
-        // $this->output->cache(360);
-        $this->load->library('session');
     }
 
     public function index()
     {
         //ユーザID
-        $userid = "99";
         $data = array();
-        // $data['userid'] = $userid;
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            // $data['userid'] = $userid;
+            $data['userid'] = $this->session->userdata("userid");
+            $data['status'] = $this->session->userdata("status");
+            $data['profile_img'] = $this->session->userdata("profile_img");
+            // $date[''] = $
+        }else{
+            $userid = -1;
+        }
+        // ログインセッション
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // スター
         $this->load->model('tbl_star_model', 'star'); //ログ

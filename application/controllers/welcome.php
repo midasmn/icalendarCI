@@ -26,19 +26,28 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		//$ursrid
-		$userid = "";
+		$data = array(
+		 	'title' => 'iCalendarにようこそ',
+		 	'note' => 'iCalendarにようこそ'
+            );
+		// ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            // $data['userid'] = $userid;
+            $data['userid'] = $this->session->userdata("userid");
+            $data['status'] = $this->session->userdata("status");
+            $data['profile_img'] = $this->session->userdata("profile_img");
+            // $date[''] = $
+        }else{
+        	$userid = -1;
+        }
+        // ログインセッション
+
 		$exm=$this->uri->segment(1);  
 		/////// ログ
         $this->load->model('tbl_log_model', 'logr'); //ログ
         $logdata = array(  'userid' => $userid,'item1' => $exm );
         $rtn = $this->logr->insert($logdata);
         /////// ログ
-
-		$data = array(
-		 	'title' => 'iCalendarにようこそ',
-		 	'note' => 'iCalendarにようこそ'
-            );
 
 		$this->load->model('tbl_calendar_model');
 		$this->load->model('tbl_ymd_model');

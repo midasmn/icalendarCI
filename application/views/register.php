@@ -3,7 +3,7 @@
 	<!-- 登録 -->
 	<div class="row" style="margin-top:40px;">
 		<div class="col-md-4 col-md-offset-4">
-			<h3 style="color:dimgray;">iCalendarID(無料)を登録する</h3>
+			<h3 style="color:dimgray;">無料登録する</h3>
 			<!-- エラー表示 -->
 			<div class="bs-callout bs-callout-danger alert-dismissable">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -22,12 +22,12 @@
 						<input class="form-control bottom" placeholder="パスワード(確認)" name="password_confirmation" type="password" value="">				    
 						<input class="btn btn-lg btn-primary btn-block" type="submit" value="登録する">		
 						<p class="text-center" style="margin-top:10px;">OR</p>
-						<a class="btn btn-lg btn-default btn-block" href="facebook">
-							<i class="icon-github"></i> Facebookアカウントを使って登録
+						<a class="btn btn-default btn-block" href="facebook">
+							<i class="icon-github"></i> Fcebookアカウントを使って登録
 						</a>
 						<br>
 						<p class="text-center">
-							<a href="login">すでにIDをお持ちですか?</a>
+							<a href="/login/">すでにIDをお持ちですか?</a>
 						</p>
 					</fieldset>
 				</form>		
