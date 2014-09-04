@@ -12,6 +12,7 @@ class Daylist extends CI_Controller{
 
     public function index()
     {
+        $userid = -1;
         $data = array();
         // ログインセッション
         if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理

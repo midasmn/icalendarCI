@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$userid = -1;
 		$data = array(
 		 	'title' => 'iCalendarにようこそ',
 		 	'note' => 'iCalendarにようこそ'
@@ -37,8 +38,6 @@ class Welcome extends CI_Controller {
             $data['status'] = $this->session->userdata("status");
             $data['profile_img'] = $this->session->userdata("profile_img");
             // $date[''] = $
-        }else{
-        	$userid = -1;
         }
         // ログインセッション
 

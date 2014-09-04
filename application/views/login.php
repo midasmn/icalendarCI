@@ -1,7 +1,7 @@
 <!-- ページ -->
 <div class="container">
 	<!-- ログイン -->
-	<div class="row" style="margin-top:60px;">
+	<div class="row" style="margin-top:20px;">
 		<div class="col-md-4 col-md-offset-4">
 	
 			<?php
@@ -21,7 +21,7 @@
 				}
 				// echo '<!-- ログインエラーメッセージ -->';
 				echo '<hr class="colorgraph">';
-				$email_st = 'class="form-control email-title" placeholder="E-メールアドレス"';
+				$email_st = 'class="form-control email-title" placeholder="メールアドレス"';
 				echo form_input('email', $this->input->post('email'),$email_st);	//Emailの入力フィールドを出力	
 				$pass_st = 'class="form-control" placeholder="パスワード"';
 				echo form_password('password',NULL,$pass_st);	//パスワードの入力フィールドを出力
@@ -42,6 +42,7 @@
 				echo '<p class="text-center">';
 				echo '<a href="/register/">ID(無料)をお持ちでない方</a>';
 				echo '</p>';
+				echo '</fieldset>';
 				echo form_close();	//フォームを閉じる
 			?>
 

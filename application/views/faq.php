@@ -1,3 +1,7 @@
+<?php
+print_r($validation_err);
+?>
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">

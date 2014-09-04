@@ -40,6 +40,8 @@
 //bookmark
 
 $route['test'] = "jquery/index";
+
+$route['logout'] = "login/logout";
 //カレンダー
 // $route['calendar/?bookmark/:num'] = "calendar/index";
 $route['calendar/:num'] = "calendar/index";

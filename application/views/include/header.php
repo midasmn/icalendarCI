@@ -160,7 +160,7 @@
 					echo '<li class="dropdown ">';
 					echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
 					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini">';
-					echo 'プロフィール';
+					echo $email;
 					echo '<b class="caret"></b>';
 					echo '</a>';
 					echo '<ul class="dropdown-menu">';
