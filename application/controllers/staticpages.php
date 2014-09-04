@@ -50,6 +50,9 @@ class Staticpages extends CI_Controller{
 			'title' => 'FAQ',
 		 	'note' => 'よくある質問(FAQ)'
             );
+		$this->load->model('tbl_faq_model', 'faq'); //アイテム
+        //カレンダー情報
+        $data['faq'] = $this->faq->get_faq_list();
 
 		$this->load->view('include/header',$data);
 		$this->load->view('faq');

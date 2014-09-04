@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1><?=$note?></h1>
+			<h2><?=$note?></h2>
 
 			<h2>その日もっとも印象に残った画像をカレンダーに記録する</h2>
 
 
-			<h2>iCalendarのコンセプト</h2>
+			<h3>iCalendarのコンセプト</h3>
 			<p>その日最も印象に残った画像でカレンダーをつくる</p>
 				<p>定点観測&nbsp;</p>
 				<p>各種ランキング&nbsp;</p>
