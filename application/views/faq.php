@@ -1,6 +1,3 @@
-<?php
-print_r($validation_err);
-?>
 
 <div class="container">
 	<div class="row">

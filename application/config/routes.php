@@ -41,6 +41,8 @@
 
 $route['test'] = "jquery/index";
 
+
+$route['resister/resister_user/:any'] = "resister/resister_user/$1";
 $route['logout'] = "login/logout";
 //カレンダー
 // $route['calendar/?bookmark/:num'] = "calendar/index";

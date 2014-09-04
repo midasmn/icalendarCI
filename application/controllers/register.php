@@ -45,22 +45,16 @@ class Register extends CI_Controller{
             $this->email->subject("[iCalendar]仮登録のお知らせ");
             //メッセージの本文
             $message = "<p>会員登録ありがとうございます。</p>";
-
             $message =  "<p>".$this->input->post("email")." 様</p>";
-            $message .=  "<br>";
             $message .=  "<p>ようこそ、【iCalendar】へ。</p>";
             $message .=  "<p>このたびは【iCalendar】に会員登録をいただき、ありがとうございます。</p>";
-            $message .=  "<br>";
             $message .=  "<p>下記のURLから会員登録を完了させてください</p>";
             // 各ユーザーにランダムキーをパーマリンクに含むURLを送信する
-            $message .= '<p><a href="'.base_url(). 'resister_user/'.$key.'">"'.base_url().'resister_user/'.$key.'</a></p>';
+            $message .= '<p><a href="'.base_url(). 'resister/resister_user/'.$key.'">'.base_url().'resister/resister_user/'.$key.'</a></p>';
             $message .= '<p>メール登録後、30分を超過しますと、セキュリティ保持のため有効期限切れとなります。</p>';
             $message .= '<p>その場合はお手数ですが、再度最初からご登録をお願い致します。</p>';
-            $message .=  "<br>";
             $message .= '<p>▼ご登録情報▼</p>';
             $message .= '<p>メールアドレス：'.$this->input->post("email").'</p>';
-            $message .=  "<br>";
-            $message .=  "<br>";
             $message .= '<p>■iCalendarのトップページへ</p>';
             $message .= '<p><a href="http://icalendar.xyz">http://icalendar.xyz</a></p>';
             $message .= '<p>——————————————————————————————————</p>';
@@ -77,6 +71,7 @@ class Register extends CI_Controller{
                 if($this->email->send())
                 {
                     echo "Message has been sent.";
+                    //メール送信後のページ
                 }else echo "Coulsn't send the message.";
             }else echo "problem adding to database";
 
