@@ -59,6 +59,25 @@ $('.tooltip-tool').tooltip({
 })
 $("a[data-toggle=popover]").popover()
 </script>
+<!-- ページトップ -->
+<script>
+$(function(){
+  var pageTop = $("#page-top");
+  pageTop.hide();
+  pageTop.click(function () {
+    $('body, html').animate({ scrollTop: 0 }, 500);
+    return false;
+  });
+  $(window).scroll(function () { 
+    if($(this).scrollTop() >= 200) { 
+      pageTop.fadeIn();
+    } else {
+      pageTop.fadeOut();
+    }
+  });
+});
+</script>
+<!-- ページトップ -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

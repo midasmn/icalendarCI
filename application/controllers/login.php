@@ -40,11 +40,17 @@ class Login extends CI_Controller{
         if($this->form_validation->run())
         {  //バリデーションエラーがなかった場合の処理
 
-            // testデータ
-            $userid = "99";
-            $profile_img = "http://bootsnipp.com/img/avatars/1392936b2a44e53420370564ffec3377f26d27da.jpg";
+            // // testデータ
+            // $userid = "99";
+            // $profile_img = "http://bootsnipp.com/img/avatars/1392936b2a44e53420370564ffec3377f26d27da.jpg";
             //testデータ
+            $this->load->model("tbl_user_model","user");
+            $userdata['tbl_user'] = $this->user->get_userdata($this->input->post("email"));
+            foreach ($userdata['tbl_user'] as $row) {$profile_img = $row->user_profile;$userid = $row->user_id;}
 
+// echo $userid;
+
+// print_r($userdate);
             //check for "remember me"
             $remember = (bool) $this->input->post('remember');
             $data = array(

@@ -28,7 +28,7 @@ print_r($validation_err);
 				echo form_hidden('_token','');	
 				echo '<fieldset>';
 				//<!-- <input class="form-control" placeholder="Username" name="username" type="text" value="">		
-				$email_st = 'class="form-control middle" placeholder="メールアドレス"';
+				$email_st = 'class="form-control middle" placeholder="メールアドレス" type="email"';
 				echo form_input('email', $this->input->post('email'),$email_st);	//Emailの入力フィールドを出力	
 				$pass_st = 'class="form-control middle" placeholder="パスワード"';
 				echo form_password('password',NULL,$pass_st);	//パスワードの入力フィールドを出力

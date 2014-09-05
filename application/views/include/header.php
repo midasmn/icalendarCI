@@ -153,7 +153,7 @@
 					echo '<li><a href="/add/">';
 					echo '<span class="glyphicon glyphicon-plus"></span>新規</a>';
 					echo '</li>';
-					echo '<li class="active">';
+					echo '<li class="">';
 					echo '<a href="/mycalendar/">';
 					echo '<span class="glyphicon glyphicon-th-list"></span>マイカレンダー</a>';
 					echo '</li>';

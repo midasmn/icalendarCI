@@ -24,11 +24,26 @@ class Tbl_user_model extends MY_Model {
         $query = $this->db->get("tbl_user");
 
         if($query->num_rows() == 1){    //ユーザーが存在した場合の処理
-            return true;
+            // return true;
+            return $query->result_array();
         }else{                  //ユーザーが存在しなかった場合の処理
             return false;
         }
     }
+
+    public function get_userdata($email)
+    {   //can_log_inファンクションを作っていく
+        $this->db->select('id as user_id');
+        $this->db->select('username as user_username');
+        $this->db->select('profile as user_profile');
+        $this->db->where("email", $email); //POSTされたemailデータとDB情報を照合する
+        // $this->db->where("password", md5($password));  //POSTされたパスワードデータとDB情報を照合する
+        $query = $this->db->get("tbl_user");
+        return $query->result();
+        // return $query->result_array();
+    }
+
+
 
     public function add_temp_users($key)
     {

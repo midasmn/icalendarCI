@@ -21,7 +21,7 @@
 				}
 				// echo '<!-- ログインエラーメッセージ -->';
 				echo '<hr class="colorgraph">';
-				$email_st = 'class="form-control email-title" placeholder="メールアドレス"';
+				$email_st = 'class="form-control email-title" placeholder="メールアドレス" type="email"';
 				echo form_input('email', $this->input->post('email'),$email_st);	//Emailの入力フィールドを出力	
 				$pass_st = 'class="form-control" placeholder="パスワード"';
 				echo form_password('password',NULL,$pass_st);	//パスワードの入力フィールドを出力
