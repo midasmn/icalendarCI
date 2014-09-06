@@ -1,11 +1,5 @@
 <?php
-$star_flg = array();
-foreach ($star as $key1 => $star_flg)
-{}
-		// $star_flg = $value1;
-		// foreach ($value1 as $key2 => $value2){$star_flg['item'] = $value2;}}
-
-print_r($star_flg);
+foreach ($star as $key1 => $star_id){}
 ?>
 <style>
 .fc-head{
@@ -43,7 +37,8 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト</small></h2> 
+			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
+			<?=$email?><small>さんお気に入りカレンダー</small></h2> 
 		</div>
 		<!-- 検索窓 -->
 		<div class="col-md-4"  style="margin-top:20px;">
@@ -80,6 +75,7 @@ position: relative;
 						{
 					// <!-- 1件目 -->
 						if($key2=='cal_img'){$htm_cal_img=$value;}
+						elseif($key2=='starflg'){$htm_starflg=$value;}
 						elseif($key2=='cal_title'){$htm_cal_title=$value;}
 						elseif($key2=='cal_description'){$htm_cal_description=$value;}
 						elseif($key2=='cal_id'){$htm_cal_id=$value;}
@@ -89,12 +85,11 @@ position: relative;
 						echo '<td style="text-align: center;vertical-align:middle;">';
 						echo '<a href="javascript: void(0)" id="starexm">';
 						//スター付与チェック
-						if (in_array($htm_cal_id,$star_flg)) 
+						if($htm_starflg=="ON")
 						{
-   		 					echo '<span id="starexm" class="glyphicon glyphicon-star"></span>';
-						}
-						else {
-						    echo '<span id="starexm" class="glyphicon glyphicon-star-empty"></span>';
+							echo '<span id="starexm" class="glyphicon glyphicon-star"></span>';
+						}else{
+							echo '<span id="starexm" class="glyphicon glyphicon-star-empty"></span>';
 						}
 						//スター付与チェック
 						echo '</a>';

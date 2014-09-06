@@ -38,7 +38,7 @@ class Register extends CI_Controller{
             $this->load->library("email", array("mailtype"=>"html"));
             $this->load->model("tbl_user_model","user");
             //送信元の情報
-            $this->email->from("info@icalendar.xyz<iCalendar[iカレンダー]>", "送信元");
+            $this->email->from("info@icalendar.xyz<iCalendar[iカレンダー]>", "[iCalendar]");
             //送信先の設定
             $this->email->to($this->input->post("email"));
             //タイトルの設定

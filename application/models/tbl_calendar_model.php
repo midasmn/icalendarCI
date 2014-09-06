@@ -100,5 +100,29 @@ class Tbl_calendar_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    //お気に入りカレンダー取得
+    public function find_favorites_arr($userid) {
+        // $this->db->start_cache();
+        $this->db->select('tbl_star.starflg as starflg');
+        $this->db->select('tbl_ymd.img_path as cal_img');
+        $this->db->select('tbl_calendar.id as cal_id');
+        $this->db->select('tbl_calendar.title as cal_title');
+        $this->db->select('tbl_calendar.tags as cal_tags');
+        $this->db->select('tbl_calendar.description as cal_description');
+        $this->db->from('tbl_calendar');
+        $this->db->from('tbl_ymd');
+        $this->db->from('tbl_star');
+        $this->db->where("tbl_ymd.calendar_id = tbl_calendar.id"); 
+        $this->db->where("tbl_star.itemid = tbl_calendar.id"); 
+        $this->db->where('tbl_calendar.onflg', 'ON'); 
+        $this->db->where('tbl_ymd.keyimg', "KEY"); 
+        $this->db->where('tbl_star.starflg', "ON"); 
+        $this->db->where('tbl_star.userid', $userid); 
+        $this->db->order_by('tbl_calendar.id desc'); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        // return $query->result();
+        return $query->result_array();
+    }
 }
 ?>

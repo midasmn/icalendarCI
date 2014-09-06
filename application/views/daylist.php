@@ -14,6 +14,23 @@ text-align: center;
 .fc-date {
 position: relative;
 }
+/*ページtopスクロール*/
+#page-top{
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  bottom: 15px;
+  right: 20px;
+  width: 70px;
+  padding: 10px 5px;
+/*  background: rgba(0,0,0,.7);
+  color: #fff;*/
+  text-align: center;
+  text-decoration: none;
+}
+/*#page-top:hover{
+  background: rgba(0,0,0,.8);
+}*/
 </style>
 
 
@@ -74,7 +91,8 @@ position: relative;
 			<div class="col-md-10"></div>
 			<div class="col-md-2">
 				<h2>
-					<a href="#listroot" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span> To top</a>
+					<a href="" class="btn btn-default pull-right"  id="page-top">
+						<span class="glyphicon glyphicon-arrow-up"></span> To top</a>
 				</h2>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
 		<div class="col-sm-12">
 
 
-			<h2>よくある質問:</h2>
+			<h3>よくある質問:</h3>
 			<div class="panel-group" id="accordion">
 
 				<?php foreach ($faq as $item): ?>

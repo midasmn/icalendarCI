@@ -77,11 +77,13 @@
 		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
 		          				</a>
 		          			</li>
+		          			<li class="divider"></li>
 							<li class="">
 								<a href="/newer/">
 		          					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> 新着順
 								</a>
 							</li>
+							<li class="divider"></li>
 							<li class="">
 								<a href="/random/">
 									<span class="glyphicon glyphicon-align-center"></span> ランダム
@@ -151,12 +153,12 @@
 					echo '<!-- ログイン後 -->';
 					echo '<ul class="nav navbar-nav navbar-right">';
 					echo '<li><a href="/add/">';
-					echo '<span class="glyphicon glyphicon-plus"></span>新規</a>';
+					echo '<span class="glyphicon glyphicon-plus"></span> 新規</a>';
 					echo '</li>';
-					echo '<li class="">';
-					echo '<a href="/mycalendar/">';
-					echo '<span class="glyphicon glyphicon-th-list"></span>マイカレンダー</a>';
-					echo '</li>';
+					// echo '<li class="">';
+					// echo '<a href="/mycalendar/">';
+					// echo '<span class="glyphicon glyphicon-calendar"></span> マイカレンダー</a>';
+					// echo '</li>';
 					echo '<li class="dropdown ">';
 					echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
 					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini">';
@@ -164,9 +166,11 @@
 					echo '<b class="caret"></b>';
 					echo '</a>';
 					echo '<ul class="dropdown-menu">';
-					echo '<li class=""><a href="/favorites/">お気に入り</a></li>';
-					echo '<li class=""><a href="/settings/">設定</a></li>';
-					echo '<li><a href="/logout/">ログアウト</a>';
+					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入り</a></li>';
+					echo '<li class="divider"></li>';
+					echo '<li class=""><a href="/settings/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
+					echo '<li class="divider"></li>';
+					echo '<li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> ログアウト</a>';
 					echo '</li>';
 					echo '</ul>';
 					echo '</li>';
@@ -176,11 +180,11 @@
 					echo '<!-- ログイン前 -->';
 					echo '<ul class="nav navbar-nav navbar-right">';
             		echo '<li id="nav-register-btn" class="">';
-            		echo '<a href="/register/">登録</a>';
+            		echo '<a href="/register/"><span class="glyphicon glyphicon-user"></span> 登録</a>';
             		echo '</li>';
        				echo '<li id="nav-login-btn" class="">';
        				echo '<a href="/login/">';
-       				echo '<i class="icon-login"></i> ログイン</a>';
+       				echo '<span class="glyphicon glyphicon-log-in"></span> ログイン</a>';
        				echo '</li>';
          			echo '</ul>';
 					echo '<!-- ログイン前 -->';
