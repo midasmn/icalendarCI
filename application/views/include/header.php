@@ -1,5 +1,6 @@
 <?php
 // $title = "iCalendarテスト";
+// echo "exm:".$exm;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -94,7 +95,7 @@
 					<!-- リスト -->
 					<!-- ガイド -->
 					<li class="dropdown ">
-		       			<a href="guide" class="dropdown-toggle" data-toggle="dropdown">
+		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
 		       				<span class="glyphicon glyphicon-book"></span> ガイド <b class="caret"></b>
 		       			</a>
 		       			<ul class="dropdown-menu">
@@ -130,26 +131,45 @@
 						</ul>
 					</li>
 					<!-- ガイド -->
-
 				</ul>
-				<!-- お気に入りセレクト -->
-				<div class="btn-group navbar-form">
-					<form action="/calendar/" method="POST">
-                		<select class="form-control" name="index"  onchange="submit(this.form)">
-                  			<li class=" selected version-chooser">
-                  				<option selected value="1">誕生石</option>
-                  			</li>
-                  			<li class=" version-chooser">
-                  				<option value="2">誕生花</option> 
-                  			</li>         
-                		</select>
-                	</form>
-            	</div>
-				<!-- お気に入りセレクト -->
 
 				<?php
 				if($status=="LOGIN")
 				{
+				// <!-- お気に入りセレクト -->
+				echo '<div class="btn-group navbar-form">';
+				echo '<form action="/calendar/" method="GET">';
+                echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
+                	if(count($menu)>=1)
+                	{
+                		if($exm=="smart"||$exm=="newer"||$exm=="randam"){
+                		}else{
+                			echo '<li>';
+							echo '<option value="">お気に入りリスト</option>';
+							echo '</li>';
+                		}
+                		foreach ($menu as $rowM) 
+                		{
+            				if($cal_id==$rowM->m_cal_id)
+            				{
+            					echo '<li>';
+              					echo '<option selected = "selected" value="'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
+              					echo '</li>';
+            				}else{
+            					echo '<li>';
+              					echo '<option  value="'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
+              					echo '</li>';
+            				}
+                  		}
+                	}else{
+                			echo '<li>';
+                  			echo '<option selected value="">お気に入りを表示します</option>';
+                  			echo '</li>';
+                	}
+                echo '</select>';
+                echo '</form>';
+            	echo '</div>';
+				// <!-- お気に入りセレクト -->
 					echo '<!-- ログイン後 -->';
 					echo '<ul class="nav navbar-nav navbar-right">';
 					echo '<li><a href="/add/">';
@@ -161,14 +181,13 @@
 					// echo '</li>';
 					echo '<li class="dropdown ">';
 					echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini">';
-					echo $email;
+					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini"> '.$email;
 					echo '<b class="caret"></b>';
 					echo '</a>';
 					echo '<ul class="dropdown-menu">';
 					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入り</a></li>';
 					echo '<li class="divider"></li>';
-					echo '<li class=""><a href="/settings/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
+					echo '<li class=""><a href="/setting/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
 					echo '<li class="divider"></li>';
 					echo '<li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> ログアウト</a>';
 					echo '</li>';

@@ -6,7 +6,7 @@ class Login extends CI_Controller{
         parent::__construct();
         // $this->load->helper('url');
         $this->load->helper('form');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
     public function index()
     {
@@ -15,15 +15,14 @@ class Login extends CI_Controller{
             'note' => 'ログイン'
             );
         // ログインセッション
-        // if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
-        //     // $data['userid'] = $userid;
-        //     $data['userid'] = $this->session->userdata("userid");
-        //     $data['status'] = $this->session->userdata("status");
-        //     $data['profile_img'] = $this->session->userdata("profile_img");
-        //     // $date[''] = $
-        // }else{
-        //     $userid = -1;
-        // }
+        if($this->session->flashdata('redirect_url'))
+            {
+                $url = $this->session->flashdata('redirect_url');
+                //リダイレクト用URL
+                $this->session->set_flashdata('redirect_url', $url);
+                // $this->session->set_flashdata('redirect_url', uri_string());
+                //リダイレクト用URL
+            }
         // // ログインセッション
         $this->load->view('include/header',$data);
         $this->load->view('login',$data);
@@ -64,9 +63,18 @@ class Login extends CI_Controller{
                 $this->session->set_userdata($data);
             
 
-            // redirect("/faq/");
-            $this->load->view('include/header',$data);
-            $this->load->view('include/footer',$data);
+            // // redirect("/faq/");
+            // $this->load->view('include/header',$data);
+            // $this->load->view('include/footer',$data);
+            //リダイレクト
+            if($this->session->flashdata('redirect_url'))
+            {
+                $url = $this->session->flashdata('redirect_url');
+                redirect($url);
+            }else{
+                redirect("/");
+            }
+            //リダイレクト
         }else{                          //バリデーションエラーがあった場合の処理
             $data = array(
             'title' => 'ログイン-エラー',

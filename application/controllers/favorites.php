@@ -5,7 +5,7 @@ class  Favorites extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('array');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
 
     public function index()
@@ -87,6 +87,11 @@ class  Favorites extends CI_Controller{
         $data['og_url'] = $config['base_url']."/".$config['per_page'];
         $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
         // OGタグ設定
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $data['menu'] = $this->calendar->menu_favorites_arr($userid);
+        }
+        //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('favorites',$data);
         $this->load->view('include/footer',$data);

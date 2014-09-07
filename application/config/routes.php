@@ -42,12 +42,15 @@
 $route['test'] = "jquery/index";
 
 
+// $route['setting'] = "setting/index";
+
 // $route['resister/resister_user/:any'] = "resister/resister_user/$1";
 $route['logout'] = "login/logout";
 //カレンダー
 // $route['calendar/?bookmark/:num'] = "calendar/index";
 $route['calendar/:num'] = "calendar/index";
 $route['calendar/:num/:num/:num'] = "calendar/index";
+$route['calendar/?index=/:num'] = "calendar/index";
 
 
 $route['daylist/:num/:num/:num/:num'] = "daylist/index";

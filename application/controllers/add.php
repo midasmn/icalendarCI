@@ -5,6 +5,7 @@ class Add extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
     }
 
     public function index()
@@ -27,6 +28,7 @@ class Add extends CI_Controller{
         }
         // ログインセッション
         $data['email'] = 'カレンダー追加';
+
 
         $this->load->view('include/header',$data);
         $this->load->view('add',$data);

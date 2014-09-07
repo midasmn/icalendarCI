@@ -38,7 +38,7 @@ $copy = "iCalendar by ";
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<?php echo base_url('/application/views/assets/js/bootstrap.min.js') ?>"></script>
 <!-- ドロップダウン用 -->
-<script>
+<!-- <script>
 $(function(){
   $('.dropdown-menu a').click(function(){
     //反映先の要素名を取得
@@ -50,7 +50,7 @@ $(function(){
     $(hiddenTag).val($(this).attr('value'));
   })
 })
-</script>
+</script> -->
 <!-- ドロップダウン用 -->
  <!-- ポップオーバー -->
  <script>

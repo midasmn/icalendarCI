@@ -5,7 +5,7 @@ class Register extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('form');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
     public function index()
     {

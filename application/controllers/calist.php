@@ -5,7 +5,7 @@ class Calist extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('array');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
 
     public function index()
@@ -27,6 +27,10 @@ class Calist extends CI_Controller{
             $data['remember'] = $remember;
         }
         // ログインセッション
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        // $this->session->set_flashdata('redirect_url', uri_string());
+        //リダイレクト用URL
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         // スター
         if($userid==-1)
@@ -89,6 +93,11 @@ class Calist extends CI_Controller{
         $data['og_url'] = $config['base_url']."/".$config['per_page'];
         $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
         // OGタグ設定
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $data['menu'] = $this->calendar->menu_favorites_arr($userid);
+        }
+        //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('list',$data);
         $this->load->view('include/footer',$data);

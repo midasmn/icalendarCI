@@ -4,8 +4,8 @@ foreach ($star as $key1 => $star_flg)
 {}
 		// $star_flg = $value1;
 		// foreach ($value1 as $key2 => $value2){$star_flg['item'] = $value2;}}
-
-print_r($star_flg);
+// echo $this->session->flashdata('redirect_url');
+// print_r($star_flg);
 ?>
 <style>
 .fc-head{

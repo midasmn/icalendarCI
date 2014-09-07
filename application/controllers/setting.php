@@ -5,6 +5,9 @@ class Setting extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
+        // $this->output->enable_profiler(TRUE);
+        // $this->output->cache(360);
+        $this->load->library('session');
     }
 
     public function index()
@@ -29,7 +32,12 @@ class Setting extends CI_Controller{
             $data['remember'] = $remember;
         }
         // ログインセッション
-        
+        // //メニューお気に入りセレクト
+        if($userid<>-1){
+            $this->load->model('tbl_calendar_model', 'calendar');   
+            $data['menu'] = $this->calendar->menu_favorites_arr($userid);
+        }
+        // //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('setting',$data);
         $this->load->view('include/footer',$data);

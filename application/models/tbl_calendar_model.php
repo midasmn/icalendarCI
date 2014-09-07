@@ -2,19 +2,19 @@
 class Tbl_calendar_model extends MY_Model {
 
     // カラムを public フィールドとして定義
-    public $title;
-    public $tags;
-    public $description;
-    public $dd;
-    public $sc_url;
-    public $sc_tag;
-    public $img_alt;
-    public $img_url;
-    public $img_tag;
-    public $status;
-    public $onflg;
-    public $order;
-    public $author_id;
+    // public $title;
+    // public $tags;
+    // public $description;
+    // public $dd;
+    // public $sc_url;
+    // public $sc_tag;
+    // public $img_alt;
+    // public $img_url;
+    // public $img_tag;
+    // public $status;
+    // public $onflg;
+    // public $order;
+    // public $author_id;
     // public $createdate;
     // public $updatedate;
 
@@ -23,7 +23,7 @@ class Tbl_calendar_model extends MY_Model {
     }
     //カレンダーリスト全件
     public function find_calist_all() {
-        $this->db->start_cache();
+        // $this->db->start_cache();
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->from('tbl_calendar');
         $this->db->where('tbl_calendar.onflg', 'ON'); 
@@ -89,7 +89,7 @@ class Tbl_calendar_model extends MY_Model {
     }
     //カレンダー情報
     public function get_calist_info($calendar_id) {
-        $this->db->start_cache();
+        // $this->db->start_cache();
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->select('tbl_calendar.title as cal_title');
         $this->db->select('tbl_calendar.tags as cal_tags');
@@ -123,6 +123,23 @@ class Tbl_calendar_model extends MY_Model {
 // echo $this->db->last_query();
         // return $query->result();
         return $query->result_array();
+    }
+    //メニューバー用お気に入りカレンダー取得
+    public function menu_favorites_arr($userid) {
+        $this->db->select('tbl_calendar.id as m_cal_id');
+        $this->db->select('tbl_calendar.title as m_cal_title');
+        $this->db->from('tbl_calendar');
+        $this->db->from('tbl_star');
+        $this->db->where("tbl_star.itemid = tbl_calendar.id"); 
+        $this->db->where('tbl_calendar.onflg', 'ON');  
+        $this->db->where('tbl_star.starflg', "ON"); 
+        $this->db->where('tbl_star.userid', $userid); 
+        $this->db->group_by('tbl_calendar.id');
+        $this->db->order_by('tbl_star.updatedate desc'); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+        // return $query->result_array();
     }
 }
 ?>

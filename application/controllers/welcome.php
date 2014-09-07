@@ -7,6 +7,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		// $this->output->enable_profiler(TRUE);
+		$this->session->set_flashdata('redirect_url', current_url());
 	}
 
 	/**
@@ -55,8 +56,15 @@ class Welcome extends CI_Controller {
         $rtn = $this->logr->insert($logdata);
         /////// ログ
 
-		$this->load->model('tbl_calendar_model');
+		$this->load->model('tbl_calendar_model','calendar');
 		$this->load->model('tbl_ymd_model');
+
+		//メニューお気に入りセレクト
+		if($userid<>-1){
+			$data['menu'] = $this->calendar->menu_favorites_arr($userid);
+		}
+		//メニューお気に入りセレクト
+		
 
 		// $this->load->view('welcome_message');
 		//

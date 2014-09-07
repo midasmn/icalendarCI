@@ -4,10 +4,11 @@ class Calendar extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        // $this->load->helper('url');
+        $this->load->helper('url');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
-        // $this->load->library('session');
+        $this->load->library('session');
+        // ログインセッション
     }
 
     public function index()
@@ -28,7 +29,9 @@ class Calendar extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
-        // ログインセッション
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
         //セグメント取得
         $exm=$this->uri->segment(1);    //calendar
 // echo "<br>1:".$exm;
@@ -45,7 +48,6 @@ class Calendar extends CI_Controller{
         // スター
         $this->load->model('tbl_star_model', 'star'); //ログ
         $data['starflg'] = $this->star->get_calendar_starflg_read("calendar",$calendar_id,$userid);
-
         // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
@@ -150,8 +152,7 @@ class Calendar extends CI_Controller{
                         $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
                     }else{
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
-                    }
-                    
+                    }  
                 }
                 $weeks[]= '<tr>'.$week.'</tr>';
                 $week = '';
@@ -164,6 +165,12 @@ class Calendar extends CI_Controller{
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title']." : iCalendar.xyz." ;
         // OGタグ設定
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $this->load->model('tbl_calendar_model', 'calendarM');   
+            $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        }
+        //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);
         $this->load->view('include/footer',$data);

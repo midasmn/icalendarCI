@@ -36,19 +36,26 @@
 	position: relative;
 	}
 	</style>
+
+
+
+
+
+
 <!-- ページ -->
 <div class="container">
 	<!-- 設定画面 -->
 	<div class="row" style="margin-top:20px;">
-		<div class="col-md-5">
+		<!-- <div class="col-md-5"> -->
+		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						<!-- <a href="http://bootsnipp.com/user" class="btn btn-default">Go back</a>-->
+					<!-- <h3 class="panel-title">
 						<a href="javascript:window.history.go(-1);" class="btn btn-default">
 							<span class="glyphicon glyphicon-arrow-left"></span> 戻る
 						</a> 登録情報設定
-					</h3>
+					</h3> -->
+					<h3 class="sign-up-title" style="color:dimgray;">登録情報設定</h3>
 				</div>
 				<div class="panel-body">
 					<!-- エラーメッセージ -->

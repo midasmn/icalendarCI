@@ -7,7 +7,10 @@ class Daylist extends CI_Controller{
         // $this->load->helper('url');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
-        // $this->load->library('session');
+        $this->load->library('session');
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
     }
 
     public function index()
@@ -83,6 +86,11 @@ class Daylist extends CI_Controller{
         $data['dayitem'] = $this->ymd->find_day_list($calendar_id,$yyyy,$mm,$dd);
    
         //////////////////////////
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $data['menu'] = $this->calendar->menu_favorites_arr($userid);
+        }
+        //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('daylist',$data);
         $this->load->view('include/footer',$data);

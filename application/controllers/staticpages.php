@@ -5,14 +5,34 @@ class Staticpages extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->helper('url');
+        // $this->output->enable_profiler(TRUE);
+        // $this->output->cache(360);
+        $this->load->library('session');
+		$userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
 	}
 
 	public function about()
 	{
-		$data = array(
-		 	'title' => 'iCalendarついてR',
-		 	'note' => 'iCalendarついて'
-            );
+	 	$data['title'] = 'iCalendarついて';
+	 	$data['note'] =  'iCalendarついて';
 
 		$this->load->view('include/header',$data);
 		$this->load->view('about',$data);
@@ -20,11 +40,8 @@ class Staticpages extends CI_Controller{
 	}
 	public function terms()
 	{
-		// $this->output->cache(3600); //キャッシュ
-		$data = array(
-			'title' => '利用規約',
-		 	'note' => '利用規約'
-            );
+		$data['title'] = '利用規約';
+	 	$data['note'] =  '利用規約';
 
 		$this->load->view('include/header',$data);
 		$this->load->view('terms',$data);
@@ -33,11 +50,8 @@ class Staticpages extends CI_Controller{
 	}
 	public function privacy()
 	{
-		// $this->output->cache(3600); //キャッシュ
-		$data = array(
-			'title' => 'プライバシーポリシー',
-		 	'note' => 'プライバシーポリシー'
-            );
+		$data['title'] = 'プライバシーポリシー';
+	 	$data['note'] =  'プライバシーポリシー';
 
 		$this->load->view('include/header',$data);
 		$this->load->view('privacy',$data);
@@ -45,11 +59,9 @@ class Staticpages extends CI_Controller{
 	}
 	public function faq()
 	{
-		// $this->output->cache(3600); //キャッシュ
-		$data = array(
-			'title' => 'FAQ',
-		 	'note' => 'よくある質問(FAQ)'
-            );
+		$data['title'] = 'FAQ';
+	 	$data['note'] =  'よくある質問(FAQ)';
+
 		$this->load->model('tbl_faq_model', 'faq'); //アイテム
         //カレンダー情報
         $data['faq'] = $this->faq->get_faq_list();
@@ -60,12 +72,8 @@ class Staticpages extends CI_Controller{
 	}
 	public function supportform()
 	{
-		// $this->output->cache(3600); //キャッシュ
-		$data = array(
-			'title' => 'お問い合わせ',
-		 	'note' => 'お問い合わせ'
-            );
-
+		$data['title'] = 'お問い合わせ';
+	 	$data['note'] =  'お問い合わせ';
 		$this->load->view('include/header',$data);
 		$this->load->view('supportform',$data);
 		$this->load->view('include/footer',$data);

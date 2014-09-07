@@ -6,7 +6,7 @@ class Jquery extends CI_Controller{
         parent::__construct();
         // $this->load->helper('url');
         $this->load->helper('array');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         // $this->load->library('session');
     }
