@@ -5,7 +5,7 @@ class Register extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('form');
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
     }
     public function index()
     {
@@ -50,7 +50,7 @@ class Register extends CI_Controller{
             $message .=  "<p>このたびは【iCalendar】に会員登録をいただき、ありがとうございます。</p>";
             $message .=  "<p>下記のURLから会員登録を完了させてください</p>";
             // 各ユーザーにランダムキーをパーマリンクに含むURLを送信する
-            $message .= '<p><a href="'.base_url(). 'resister/resister_user/'.$key.'">'.base_url().'resister/resister_user/'.$key.'</a></p>';
+            $message .= '<p><a href="'.base_url(). 'register/register_user/'.$key.'">'.base_url().'register/register_user/'.$key.'</a></p>';
             $message .= '<p>メール登録後、30分を超過しますと、セキュリティ保持のため有効期限切れとなります。</p>';
             $message .= '<p>その場合はお手数ですが、再度最初からご登録をお願い致します。</p>';
             $message .= '<p>▼ご登録情報▼</p>';
@@ -66,23 +66,14 @@ class Register extends CI_Controller{
 
 
             //ユーザーに確認メールを送信できた場合、ユーザーを temp_users DBに追加する
-            if($this->user->add_temp_users($key))
+            if($this->user->add_temp_user($key))
             {
                 if($this->email->send())
                 {
-                    echo "Message has been sent.";
+                    echo "仮登録メール成功時";
                     //メール送信後のページ
-                }else echo "Coulsn't send the message.";
-            }else echo "problem adding to database";
-
-
-
-
-
-
-
-
-
+                }else echo "メール送信失敗時";
+            }else echo "DB登録失敗";
         }else{
             $data = array(
             'title' => '登録-エラー',
@@ -99,32 +90,26 @@ class Register extends CI_Controller{
 
 
     //登録処理
-    public function resister_user($key)
+    public function register_user($key)
     {
+        // echo $key;
         //add_temp_usersモデルが書かれている、model_uses.phpをロードする
         $this->load->model("tbl_user_model","user");
-
-        if($this->model_users->is_valid_key($key))
+        if($this->user->is_valid_key($key))
         {    //キーが正しい場合は、以下を実行
-            if($this->model_users->add_user($key))
-            {    //add_usersがTrueを返したら以下を実行
-                if($newemail = $this->model_users->add_user($key))
-                {    
-                    // echo "success";
-                    $data = array(
-                    "email" => $newemail,
-                    "is_logged_in" => 1
-                    );
- 
-                    $this->sessinon->set_userdata($data);
-                    // redirect ("main/members");
-
-                    //登録完了後画面
-                    $this->load->view('include/header',$data);
-                    $this->load->view('include/footer',$data);
- 
-                }else echo "fail to add user. please try again";
-
+            //add_usersがTrueを返したら以下を実行
+            if($newemail = $this->user->add_user($key))
+            {    
+                // echo "success";
+                $data = array(
+                "email" => $newemail,
+                "is_logged_in" => 1
+                );
+                $this->sessinon->set_userdata($data);
+                redirect("/");
+                //登録完了後画面
+                // $this->load->view('include/header',$data);
+                // $this->load->view('include/footer',$data);
             }else echo "fail to add user. please try again";
         }else echo "invalid key";
     }

@@ -45,7 +45,7 @@ class Tbl_user_model extends MY_Model {
 
 
 
-    public function add_temp_users($key)
+    public function add_temp_user($key)
     {
         //add_temp_usersのモデルの実行時に、以下のデータを取得して、$dataと紐づける
         //add_temp_usersモデルの実行時に、以下のデータを取得して、$dataと紐づける
@@ -88,27 +88,30 @@ class Tbl_user_model extends MY_Model {
         //keyのテーブルを選択
         $this->db->where("key", $key);
         //temp_usersテーブルからすべての値を取得
-        $temp_user = $this->db->get("tbl_temp_user");  
+        $temp_user = $this->db->get("tbl_temp_user");
 
         if($temp_user)
         {
             $row = $temp_user->row();
-            //$rowでは、temp_usersの行を返します。
-            //しかし、このままでは1行目のみが返されるので、さらに以下を追記する。
-            $data = array(  //$rowで取得した値のうち、必要な情報のみを取得する
-                "email"=>$row->email,
-                "password"=>$row->password
+        //     //$rowでは、temp_usersの行を返します。
+        //     //しかし、このままでは1行目のみが返されるので、さらに以下を追記する。
+             //$rowで取得した値のうち、必要な情報のみを取得する
+            $data = array( 
+                "email" => $row->email,
+                "password" => $row->password
             );
             $did_add_user = $this->db->insert("tbl_user", $data);
         }
+ // echo $this->db->last_query();
 
-        if($did_add_user)
+         if($did_add_user)
         {      //did_add_userが成功したら以下を実行
             $this->db->where("key", $key);
-            $this->db->delete("temp_users");
+            $this->db->delete("tbl_temp_user");
             // return true;
             return $data["email"];  //emailの値を返す
         }return false;
+   
     }
 }
 ?>
