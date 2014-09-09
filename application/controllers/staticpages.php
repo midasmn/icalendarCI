@@ -8,6 +8,29 @@ class Staticpages extends CI_Controller{
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
+		// $userid=-1;
+  //       $data = array();
+  //       // ログインセッション
+  //       if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+  //           $email=$this->session->userdata("email");
+  //           $userid=$this->session->userdata("userid");
+  //           $status=$this->session->userdata("status");
+  //           $profile_img=$this->session->userdata("profile_img");
+  //           $remember=$this->session->userdata("remember");
+  //           //
+  //           $data['email'] = $email;
+  //           $data['userid'] = $userid;
+  //           $data['status'] = $status;
+  //           $data['profile_img'] = $profile_img;
+  //           $data['remember'] = $remember;
+  //       }
+  //       //リダイレクト用URL
+  //       $this->session->set_flashdata('redirect_url', current_url());
+  //       //リダイレクト用URL
+	}
+
+	public function about()
+	{
 		$userid=-1;
         $data = array();
         // ログインセッション
@@ -27,10 +50,6 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
-	}
-
-	public function about()
-	{
 	 	$data['title'] = 'iCalendarついて';
 	 	$data['note'] =  'iCalendarついて';
 
@@ -40,6 +59,25 @@ class Staticpages extends CI_Controller{
 	}
 	public function terms()
 	{
+		$userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
 		$data['title'] = '利用規約';
 	 	$data['note'] =  '利用規約';
 
@@ -50,6 +88,25 @@ class Staticpages extends CI_Controller{
 	}
 	public function privacy()
 	{
+		$userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
 		$data['title'] = 'プライバシーポリシー';
 	 	$data['note'] =  'プライバシーポリシー';
 
@@ -59,10 +116,34 @@ class Staticpages extends CI_Controller{
 	}
 	public function faq()
 	{
+		$userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
 		$data['title'] = 'FAQ';
 	 	$data['note'] =  'よくある質問(FAQ)';
 
 		$this->load->model('tbl_faq_model', 'faq'); //アイテム
+		$this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+		$this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+		//
+		$data['calcnt'] = $this->calendar->count_calist_all();
+		$data['ymdcnt'] = $this->ymd->count_ymd_all();
         //カレンダー情報
         $data['faq'] = $this->faq->get_faq_list();
 
@@ -72,6 +153,25 @@ class Staticpages extends CI_Controller{
 	}
 	public function supportform()
 	{
+		$userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
 		$data['title'] = 'お問い合わせ';
 	 	$data['note'] =  'お問い合わせ';
 		$this->load->view('include/header',$data);

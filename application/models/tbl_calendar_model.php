@@ -141,5 +141,14 @@ class Tbl_calendar_model extends MY_Model {
         return $query->result();
         // return $query->result_array();
     }
+    public function count_calist_all() {
+        // $this->db->start_cache();
+        $this->db->select('COUNT(*) as calcnt');
+        $this->db->from('tbl_calendar');
+        $this->db->where('onflg', 'ON'); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

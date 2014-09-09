@@ -54,5 +54,14 @@ class Tbl_ymd_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    public function count_ymd_all() {
+        // $this->db->start_cache();
+        $this->db->select('COUNT(*) as ymdcnt');
+        $this->db->from('tbl_ymd');
+        // $this->db->where('onflg', 'ON'); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

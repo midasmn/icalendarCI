@@ -113,5 +113,20 @@ class Tbl_user_model extends MY_Model {
         }return false;
    
     }
+
+    public function reset_pass()
+    {   //can_log_inファンクションを作っていく
+
+        $this->db->where("email", $this->input->post("email")); //POSTされたemailデータとDB情報を照合する
+        // $this->db->where("password", md5($this->input->post("password")));  //POSTされたパスワードデータとDB情報を照合する
+        $query = $this->db->get("tbl_user");
+
+        if($query->num_rows() == 1){    //ユーザーが存在した場合の処理
+            // return true;
+            return $query->result_array();
+        }else{                  //ユーザーが存在しなかった場合の処理
+            return false;
+        }
+    }
 }
 ?>

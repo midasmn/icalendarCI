@@ -16,13 +16,13 @@ class Login extends CI_Controller{
             );
         // ログインセッション
         if($this->session->flashdata('redirect_url'))
-            {
-                $url = $this->session->flashdata('redirect_url');
-                //リダイレクト用URL
-                $this->session->set_flashdata('redirect_url', $url);
-                // $this->session->set_flashdata('redirect_url', uri_string());
-                //リダイレクト用URL
-            }
+        {
+            $url = $this->session->flashdata('redirect_url');
+            //リダイレクト用URL
+            $this->session->set_flashdata('redirect_url', $url);
+            // $this->session->set_flashdata('redirect_url', uri_string());
+            //リダイレクト用URL
+        }
         // // ログインセッション
         $this->load->view('include/header',$data);
         $this->load->view('login',$data);
