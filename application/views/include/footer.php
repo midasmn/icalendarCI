@@ -27,7 +27,7 @@ $copy = "iCalendar by ";
 			<a href="http://atomb.it" target="_blank">atomb.it</a>. | 
 			<!-- <a href="/terms/" target="_blank" rel="publisher">利用規約</a> |  -->
 			<a href="/terms/" >利用規約</a> | 
-			<a href="/privacy/">プライバシーポリシー</a>
+			<a href="/privacy/">プライバシー</a>
 		</p>
 		<!-- リンク -->
 
@@ -37,6 +37,9 @@ $copy = "iCalendar by ";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<?php echo base_url('/application/views/assets/js/bootstrap.min.js') ?>"></script>
+<!-- SNSボタン用 -->
+<script src="<?php echo base_url('/application/views/assets/js/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
+<script src="<?php echo base_url('/application/views/assets/js/rrssb.min.js') ?>"></script>
 <!-- ドロップダウン用 -->
 <!-- <script>
 $(function(){
