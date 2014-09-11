@@ -16,7 +16,7 @@ $copy = "iCalendar by ";
 					<a href="https://twitter.com/icalendar_xyz"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
 				</li>
 				<li class="tweet-btn">
-					<a href="https://plus.google.com/110272837598113958103/posts/p/pub"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
+					<a href="https://plus.google.com/+IcalendarXyz"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -97,7 +97,7 @@ e.parentNode.insertBefore(s, e);
 };
 a(("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js","ga");
 a("https://apis.google.com/js/platform.js");
-a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+// a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
 a("//platform.twitter.com/widgets.js","twitter-wjs");
 a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
 a("https://widgets.getpocket.com/v1/j/btn.js");
