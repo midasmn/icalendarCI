@@ -72,7 +72,7 @@ class Login extends CI_Controller{
                 $url = $this->session->flashdata('redirect_url');
                 redirect($url);
             }else{
-                redirect("/");
+                redirect("/",'refresh');
             }
             //リダイレクト
         }else{                          //バリデーションエラーがあった場合の処理

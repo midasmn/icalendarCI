@@ -29,6 +29,7 @@ class Password extends CI_Controller{
     }
     public function password_validation()
     {
+        $data = array();
         $this->load->library("form_validation");    //フォームバリデーションライブラリを読み込む。
         $this->form_validation->set_rules("email", "メールアドレス", "required|trim|xss_clean|valid_email|callback_validate_mail");
         // $this->form_validation->set_rules("email", "メール", "required|trim|xss_clean|callback_validate_credentials");
@@ -44,16 +45,20 @@ class Password extends CI_Controller{
                 $url = $this->session->flashdata('redirect_url');
                 redirect($url);
             }else{
-                redirect("/");
+                // redirect("/");
+                $data['title'] = "パスワードリセット";
+                $data['h1'] = "メール送信完了";
+                $rtn_message = "パスワードリセットの手順を記載したメールをお送りしました。";
+                // $rtn_message .= "<br>すぐにメールが届かない場合には、もう一度送信してみてください。";
+                $data['message_st'] = $rtn_message;
+                $this->load->view('include/header',$data);
+                $this->load->view('message',$data);
+                $this->load->view('include/footer',$data);
             }
             //リダイレクト
         }else{                          //バリデーションエラーがあった場合の処理
-            $data = array(
-            'title' => 'パスワードリセット-エラー',
-            'note' => 'ログイン',
-            'message' => 'loginerr'
-            );
-            // $data['message'] = validation_errors();
+            $data['title'] = "パスワードリセット-エラー";
+            $data['message'] = validation_errors();
             $this->load->view('include/header',$data);
             $this->load->view('password',$data);
             $this->load->view('include/footer',$data);

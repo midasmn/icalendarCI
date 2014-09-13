@@ -5,7 +5,7 @@ class Register extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('form');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
     public function index()
     {
@@ -20,6 +20,7 @@ class Register extends CI_Controller{
     }
     public function register_validation()
     {
+        $data = array();
         $this->load->library("form_validation");    //フォームバリデーションのライブラリを読み込む
         $this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|is_unique[tbl_user.email]");
         $this->form_validation->set_rules("password", "パスワード", "required|trim");
@@ -70,18 +71,21 @@ class Register extends CI_Controller{
             {
                 if($this->email->send())
                 {
-                    echo "仮登録メール成功時";
+                    // echo "仮登録メール成功時";
+                    $data['title'] = "仮登録メール送信";
+                    $data['h1'] = "仮登録メール送信";
+                    $data['message_st'] = "仮登録メール配信しました。";
+                    $this->load->view('include/header',$data);
+                    $this->load->view('message',$data);
+                    $this->load->view('include/footer',$data);
                     //メール送信後のページ
                 }else echo "メール送信失敗時";
             }else echo "DB登録失敗";
         }else{
-            $data = array(
-            'title' => '登録-エラー',
-            'note' => '登録',
-            'message' => 'registerr'
-            );
+            $data['title'] = "登録-エラー";
+            $data['note'] = "登録-エラー";
+            $data['message'] = "registerr";
             $data['validation_err'] = validation_errors();
-
             $this->load->view('include/header',$data);
             $this->load->view('register',$data);
             $this->load->view('include/footer',$data);
@@ -92,6 +96,7 @@ class Register extends CI_Controller{
     //登録処理
     public function register_user($key)
     {
+        $data = array();
         // echo $key;
         //add_temp_usersモデルが書かれている、model_uses.phpをロードする
         $this->load->model("tbl_user_model","user");
@@ -101,16 +106,27 @@ class Register extends CI_Controller{
             if($newemail = $this->user->add_user($key))
             {    
                 // echo "success";
-                $data = array(
-                "email" => $newemail,
-                "is_logged_in" => 1
-                );
-                $this->sessinon->set_userdata($data);
-                redirect("/");
+                // $data = array(
+                // "email" => $newemail,
+                // "is_logged_in" => 1
+                // );
+                // $this->sessinon->set_userdata($data);
+                redirect("/",'refresh');
                 //登録完了後画面
                 // $this->load->view('include/header',$data);
                 // $this->load->view('include/footer',$data);
-            }else echo "fail to add user. please try again";
+            }else{
+                // echo "fail to add user. please try again";
+                $data = array(
+                'title' => '登録エラー',
+                'note' => '登録',
+                'message' => 'registerr'
+                );
+                $data['validation_err'] = validation_errors();
+                $this->load->view('include/header',$data);
+                $this->load->view('register',$data);
+                $this->load->view('include/footer',$data);
+            }
         }else echo "invalid key";
     }
 

@@ -11,7 +11,7 @@
 				echo '<fieldset>';
 				echo '<h3 class="sign-up-title" style="color:dimgray;">パスワードを再設定する</h3>';
 				// echo '<!-- エラーメッセージ -->
-				if($message=='loginerr'){
+				if($message){
 				echo '<div class="alert alert-success alert-dismissable">';
 				echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
 				echo 'ご入力いただいたメールアドレスでは登録がありません。<br>';
@@ -21,12 +21,17 @@
 				}
 				// echo '<!-- エラーメッセージ -->
 				echo '<hr class="colorgraph">';
+				echo '<div class="input-group input-group-lg">';
+  				echo '<span class="input-group-addon">';
+    			echo '<span class="glyphicon glyphicon-envelope"></span>';
+  				echo '</span>';
 				$email_st = 'class="form-control email-title" placeholder="メールアドレス" type="email"';
 				echo form_input('email', $this->input->post('email'),$email_st);	//Emailの入力フィールドを出力	
+				echo '</div>';
 				echo '<p>';		
 				echo form_submit('submit', 'パスワードを再設定する','class="btn btn-lg btn-success btn-block"');
 				echo '</p>';
-				echo '<p class="text-center">パスワードを思い出した方';
+				echo '<p class="text-center">パスワードを思い出した方は<br>';
 				echo '<a href="/login/">こちらからログイン</a>';
 				echo '</p>';
 				echo '</fieldset>';

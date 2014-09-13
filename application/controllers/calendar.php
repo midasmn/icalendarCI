@@ -139,7 +139,7 @@ class Calendar extends CI_Controller{
             $week .= ' class="img-responsive" alt="'.$yyyy.'年'.$mm.'月'.$day.'日" style="background-color:#428bca;">';
             $week .= '</a>';
             $week .= '</td>';
-        //     //土曜日週ごとに分割
+            //土曜日週ごとに分割
             if($youbi % 7 == 6 OR $day == $lastDay)
             {       
                 if($day == $lastDay)
