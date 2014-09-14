@@ -28,6 +28,7 @@
 				$email_st = 'class="form-control email-title" placeholder="メールアドレス" type="email"';
 				echo form_input('email', $this->input->post('email'),$email_st);	//Emailの入力フィールドを出力	
 				echo '</div>';
+				echo '<br>';
 				echo '<p>';		
 				echo form_submit('submit', 'パスワードを再設定する','class="btn btn-lg btn-success btn-block"');
 				echo '</p>';

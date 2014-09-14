@@ -64,8 +64,10 @@ text-shadow: 0 -1px 1px #172441; text-decoration: none; display: block;
 				echo '</div>';
 				echo '<br>';
 				echo form_submit('login_submit', '登録する','class="btn btn-lg btn-primary btn-block"');
+
+				echo '<p class="text-left">※ <a href="/terms/">利用規約</a>と<a href="/privacy/">プライバシーポリシー</a>に同意したうえでご登録ください。</p>';
 				echo '<p class="text-center" style="margin-top:10px;">OR</p>';
-				echo '<a class="btn btn-default btn-block"  id="facebook_button" href="facebook">';
+				echo '<a class="btn btn-default btn-block"  id="facebook_button" href="/fblogin/">';
 				echo '<i class="icon-github"></i> Fcebookアカウントを使って登録';
 				echo '</a>';
 				echo '<br>';
