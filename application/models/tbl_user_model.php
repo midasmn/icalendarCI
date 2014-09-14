@@ -128,5 +128,24 @@ class Tbl_user_model extends MY_Model {
             return false;
         }
     }
+    //fbログインfirst_name
+    public function fb_log_in($username,$email,$fb_id,$gender,$picture,$first_name,$last_name,$link,$locale)
+    {   //can_log_inファンクションを作っていく
+        //ユーザーが存在しなかった場合の処理
+        $data = array( 
+            "username" => $username,
+            "email" => $email,
+            "fb_id" => $fb_id,
+            "gender" => $gender,
+            "picture" => $picture,
+            "email" => $email,
+            "first_name" => $first_name,
+            "last_name" => $last_name,
+            "link" => $link,
+            "locale" => $locale
+        );
+        $rtn_id = $this->db->insert("tbl_user", $data);
+        return $rtn_id;
+    }
 }
 ?>
