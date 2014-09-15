@@ -95,7 +95,7 @@ $yyyy = date('Y');
 $mm = date('m');
 $dd = date('d');
 
-$sql = 'SELECT `id`, `title`, `tags`, `img_url`, `img_tag` FROM `tbl_calendar` WHERE  `status` = 2 and `onflg` = "ON" order by `order` limit 100;';
+$sql = 'SELECT `id`, `title`, `keyword`, `img_url`, `img_tag` FROM `tbl_calendar` WHERE  `status` = 2 and `onflg` = "ON" order by `order` limit 100;';
 $result = mysql_query($sql,$db_conn);
 $cnt = 1;
 if($result)

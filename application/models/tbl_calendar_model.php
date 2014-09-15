@@ -87,6 +87,67 @@ class Tbl_calendar_model extends MY_Model {
         // return $query->result();
         return $query->result_array();
     }
+    //検索リスト全件
+    public function search_calist_all($arr_tag) {
+        // $this->db->start_cache();
+
+
+        $this->db->select('tbl_calendar.id as cal_id');
+        $this->db->from('tbl_calendar');
+        $this->db->where('tbl_calendar.onflg', 'ON'); 
+        $cnt = count($arr_tag);
+        if($cnt>0)
+        {
+            for($i=0;$i<$cnt;$i++)
+            {
+                $st="";
+                $st = 'FIND_IN_SET("'.$arr_tag[$i].'", tbl_calendar.tags)';
+                $this->db->where($st);
+            }
+        }
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
+    //検索リスト
+    public function search_calist_arr($arr_tag,$sort,$limit,$offset) {
+        // $this->db->start_cache();
+        $this->db->select('tbl_ymd.img_path as cal_img');
+        $this->db->select('tbl_calendar.id as cal_id');
+        $this->db->select('tbl_calendar.title as cal_title');
+        $this->db->select('tbl_calendar.tags as cal_tags');
+        $this->db->select('tbl_calendar.description as cal_description');
+        $this->db->from('tbl_calendar');
+        $this->db->from('tbl_ymd');
+        $this->db->where("tbl_ymd.calendar_id = tbl_calendar.id"); 
+        $this->db->where('tbl_calendar.onflg', 'ON'); 
+        $this->db->where('tbl_ymd.keyimg', "KEY"); 
+        //
+        $cnt = count($arr_tag);
+        if($cnt>0)
+        {
+            for($i=0;$i<$cnt;$i++)
+            {
+                $st="";
+                $st = 'FIND_IN_SET("'.$arr_tag[$i].'", tbl_calendar.tags)';
+                $this->db->where($st);
+            }
+        }
+        $this->db->group_by('tbl_ymd.calendar_id');
+        //
+        if($sort=='smart'){
+            $this->db->order_by('tbl_calendar.order asc'); 
+        }elseif($sort=='newer'){
+            $this->db->order_by('tbl_calendar.id desc'); 
+        }elseif($sort=='random'){
+            $this->db->order_by('rand()'); 
+        }
+        $this->db->limit($limit,$offset);
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        // return $query->result();
+        return $query->result_array();
+    }
     //カレンダー情報
     public function get_calist_info($calendar_id) {
         // $this->db->start_cache();

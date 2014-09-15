@@ -5,7 +5,7 @@ foreach ($star as $key1 => $star_flg)
 		// $star_flg = $value1;
 		// foreach ($value1 as $key2 => $value2){$star_flg['item'] = $value2;}}
 // echo $this->session->flashdata('redirect_url');
-// print_r($star_flg);
+// print_r($total);
 ?>
 <style>
 .fc-head{
@@ -43,20 +43,44 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト</small></h2> 
+			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト(<?=number_format($total_cnt)?>件)</small></h2> 
 		</div>
 		<!-- 検索窓 -->
 		<div class="col-md-4"  style="margin-top:20px;">
-			<form role="search" action="search" method="GET" id="search-form">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="キーワード、タグ" name="q" >
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-					</div>
-				</div>
-			</form>
+		<?php
+		$hidden = array('exm' => $exm);
+		echo form_open("/search/",'',$hidden);	//フォームを開く
+
+		echo '<div class="input-group">';
+		$search_st = 'class="form-control" placeholder="キーワード (スペース区切り)" type="text"';
+		$keyword = $this->input->post('keyword');
+		if(!$keyword){$keyword=$flash_keyword;}
+		echo form_input('keyword', $keyword,$search_st);	//Emailの入力フィールドを出力	
+		echo '<div class="input-group-btn">';
+		echo '<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>';
+		echo '</div>';
+		echo '</div>';
+		echo form_close();	//フォームを閉じる
+		?>
 		</div>
 		<!-- 検索窓 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</div>
 	<!--  -->
 	<hr id="1">

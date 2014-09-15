@@ -60,6 +60,11 @@ $route['smart/:num'] = "calist/index/smart";
 $route['newer/:num'] = "calist/index/newer";
 $route['random/:num'] = "calist/index/random";
 
+//検索
+$route['search/smart/:num'] = "search/index/smart";
+$route['search/newer/:num'] = "search/index/newer";
+$route['search/random/:num'] = "search/index/random";
+
 $route['smart'] = "calist/index/smart";
 $route['newer'] = "calist/index/newer";
 $route['random'] = "calist/index/random";
