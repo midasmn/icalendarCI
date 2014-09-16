@@ -93,6 +93,12 @@
 									<span class="glyphicon glyphicon-align-center"></span> ランダム
 								</a>
 							</li>
+							<li class="divider"></li>
+							<li class="">
+								<a href="/sitemap/">
+									<span class="glyphicon glyphicon-list-alt"></span> サイトマップ
+								</a>
+							</li>
 						</ul>
 					</li>
 					<!-- リスト -->

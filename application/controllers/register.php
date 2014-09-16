@@ -97,7 +97,6 @@ class Register extends CI_Controller{
     public function register_user($key)
     {
         $data = array();
-        // echo $key;
         //add_temp_usersモデルが書かれている、model_uses.phpをロードする
         $this->load->model("tbl_user_model","user");
         if($this->user->is_valid_key($key))
@@ -105,29 +104,26 @@ class Register extends CI_Controller{
             //add_usersがTrueを返したら以下を実行
             if($newemail = $this->user->add_user($key))
             {    
-                // echo "success";
-                // $data = array(
-                // "email" => $newemail,
-                // "is_logged_in" => 1
-                // );
-                // $this->sessinon->set_userdata($data);
+                //ログイン成功
                 redirect("/",'refresh');
-                //登録完了後画面
-                // $this->load->view('include/header',$data);
-                // $this->load->view('include/footer',$data);
             }else{
                 // echo "fail to add user. please try again";
-                $data = array(
-                'title' => '登録エラー',
-                'note' => '登録',
-                'message' => 'registerr'
-                );
+                $data['title'] = '登録エラー';
+                $data['message'] = 'registerr';
                 $data['validation_err'] = validation_errors();
                 $this->load->view('include/header',$data);
                 $this->load->view('register',$data);
                 $this->load->view('include/footer',$data);
             }
-        }else echo "invalid key";
+        }else{
+            //echo "invalid key";
+            $data['title'] = "登録URLエラー";
+            $data['h1'] = "登録URLエラー";
+            $data['message_st'] = "URLは無効です。<br>有効期限が切れています。";
+            $this->load->view('include/header',$data);
+            $this->load->view('message',$data);
+            $this->load->view('include/footer',$data);
+        } 
     }
 
 }
