@@ -46,8 +46,8 @@ class Search extends CI_Controller{
         $this->session->set_flashdata('keyword', $keyword); //フラッシュデータ
         $data['flash_keyword'] = $keyword;
         $keyword = preg_replace('/(\s|　)/',',',$keyword);   //全角半角スペースをカンマに
-        $keyword = str_replace('楽天市場', '楽天', $keyword);
-        $keyword = str_replace('楽天', '楽天市場', $keyword);
+        // $keyword = str_replace('楽天市場', '楽天', $keyword);
+        // $keyword = str_replace('楽天', '楽天市場', $keyword);
 
         $arr_keyword = explode(',',trim($keyword));   //カンマ区切りを配列に
 

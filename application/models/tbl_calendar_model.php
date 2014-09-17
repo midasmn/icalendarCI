@@ -26,6 +26,7 @@ class Tbl_calendar_model extends MY_Model {
         // $this->db->start_cache();
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->select('tbl_calendar.title as cal_title');
+        $this->db->select('tbl_calendar.group as cal_group');
         $this->db->from('tbl_calendar');
         $this->db->where('tbl_calendar.onflg', 'ON'); 
         $query = $this->db->get();

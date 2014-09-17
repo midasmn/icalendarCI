@@ -57,42 +57,26 @@
 	$cnt=1;
 	foreach ($cal_info as $rowR) 
 	{
-		$ch_st = $rowR->cal_title;
-		if(stristr($ch_st,'楽天市場')){
-			$exm_st = '楽天市場';
-		}elseif(stristr($ch_st,'アマゾン')){
-			$exm_st = 'アマゾン';
-		}elseif(stristr($ch_st,'オリコン')){
-			$exm_st = 'オリコン';
-		}elseif(stristr($ch_st,'iTunes')){
-			$exm_st = 'iTunes';
-		}elseif(stristr($ch_st,'google画像')){
-			$exm_st = 'google画像';
-		}
-		elseif(stristr($ch_st,'yahoo')){
-			$exm_st = 'Yahoo';
-		}else{
-			$exm_st = '';
-		}
+		$exm_st = $rowR->cal_group;
 		if($cnt==1){$old_st="";}
 		$new_st = $exm_st;
 		if($old_st==$new_st){
 		}else{
 			$old_st = $new_st;
 			switch ($new_st) {
-				case '楽天市場':
+				case 'rakuten':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h4>楽天市場ランキング</h4></p>';
 					echo '</div>';
 					break;
-				case 'アマゾン':
+				case 'amazon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h4>アマゾンベストセラー</h4></p>';
 					echo '</div>';
 					break;
-				case 'オリコン':
+				case 'oricon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h4>オリコン</h4></p>';
@@ -104,13 +88,13 @@
 					echo '<p><h4>iTunes</h4></p>';
 					echo '</div>';
 					break;
-				case 'google画像':
+				case 'google':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h4>google画像</h4></p>';
 					echo '</div>';
 					break;
-				case 'Yahoo':
+				case 'yahoo':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h4>Yahoo</h4></p>';
