@@ -59,6 +59,28 @@ position: relative;
 	<hr >
 
 	<div class="row" style="margin-top:5px;">
+	<?php
+		$exm_group = $rowR->cal_group;
+		if($exm_group=='amazon'){
+			echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-primary btn-block">';
+			echo 'アマゾンで購入';
+			echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+			echo '</a>';
+		}elseif($exm_group=='rakuten'){
+			echo '<!-- Rakuten Widget FROM HERE -->';
+			echo '<script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="036b7509.78adb382.0f0914ee.79e7e208";rakuten_items="ctsmatch";rakuten_genreId=0;rakuten_size="600x200";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="off";rakuten_genre_title="off";rakuten_recommend="on";</script>';
+			echo '<script type="text/javascript" src="http://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>';
+			echo '<!-- Rakuten Widget TO HERE -->';
+		}elseif($exm_group=='iTunes'){
+			echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-primary btn-block">';
+			echo 'iTunesで購入';
+			echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+			echo '</a>';
+		}
+	?>
+
+
+	
 
 		<?php foreach ($dayitem as $rowD):?>
 		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
@@ -70,17 +92,33 @@ position: relative;
 						</a>
 					</p>
 				</div>
-				<a href="https://creativemarket.com/bootstrap-carnival/47298-Elemental-Minimal-Elegant-Theme?u=msurguy" target="_blank">
+				<a href="#" target="_blank">
 					<img class="product-cover" src="<?php echo $rowD->img_path;?>" alt="<?php echo $rowD->img_alt;?>">
 				</a>
 				<div class="caption">
 					<p class="product-description">
 						説明</p>
 					<p>
-						<a href="#" target="_blank" class="btn btn-primary btn-block">
-							アマゾンで購入
-							<span class="glyphicon glyphicon-shopping-cart"></span>
-						</a>
+					<?php
+					$exm_group = $rowR->cal_group;
+					if($exm_group=='amazon'){
+						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-primary btn-block">';
+						echo 'アマゾンで購入';
+						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+						echo '</a>';
+					}elseif($exm_group=='rakuten'){
+						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-primary btn-block">';
+						echo '楽天市場で購入';
+						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+						echo '</a>';
+						
+					}elseif($exm_group=='iTunes'){
+						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-primary btn-block">';
+						echo 'iTunesで購入';
+						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+						echo '</a>';
+					}
+					?>
 					</p>
 				</div>
 			</div>
