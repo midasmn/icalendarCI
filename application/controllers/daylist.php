@@ -90,9 +90,9 @@ class Daylist extends CI_Controller{
         if($userid<>-1){
             $data['menu'] = $this->calendar->menu_favorites_arr($userid);
         }
-        $data['title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];                
+        $data['title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];              
         // OGタグ設定
-        $data['og_title'] = $data['title'];
+        $data['og_title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];
         $data['og_url'] = $config['base_url']."/daylist/".$calendar_id."/".$yyyy."/".$mm."/".$dd;
         $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
         // OGタグ設定
