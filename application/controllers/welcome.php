@@ -56,8 +56,10 @@ class Welcome extends CI_Controller {
 		//
 		// $this->load->model('tbl_ymd');
 		// $this->input->post('title');
-		$this->load->view('include/header',$data);
-		$this->load->view('include/footer',$data);
+		// $this->load->view('include/header',$data);
+		// http://icalendar.xyz/calendar/347
+		// $this->load->view('include/footer',$data);
+		redirect ("/calendar/343");  
 	}
 }
 

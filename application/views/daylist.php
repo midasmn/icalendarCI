@@ -1,6 +1,9 @@
 <?php
 foreach ($cal_info as $rowR) {}
 foreach ($data as $row) {}
+$myrakutenafid = '04068848.c0d7755d.04068849.fd1cdf92';
+$raku_pre_url = 'http://hb.afl.rakuten.co.jp/hgc/'.$myrakutenafid.'/?pc=';
+$raku_mid_url = '?scid=af_link_txt&m=';
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -194,7 +197,10 @@ position: relative;
 						echo ' アマゾンで購入';
 						echo '</a>';
 					}elseif($exm_group=='rakuten'){
-						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-danger btn-block">';
+                        //楽天UR
+                        $raku_html = urlencode($rowD->href.$raku_mid_url.$rowD->href);
+                        $raku_url = $raku_pre_url.$raku_html;
+						echo '<a href="'.$raku_url.'" target="_blank" class="btn btn-danger btn-block">';
 						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
 						echo ' 楽天市場で購入';
 						echo '</a>';
