@@ -30,16 +30,21 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
-				<a href="javascript: void(0)" id="star">
 				<?php
+				echo '<a href="javascript: void(0)" class="starexm">';
+				echo '<input type="hidden" id="calendar_id" value="'.$cal_id.'">';
+				echo '<input type="hidden" id="userid" value="'.$userid.'">';
+				echo '<input type="hidden" id="exm" value="calendar">';
 				if($star_flg=="ON")
 				{
-					echo '<span class="glyphicon glyphicon-star"></span>';
+					echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+					echo '<span  style="display: none"  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
 				}else{
-					echo '<span class="glyphicon glyphicon-star-empty"></span>';
+					echo '<span style="display: none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+					echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
 				}
+				echo '</a>';
 				?>
-				</a>
 				<?=$rowR->cal_title?>
 			</h1>
 		</div>

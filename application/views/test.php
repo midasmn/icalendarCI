@@ -1,43 +1,29 @@
 <?php
 
+$userid = 2;
+$calendar_id = 1234;
 ?>
 
 <!-- <?=$rtn_id?> -->
 
-<!-- <div class="ml_buttons"> -->
-<!--     <input type="hidden" id="calendar_id" value="<?=$calendar_id?>">
-    <input type="hidden" id="userid" value="<?=$userid?>">
-	<span id="starexm" class="glyphicon glyphicon-star"></span>
-	<span id="starexm" class="star_btn glyphicon glyphicon-star-empty"></span>
-</div> -->
-<!--ボタン-->
+ <!--ボタン-->
+<!--                         <div class="ml_buttons">
+                            <input type="hidden" id="itemid" value="<?=$itemid?>">
+                            <input type="hidden" id="memberid" value="<?=$memberid?>">
+                            <input type="hidden" id="subcategoriesid" value="<?=$subcategories_id?>">
+                            <input type="hidden" id="brandid" value="<?=$brand_id?>">
+                            <input type="hidden" id="exm" value="<?=$exm?>">
+                            <button class="have_sns">持っている<?=$have?></button>
+                        </div> -->
+                        <!--ボタン-->
 
 
-<button>Toggle</button>
-<p>Hello</p>
-<p style="display: none">Good Bye</p>
 
 
-
-<script>
-// $(document).ready(function() {
-// 	$(".star_btn").click(function(){
-//         var exm = 'calendar';
-// 		var calendar_id = $("#calendar_id").val();
-// 		var userid = $("#userid").val();
-// 		$.post('/ajax/star_list', {
-//     		calendar_id: calendar_id,
-// 			userid: userid,
-// 			exm: exm}, function(rs) {
-//  			var e = '持っている(' + rs + ')';
-//        		$('.have_sns').text(e);
-// 		});
-//     });
-
-// });
-
-
-$("button").click(function () {
-  $("p").toggle();
-});
-</script>
+<a href="javascript: void(0)">
+	<input type="hidden" id="calendar_id" value="<?=$calendar_id?>">
+	<input type="hidden" id="userid" value="<?=$userid?>">
+	<!-- <span class="starexm glyphicon glyphicon-star" title="お気に入りから削除"></span> -->
+	<span class="starexm glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>
+	<span style="display: none" class="starexm glyphicon glyphicon-star" title="お気に入りから削除"></span>
+</a>

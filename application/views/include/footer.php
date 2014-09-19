@@ -56,6 +56,35 @@ $(function(){
 </script> -->
 <!-- ドロップダウン用 -->
  <!-- ポップオーバー -->
+ <!-- カレンダー一覧お気に入り -->
+<script>
+$(document).ready(function() {
+	$(".starexm").click(function(){
+		var calendar_id = $("#calendar_id").val();
+		var userid = $("#userid").val();
+		$.post('/ajax/star_list', {
+    		calendar_id: calendar_id,
+			userid: userid}, function(rs) {
+ 			// var e = 'すばらしい(' + rs + ')';
+
+ 			var e = rs ;
+ 			$(".startoggle").toggle();
+       		$('.startoggle').text(e);
+       		
+
+
+
+
+
+
+
+			// function(){
+			// 	$(".starexm").toggle();
+		});
+    });
+});
+</script>
+<!-- カレンダー一覧お気に入り -->
  <script>
 $('.tooltip-tool').tooltip({
   selector: "a[data-toggle=tooltip]"
@@ -103,5 +132,6 @@ a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
 a("https://widgets.getpocket.com/v1/j/btn.js");
 })(this,document);
 </script>
+
 </body>
 </html>

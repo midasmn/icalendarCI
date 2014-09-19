@@ -39,7 +39,7 @@
 */
 //bookmark
 
-$route['test'] = "jquery/index";
+// $route['test'] = "jquery/index";
 
 
 // $route['setting'] = "setting/index";
