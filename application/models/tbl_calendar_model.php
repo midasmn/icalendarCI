@@ -69,6 +69,7 @@ class Tbl_calendar_model extends MY_Model {
         $this->db->select('tbl_calendar.title as cal_title');
         $this->db->select('tbl_calendar.tags as cal_tags');
         $this->db->select('tbl_calendar.description as cal_description');
+        $this->db->select('tbl_ymd.description as ymd_description');
         $this->db->from('tbl_calendar');
         $this->db->from('tbl_ymd');
         $this->db->where("tbl_ymd.calendar_id = tbl_calendar.id"); 

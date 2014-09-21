@@ -81,7 +81,10 @@ class Daylist extends CI_Controller{
         $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
         //カレンダー情報
         $data['cal_info'] = $this->calendar->get_calist_info($calendar_id);
-        foreach ($cal_info as $rowR) {$data['title'] = $rowR->cal_title;}
+        foreach ($data['cal_info']  as $rowR) 
+        {
+            $data['title'] = $yyyy."年".$mm."月".$dd."日".$rowR->cal_title;
+        }
         //DBカレンダアイテム
         $data['dayitem'] = $this->ymd->find_day_list($calendar_id,$yyyy,$mm,$dd);
    
@@ -90,9 +93,9 @@ class Daylist extends CI_Controller{
         if($userid<>-1){
             $data['menu'] = $this->calendar->menu_favorites_arr($userid);
         }
-        $data['title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];              
+        // $data['title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];              
         // OGタグ設定
-        $data['og_title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];
+        $data['og_title'] = $data['title'];
         $data['og_url'] = $config['base_url']."/daylist/".$calendar_id."/".$yyyy."/".$mm."/".$dd;
         $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
         // OGタグ設定

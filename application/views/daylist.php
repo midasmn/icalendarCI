@@ -233,6 +233,7 @@ position: relative;
 						}
 						?>
 					</p>
+                    <?php echo $rowD->ymd_description;?>
 				</div>
 			</div>
 		</div>

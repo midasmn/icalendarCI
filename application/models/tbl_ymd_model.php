@@ -23,6 +23,7 @@ class Tbl_ymd_model extends MY_Model {
         $this->db->select('tbl_ymd.dd as dd');
         $this->db->select('tbl_ymd.img_path as img_path');
         $this->db->select('tbl_ymd.img_alt as img_alt');
+        $this->db->select('tbl_ymd.description as ymd_description');
         $this->db->from('tbl_ymd');
         $this->db->where('tbl_ymd.calendar_id', $calendar_id); 
         $where = "(`yyyy` = ".$yyyy." or  `yyyy` = 9999 )";
@@ -43,6 +44,7 @@ class Tbl_ymd_model extends MY_Model {
         $this->db->select('tbl_ymd.img_alt as img_alt');
         $this->db->select('tbl_ymd.name as name');
         $this->db->select('tbl_ymd.href as href');
+        $this->db->select('tbl_ymd.description as ymd_description');
         $this->db->from('tbl_ymd');
         $this->db->where('tbl_ymd.calendar_id', $calendar_id); 
         $where = "(`yyyy` = ".$yyyy." or  `yyyy` = 9999 )";

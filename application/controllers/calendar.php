@@ -104,6 +104,7 @@ class Calendar extends CI_Controller{
         foreach ($calitem as $value) { //3回繰り返し
             $itmarr[$value->dd]['img_path'] = $value->img_path; //画像URL
             $itmarr[$value->dd]['img_alt'] = $value->img_alt;   //画像ALT 
+            $itmarr[$value->dd]['ymd_description'] = $value->ymd_description;   //画像ALT 
         }
         //////////////////////////
         //カレンダー配列作成
@@ -129,7 +130,7 @@ class Calendar extends CI_Controller{
             $week .= '<td class="col-xs-1 col-sm-1 col-md-1" >';
             $week .= '<a  href="/daylist/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
             $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" ';
-            $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['img_alt'].'">';
+            $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['ymd_description'].'">';
             $week .= '<span>'.$day.'</span>';
             if(!$itmarr[$day]['img_path']){
                 $week .= '<img src="//icalendar.xyz/application/img/blank.jpg" ';
