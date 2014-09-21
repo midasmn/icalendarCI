@@ -30,26 +30,26 @@ class Test extends CI_Controller {
 		if(!$userid){$userid=1;}
         if(!$calendar_id){$calendar_id=1;}
 
-		$this->load->model('tbl_star_model', 'star'); 
-        $rtn_arr = $this->star->insert_update_chck($exm,$calendar_id,$userid);
-        if(count($rtn_arr)>=1)
-        {
-            //アップデート
-            // print_r($rtn_arr);
-            foreach ($rtn_arr as $key1 => $value1)
-            {
-                foreach ($value1 as $key2 => $value2)
-                {
-                    if($key2=='starflg'){$starflg=$value2;}
-                    if($key2=='id'){$id=$value2;}
-                }
-            }
-            $rtn_id = $this->star->update($exm,$calendar_id,$userid,$id,$starflg);
-        }else{
-            $rtn_id = $this->star->insert($exm,$calendar_id,$userid);          
-        }      
+		// $this->load->model('tbl_star_model', 'star'); 
+  //       $rtn_arr = $this->star->insert_update_chck($exm,$calendar_id,$userid);
+  //       if(count($rtn_arr)>=1)
+  //       {
+  //           //アップデート
+  //           // print_r($rtn_arr);
+  //           foreach ($rtn_arr as $key1 => $value1)
+  //           {
+  //               foreach ($value1 as $key2 => $value2)
+  //               {
+  //                   if($key2=='starflg'){$starflg=$value2;}
+  //                   if($key2=='id'){$id=$value2;}
+  //               }
+  //           }
+  //           $rtn_id = $this->star->update($exm,$calendar_id,$userid,$id,$starflg);
+  //       }else{
+  //           $rtn_id = $this->star->insert($exm,$calendar_id,$userid);          
+  //       }      
 
-        echo $rtn_id;
+  //       echo $rtn_id;
 
 		$data = array(
 		 	'title' => 'テスト',

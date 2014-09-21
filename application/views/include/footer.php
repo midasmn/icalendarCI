@@ -66,24 +66,16 @@ $(document).ready(function() {
     		calendar_id: calendar_id,
 			userid: userid}, function(rs) {
  			// var e = 'すばらしい(' + rs + ')';
-
  			var e = rs ;
  			$(".startoggle").toggle();
        		$('.startoggle').text(e);
-       		
-
-
-
-
-
-
-
 			// function(){
 			// 	$(".starexm").toggle();
 		});
     });
 });
 </script>
+
 <!-- カレンダー一覧お気に入り -->
  <script>
 $('.tooltip-tool').tooltip({
