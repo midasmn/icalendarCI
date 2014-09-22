@@ -21,7 +21,7 @@
 }
 </style>
 <!-- ページ -->
-<div class="container">
+<div class="container  text-muted">
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">

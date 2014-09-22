@@ -56,7 +56,8 @@ class Test extends CI_Controller {
 		 	'note' => '・テスト'
             );
 		$this->load->view('include/header',$data);
-		$this->load->view('test',$data);
+		// $this->load->view('test',$data);
+		$this->load->view('welcome',$data);
 		$this->load->view('include/footer',$data);
 	}
 }

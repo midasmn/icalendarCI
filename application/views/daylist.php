@@ -184,9 +184,9 @@ position: relative;
 					</p>
 				</div>
 				
-				<a href="" target="_blank">
+				<!-- <a href="" target="_blank"> -->
 					<img class="product-cover" src="<?php echo $rowD->img_path;?>" alt="<?php echo $rowD->img_alt;?>">
-				</a>
+				<!-- </a> -->
 				<div class="caption">
 					<p>
 					<?php
