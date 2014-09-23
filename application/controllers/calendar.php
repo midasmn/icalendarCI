@@ -51,7 +51,7 @@ class Calendar extends CI_Controller{
         // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
-        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
+        $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
         $data['og_url'] = "http://icalendar.xyz" ;
         $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
         // ogタグ
@@ -118,7 +118,7 @@ class Calendar extends CI_Controller{
         if($youbi>=3){
             //広告枠
             
-            $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><div class="thumbnail bootsnipp-thumb" style="background-color:#f5f5f5;"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;"></div></td>';
             $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi-1);    //空埋め
         }else{
              $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
@@ -127,17 +127,17 @@ class Calendar extends CI_Controller{
         for($day = 1; $day <= $lastDay; $day++, $youbi++)
         {
             //1日から最終日まで
-            $week .= '<td class="col-xs-1 col-sm-1 col-md-1" >';
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
             $week .= '<a  href="/daylist/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
             $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" ';
             $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['ymd_description'].'">';
             $week .= '<span>'.$day.'</span>';
             if(!$itmarr[$day]['img_path']){
-                $week .= '<img src="//icalendar.xyz/application/img/blank.jpg" ';
+                $week .= '<div class="thumbnail bootsnipp-thumb"  style="background-color:#f0f0f0;"><img src="//icalendar.xyz/application/img/blank.jpg" ';
             }else{
-                 $week .= '<img src="'.$itmarr[$day]['img_path'].'"  ';
+                 $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;"><img src="'.$itmarr[$day]['img_path'].'"  ';
             }
-            $week .= ' class="img-responsive" alt="'.$yyyy.'年'.$mm.'月'.$day.'日" style="background-color:#428bca;">';
+            $week .= ' class="img-responsive" alt="'.$yyyy.'年'.$mm.'月'.$day.'日" ></div>';
             $week .= '</a>';
             $week .= '</td>';
             //土曜日週ごとに分割
@@ -150,7 +150,7 @@ class Calendar extends CI_Controller{
                         //公告枠
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7)-1);
 
-                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#428bca;"></td>';
+                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;"></div></td>';
                     }else{
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
                     }  

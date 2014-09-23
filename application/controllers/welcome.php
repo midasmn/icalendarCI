@@ -49,17 +49,16 @@ class Welcome extends CI_Controller {
 		if($userid<>-1){
 			$data['menu'] = $this->calendar->menu_favorites_arr($userid);
 		}
-		//メニューお気に入りセレクト
-		
-
-		// $this->load->view('welcome_message');
-		//
-		// $this->load->model('tbl_ymd');
-		// $this->input->post('title');
-		// $this->load->view('include/header',$data);
-		// http://icalendar.xyz/calendar/347
-		// $this->load->view('include/footer',$data);
-		redirect ("/calendar/343");  
+		// ogタグ初期値
+        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
+        $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
+        $data['og_url'] = "http://icalendar.xyz" ;
+        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        // ogタグ
+	
+		$this->load->view('include/header',$data);
+		$this->load->view('welcome',$data);
+		$this->load->view('include/footer',$data);
 	}
 }
 

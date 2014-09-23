@@ -224,6 +224,5 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		<!-- SNS -->
 
 
-
 	</div>
 </div>
