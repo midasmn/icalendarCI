@@ -143,6 +143,7 @@ class Staticpages extends CI_Controller{
 		$this->load->model('tbl_ymd_model', 'ymd'); //アイテム
 		//
 		$data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
 		$data['ymdcnt'] = $this->ymd->count_ymd_all();
         //カレンダー情報
         $data['faq'] = $this->faq->get_faq_list();

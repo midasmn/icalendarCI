@@ -1,6 +1,7 @@
 <?php
 foreach ($calcnt as $row) {}
 foreach ($ymdcnt as $rowM) {}
+foreach ($daycnt as $rowD) {}
 ?>
 <div class="container  text-muted">
 	<div class="row">
@@ -22,8 +23,9 @@ foreach ($ymdcnt as $rowM) {}
 					<div id="faq0" class="panel-collapse collapse">
 						<div class="panel-body">
 						<?=date('Y-m-d')?> 現在<br>
-						登録カレンダー数：<?=number_format($row->calcnt)?><br>
-						登録画像数：<?=number_format($rowM->ymdcnt)?>
+						登録カレンダー数：<?=number_format($row->calcnt)?> 件<br>
+						カレンダー掲載日数：<?=number_format($rowD->daycnt)?> 日<br>
+						カレンダー登録画像数：<?=number_format($rowM->ymdcnt)?> 点
 						</div>
 					</div>
 				</div>

@@ -67,5 +67,15 @@ class Tbl_ymd_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    public function count_day_all() {
+        // $this->db->start_cache();
+        // $this->db->select('COUNT(calendar_id) as daycnt');
+        $this->db->select('COUNT(*) as daycnt');
+        $this->db->from('tbl_ymd');
+        $this->db->where('order', 1); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

@@ -25,7 +25,7 @@ $dayurl = '/daylist/4066/'.$lastday;
 
    <div class="row">
 		<div class="col-sm-12  col-md-12">
-            <h3 class="text-muted text-center">あの日の最も人気のあった画像を記録します。</h3>
+            <h3 class="text-muted text-center">あの日の最も人気のあった画像をカレンダー形式で記録します。</h3>
         </div>
     </div>
      <div class="row" style="margin-top:30px;">
