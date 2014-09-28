@@ -1,8 +1,4 @@
 <?php
-// $star_flg = array();
-// foreach ($star as $key1 => $star_flg)
-// {}
-
 ?>
 <style>
 /*ページtopスクロール*/
@@ -34,7 +30,6 @@
 		<?php
 		$hidden = array('exm' => $exm);
 		echo form_open("/search/",'',$hidden);	//フォームを開く
-
 		echo '<div class="input-group">';
 		$search_st = 'class="form-control" placeholder="キーワード (スペース区切り)" type="text"';
 		$keyword = $this->input->post('keyword');
@@ -51,7 +46,6 @@
 	</div>
 	<!--  -->
 	<hr id="1">
-
 	<?php
 	$old_st = "";
 	$cnt=1;
@@ -105,13 +99,17 @@
 					break;
 			}
 		}
-
 		echo '<div class="col-xs-12 col-sm-6 col-md-4">';
-		echo '<a href="/calendar/'.$rowR->cal_id.'">'.$rowR->cal_title.'</a>';
+		$st = $rowR->cal_title;
+		$new_str = str_replace('男性ランキング', '', $st);
+		$new_str = str_replace('女性ランキング', '', $new_str);
+		$new_str = str_replace('ランキング', '', $new_str);
+		$new_str = str_replace('ベストセラー', '', $new_str);
+		$new_str = str_replace('デイリー', '', $new_str);
+		// echo '<a href="/calendar/'.$rowR->cal_id.'">'.$rowR->cal_title.'</a>';
+		echo '<a href="/calendar/'.$rowR->cal_id.'">'.$new_str.'</a>';
 		echo '</div>';
-			
-		$cnt++;
-				
+		$cnt++;			
 	}
 	?>
 	<!--  -->
@@ -126,6 +124,5 @@
 	</div>
 </div>
 <!--  -->
-
 </div>
 

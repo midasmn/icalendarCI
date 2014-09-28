@@ -12,7 +12,6 @@ class Sitemap extends CI_Controller{
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
     }
-
     public function index()
     {
         $userid=-1;
@@ -45,7 +44,6 @@ class Sitemap extends CI_Controller{
         $data['og_url'] = "http://icalendar.xyz" ;
         $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
         // ogタグ
-
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');   //カレンダー
         //カレンダー情報

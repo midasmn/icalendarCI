@@ -30,7 +30,7 @@ $dayurl = '/daylist/4066/'.$lastday;
     </div>
      <div class="row" style="margin-top:30px;">
      	<div class="thumbnail bootsnipp-thumb">
-            <img src="<?=base_url('/application/img/main.jpg')?>"  class="img-responsive text-center" alt="iCalendarへようこそ-あの日の最も人気のあった画像を記録します。" />
+            <img src="<?=base_url('/application/img/main_mini.jpg')?>"  class="img-responsive text-center" alt="iCalendarへようこそ-あの日の最も人気のあった画像を記録します。" />
         </div>
     </div>
 
@@ -38,7 +38,7 @@ $dayurl = '/daylist/4066/'.$lastday;
     <div class="row" style="margin-top:50px;">
         <div class="col-sm-4">
         	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center" src="<?=base_url('/application/img/callist.jpg')?>"  alt="" />
+            	<img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
             
             <h4>600種類以上のカレンダー:</h4>
             	<p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど600を超える多彩なジャンルの画像を記録したカレンダーからジャンルを独占する隠れた名品などがわかります。<br />
@@ -48,7 +48,7 @@ $dayurl = '/daylist/4066/'.$lastday;
         </div>
         <div class="col-sm-4">
         	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center" src="<?=base_url('/application/img/aircal.jpg')?>"  alt="" />
+            	<img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
             <h4>1番人気の画像がひと目でわかる:</h4>
             	<p>インターネット上の膨大な情報からいろいろなジャンルで最も人気があった画像を毎日カレンダー形式で記録しているので、記憶が曖昧でもひと目でその月の出来事が鮮明に蘇ります。<br />
    					<span class="more"><a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a></span>
@@ -57,7 +57,7 @@ $dayurl = '/daylist/4066/'.$lastday;
         </div>
         <div class="col-sm-4">
         	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center"  src="<?=base_url('/application/img/daylist.jpg')?>" alt="" />
+            	<img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
             <h4>その日の2番以降の画像もみれる:</h4>
             	<p>カレンダー形式は1日1画像ですが、日付をクリックすると2番以降の画像もみれます。(商品の売上げランキング等の場合は購入リンクボタン付きなのですぐ買い物ができます)<br />
    					<span class="more"><a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a></span>

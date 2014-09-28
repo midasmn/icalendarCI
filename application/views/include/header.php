@@ -147,8 +147,10 @@
 				{
 				// <!-- お気に入りセレクト -->
 				echo '<div class="btn-group navbar-form">';
-				echo '<form action="/calendar/" method="GET">';
-                echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
+				// echo '<form action="/calendar/" method="GET">';
+                // echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
+                echo '<select class="form-control" name="index"  onChange="location.href=value;">';
+
                 	if(count($menu)>=1)
                 	{
                 		if($exm=="smart"||$exm=="newer"||$exm=="randam"){
@@ -162,11 +164,11 @@
             				if($cal_id==$rowM->m_cal_id)
             				{
             					echo '<li>';
-              					echo '<option selected = "selected" value="'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
+              					echo '<option selected = "selected" value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
               					echo '</li>';
             				}else{
             					echo '<li>';
-              					echo '<option  value="'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
+              					echo '<option  value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
               					echo '</li>';
             				}
                   		}
