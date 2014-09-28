@@ -16,36 +16,43 @@ class Ajax extends CI_Controller{
         $calendar_id = (int)$_POST['calendar_id'];
         $userid = (int)$_POST['userid'];
         $exm = $_POST['exm'];
+        if(!$exm){$exm="star";}
 
         if(!$userid){$userid=1;}
         if(!$calendar_id){$calendar_id=1;}
 
         $this->load->model('tbl_star_model', 'star'); 
-        // $rtn_arr = $this->star->insert_update_chck($exm,$calendar_id,$userid);
-        // if(count($rtn_arr)>=1)
-        // {
-        //     //アップデート
-        //     foreach ($rtn_arr as $key1 => $value1)
-        //     {
-        //         foreach ($value1 as $key2 => $value2)
-        //         {
-        //             if($key2=='starflg'){$starflg=$value2;}
-        //             if($key2=='id'){$id=$value2;}
-        //         }
-        //     }
-        //     // $this->star->update($exm,$calendar_id,$userid,$id,$starflg);
-        // }else{
-            // $this->star->insert($exm,$calendar_id,$userid);      
-        // }    
-
-
-        // echo $calendar_id.'-'.$userid;
+        $rtn_arr = $this->star->insert_update_chck($exm,$calendar_id,$userid);
+        if(count($rtn_arr)>=1)
+        {
+            //アップデート
+            foreach ($rtn_arr as $key1 => $value1)
+            {
+                foreach ($value1 as $key2 => $value2)
+                {
+                    if($key2=='starflg'){$starflg=$value2;}
+                    if($key2=='id'){$id=$value2;}
+                }
+            }
+            $this->star->update($exm,$calendar_id,$userid,$id,$starflg);
+        }else{
+            if(!$starflg){
+                $starflg="ON";
+            }elseif($starflg=="ON"){
+                $starflg="OFF";
+            }else{
+                $starflg="ON";
+            }
+            $rtn = $this->star->insert($exm,$calendar_id,$userid,$starflg);      
+        // $rtn = $this->star->insert($exm,,$calendar_id,$userid,$starflg);    
+        }    
+        // echo $calendar_id.'-'.$userid.'-'.$exm.'-'.$starflg;
         // return/
     }
 
     public function test()
     {
-
+// 
          // var param = { "calid": "calendar_id", "uid": userid };
 
         // $json = file_get_contents('php://input');

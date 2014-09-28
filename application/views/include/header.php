@@ -150,35 +150,27 @@
 				// echo '<form action="/calendar/" method="GET">';
                 // echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
                 echo '<select class="form-control" name="index"  onChange="location.href=value;">';
-
-                	if(count($menu)>=1)
+                	$menucnt = count($menu);
+                	if($menucnt>=1)
                 	{
-                		if($exm=="smart"||$exm=="newer"||$exm=="randam"){
-                		}else{
-                			echo '<li>';
-							echo '<option value="">お気に入りリスト</option>';
-							echo '</li>';
-                		}
+                		echo '<li>';
+						echo '<option value="">お気に入りリスト</option>';
+						echo '</li>';
                 		foreach ($menu as $rowM) 
                 		{
-            				if($cal_id==$rowM->m_cal_id)
-            				{
-            					echo '<li>';
-              					echo '<option selected = "selected" value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
-              					echo '</li>';
-            				}else{
-            					echo '<li>';
-              					echo '<option  value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
-              					echo '</li>';
-            				}
+                			if($cal_id==$rowM->m_cal_id){$select_st = 'selected = "selected" ';}else{$select_st = '';}
+                			echo '<li>';
+              				echo '<option '.$select_st.' value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
+              				echo '</li>';
                   		}
+                  	//ゼロ件
                 	}else{
                 			echo '<li>';
                   			echo '<option selected value="">お気に入りを表示します</option>';
                   			echo '</li>';
                 	}
                 echo '</select>';
-                echo '</form>';
+                // echo '</form>';
             	echo '</div>';
 				// <!-- お気に入りセレクト -->
 					echo '<!-- ログイン後 -->';

@@ -26,9 +26,10 @@ class Tbl_star_model extends MY_Model {
         // return  $query->result();
         // $sw = return  $sw;
     }
-    public function insert($exm,$itemid,$userid) {
+    public function insert($exm,$itemid,$userid,$starflg) {
         //インサート
         $now = $this->now();
+        // $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
         $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
         $this->db->insert('tbl_star', $data); 
         return  $this->db->insert_id();

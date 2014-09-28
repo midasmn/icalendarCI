@@ -1,4 +1,5 @@
 <?php
+
 $star_flg = array();
 foreach ($star as $key1 => $star_flg)
 {}
@@ -95,23 +96,27 @@ position: relative;
 						// }
 						echo '<tr>';
 						echo '<td style="text-align: center;vertical-align:middle;">';
+
+
 						// echo '<a href="javascript: void(0)" id="starexm">';
 						//スター付与チェック
-						echo '<a href="javascript: void(0)" class="starexm">';
+						echo '<a href="javascript: void(0)" class="starexmlist['.$calendar_id.']">';
 						echo '<input type="hidden" id="calendar_id" value="'.$calendar_id.'">';
 						echo '<input type="hidden" id="userid" value="'.$userid.'">';
-						echo '<span style="display: none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-						echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-						echo '</a>';
-						// if (in_array($htm_cal_id,$star_flg)) 
-						// {
-   		 // 					echo '<span id="starexm" class="glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-						// }
-						// else {
-						//     echo '<span id="starexm" class="glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-						// }
+						echo '<input type="hidden" id="exm" value="list">';
+						if (in_array($htm_cal_id,$star_flg)) 
+						{
+   		 					echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+   		 					echo '<span style="display:none" class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+						}
+						else {
+   		 					echo '<span style="display:none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+   		 					echo '<span class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+						}
 						//スター付与チェック
-						// echo '</a>';
+						echo '</a>';
+
+
 						echo '</td>';
 						echo '<td>';
 						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';

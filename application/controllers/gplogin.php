@@ -2,9 +2,13 @@
 
 class Gplogin extends CI_Controller{
     public $user = null;
-    public function __construct(){
+    public function __construct()
+    {
+
+        $this->output->enable_profiler(TRUE);
         parent::__construct();
-        //
+        parse_str($_SERVER['QUERY_STRING'], $_REQUEST);
+
         set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ .'/vendor/google/apiclient/src');
         require_once __DIR__.'/vendor/autoload.php';
         use Symfony\Component\HttpFoundation\Request;
@@ -20,120 +24,99 @@ class Gplogin extends CI_Controller{
         $client->setClientSecret(CLIENT_SECRET);
         $client->setRedirectUri('postmessage');
         $plus = new Google_Service_Plus($client);
-
-        // $app = new Silex\Application();
-        // $app['debug'] = true;
-        // $app->register(new Silex\Provider\TwigServiceProvider(), array(
-        //     'twig.path' => __DIR__,
-        // ));
-        $this = new Silex\Application();
-        $this['debug'] = true;
-        $this->register(new Silex\Provider\TwigServiceProvider(), array(
+        $app = new Silex\Application();
+        $app['debug'] = true;
+        $app->register(new Silex\Provider\TwigServiceProvider(), array(
             'twig.path' => __DIR__,
         ));
+        
     }
- 
-    private function userinfo($access_token){
-        $userinfo = $this->serverGet('https://www.googleapis.com/oauth2/v1/userinfo', array('access_token' => $access_token), null, $headers);
-        if (!empty($userinfo)){
-            return json_decode($userinfo);
-        }
-    }
-    public static function serverGet($url, $data, $options = null, &$responseHeaders = null){
-        return self::httpRequest($url.'?'.http_build_query($data, '', '&'), $options, $responseHeaders);
-    }
-    /////////////////////////////////////////////////////
-    // google
-    /////////////////////////////////////////////////////
-    function index()
-    {
-        $this->input->get('code', TRUE);
-        if (empty($_GET['code']))
-//      if (array_key_exists('code', $_GET) && !empty($_GET['code']))
-        {
-            // 認証ダイアログの作成
-            $params = array(
-           'client_id' => '804726524736-olaeauldnspoipf8jlk6vobtd6oqa2fa.apps.googleusercontent.com ', //APP_ID,
-           'redirect_uri' => 'http://icalendar.xyz/gplogin/', //SITE_URL.'redirect.php',
-            'state' => sha1(uniqid(mt_rand(), true)),
-            'approval_prompt' => 'force',
-            'scope' => 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-            'response_type' => 'code'
-            );
-            $url = "https://accounts.google.com/o/oauth2/auth?".http_build_query($params);
-            //Googleに飛ばす
-            //$this->redirect($url);gb
-             // googleへ飛ばす
-              header('Location: '.$url);
-                exit;
-        }else{
-            $code = $_GET['code'];
-            $url = 'https://accounts.google.com/o/oauth2/token';
-            $params = array(
-                'code' => $code,
-                'client_id' => '804726524736-olaeauldnspoipf8jlk6vobtd6oqa2fa.apps.googleusercontent.com', //APP_ID,
-                'client_secret' => 'kAUNih__yF6SppQSih3zGJYg',
-                'redirect_uri' => 'http://icalendar.xyz/gplogin/', //SITE_URL.'redirect.php',
-                'grant_type' => 'authorization_code'
-            );
-            $response = $this->serverPost($url, $params, null, $headers);
 
-            $results = json_decode($response);
-//var_dump($me);
-        }
-        //プロフィール取得
-        if (!empty($results) && !empty($results->access_token))
-        {
-            //DB接続
-            //ユーザ確認　($results->id)
-            //ユーザインサート
-            $userinfo = $this->userinfo($results->access_token);
-            $this->auth = array(
-            'apilfg' => 'GG',
-            'uid' => $userinfo->id,
-            'info' => array(
-                'name' => $userinfo->name,
-                'email' => $userinfo->email,
-                'first_name' => $userinfo->given_name,
-                'last_name' => $userinfo->family_name,
-                'image' => $userinfo->picture
-                ),
-            'credentials' => array(
-                'token' => $results->access_token,
-                'expires' => date('c', time() + $results->expires_in)
-                ),
-            'raw' => $userinfo
-            );
-            $signindata = array(
-                'uid' =>  $userinfo->id,
-                'email' => $userinfo->email,
-                'image' => $userinfo->picture,
-                'token' => $results->access_token
-                    );
-            //サインイン処理
-            if (!empty($signindata))
-            {
-                $this->session->set_userdata($signindata);
-            }
-        }
-//$email = $this->session->all_userdata();
-//$email = $this->session->userdata('email');
-//var_dump($email);
-//exit;
-        //リダイレクト
-        redirect('welcome');
-    }
-    //ログアウト
-    function logout(){
-        // Revoke current user's token and reset their session.
-        $this->post('/disconnect', function () use ($this, $client) {
-        $token = json_decode($this['session']->get('token'))->access_token;
-        $client->revokeToken($token);
-        // Remove the credentials from the user's session.
-        $this['session']->set('token', '');
-        return new Response('Successfully disconnected', 200);
+    public function index()
+    {
+        $data = array();
+
+        $app->register(new Silex\Provider\SessionServiceProvider());
+        // Initialize a session for the current user, and render index.html.
+        $app->get('/', function () use ($app) {
+        $state = md5(rand());
+        $app['session']->set('state', $state);
+var_dump($app['twig']);
+        // return $this['twig']->render('index.html', array(
+        //     'CLIENT_ID' => CLIENT_ID,
+        //     'STATE' => $state,
+        //     'APPLICATION_NAME' => APPLICATION_NAME
+        //     ));
         });
-        //
+ 
+        // if($this->user){
+        //     try {
+        //         $user_profile = $this->facebook->api('/me');      
+
+        //         // print_r($user_profile);
+
+        //         $username = $user_profile['name'];
+        //         $email = $user_profile['email'];
+        //         $fb_id = $user_profile['id'];
+        //         $gender = $user_profile['gender'];
+        //         $picture = 'https://graph.facebook.com/'.$fb_id.'/picture?type=square';
+        //         $first_name = $user_profile['first_name'];
+        //         $last_name = $user_profile['last_name'];
+        //         $link = $user_profile['link'];
+        //         $locale = $user_profile['locale'];
+        //         //
+        //         $this->load->model('tbl_user_model', 'fbuser'); //アイテム
+        //         $userdata['tbl_user'] = $this->fbuser->get_userdata($email);
+        //         foreach ($userdata['tbl_user'] as $row) {$profile_img = $row->user_profile;$rtn_id = $row->user_id;}
+        //         if($rtn_id){
+        //             //登録済みUSERID
+        //             $userid = $rtn_id;
+        //         }else{
+        //             //インサート
+        //             $rtn_id = $this->fbuser->fb_log_in($username,$email,$fb_id,$gender,$picture,$first_name,$last_name,$link,$locale);
+        //         }
+        //         //
+        //         //ユーザーのプロフィールを表示
+        //         $data["email"] = $user_profile['email'];
+        //         $data["is_logged_in"] = 1;
+        //         $data["status"] = "LOGIN";
+        //         $data["userid"] = $userid;
+        //         $data["profile_img"] = $picture;
+        //         $data["remember"] = $remember;
+        //         $this->session->set_userdata($data);
+        
+        //     }catch(FacebookApiException $e){
+        //             print_r (e);
+        //             $user = null;
+        //     }
+        // }
+        
+        // //ユーザーがログインしているかどうか
+        // if($this->user)
+        // {   
+        //     //リダイレクト
+        //     if($this->session->flashdata('redirect_url'))
+        //     {
+        //         $url = $this->session->flashdata('redirect_url');
+        //         redirect($url);
+        //     }else{
+        //         redirect("/",'refresh');
+        //     }
+
+        //     // $logout=$this->facebook->getLogoutUrl(array(
+        //     //     "next"=>base_url() .'login/logout/'
+        //     // ));
+        //     // echo "<a href='$logout'>Logout</a>";
+        // }else{
+        //     $login=$this->facebook->getLoginUrl(array(
+        //         "scope"=>'email'
+        //     ));        
+        //     // echo "<a href='$login'>Login</a>";
+        //     redirect($login);
+        // }
+    }
+    
+    function logout(){
         session_destroy();
         redirect(base_url().'login');
     }

@@ -14,19 +14,6 @@
 				<a class="btn btn-danger btn-lg btn-block fa fa-google-plus" href="/gplogin/">
 				 Google+アカウントでログイン
 				</a>
-
-				<p class="text-left" style="margin-top:20px;">
-				<span id="signinButton">
-  <span
-    class="g-signin"
-    data-callback="signinCallback"
-    data-clientid="804726524736-olaeauldnspoipf8jlk6vobtd6oqa2fa.apps.googleusercontent.com"
-    data-cookiepolicy="single_host_origin"
-    data-requestvisibleactions="http://schemas.google.com/AddActivity"
-    data-scope="https://www.googleapis.com/auth/plus.login">
-  </span>
-</span>
-				</p>
 				<hr>
 				<p class="text-center">
 				<a href="/register/">ID（無料）をお持ちでない方</a>
