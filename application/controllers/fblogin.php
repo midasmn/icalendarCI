@@ -18,8 +18,7 @@ class Fblogin extends CI_Controller{
             try {
                 $user_profile = $this->facebook->api('/me');      
 
-                // print_r($user_profile);
-
+                // print_r($user_profile)
                 $username = $user_profile['name'];
                 $email = $user_profile['email'];
                 $fb_id = $user_profile['id'];

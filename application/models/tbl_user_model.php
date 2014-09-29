@@ -35,7 +35,7 @@ class Tbl_user_model extends MY_Model {
     {   //can_log_inファンクションを作っていく
         $this->db->select('id as user_id');
         $this->db->select('username as user_username');
-        $this->db->select('profile as user_profile');
+        $this->db->select('picture as user_profile');
         $this->db->where("email", $email); //POSTされたemailデータとDB情報を照合する
         // $this->db->where("password", md5($password));  //POSTされたパスワードデータとDB情報を照合する
         $query = $this->db->get("tbl_user");
@@ -143,6 +143,26 @@ class Tbl_user_model extends MY_Model {
             "last_name" => $last_name,
             "link" => $link,
             "locale" => $locale
+        );
+        $rtn_id = $this->db->insert("tbl_user", $data);
+        return $rtn_id;
+    }
+    //googleplusログイン
+    public function gp_log_in($username,$email,$fb_id,$gender,$picture,$first_name,$last_name,$link,$locale,$gptoken)
+    {   //can_log_inファンクションを作っていく
+        //ユーザーが存在しなかった場合の処理
+        $data = array( 
+            "username" => $username,
+            "email" => $email,
+            "fb_id" => $fb_id,
+            "gender" => $gender,
+            "picture" => $picture,
+            "email" => $email,
+            "first_name" => $first_name,
+            "last_name" => $last_name,
+            "link" => $link,
+            "locale" => $locale,
+            "gptoken" => $gptoken
         );
         $rtn_id = $this->db->insert("tbl_user", $data);
         return $rtn_id;
