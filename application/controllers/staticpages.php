@@ -8,25 +8,6 @@ class Staticpages extends CI_Controller{
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
-		// $userid=-1;
-  //       $data = array();
-  //       // ログインセッション
-  //       if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
-  //           $email=$this->session->userdata("email");
-  //           $userid=$this->session->userdata("userid");
-  //           $status=$this->session->userdata("status");
-  //           $profile_img=$this->session->userdata("profile_img");
-  //           $remember=$this->session->userdata("remember");
-  //           //
-  //           $data['email'] = $email;
-  //           $data['userid'] = $userid;
-  //           $data['status'] = $status;
-  //           $data['profile_img'] = $profile_img;
-  //           $data['remember'] = $remember;
-  //       }
-  //       //リダイレクト用URL
-  //       $this->session->set_flashdata('redirect_url', current_url());
-  //       //リダイレクト用URL
 	}
 
 	public function about()
@@ -50,8 +31,11 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
+        //staticDB
+        $this->load->model('tbl_static_model', 'static');
+        $data['description'] = $this->static->get_description('about');
+        //staticDB
 	 	$data['title'] = 'iCalendarついて';
-	 	$data['note'] =  'iCalendarついて';
 
 		$this->load->view('include/header',$data);
 		$this->load->view('about',$data);
@@ -78,8 +62,11 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
+        //staticDB
+        $this->load->model('tbl_static_model', 'static');
+        $data['description'] = $this->static->get_description('terms');
+        //staticDB
 		$data['title'] = '利用規約';
-	 	$data['note'] =  '利用規約';
 
 		$this->load->view('include/header',$data);
 		$this->load->view('terms',$data);
@@ -107,9 +94,12 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
+        //staticDB
+        $this->load->model('tbl_static_model', 'static');
+        $data['description'] = $this->static->get_description('privacy');
+        //staticDB
 		$data['title'] = 'プライバシーポリシー';
-	 	$data['note'] =  'プライバシーポリシー';
-
+	 
 		$this->load->view('include/header',$data);
 		$this->load->view('privacy',$data);
 		$this->load->view('include/footer',$data);
