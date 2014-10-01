@@ -1,5 +1,5 @@
 <?php
-$copy = "iCalendar by ";
+$copy = "© ".date('Y')." iCalendar ";
 ?>
 <!-- フッター -->
 <!-- フッター用設定 -->
@@ -24,7 +24,7 @@ $copy = "iCalendar by ";
 
 		<!-- リンク -->
 		<p><?=$copy?>
-			<a href="http://atomb.it" target="_blank">atomb.it</a>. | 
+			<!-- <a href="http://atomb.it" target="_blank">atomb.it</a>. |  -->
 			<!-- <a href="/terms/" target="_blank" rel="publisher">利用規約</a> |  -->
 			<a href="/terms/" >利用規約</a> | 
 			<a href="/privacy/">プライバシー</a>
@@ -112,7 +112,7 @@ $(function(){
     return false;
   });
   $(window).scroll(function () { 
-    if($(this).scrollTop() >= 200) { 
+    if($(this).scrollTop() >= 300) { 
       pageTop.fadeIn();
     } else {
       pageTop.fadeOut();

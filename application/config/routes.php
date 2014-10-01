@@ -75,6 +75,8 @@ $route['terms'] = "staticpages/terms";
 $route['privacy'] = "staticpages/privacy";
 $route['faq'] = "staticpages/faq";
 $route['supportform'] = "staticpages/supportform";
+$route['news'] = "staticpages/news";
+$route['report'] = "staticpages/report";
 
 
 

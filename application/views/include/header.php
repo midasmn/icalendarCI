@@ -44,8 +44,6 @@
 <!-- 	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
 	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
 	<!-- SNSボタン -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -99,6 +97,18 @@
 									<span class="glyphicon glyphicon-list-alt"></span> サイトマップ
 								</a>
 							</li>
+							<?php
+							if($status=="LOGIN")
+							{
+								echo '<li class="divider"></li>';
+								echo '<li class="dropdown-header">おすすめ</li>';
+								echo '<li class="">';
+								echo '<a href="/report/">';
+								echo '<span class="glyphicon glyphicon-book"></span> レポート';
+								echo '</a>';
+							echo '</li>';
+							}
+							?>
 						</ul>
 					</li>
 					<!-- リスト -->
@@ -129,6 +139,13 @@
 							<li class="">
 								<a href="/faq/">
 									<span class="glyphicon glyphicon-book"></span> FAQ
+								</a>
+							</li>  
+							<li class="divider"></li>
+							<li class="dropdown-header">最新情報</li>
+							<li class="">
+								<a href="/news/">
+									<span class="glyphicon glyphicon-book"></span> ニュース
 								</a>
 							</li>  
 							<li class="divider"></li>
@@ -175,9 +192,9 @@
 				// <!-- お気に入りセレクト -->
 					echo '<!-- ログイン後 -->';
 					echo '<ul class="nav navbar-nav navbar-right">';
-					echo '<li><a href="/add/">';
-					echo '<span class="glyphicon glyphicon-plus"></span> 新規</a>';
-					echo '</li>';
+					// echo '<li><a href="/add/">';
+					// echo '<span class="glyphicon glyphicon-plus"></span> 新規</a>';
+					// echo '</li>';
 					// echo '<li class="">';
 					// echo '<a href="/mycalendar/">';
 					// echo '<span class="glyphicon glyphicon-calendar"></span> マイカレンダー</a>';
@@ -188,10 +205,10 @@
 					echo '<b class="caret"></b>';
 					echo '</a>';
 					echo '<ul class="dropdown-menu">';
-					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入り</a></li>';
+					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入りリスト</a></li>';
 					echo '<li class="divider"></li>';
-					echo '<li class=""><a href="/setting/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
-					echo '<li class="divider"></li>';
+					// echo '<li class=""><a href="/setting/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
+					// echo '<li class="divider"></li>';
 					echo '<li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> ログアウト</a>';
 					echo '</li>';
 					echo '</ul>';

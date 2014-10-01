@@ -15,9 +15,9 @@
 				 Google+アカウントでログイン
 				</a>
 				<hr>
-				<p class="text-center">
+<!-- 				<p class="text-center">
 				<a href="/register/">ID（無料）をお持ちでない方</a>
-				</p>
+				</p> -->
 			</fieldset>
 		</div>
 	</div>

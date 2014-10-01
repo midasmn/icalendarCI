@@ -10,7 +10,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	<div class="container">
 		<!-- ページヘッダー -->
 		<div class="row" style="margin-top:20px;">
-			<div class="col-xs-6 col-sm-12 col-md-2" >
+			<div class="col-xs-6 col-sm-4 col-md-2" >
 				<?php 
 				if(!$pr_cal){
 				}else{

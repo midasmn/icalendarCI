@@ -21,9 +21,9 @@
 						<a href="/terms/">利用規約</a>と<a href="/privacy/">プライバシーポリシー</a>に同意したうえでご登録ください。
 				</p>
 				<hr>
-				<p class="text-center">
+		<!-- 		<p class="text-center">
 					<a href="/login/">すでにID（無料）をお持ちですか?</a>
-				</p>
+				</p> -->
 			</fieldset>
 		</div>
 	</div>

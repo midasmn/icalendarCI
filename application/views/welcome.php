@@ -18,7 +18,7 @@ $dayurl = '/daylist/4066/'.$lastday;
 	<!-- パスワード忘れ -->
 	<div class="row">
 		<!-- <div class="col-md-4 col-md-offset-4"> -->
-		<div class="col-sm-12 col-md-12" style="margin-top:30px;">
+		<div class="col-sm-12 col-md-12" style="margin-top:30px;">    
 			<h1 class="text-center">iCalendarにようこそ</h1>
 		</div>
 	</div>
@@ -36,37 +36,37 @@ $dayurl = '/daylist/4066/'.$lastday;
 
 
     <div class="row" style="margin-top:50px;">
-        <div class="col-sm-4">
+        <div class="col-xs-12 col-sm-3 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
-            
-            <h4>600種類以上のカレンダー:</h4>
-            	<p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど600を超える多彩なジャンルの画像を記録したカレンダーからジャンルを独占する隠れた名品などがわかります。<br />
-   					<span class="glyphicon glyphicon-hand-right">
+        
+            <h4>600以上のカレンダーからえらべる:</h4>
+            	<p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングな多彩なジャンルの人気画像を記録しています。<br />
+   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="/smart/" class="link-block">カレンダー一覧をみる</a>
-                    </span>
+                    <!-- </span> -->
    				</p>
    			</div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-12 col-sm-3 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
-            <h4>1番人気の画像がひと目でわかる:</h4>
-            	<p>インターネット上の膨大な情報からいろいろなジャンルで最も人気があった画像を毎日カレンダー形式で記録しているので、記憶が曖昧でもひと目でその月の出来事が鮮明に蘇ります。<br />
-   					<span class="glyphicon glyphicon-hand-right">
+            <h4>その月の出来事がひと目でわかる:</h4>
+            	<p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬で蘇ります。<br />
+   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
-                    </span>
+                    <!-- </span> -->
    				</p>
    			</div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-12 col-sm-3 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
-            <h4>その日の2番以降の画像もみれる:</h4>
-            	<p>カレンダー形式は1日1画像ですが、日付をクリックすると2番以降の画像もみれます。(商品の売上げランキング等の場合は購入リンクボタン付きなのですぐ買い物ができます)<br />
-   					<span class="glyphicon glyphicon-hand-right">
+            <h4>その日の人気画像一覧がみれる:</h4>
+            	<p>日付の画像をクリックするとその日の人気画像一覧もみれます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
+   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a>
-                    </span>
+                    <!-- </span> -->
    				</p>
    			</div>
         </div>

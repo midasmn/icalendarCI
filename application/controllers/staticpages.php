@@ -169,4 +169,68 @@ class Staticpages extends CI_Controller{
 		$this->load->view('supportform',$data);
 		$this->load->view('include/footer',$data);
 	}
+    public function news()
+    {
+        $userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
+        $data['title'] = '最新情報';
+        $data['note'] =  '最新情報';
+
+        $this->load->model('tbl_news_model', 'news'); //アイテム
+        //カレンダー情報
+        $data['news'] = $this->news->get_list();
+
+        $this->load->view('include/header',$data);
+        $this->load->view('news');
+        $this->load->view('include/footer',$data);
+    }
+    public function report()
+    {
+        $userid=-1;
+        $data = array();
+        // ログインセッション
+        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
+            $email=$this->session->userdata("email");
+            $userid=$this->session->userdata("userid");
+            $status=$this->session->userdata("status");
+            $profile_img=$this->session->userdata("profile_img");
+            $remember=$this->session->userdata("remember");
+            //
+            $data['email'] = $email;
+            $data['userid'] = $userid;
+            $data['status'] = $status;
+            $data['profile_img'] = $profile_img;
+            $data['remember'] = $remember;
+        }
+        //リダイレクト用URL
+        $this->session->set_flashdata('redirect_url', current_url());
+        //リダイレクト用URL
+        $data['title'] = 'レポート';
+        $data['note'] =  'レポート';
+
+        $this->load->model('tbl_report_model', 'report'); //アイテム
+        //カレンダー情報
+        $data['report'] = $this->report->get_list();
+
+        $this->load->view('include/header',$data);
+        $this->load->view('report');
+        $this->load->view('include/footer',$data);
+    }
 }
