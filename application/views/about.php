@@ -19,7 +19,7 @@ foreach ($description as $row) {}
 </style>
 <div class="container text-muted">
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12" style="margin-top:30px;">
 			<!-- staticDB -->
 			<?=$row->description?>
 			<!--  -->

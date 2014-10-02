@@ -41,8 +41,8 @@
     <!-- footer -->
     <link href="<?php echo base_url('/application/views/assets/css/footer.css'); ?>" rel="stylesheet">
 	<!-- SNSボタン -->
-<!-- 	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
-	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
+	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
+	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet">
 	<!-- SNSボタン -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -166,7 +166,7 @@
 				echo '<div class="btn-group navbar-form">';
 				// echo '<form action="/calendar/" method="GET">';
                 // echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
-                echo '<select class="form-control" name="index"  onChange="location.href=value;">';
+                echo '<select class="form-control" name="index"  onChange="location.href=value;" style="width: 100;">';
                 	$menucnt = count($menu);
                 	if($menucnt>=1)
                 	{
@@ -187,7 +187,7 @@
                   			echo '</li>';
                 	}
                 echo '</select>';
-                // echo '</form>';
+                echo '</form>';
             	echo '</div>';
 				// <!-- お気に入りセレクト -->
 					echo '<!-- ログイン後 -->';

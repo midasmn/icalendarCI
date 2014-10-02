@@ -6,7 +6,7 @@ class Calendar extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         // $this->output->enable_profiler(TRUE);
-        // $this->output->cache(360);
+        $this->output->cache(360);
         $this->load->library('session');
         // ログインセッション
     }

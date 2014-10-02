@@ -75,7 +75,7 @@ $(document).ready(function() {
 });
 </script>
 <!-- カレンダー一覧お気に入り -->
-<script>
+<!-- <script>
 $(document).ready(function() {
 	$(".starexmlist[]").click(function(){
 		var calendar_id = $("#calendar_id").val();
@@ -91,7 +91,7 @@ $(document).ready(function() {
 		});
     });
 });
-</script>
+</script> -->
 <!-- カレンダー一覧お気に入り -->
 
 
@@ -108,11 +108,11 @@ $(function(){
   var pageTop = $("#page-top");
   pageTop.hide();
   pageTop.click(function () {
-    $('body, html').animate({ scrollTop: 0 }, 500);
+    $('body, html').animate({ scrollTop: 0 }, 600);
     return false;
   });
   $(window).scroll(function () { 
-    if($(this).scrollTop() >= 300) { 
+    if($(this).scrollTop() >= 200) { 
       pageTop.fadeIn();
     } else {
       pageTop.fadeOut();
@@ -146,14 +146,5 @@ a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
 a("https://widgets.getpocket.com/v1/j/btn.js");
 })(this,document);
 </script>
-<!-- //google+ -->
-<!-- <script type="text/javascript">
-  (function() {
-   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-   po.src = 'https://apis.google.com/js/client:plusone.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
- })();
-</script> -->
-
 </body>
 </html>

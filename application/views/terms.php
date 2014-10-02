@@ -19,7 +19,7 @@ foreach ($description as $row) {}
 </style>
 <div class="container  text-muted">
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12"  style="margin-top:30px;">
 		<!-- ここからDB -->
 			<?=$row->description?>
 			<!-- ここまでDB -->
@@ -36,4 +36,5 @@ foreach ($description as $row) {}
 			</h2>
 		</div>
 	</div>
+
 </div>

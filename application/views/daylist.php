@@ -6,8 +6,8 @@ $raku_pre_url = 'http://hb.afl.rakuten.co.jp/hgc/'.$myrakutenafid.'/?pc=';
 $raku_mid_url = '?scid=af_link_txt&m=';
 ?>
 <!-- SNSボタン -->
-<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
-<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet">
+<!-- <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
+<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
 <!-- SNSボタン -->
 <style>
 .fc-head{

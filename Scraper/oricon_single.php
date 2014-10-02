@@ -37,15 +37,33 @@ function f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$img_path,
 $yyyy = date('Y');
 $mm = date('m');
 $dd = date('d');
-$dd = sprintf("%02d", $dd -1);
+// $dd = sprintf("%02d", $dd -1);
 // $dd = "03";
 //////////////////
+//日付チェック
+if($yyyy&&$mm){
+    $timeStamp = strtotime($yyyy .'-'.$mm. "-".$dd);
+    if($timeStamp === false)
+    {
+        $yyyy = date("Y");
+        $mm = date("n");
+        $dd = date("n");
+    }
+}else{
+    $yyyy = date("Y");
+    $mm = date("n");
+    $dd = date("d");
+}
+$datetete = date("Y-m-d",mktime(0,0,0,$mm,$dd-1,$yyyy)); 
 /////////////////
 $calendar_id = 348; //yahoo人物デイリー総数
 $list_title = "オリコンCDシングルデイリーランキング";
+
 $get_href = "http://www.oricon.co.jp/rank/js/d/";
 //http://www.oricon.co.jp/rank/ja/d/2014-08-03/ 
-$get_href .= $yyyy."-".$mm."-".$dd."/";
+$get_href .= $datetete."/";
+// $get_href .= $yyyy."-".$mm."-".$dd."/";
+// $get_href .= "2014-09-30/";
 // $get_url = "https://
 // echo $get_href;
 

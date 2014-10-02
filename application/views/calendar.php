@@ -3,8 +3,8 @@ foreach ($cal_info as $rowR) {}
 foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_flg = $value;}}
 ?>
 	<!-- SNSボタン -->
-	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
-	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet">
+<!-- 	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
+	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
 	<!-- SNSボタン -->
 	<!-- ページ -->
 	<div class="container">

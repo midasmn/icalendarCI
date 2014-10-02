@@ -18,7 +18,7 @@
 <div class="container text-muted">
 	<div class="row">
 		<div class="col-sm-12 col-md-12" style="margin-top:30px;">
-			<h3>レポート:</h3>
+			<h2>レポート:</h2>
 			
 		</div>
 

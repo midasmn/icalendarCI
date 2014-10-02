@@ -18,8 +18,7 @@
 <div class="container text-muted">
 	<div class="row">
 		<div class="col-sm-12 col-md-12" style="margin-top:30px;">
-			<h3>最新情報:</h3>
-			
+			<h2>最新情報:</h2>	
 		</div>
 
 		<?php
@@ -31,7 +30,7 @@
 			echo $row->date;
 			echo '</div>';
 			echo '<div class="col-md-8">';
-			echo '<a href="'.$row->id.'">'.$row->headline.'</a>';
+			echo '<a href="'.$row->url.'">'.$row->headline.'</a>';
 			echo '</div>';
 			echo '<div class="col-md-2">';
 			echo '</div>';
@@ -41,22 +40,8 @@
 		?>
 
 
-
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

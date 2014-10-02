@@ -6,6 +6,7 @@ class Calist extends CI_Controller{
         parent::__construct();
         $this->load->helper('array');
         $this->load->helper('form');
+        $this->output->cache(360);
         // $this->output->enable_profiler(TRUE);
     }
 

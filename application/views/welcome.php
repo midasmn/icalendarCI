@@ -7,7 +7,7 @@ $lastmonth =  date('Y/m', strtotime('-1 day'));
 $calid = 343; //yahoo検索人物総数デイリー
 // $calurl = '/calendar/343/'.date('Y').'/'.date('m');
 $calurl = '/calendar/343/'.$lastmonth;
-$dayurl = '/daylist/4066/'.$lastday;
+$dayurl = '/daylist/5470/'.$lastday;
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -36,11 +36,11 @@ $dayurl = '/daylist/4066/'.$lastday;
 
 
     <div class="row" style="margin-top:50px;">
-        <div class="col-xs-12 col-sm-3 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
         
-            <h4>600以上のカレンダーからえらべる:</h4>
+            <h4>600種のカレンダーからえらべる:</h4>
             	<p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングな多彩なジャンルの人気画像を記録しています。<br />
    					<!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="/smart/" class="link-block">カレンダー一覧をみる</a>
@@ -48,10 +48,10 @@ $dayurl = '/daylist/4066/'.$lastday;
    				</p>
    			</div>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
-            <h4>その月の出来事がひと目でわかる:</h4>
+            <h4>月の出来事がひと目でわかる:</h4>
             	<p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬で蘇ります。<br />
    					<!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
@@ -59,7 +59,7 @@ $dayurl = '/daylist/4066/'.$lastday;
    				</p>
    			</div>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
         	<div class="thumbnail bootsnipp-thumb">
             	<img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
             <h4>その日の人気画像一覧がみれる:</h4>

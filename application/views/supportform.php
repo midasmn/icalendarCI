@@ -3,8 +3,8 @@
 ?>
 <div class="container  text-muted">
 	<div class="row">
-		<div class="col-sm-12">
-			<h3><?=$note?></h3>
+		<div class="col-sm-12" style="margin-top:30px;">
+			<h2><?=$note?></h2>
 
 				<p>このサイトに関するお問い合わせは、以下よりお願いいたします。なお、メールやお電話でのお問い合わせには現在、対応しておりません。<br>
 				また回答までお時間をいただく場合もございますのでどうぞご了承ください。</p>

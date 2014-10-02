@@ -5,27 +5,29 @@ foreach ($daycnt as $rowD) {}
 ?>
 <div class="container  text-muted">
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12" style="margin-top:30px;">
 
 
-			<h3>よくある質問:</h3>
+			<h2>よくある質問:</h2>
 			<div class="panel-group" id="accordion">
 
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h3 class="panel-title">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#faq0">
-							登録しているカレンダーの数
+							登録しているカレンダーの数は?
 							</a>
-						</h4>
+						</h3>
 					</div>
 					<!-- <div id="faq1" class="panel-collapse collapse in"> -->
 					<div id="faq0" class="panel-collapse collapse">
 						<div class="panel-body">
-						<?=date('Y-m-d')?> 現在<br>
-						登録カレンダー数：<?=number_format($row->calcnt)?> 件<br>
-						カレンダー掲載日数：<?=number_format($rowD->daycnt)?> 日<br>
-						カレンダー登録画像数：<?=number_format($rowM->ymdcnt)?> 点
+							<ul>
+							<li>登録カレンダー数：<?=number_format($row->calcnt)?> 件</li>
+							<li>カレンダー掲載日数(延べ)：<?=number_format($rowD->daycnt)?> 日</li>
+							<li>カレンダー登録画像数(延べ)：<?=number_format($rowM->ymdcnt)?> 点</li>
+							</ul>
+							<?=date('Y-m-d')?> 現在
 						</div>
 					</div>
 				</div>
@@ -33,11 +35,11 @@ foreach ($daycnt as $rowD) {}
 				<?php foreach ($faq as $item): ?>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h3 class="panel-title">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#faq<?=$item->faq_order?>">
 							<?=$item->faq_title?>
 							</a>
-						</h4>
+						</h3>
 					</div>
 					<!-- <div id="faq1" class="panel-collapse collapse in"> -->
 					<div id="faq<?=$item->faq_order?>" class="panel-collapse collapse">
