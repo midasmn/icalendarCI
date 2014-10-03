@@ -34,7 +34,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				echo '<a href="javascript: void(0)" class="starexm">';
 				echo '<input type="hidden" id="calendar_id" value="'.$cal_id.'">';
 				echo '<input type="hidden" id="userid" value="'.$userid.'">';
-				echo '<input type="hidden" id="exm" value="calendar">';
 				if($star_flg=="ON")
 				{
 					echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';

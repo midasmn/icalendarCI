@@ -47,7 +47,7 @@ class Calendar extends CI_Controller{
         /////// ログ
         // スター
         $this->load->model('tbl_star_model', 'star'); //ログ
-        $data['starflg'] = $this->star->get_calendar_starflg_read("calendar",$calendar_id,$userid);
+        $data['starflg'] = $this->star->get_calendar_starflg_read($calendar_id,$userid);
         // スター
         // ogタグ初期値
         $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";

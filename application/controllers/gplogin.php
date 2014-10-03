@@ -20,6 +20,16 @@ class Gplogin extends CI_Controller{
     }
     public function index()
     {
+        // ログインセッション
+        if($this->session->flashdata('redirect_url'))
+        {
+            $url = $this->session->flashdata('redirect_url');
+            //リダイレクト用URL
+            $this->session->set_flashdata('redirect_url', $url);
+            // $this->session->set_flashdata('redirect_url', uri_string());
+            //リダイレクト用URL
+        }
+        
         $data = array();
         if(empty($_GET['code']))
         {

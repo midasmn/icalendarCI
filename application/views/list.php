@@ -1,12 +1,4 @@
 <?php
-
-$star_flg = array();
-foreach ($star as $key1 => $star_flg)
-{}
-		// $star_flg = $value1;
-		// foreach ($value1 as $key2 => $value2){$star_flg['item'] = $value2;}}
-// echo $this->session->flashdata('redirect_url');
-// print_r($total);
 ?>
 <style>
 .fc-head{
@@ -96,26 +88,33 @@ position: relative;
 						// }
 						echo '<tr>';
 						echo '<td style="text-align: center;vertical-align:middle;">';
-
-
-						// echo '<a href="javascript: void(0)" id="starexm">';
-						//スター付与チェック
-						echo '<a href="javascript: void(0)" class="starexmlist['.$calendar_id.']">';
-						echo '<input type="hidden" id="calendar_id" value="'.$calendar_id.'">';
-						echo '<input type="hidden" id="userid" value="'.$userid.'">';
-						echo '<input type="hidden" id="exm" value="list">';
-						if (in_array($htm_cal_id,$star_flg)) 
+						if($userid>0)
 						{
-   		 					echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-   		 					echo '<span style="display:none" class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+							//ログイン中
+							echo '<a href="javascript: void(0)" class="starlist" data-id="'.$htm_cal_id.'">';
+							echo '<input type="hidden" id="calendar_id" value="'.$htm_cal_id.'">';
+							echo '<input type="hidden" id="userid" value="'.$userid.'">';
+							//
+							$st_flg = "OFF";
+							foreach($star as $data) 	//スター配列と比較
+							{
+								if ($data['itemid'] == $htm_cal_id) {$st_flg = "ON";}
+							}
+							if($st_flg=="ON")
+							{
+								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+								echo '<span  style="display: none"  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+							}else{
+								echo '<span  style="display: none" class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+							}
+							echo '</a>';
+						}else{
+							echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="ログインしてお気に入りに追加"></span>';
 						}
-						else {
-   		 					echo '<span style="display:none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-   		 					echo '<span class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-						}
-						//スター付与チェック
-						echo '</a>';
-
+						//
+						
+						//
 
 						echo '</td>';
 						echo '<td>';

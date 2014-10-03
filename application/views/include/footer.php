@@ -62,11 +62,10 @@ $(document).ready(function() {
 	$(".starexm").click(function(){
 		var calendar_id = $("#calendar_id").val();
 		var userid = $("#userid").val();
-		var exm = $("#exm").val();
 		$.post('/ajax/star_list', {
     		calendar_id: calendar_id,
-			userid: userid,
-			exm: exm}, function(rs) {
+			userid: userid
+			}, function(rs) {
  			var e = rs ;
  			$(".startoggle").toggle();
        		// $('.startoggle').text(e);
@@ -75,23 +74,21 @@ $(document).ready(function() {
 });
 </script>
 <!-- カレンダー一覧お気に入り -->
-<!-- <script>
+<script>
 $(document).ready(function() {
-	$(".starexmlist[]").click(function(){
-		var calendar_id = $("#calendar_id").val();
+	$(".starlist").click(function(){
+		var id = $(this).data('id');
 		var userid = $("#userid").val();
-		var exm = $("#exm").val();
 		$.post('/ajax/star_list', {
-    		calendar_id: calendar_id,
-			userid: userid,
-			exm: exm}, function(rs) {
- 			var e = rs ;
- 			$(".startoggle").toggle();
-       		// $('.startoggle').text(e);
+    		calendar_id: id,
+			userid: userid
+			}, function(rs) {
+ 			$(".startoggle_"+id).toggle();
 		});
     });
 });
-</script> -->
+</script>
+
 <!-- カレンダー一覧お気に入り -->
 
 

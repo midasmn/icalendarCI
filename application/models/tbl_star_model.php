@@ -12,12 +12,11 @@ class Tbl_star_model extends MY_Model {
     // exm = calendar ＝カレンダー
     //       item = アイテムID
     // 
-    public function insert_update_chck($exm,$itemid,$userid) {
+    public function insert_update_chck($itemid,$userid) {
         //処理判断starFlg
         $this->db->select('id');
         $this->db->select('starflg');
         $this->db->from('tbl_star');
-        $this->db->where('exm', $exm); 
         $this->db->where('itemid', $itemid); 
         $this->db->where('userid', $userid); 
         $query = $this->db->get();
@@ -26,21 +25,20 @@ class Tbl_star_model extends MY_Model {
         // return  $query->result();
         // $sw = return  $sw;
     }
-    public function insert($exm,$itemid,$userid,$starflg) {
+    public function insert($itemid,$userid,$starflg) {
         //インサート
         $now = $this->now();
         // $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
-        $data = array('exm' => $exm ,'itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
+        $data = array('itemid' => $itemid ,'userid' => $userid,'createdate' => $now);
         $this->db->insert('tbl_star', $data); 
         return  $this->db->insert_id();
         // return $sw;
     }
-    public function update($exm,$itemid,$userid,$id,$wherestarflg) {
+    public function update($itemid,$userid,$id,$wherestarflg) {
         //アップデート
         $now = $this->now();
         if($wherestarflg=="ON"){$starflg="OFF";}else{$starflg="ON";}
         $data = array(
-           'exm' => $exm,
            'itemid' => $itemid,
            'userid' => $userid,
            'starflg' => $starflg,
@@ -52,11 +50,10 @@ class Tbl_star_model extends MY_Model {
         return  $id;
     }
     // calendarページ用
-    public function get_calendar_starflg_read($exm,$itemid,$userid) {
+    public function get_calendar_starflg_read($itemid,$userid) {
         //処理判断starFlg
         $this->db->select('starflg');
         $this->db->from('tbl_star');
-        $this->db->where('exm', $exm); 
         $this->db->where('itemid', $itemid); 
         $this->db->where('userid', $userid); 
         $query = $this->db->get();  
@@ -66,9 +63,8 @@ class Tbl_star_model extends MY_Model {
     // cal一覧用
     public function get_calendar_starlist($userid) {
         //処理判断starFlg
-        $this->db->select('itemid');
+        $this->db->select('itemid as itemid');
         $this->db->from('tbl_star');
-        $this->db->where('exm', "calendar"); 
         $this->db->where('starflg', "ON"); 
         $this->db->where('userid', $userid); 
         $query = $this->db->get();
