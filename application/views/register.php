@@ -10,11 +10,11 @@
 			<hr class="colorgraph">
 			<fieldset>
 				<a class="btn btn-primary btn-lg btn-block fa fa-facebook"  href="/fblogin/">
-				 Fcebookアカウントで登録
+				 Fcebookで登録
 				</a>
 				<p class="text-center" style="margin-top:10px;">OR</p>
 				<a class="btn btn-danger btn-lg btn-block fa fa-google-plus" href="/gplogin/">
-				 Google+アカウントで登録
+				 Google+で登録
 				</a>
 				<p class="text-left" style="margin-top:20px;">
 					<span class="glyphicon glyphicon-info-sign"></span>

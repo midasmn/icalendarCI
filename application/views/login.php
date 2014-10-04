@@ -8,11 +8,11 @@
 			<hr class="colorgraph">
 			<fieldset>
 				<a class="btn btn-primary btn-lg btn-block fa fa-facebook"  href="/fblogin/">
-				 Fcebookアカウントでログイン
+				 Fcebookでログイン
 				</a>
 				<p class="text-center" style="margin-top:10px;">OR</p>
 				<a class="btn btn-danger btn-lg btn-block fa fa-google-plus" href="/gplogin/">
-				 Google+アカウントでログイン
+				 Google+でログイン
 				</a>
 				<hr>
 <!-- 				<p class="text-center">

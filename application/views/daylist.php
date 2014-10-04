@@ -46,7 +46,15 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;">
 		<div class="col-md-12" id="listroot">
-			<a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$rowR->cal_title?></a>
+            <?php
+            $new_str = $rowR->cal_title;
+            $new_str = str_replace('男性ランキング', '', $new_str);
+            $new_str = str_replace('女性ランキング', '', $new_str);
+            $new_str = str_replace('ランキング', '', $new_str);
+            $new_str = str_replace('ベストセラー', '', $new_str);
+            $new_str = str_replace('デイリー', '', $new_str);
+            ?>
+			<a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
 		</div>
 	</div>
 
@@ -66,7 +74,7 @@ position: relative;
 	<hr >
 
 	<!-- SNS -->
-	<div class="col-sm-4 col-md-8" >
+	<div class="col-xs-12 col-sm-12 col-md-12" >
 	        <!-- <div class="share-container clearfix"> -->
             <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">

@@ -72,7 +72,7 @@ $dayurl = '/daylist/5470/'.$lastday;
         </div>
     </div>
 
-    <div class="col-sm-4 col-md-8" >
+    <div class="col-xs-12 col-sm-12 col-md-12" >
 	        <!-- <div class="share-container clearfix"> -->
             <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">

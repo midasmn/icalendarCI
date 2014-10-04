@@ -50,25 +50,34 @@ function f_update_flg($db_conn,$table,$id)
 
         //スクレイピング処理
         //フラグUPDATE
-function f_google_scrape_img($db_conn,$yyyy,$mm,$dd,$calendar_id,$list_title,$keyword,$img_url,$img_tag)
+function f_bing_scrape_img($db_conn,$yyyy,$mm,$dd,$calendar_id,$list_title,$keyword,$img_url,$img_tag)
 {
     $rtn = array();
     // 画像取得
     // // 文字化け対策のおまじない的（？）なもの。
     $exm_url = $img_url.urlencode($keyword);
+
     $html = file_get_html($exm_url);
+    // $html = file_get_html($img_url.$keyword);
+
+var_dump($html);
     
     $img_cnt=0;
     //画像
-    foreach ($html->find($img_tag) as $element)
+    foreach ($html->find('.dg_u') as $element)
     {
+            
+            // $rtn['t1'][$img_cnt] = $element->text; 
             $rtn['img'][$img_cnt] = $element->src; 
-            $rtn['alt'][$img_cnt] = $element->alt; 
             if($img_cnt==0){$keying="KEY";}
 
             if($img_cnt>30)
             {}else{
-                f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn['img'][$img_cnt],$rtn['alt'][$img_cnt] ,"",$img_cnt+1,$keying);
+// echo '<img src="'.$rtn['img'][$img_cnt].'">';
+echo "<br>";
+// $rtn['t1'][$img_cnt];
+echo "<br>";
+      //          f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn['img'][$img_cnt],$rtn['alt'][$img_cnt] ,"",$img_cnt+1,$keying);
             }
             
 // echo "<br>".$rtn['img'][$img_cnt] ;
@@ -95,7 +104,7 @@ $yyyy = date('Y');
 $mm = date('m');
 $dd = date('d');
 
-$sql = 'SELECT `id`, `title`, `keyword`, `img_url`, `img_tag` FROM `tbl_calendar` WHERE  `group` = "google" and  `status` = 2 and `onflg` = "ON" order by `order` limit 100;';
+$sql = 'SELECT `id`, `title`, `keyword`, `img_url`, `img_tag` FROM `tbl_calendar` WHERE  `group` = "bing" and `status` = 2 and `onflg` = "ON" order by `order` limit 1;';
 $result = mysql_query($sql,$db_conn);
 $cnt = 1;
 if($result)
@@ -104,7 +113,7 @@ if($result)
     {
         list($calendar_id,$list_title,$keyword,$img_url,$img_tag) = $link;
         //スクレイピング処理
-        $rtn_img = f_google_scrape_img($db_conn,$yyyy,$mm,$dd,$calendar_id,$list_title,$keyword,$img_url,$img_tag);
+        $rtn_img = f_bing_scrape_img($db_conn,$yyyy,$mm,$dd,$calendar_id,$list_title,$keyword,$img_url,$img_tag);
 
         $cnt++;
         // sleep(1); // サーバへの負荷を減らすため 1 秒間遅延処理

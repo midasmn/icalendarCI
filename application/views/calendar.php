@@ -44,7 +44,15 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				}
 				echo '</a>';
 				?>
-				<?=$rowR->cal_title?>
+				<?php
+				$new_str = $rowR->cal_title;
+				$new_str = str_replace('男性ランキング', '', $new_str);
+				$new_str = str_replace('女性ランキング', '', $new_str);
+				$new_str = str_replace('ランキング', '', $new_str);
+				$new_str = str_replace('ベストセラー', '', $new_str);
+				$new_str = str_replace('デイリー', '', $new_str);
+				echo $new_str;
+				?>
 			</h1>
 		</div>
 
@@ -117,7 +125,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		</table>
 
 			
-		<div class="col-sm-4 col-md-8" >
+		<div class="col-xs-12 col-sm-12 col-md-12" >
 	        <!-- <div class="share-container clearfix"> -->
             <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">

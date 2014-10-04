@@ -46,6 +46,28 @@
 	</div>
 	<!--  -->
 	<hr id="1">
+
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-1">アマゾンベストセラー</a></h2></p>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-2">楽天市場ランキング</a></h2></p>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-3">iTunes</a></h2></p>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-4">オリコン</a></h2></p>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-5">Yahoo</a></h2></p>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-3">
+		<p><h2><a href="#cat-6">google画像</a></h2></p>
+	</div>
+
+	<hr>
+
 	<?php
 	$old_st = "";
 	$cnt=1;
@@ -61,37 +83,37 @@
 				case 'rakuten':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>楽天市場ランキング</h4></p>';
+					echo '<p><h3 id="cat-2">楽天市場ランキング</h3></p>';
 					echo '</div>';
 					break;
 				case 'amazon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>アマゾンベストセラー</h4></p>';
+					echo '<p><h3 id="cat-1">アマゾンベストセラー</h3></p>';
 					echo '</div>';
 					break;
 				case 'oricon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>オリコン</h4></p>';
+					echo '<p><h3 id="cat-4">オリコン</h3></p>';
 					echo '</div>';
 					break;
 				case 'iTunes':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>iTunes</h4></p>';
+					echo '<p><h3 id="cat-3">iTunes</h3></p>';
 					echo '</div>';
 					break;
 				case 'google':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>google画像</h4></p>';
+					echo '<p><h3  id="cat-6">google画像</h3></p>';
 					echo '</div>';
 					break;
 				case 'yahoo':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h4>Yahoo</h4></p>';
+					echo '<p><h3  id="cat-5">Yahoo</h3></p>';
 					echo '</div>';
 					break;
 				default:
