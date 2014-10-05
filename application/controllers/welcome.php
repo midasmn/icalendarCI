@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
+        $this->config->load('icalendar');
 		// $this->output->enable_profiler(TRUE);
 		$this->session->set_flashdata('redirect_url', current_url());
 	}
@@ -15,10 +16,14 @@ class Welcome extends CI_Controller {
 	{
 		$userid=-1;
         $data = array();
-        $data = array(
-		 	'title' => 'iCalendarにようこそ',
-		 	'note' => 'iCalendarにようこそ'
-            );
+        $data['og_title'] = 'iCalendarにようこそ - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ログインセッション
         if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
             $email=$this->session->userdata("email");
@@ -50,10 +55,7 @@ class Welcome extends CI_Controller {
 			$data['menu'] = $this->calendar->menu_favorites_arr($userid);
 		}
 		// ogタグ初期値
-        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
         // ogタグ
 	
 		$this->load->view('include/header',$data);

@@ -2,10 +2,35 @@
 foreach ($cal_info as $rowR) {}
 foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_flg = $value;}}
 ?>
-	<!-- SNSボタン -->
-<!-- 	<link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
-	<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
-	<!-- SNSボタン -->
+<style>
+.fc-head{
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 3px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	text-align: center;
+}
+.fc-date {
+	position: relative;
+}
+.fc-date span{
+	position: absolute;
+	z-index: 9;
+	color: rgba(255,255,255,0.9);
+	text-shadow: none;
+	font-size: 26px;
+	font-weight: 300;
+	bottom: auto;
+	right: auto;t
+	op: 3px;
+	left: 6px;
+	text-align: left;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+</style>
+
+
 	<!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
@@ -43,8 +68,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 					echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
 				}
 				echo '</a>';
-				?>
-				<?php
 				$new_str = $rowR->cal_title;
 				$new_str = str_replace('男性ランキング', '', $new_str);
 				$new_str = str_replace('女性ランキング', '', $new_str);
@@ -77,34 +100,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	</div>
 	<!-- ページ -->
 	<!--  -->
-<style>
-.fc-head{
-	font-weight: 300;
-	text-transform: uppercase;
-	font-size: 12px;
-	letter-spacing: 3px;
-	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-	text-align: center;
-}
-.fc-date {
-	position: relative;
-}
-.fc-date span{
-	position: absolute;
-	z-index: 9;
-	color: rgba(255,255,255,0.9);
-	text-shadow: none;
-	font-size: 26px;
-	font-weight: 300;
-	bottom: auto;
-	right: auto;t
-	op: 3px;
-	left: 6px;
-	text-align: left;
-	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-}
-</style>
-
 	<div class="container">
 	 	<table class="table table-condensed">
 		    <!-- <tr class="fc-head"> -->

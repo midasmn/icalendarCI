@@ -4,6 +4,7 @@ class Sitemap extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->config->load('icalendar');
         // $this->load->helper('url');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
@@ -39,10 +40,14 @@ class Sitemap extends CI_Controller{
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値
-        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
-        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        $data['og_title'] = 'サイトマップ - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ogタグ
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');   //カレンダー
@@ -51,7 +56,12 @@ class Sitemap extends CI_Controller{
         $total_cnt = count($data['cal_info'] );    
         $data['total_cnt'] = $total_cnt;  
         //////////////////////////
-        $data['title'] = "サイトマップ";
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $this->load->model('tbl_calendar_model', 'calendarM');   
+            $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        }
+        ///////////
         $data['exm_title'] = "サイトマップ";
         $this->load->view('include/header',$data);
         $this->load->view('sitemap',$data);

@@ -5,15 +5,24 @@ class Login extends CI_Controller{
     {
         parent::__construct();
         // $this->load->helper('url');
+        $this->config->load('icalendar');
         $this->load->helper('form');
         // $this->output->enable_profiler(TRUE);
     }
     public function index()
     {
-        $data = array(
-            'title' => 'ログイン',
-            'note' => 'ログイン'
-            );
+        $data = array();
+        //OGタグ
+        // $data['og_title'] = $this->config->item('og_title', 'icalendar');
+        $data['og_title'] = 'ログイン - iCalendar.xyz';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+
         // ログインセッション
         if($this->session->flashdata('redirect_url'))
         {

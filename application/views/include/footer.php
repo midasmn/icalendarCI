@@ -40,22 +40,6 @@ $copy = "© ".date('Y')." iCalendar ";
 <!-- SNSボタン用 -->
 <script src="<?php echo base_url('/application/views/assets/js/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 <script src="<?php echo base_url('/application/views/assets/js/rrssb.min.js') ?>"></script>
-<!-- ドロップダウン用 -->
-<!-- <script>
-$(function(){
-  $('.dropdown-menu a').click(function(){
-    //反映先の要素名を取得
-    var visibleTag = $(this).parents('ul').attr('visibleTag');
-    var hiddenTag = $(this).parents('ul').attr('hiddenTag');
-    //選択された内容でボタンの表示を変える
-    $(visibleTag).html($(this).attr('value'));
-    //選択された内容でhidden項目の値を変える
-    $(hiddenTag).val($(this).attr('value'));
-  })
-})
-</script> -->
-<!-- ドロップダウン用 -->
- <!-- ポップオーバー -->
  <!-- カレンダー一覧お気に入り -->
 <script>
 $(document).ready(function() {
@@ -68,7 +52,6 @@ $(document).ready(function() {
 			}, function(rs) {
  			var e = rs ;
  			$(".startoggle").toggle();
-       		// $('.startoggle').text(e);
 		});
     });
 });
@@ -88,12 +71,9 @@ $(document).ready(function() {
     });
 });
 </script>
-
 <!-- カレンダー一覧お気に入り -->
-
-
-
  <script>
+// click | hover | focus | manual 
 $('.tooltip-tool').tooltip({
   selector: "a[data-toggle=tooltip]"
 })

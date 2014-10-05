@@ -5,6 +5,7 @@ class Setting extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
@@ -13,10 +14,16 @@ class Setting extends CI_Controller{
     public function index()
     {
         $userid=-1;
-        $data = array(
-            'title' => '登録情報設定',
-            'note' => '登録情報設定'
-            );
+        $data = array();
+        $data['og_title'] = '登録情報設定 - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = '登録情報設定 - iCalendar.xyz.';
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+
         // ログインセッション
         if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
             $email=$this->session->userdata("email");

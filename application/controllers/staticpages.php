@@ -5,6 +5,7 @@ class Staticpages extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->helper('url');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
@@ -33,10 +34,24 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         //staticDB
         $this->load->model('tbl_static_model', 'static');
-        $data['description'] = $this->static->get_description('about');
+        $data['descriptiondb'] = $this->static->get_description('about');
         //staticDB
-	 	$data['title'] = 'iCalendarついて';
-
+        // OGタグ設定
+        $data['og_title'] = 'iCalendarついて - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
+        //メニューお気に入りセレクト
+        // if($userid<>-1){
+        //     $this->load->model('tbl_calendar_model', 'calendarM');   
+        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        // }
+        ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('about',$data);
 		$this->load->view('include/footer',$data);
@@ -64,10 +79,24 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         //staticDB
         $this->load->model('tbl_static_model', 'static');
-        $data['description'] = $this->static->get_description('terms');
+        $data['descriptiondb'] = $this->static->get_description('terms');
         //staticDB
-		$data['title'] = '利用規約';
-
+        // OGタグ設定
+        $data['og_title'] = '利用規約 - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
+        //メニューお気に入りセレクト
+        // if($userid<>-1){
+        //     $this->load->model('tbl_calendar_model', 'calendarM');   
+        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        // }
+        ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('terms',$data);
 
@@ -96,10 +125,24 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         //staticDB
         $this->load->model('tbl_static_model', 'static');
-        $data['description'] = $this->static->get_description('privacy');
+        $data['descriptiondb'] = $this->static->get_description('privacy');
         //staticDB
-		$data['title'] = 'プライバシーポリシー';
-	 
+        // OGタグ設定
+        $data['og_title'] = 'プライバシーポリシー - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
+	    //メニューお気に入りセレクト
+        // if($userid<>-1){
+        //     $this->load->model('tbl_calendar_model', 'calendarM');   
+        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        // }
+        ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('privacy',$data);
 		$this->load->view('include/footer',$data);
@@ -125,8 +168,16 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
-		$data['title'] = 'FAQ';
-	 	$data['note'] =  'よくある質問(FAQ)';
+        // OGタグ設定
+        $data['og_title'] = 'よくある質問(FAQ) - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
 
 		$this->load->model('tbl_faq_model', 'faq'); //アイテム
 		$this->load->model('tbl_calendar_model', 'calendar'); //アイテム
@@ -137,7 +188,12 @@ class Staticpages extends CI_Controller{
 		$data['ymdcnt'] = $this->ymd->count_ymd_all();
         //カレンダー情報
         $data['faq'] = $this->faq->get_faq_list();
-
+        //メニューお気に入りセレクト
+        // if($userid<>-1){
+        //     $this->load->model('tbl_calendar_model', 'calendarM');   
+        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        // }
+        ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('faq');
 		$this->load->view('include/footer',$data);
@@ -163,8 +219,22 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
-		$data['title'] = 'お問い合わせ';
-	 	$data['note'] =  'お問い合わせ';
+        // OGタグ設定
+        $data['og_title'] = 'お問い合わせ - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $this->load->model('tbl_calendar_model', 'calendarM');   
+            $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        }
+        ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('supportform',$data);
 		$this->load->view('include/footer',$data);
@@ -190,13 +260,26 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
-        $data['title'] = '最新情報';
-        $data['note'] =  '最新情報';
+        // OGタグ設定
+        $data['og_title'] = '最新情報 - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
 
         $this->load->model('tbl_news_model', 'news'); //アイテム
         //カレンダー情報
         $data['news'] = $this->news->get_list();
-
+        //メニューお気に入りセレクト
+        // if($userid<>-1){
+        //     $this->load->model('tbl_calendar_model', 'calendarM');   
+        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        // }
+        ///////////
         $this->load->view('include/header',$data);
         $this->load->view('news');
         $this->load->view('include/footer',$data);
@@ -222,9 +305,22 @@ class Staticpages extends CI_Controller{
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
-        $data['title'] = 'レポート';
-        $data['note'] =  'レポート';
-
+        // OGタグ設定
+        $data['og_title'] = 'レポート - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $data['og_title'] ;
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+        // OGタグ設定
+        //メニューお気に入りセレクト
+        if($userid<>-1){
+            $this->load->model('tbl_calendar_model', 'calendarM');   
+            $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
+        }
+        ///////////
         $this->load->model('tbl_report_model', 'report'); //アイテム
         //カレンダー情報
         $data['report'] = $this->report->get_list();

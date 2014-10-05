@@ -5,6 +5,7 @@ class  Favorites extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('array');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
     }
 
@@ -32,12 +33,15 @@ class  Favorites extends CI_Controller{
         $this->load->model('tbl_star_model', 'star'); //ログ
         $data['star'] = $this->star->get_calendar_starlist($userid) ;
         // スター
-        $data['title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
         // ogタグ初期値
-        $data['og_title'] = $data['title'];
-        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        $data['og_title'] = $this->config->item('og_title', 'icalendar');
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ogタグ
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');

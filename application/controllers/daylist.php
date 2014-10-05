@@ -8,6 +8,7 @@ class Daylist extends CI_Controller{
         // $this->output->enable_profiler(TRUE);
         $this->output->cache(360);
         $this->load->library('session');
+        $this->config->load('icalendar');
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -47,10 +48,14 @@ class Daylist extends CI_Controller{
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値
-        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
-        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        $data['og_title'] = $this->config->item('og_title', 'icalendar');
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ogタグ
         //日付チェック
         if($yyyy&&$mm){
@@ -97,7 +102,11 @@ class Daylist extends CI_Controller{
         // OGタグ設定
         $data['og_title'] = $data['title'];
         $data['og_url'] = $config['base_url']."/daylist/".$calendar_id."/".$yyyy."/".$mm."/".$dd;
-        $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
+        $data['og_description'] = $data['og_title'].'。'.$data['description'];
+        // OGタグ設定
+        $data['keywords'] = $data['title'].','.$data['keywords'];
+        $data['description'] = $data['og_description'];
+        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
         // OGタグ設定
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);

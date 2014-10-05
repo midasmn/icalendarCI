@@ -1,7 +1,9 @@
 <?php
 
 $lastday =  date('Y/m/d', strtotime('-1 day'));
-$lastmonth =  date('Y/m', strtotime('-1 day'));
+// $lastmonth =  date('Y/m', strtotime('-1 day'));
+$lastmonth =  date('Y/m', strtotime('-1 month'));
+
 // 
 // $timestamp =  strtotime( "-1 day" );//昨日
 $calid = 343; //yahoo検索人物総数デイリー
@@ -25,7 +27,7 @@ $dayurl = '/daylist/5470/'.$lastday;
 
    <div class="row">
 		<div class="col-sm-12  col-md-12">
-            <h3 class="text-muted text-center">あの日の最も人気のあった画像をカレンダー形式で記録します。</h3>
+            <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかります。</h2>
         </div>
     </div>
      <div class="row" style="margin-top:30px;">

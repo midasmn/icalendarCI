@@ -5,14 +5,22 @@ class Register extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('form');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
     }
     public function index()
     {
-        $data = array(
-            'title' => 'ID(無料)を登録する',
-            'note' => 'ID(無料)を登録する'
-            );
+        $data = array();
+        $data['og_title'] =  'ID(無料)を登録する - iCalendar.xyz.';
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
+
+
         $this->load->view('include/header',$data);
         $this->load->view('register',$data);
         // $this->load->view('login',$data);

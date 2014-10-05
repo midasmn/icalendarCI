@@ -1,5 +1,5 @@
 <?php
-foreach ($description as $row) {}
+foreach ($descriptiondb as $row) {}
 ?>
 <style>
 /*ページtopスクロール*/

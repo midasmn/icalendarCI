@@ -5,6 +5,7 @@ class Calendar extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
         $this->output->cache(360);
         $this->load->library('session');
@@ -50,10 +51,14 @@ class Calendar extends CI_Controller{
         $data['starflg'] = $this->star->get_calendar_starflg_read($calendar_id,$userid);
         // スター
         // ogタグ初期値
-        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
-        $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        $data['og_title'] = $this->config->item('og_title', 'icalendar');
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ogタグ
         //カレンダーページ遷移用セッション
         $exm = $this->session->userdata('exm');
@@ -127,9 +132,9 @@ class Calendar extends CI_Controller{
         for($day = 1; $day <= $lastDay; $day++, $youbi++)
         {
             //1日から最終日まで
-            $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1" >';
             $week .= '<a  href="/daylist/'.$calendar_id.'/'.$yyyy.'/'.$mm.'/'.$day.'"';
-            $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="true" data-placement="right" ';
+            $week .= ' class="fc-date" data-toggle="popover" data-trigger="click" data-html="false" data-placement="bottom" ';
             $week .= ' data-title="'.$itmarr[$day]['img_alt'].'" data-content="'.$itmarr[$day]['ymd_description'].'">';
             $week .= '<span>'.$day.'</span>';
             if(!$itmarr[$day]['img_path']){
@@ -164,8 +169,13 @@ class Calendar extends CI_Controller{
         // OGタグ設定
         $data['og_title'] = $data['title']."カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
         $data['og_url'] = "/".$this->uri->uri_string();
-        $data['og_description'] = $data['og_title']." : iCalendar.xyz." ;
+        $data['og_description'] = $data['og_title'].'。'.$data['description'];
         // OGタグ設定
+        $data['keywords'] = $data['title'].','.$data['yyyy'].'年'.$data['mm'].'月,'.$data['keywords'];
+        $data['description'] = $data['og_description'];
+        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+        
+
         //メニューお気に入りセレクト
         if($userid<>-1){
             $this->load->model('tbl_calendar_model', 'calendarM');   

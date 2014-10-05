@@ -6,6 +6,7 @@ class Search extends CI_Controller{
         parent::__construct();
         $this->load->helper('array');
         $this->load->helper('form');
+        $this->config->load('icalendar');
         // $this->output->enable_profiler(TRUE);
     }
 
@@ -59,10 +60,14 @@ class Search extends CI_Controller{
         }
         // スター
         // ogタグ初期値
-        $data['og_title'] = "画像で振り返る、あの日の記録 - イメージカレンダー : iCalendar.xyz.";
-        $data['og_image'] = "http://icalendar.xyz/iTunesArtwork-512.jpg" ;
-        $data['og_url'] = "http://icalendar.xyz" ;
-        $data['og_description'] = "あの日の出来事を日付ごとの画像カレンダーで振り返れます。" ;
+        $data['og_title'] = $this->config->item('og_title', 'icalendar');
+        $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_url'] = $this->config->item('og_url', 'icalendar');
+        $data['og_description'] = $this->config->item('og_description', 'icalendar');
+        //
+        $data['title'] = $this->config->item('title', 'icalendar');
+        $data['description'] = $this->config->item('description', 'icalendar');
+        $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // ogタグ
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');
@@ -81,7 +86,7 @@ class Search extends CI_Controller{
                 $data['exm_title'] = "ランダム";
                 break;
             default:
-            	$data['title'] = "新着順一覧";
+            	$data['title'] = "新着順カレンダーリスト";
                 $data['exm_title'] = "新着順";
                 break;
         }
@@ -114,10 +119,20 @@ class Search extends CI_Controller{
         $this->pagination->initialize($config); 
         $data['page_link'] = $this->pagination->create_links();
         // OGタグ設定
-        $data['og_title'] = $data['title'];
-        $data['og_url'] = $config['base_url']."/".$config['per_page'];
-        $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
+        $data['title'] = $keyword.'の'.$data['title'];
+
+        // $data['og_url'] = $config['base_url']."/".$config['per_page'];
+        // $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
         // OGタグ設定
+        // OGタグ設定
+        $data['og_title'] = $data['title'];
+        $data['og_url'] = "/".$this->uri->uri_string();
+        $data['og_description'] = $data['og_title'].'。'.$data['description'];
+        // OGタグ設定
+        $data['keywords'] = $keyword.','.$data['keywords'];
+        $data['description'] = $data['og_description'];
+        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+
         //メニューお気に入りセレクト
         if($userid<>-1){
             $data['menu'] = $this->calendar->menu_favorites_arr($userid);

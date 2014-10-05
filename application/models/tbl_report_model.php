@@ -10,6 +10,7 @@ class Tbl_report_model extends MY_Model {
         $this->db->select('id');
         $this->db->select('date');
         $this->db->select('url');
+        $this->db->select('img');
         $this->db->select('headline');
         $this->db->select('contents');
         $this->db->from('tbl_report');
