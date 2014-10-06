@@ -4,22 +4,38 @@ foreach ($data as $row) {}
 $myrakutenafid = '04068848.c0d7755d.04068849.fd1cdf92';
 $raku_pre_url = 'http://hb.afl.rakuten.co.jp/hgc/'.$myrakutenafid.'/?pc=';
 $raku_mid_url = '?scid=af_link_txt&m=';
+$cnt=1;
 ?>
 <!-- SNSボタン -->
 <!-- <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
 <link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
 <!-- SNSボタン -->
 <style>
+<style>
 .fc-head{
-font-weight: 300;
-text-transform: uppercase;
-font-size: 12px;
-letter-spacing: 3px;
-text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    text-align: center;
 }
 .fc-date {
-position: relative;
+    position: relative;
+}
+.fc-date span{
+    position: absolute;
+    z-index: 9;
+    color: rgba(28,75,189,0.9);
+    text-shadow: none;
+    font-size: 26px;
+    font-weight: 300;
+    bottom: auto;
+    right: auto;
+    top: 3px;
+    left: 6px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 /*ページtopスクロール*/
 #page-top{
@@ -183,6 +199,7 @@ position: relative;
 
 		<?php foreach ($dayitem as $rowD):?>
 		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <p class="fc-date"><span><?php echo $cnt; ?></span></p>
 			<div class="thumbnail bootsnipp-thumb">
 				<div>
 					<p class="lead product-title text-center">
@@ -245,6 +262,7 @@ position: relative;
 				</div>
 			</div>
 		</div>
+        <?php $cnt++; ?>
 		<?php endforeach;?>
 		<!--  -->
 		<div class="row">

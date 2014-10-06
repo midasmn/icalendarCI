@@ -29,8 +29,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 </style>
-
-
 	<!-- ページ -->
 	<div class="container">
 		<!-- ページヘッダー -->
@@ -52,7 +50,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			 	}?>
 			</div>
 		</div>
-
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
 				<?php
@@ -78,7 +75,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				?>
 			</h1>
 		</div>
-
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h2 style="font-size:19px;font-weight:200;line-height:15px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:2px;">
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
@@ -89,9 +85,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<a href="/calendar/<?=$cal_id?>/<?=$next?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
-				<!-- <a href="/calendar/<?=$cal_id?>/<?=date('Y')?>/<?=date('n')?>" title="Go to current date"> -->
 				<a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
-				
 					<span class="glyphicon glyphicon-check"></span>
 				</a>
 			</h2>
@@ -118,16 +112,9 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			?>
 			<!-- カレンダーメイン -->
 		</table>
-
-			
 		<div class="col-xs-12 col-sm-12 col-md-12" >
-	        <!-- <div class="share-container clearfix"> -->
-            <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">
                 <li class="facebook">
-                    <!-- Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
-                    https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
-                    <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=http://kurtnoble.com/labs/rrssb/index.html" class="popup"> -->
                     <a href="http://www.facebook.com/sharer.php?u=<?=current_url();?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
                         <span class="icon">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
@@ -140,8 +127,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
                 <li class="googleplus">
-                    <!-- Replace href with your meta and URL information.  -->
-                    <!-- <a href="https://plus.google.com/share?url=Check%20out%20how%20ridiculously%20responsive%20these%20social%20buttons%20are%20http://kurtnoble.com/labs/rrssb/index.html" class="popup"> -->
                     <a href="https://plus.google.com/share?url=<?=current_url();?>" onclick="_gaq.push(['_trackEvent','Share', '<?=$og_title?>', 'Google Plus']);window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;">
 
                         <span class="icon">
@@ -168,8 +153,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
                 <li class="twitter">
-                    <!-- Replace href with your Meta and URL information  -->
-                    <!-- <a href="http://twitter.com/home?status=Ridiculously%20Responsive%20Social%20Sharing%20Buttons%20by%20@joshuatuscan%20and%20@dbox%20http://kurtnoble.com/labs/rrssb" class="popup"> -->
                     <a href="http://twitter.com/share?url=<?=current_url();?>&amp;text=<?=$og_title?>&amp;via=icalendar_xyz" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
                         <span class="icon">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -186,7 +169,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
                 <li class="pinterest">
-                    <!-- Replace href with your meta and URL information.  -->
                     <a href="http://pinterest.com/pin/create/button/?url=<?=current_url();?>&amp;media=<?=$og_image?>&amp;description=<?=$og_title?>%20%20iCalendar.xyz.">
                         <span class="icon">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
@@ -210,7 +192,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
                 <li class="pocket">
-                    <!-- <a href="https://getpocket.com/save?url=http://kurtnoble.com/labs/rrssb/index.html"> -->
                     <a href="http://getpocket.com/edit?url=<?=current_url();?>&amp;title=<?=$og_title?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
                         <span class="icon">
                             <svg width="32px" height="28px" viewBox="0 0 32 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -221,7 +202,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
             </ul>
-            <!-- Buttons end here -->
 		</div>
 		<!-- SNS -->
 
