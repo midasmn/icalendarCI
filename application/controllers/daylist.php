@@ -43,8 +43,8 @@ class Daylist extends CI_Controller{
         $mm=$this->uri->segment(4);     //MM
         $dd=$this->uri->segment(5);     //MM
         /////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array(  'userid' => $userid,'item1' => $exm , 'item2' => $calendar_id , 'item3' => $yyyy , 'item4' => $mm , 'item5' => $dd);
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'daylist', 'calid' => $calendar_id , 'yyyy' => $yyyy , 'mm' => $mm , 'dd' => $dd);
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値

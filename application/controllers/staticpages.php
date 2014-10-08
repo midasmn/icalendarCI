@@ -29,6 +29,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'about' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -74,6 +79,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'terms' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -120,6 +130,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'privacy' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -165,6 +180,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'faq' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -216,6 +236,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'supportform' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -257,6 +282,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'news' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
@@ -302,6 +332,11 @@ class Staticpages extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        /////// ログ
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'report' );
+        $rtn = $this->logr->insert($logdata);
+        /////// ログ
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL

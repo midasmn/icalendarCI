@@ -1,0 +1,21 @@
+<?php
+class Tbl_logs_model extends MY_Model {
+    public function __construct() {
+        parent::__construct();
+    }
+    public function insert($arr_item) {
+        // $this->db->start_cache();
+        // $now = $this->now();
+        // $this->db->set(array('created_at' => $now, 'updated_at' => $now));
+        // $this->db->set(array('exm' => $exm, 'itemid' => $itemid, 'userid' => $userid);
+        // $this->db->set($array);
+        $ret = $this->db->insert('tbl_logs', $arr_item); 
+        if ($ret === FALSE) {
+            return FALSE;
+        }
+// echo $this->db->last_query();
+        return  $this->db->insert_id();
+    }
+
+}
+?>

@@ -94,8 +94,8 @@ class Search extends CI_Controller{
         // $offset=$this->uri->segment(2); //ページ番号セグメント
         $offset=$this->uri->segment(3); //ページ番号セグメント
         /////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array( 'userid' => $userid, 'item1' => $exm , 'item2' => $offset);
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array( 'userid' => $userid, 'exm' => 'search' , 'etc' => $exm);
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         $this->load->model('tbl_calendar_model', 'calendar');   //テーブル

@@ -35,8 +35,8 @@ class Sitemap extends CI_Controller{
         //セグメント取得
         $exm=$this->uri->segment(1);  
         /////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array(  'userid' => $userid,'item1' => $exm);
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'sitemap');
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値

@@ -6,11 +6,6 @@ $raku_pre_url = 'http://hb.afl.rakuten.co.jp/hgc/'.$myrakutenafid.'/?pc=';
 $raku_mid_url = '?scid=af_link_txt&m=';
 $cnt=1;
 ?>
-<!-- SNSボタン -->
-<!-- <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
-<link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet"> -->
-<!-- SNSボタン -->
-<style>
 <style>
 .fc-head{
     font-weight: 300;
@@ -59,9 +54,9 @@ $cnt=1;
 
 <!-- ページ -->
 <div class="container">
-	<!-- 一覧 -->
-	<div class="row" style="margin-top:20px;">
-		<div class="col-md-12" id="listroot">
+    <!-- 一覧 -->
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-12" id="listroot">
             <?php
             $new_str = $rowR->cal_title;
             $new_str = str_replace('男性ランキング', '', $new_str);
@@ -70,28 +65,28 @@ $cnt=1;
             $new_str = str_replace('ベストセラー', '', $new_str);
             $new_str = str_replace('デイリー', '', $new_str);
             ?>
-			<a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
-		</div>
-	</div>
+            <a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
+        </div>
+    </div>
 
-	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px;">
-		<h2 style="font-size:20px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
-			<a href="/daylist/<?=$cal_id?>/<?=$prev?>">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<?=$yyyy?>年<?=$mm?>月<?=$dd?>日
-			<a href="/daylist/<?=$cal_id?>/<?=$next?>">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</h2>
-	</div>
-	<!--  -->
+    <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px;">
+        <h2 style="font-size:20px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
+            <a href="/daylist/<?=$cal_id?>/<?=$prev?>">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <?=$yyyy?>年<?=$mm?>月<?=$dd?>日
+            <a href="/daylist/<?=$cal_id?>/<?=$next?>">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </h2>
+    </div>
+    <!--  -->
 
-	<hr >
+    <hr >
 
-	<!-- SNS -->
-	<div class="col-xs-12 col-sm-12 col-md-12" >
-	        <!-- <div class="share-container clearfix"> -->
+    <!-- SNS -->
+    <div class="col-xs-12 col-sm-12 col-md-12" >
+            <!-- <div class="share-container clearfix"> -->
             <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">
                 <li class="facebook">
@@ -171,7 +166,7 @@ $cnt=1;
                         <span class="text">ピンする</span>
                     </a>
                 </li>
-				<li class="tumblr">
+                <li class="tumblr">
                     <a href="http://www.tumblr.com/share/?v=3&amp;u=<?=urlencode(current_url())?>&amp;t=<?=urlencode($og_title)?>&amp;s=<?=urlencode($og_description)?>">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path d="M18.02 21.842c-2.029 0.052-2.422-1.396-2.439-2.446v-7.294h4.729V7.874h-4.71V1.592c0 0-3.653 0-3.714 0 s-0.167 0.053-0.182 0.186c-0.218 1.935-1.144 5.33-4.988 6.688v3.637h2.927v7.677c0 2.8 1.7 6.7 7.3 6.6 c1.863-0.03 3.934-0.795 4.392-1.453l-1.22-3.539C19.595 21.6 18.7 21.8 18 21.842z"/></svg>
@@ -192,88 +187,108 @@ $cnt=1;
                 </li>
             </ul>
             <!-- Buttons end here -->
-		</div>
-		<!-- SNS -->
+        </div>
+        <!-- SNS -->
 
-	<div class="row" style="margin-top:5px;">
+    <div class="row" style="margin-top:5px;">
 
-		<?php foreach ($dayitem as $rowD):?>
-		<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+        <?php foreach ($dayitem as $rowD):?>
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
             <p class="fc-date"><span><?php echo $cnt; ?></span></p>
-			<div class="thumbnail bootsnipp-thumb">
-				<div>
-					<p class="lead product-title text-center">
-						<!-- <a href="https://www.google.com/search?q=<?=$serch_st?>" target="_blank"> -->
-							<?php echo $rowD->img_alt;?>
-						<!-- </a> -->
-					</p>
-				</div>
-				
-				<!-- <a href="" target="_blank"> -->
-					<img class="product-cover" src="<?php echo $rowD->img_path;?>" alt="<?php echo $rowD->img_alt;?>">
-				<!-- </a> -->
-				<div class="caption">
-					<p>
-					<?php
-					$exm_group = $rowR->cal_group;
-					if($exm_group=='amazon'){
-						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-warning btn-block">';
-						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-						echo ' アマゾンで購入';
-						echo '</a>';
-					}elseif($exm_group=='rakuten'){
+            <div class="thumbnail bootsnipp-thumb">
+                <div>
+                    <p class="lead product-title text-center">
+                        <!-- <a href="https://www.google.com/search?q=<?=$serch_st?>" target="_blank"> -->
+                            <?php echo $rowD->img_alt;?>
+                        <!-- </a> -->
+                    </p>
+                </div>
+                
+                <!-- <a href="" target="_blank"> -->
+                    <img class="product-cover" src="<?php echo $rowD->img_path;?>" alt="<?php echo $rowD->img_alt;?>">
+                <!-- </a> -->
+                <div class="caption">
+                    <p>
+                    <?php
+                    $exm_group = $rowR->cal_group;
+                    if($exm_group=='amazon'){
+                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-warning btn-block">';
+                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                        echo ' アマゾンで購入';
+                        echo '</a>';
+                    }elseif($exm_group=='rakuten'){
                         //楽天UR
                         $raku_html = urlencode($rowD->href.$raku_mid_url.$rowD->href);
                         $raku_url = $raku_pre_url.$raku_html;
-						echo '<a href="'.$raku_url.'" target="_blank" class="btn btn-danger btn-block">';
-						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-						echo ' 楽天市場で購入';
-						echo '</a>';
-					}elseif($exm_group=='iTunes'){
-						echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-default btn-block">';
-						echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-						echo ' iTunesで購入';
-						echo '</a>';
-					}
-					?>
-					</p>
-					<p class="product-description">
-						<?php
-						if($exm_group=='google'){
-						}else{
-						$serch_st = urlencode($yyyy."年".$mm."月".$dd."日 ".$rowD->img_alt);
-						//google検索
-						echo '<a href="https://www.google.com/search?q='.$serch_st.'" target="_blank" class="btn btn-primary btn-block">';
-						echo '<span class="glyphicon glyphicon-search"></span>';
-						// echo ' google検索で「'.$yyyy.'年'.$mm.'月'.$dd.'日 '.$rowD->img_alt.'」を見る';
-						echo ' google検索';
-						echo '</a>';
-						//google画像検索
-						$serch_im_st = urlencode($rowD->img_alt);
-						echo '<a href="https://www.google.co.jp/search?hl=ja&source=lnms&tbm=isch&tbs=isz:m&q='.$serch_im_st.'" target="_blank" class="btn btn-primary btn-block">';
-						echo '<span class="glyphicon glyphicon-camera"></span>';
-						// echo ' google画像検索で「'.$rowD->img_alt.'」を見る';
-						echo ' google画像検索';
-						echo '</a>';
-						}
-						?>
-					</p>
+                        echo '<a href="'.$raku_url.'" target="_blank" class="btn btn-danger btn-block">';
+                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                        echo ' 楽天市場で購入';
+                        echo '</a>';
+                    }elseif($exm_group=='iTunes'){
+                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-default btn-block">';
+                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                        echo ' iTunesで購入';
+                        echo '</a>';
+                    }
+                    ?>
+                    </p>
+                    <p class="product-description">
+                        <?php
+                        if($exm_group=='google'){
+                        }else{
+                        $serch_st = urlencode($yyyy."年".$mm."月".$dd."日 ".$rowD->img_alt);
+                        //google検索
+                        echo '<a href="https://www.google.com/search?q='.$serch_st.'" target="_blank" class="btn btn-primary btn-block">';
+                        echo '<span class="glyphicon glyphicon-search"></span>';
+                        // echo ' google検索で「'.$yyyy.'年'.$mm.'月'.$dd.'日 '.$rowD->img_alt.'」を見る';
+                        echo ' google検索';
+                        echo '</a>';
+                        //google画像検索
+                        $serch_im_st = urlencode($rowD->img_alt);
+                        echo '<a href="https://www.google.co.jp/search?hl=ja&source=lnms&tbm=isch&tbs=isz:m&q='.$serch_im_st.'" target="_blank" class="btn btn-primary btn-block">';
+                        echo '<span class="glyphicon glyphicon-camera"></span>';
+                        // echo ' google画像検索で「'.$rowD->img_alt.'」を見る';
+                        echo ' google画像検索';
+                        echo '</a>';
+                        }
+                        ?>
+                    </p>
                     <?php echo $rowD->ymd_description;?>
-				</div>
-			</div>
-		</div>
+
+                </div>
+            </div>
+        </div>
+    
+
+        <!-- スポンサー -->
+<!--         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <p style="color:#666;margin-bottom:5px;">スポンサーリンク</p>
+            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12" style="margin-bottom:10px;"><div >
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- icalday -->
+  <!--               <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-6625574146245875"
+                     data-ad-slot="9083990401"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+        </div> -->
+
+        
+
         <?php $cnt++; ?>
-		<?php endforeach;?>
-		<!--  -->
-		<div class="row">
-			<div class="col-md-10"></div>
-			<div class="col-md-2">
-				<h2>
-					<a href="" class="btn btn-default pull-right"  id="page-top">
-						<span class="glyphicon glyphicon-arrow-up"></span> To top</a>
-				</h2>
-			</div>
-		</div>
-	</div>
+        <?php endforeach;?>
+        <!--  -->
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <h2>
+                    <a href="" class="btn btn-default pull-right"  id="page-top">
+                        <span class="glyphicon glyphicon-arrow-up"></span> To top</a>
+                </h2>
+            </div>
+        </div>
+    </div>
 <!--  -->
 </div>

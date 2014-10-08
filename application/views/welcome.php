@@ -15,23 +15,23 @@ $dayurl = '/daylist/5470/'.$lastday;
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
 <link href="<?=base_url('/application/views/assets/css/rrssb.css')?>" rel="stylesheet">
 <!-- SNSボタン -->
-	
+    
 <div class="container">
-	<!-- パスワード忘れ -->
-	<div class="row">
-		<!-- <div class="col-md-4 col-md-offset-4"> -->
-		<div class="col-sm-12 col-md-12" style="margin-top:30px;">    
-			<h1 class="text-center">iCalendarにようこそ</h1>
-		</div>
-	</div>
+    <!-- パスワード忘れ -->
+    <div class="row">
+        <!-- <div class="col-md-4 col-md-offset-4"> -->
+        <div class="col-sm-12 col-md-12" style="margin-top:30px;">    
+            <h1 class="text-center">iCalendarへようこそ</h1>
+        </div>
+    </div>
 
    <div class="row">
-		<div class="col-sm-12  col-md-12">
+        <div class="col-sm-12  col-md-12">
             <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかります。</h2>
         </div>
     </div>
      <div class="row" style="margin-top:30px;">
-     	<div class="thumbnail bootsnipp-thumb">
+        <div class="thumbnail bootsnipp-thumb">
             <img src="<?=base_url('/application/img/main_mini.jpg')?>"  class="img-responsive text-center" alt="iCalendarへようこそ-あの日の最も人気のあった画像を記録します。" />
         </div>
     </div>
@@ -39,43 +39,43 @@ $dayurl = '/daylist/5470/'.$lastday;
 
     <div class="row" style="margin-top:50px;">
         <div class="col-xs-12 col-sm-4 col-md-4">
-        	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
+            <div class="thumbnail bootsnipp-thumb">
+                <img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
         
             <h4>600種のカレンダーからえらべる:</h4>
-            	<p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングな多彩なジャンルの人気画像を記録しています。<br />
-   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
+                <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングな多彩なジャンルの人気画像を記録しています。<br />
+                    <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="/smart/" class="link-block">カレンダー一覧をみる</a>
                     <!-- </span> -->
-   				</p>
-   			</div>
+                </p>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4">
-        	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
+            <div class="thumbnail bootsnipp-thumb">
+                <img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
             <h4>月の出来事がひと目でわかる:</h4>
-            	<p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬で蘇ります。<br />
-   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
+                <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬で蘇ります。<br />
+                    <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
                     <!-- </span> -->
-   				</p>
-   			</div>
+                </p>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4">
-        	<div class="thumbnail bootsnipp-thumb">
-            	<img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
+            <div class="thumbnail bootsnipp-thumb">
+                <img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
             <h4>その日の人気画像一覧がみれる:</h4>
-            	<p>日付の画像をクリックするとその日の人気画像一覧もみれます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
-   					<!-- <span class="glyphicon glyphicon-hand-right"> -->
+                <p>日付の画像をクリックするとその日の人気画像一覧もみれます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
+                    <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a>
                     <!-- </span> -->
-   				</p>
-   			</div>
+                </p>
+            </div>
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12" >
-	        <!-- <div class="share-container clearfix"> -->
+            <!-- <div class="share-container clearfix"> -->
             <!-- Buttons start here. Copy this ul to your document. -->
             <ul class="rrssb-buttons clearfix">
                 <li class="facebook">
@@ -155,7 +155,7 @@ $dayurl = '/daylist/5470/'.$lastday;
                         <span class="text">ピンする</span>
                     </a>
                 </li>
-				<li class="tumblr">
+                <li class="tumblr">
                     <a href="http://www.tumblr.com/share/?v=3&amp;u=<?=urlencode(current_url())?>&amp;t=<?=urlencode($og_title)?>&amp;s=<?=urlencode($og_description)?>">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path d="M18.02 21.842c-2.029 0.052-2.422-1.396-2.439-2.446v-7.294h4.729V7.874h-4.71V1.592c0 0-3.653 0-3.714 0 s-0.167 0.053-0.182 0.186c-0.218 1.935-1.144 5.33-4.988 6.688v3.637h2.927v7.677c0 2.8 1.7 6.7 7.3 6.6 c1.863-0.03 3.934-0.795 4.392-1.453l-1.22-3.539C19.595 21.6 18.7 21.8 18 21.842z"/></svg>
@@ -176,7 +176,7 @@ $dayurl = '/daylist/5470/'.$lastday;
                 </li>
             </ul>
             <!-- Buttons end here -->
-		</div>
-		<!-- SNS -->
-	</div>
+        </div>
+        <!-- SNS -->
+    </div>
 </div>

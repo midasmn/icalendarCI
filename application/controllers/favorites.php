@@ -46,8 +46,8 @@ class  Favorites extends CI_Controller{
         // カレンダーテーブル
         $this->load->model('tbl_calendar_model', 'calendar');
         /////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array( 'userid' => $userid, 'item1' => $exm );
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array( 'userid' => $userid, 'exm' => 'favorites' );
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         $data['calist'] = $this->calendar->find_favorites_arr($userid);

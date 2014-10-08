@@ -29,7 +29,7 @@ function f_rank_update($db_conn,$rank, $calendar_id)
 
 /////////////////
 // カレンダーランク
-$strSQL = "SELECT  count(*) as rank,`item2`  FROM `tbl_log` WHERE `item1` = 'calendar' group by `item2` order by rank desc";
+$strSQL = "SELECT  count(*) as rank,`calid`  FROM `tbl_logs` WHERE `exm` = 'calendar' group by `calid` order by rank desc";
 $tbl_tmp = mysql_query($strSQL, $db_conn);
 if($tbl_tmp)
 {

@@ -42,8 +42,8 @@ class Calendar extends CI_Controller{
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
         /////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array(  'userid' => $userid,'item1' => $exm , 'item2' => $calendar_id , 'item3' => $yyyy, 'item4' => $mm);
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'calendar' , 'calid' => $calendar_id , 'yyyy' => $yyyy, 'mm' => $mm);
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // スター

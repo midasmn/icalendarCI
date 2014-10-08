@@ -42,8 +42,8 @@ class Welcome extends CI_Controller {
 
 		$exm=$this->uri->segment(1);  
 		/////// ログ
-        $this->load->model('tbl_log_model', 'logr'); //ログ
-        $logdata = array(  'userid' => $userid,'item1' => $exm );
+        $this->load->model('tbl_logs_model', 'logr'); //ログ
+        $logdata = array(  'userid' => $userid,'exm' => 'welcome' );
         $rtn = $this->logr->insert($logdata);
         /////// ログ
 

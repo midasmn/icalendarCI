@@ -53,18 +53,23 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
 				<?php
-				echo '<a href="javascript: void(0)" class="starexm">';
-				echo '<input type="hidden" id="calendar_id" value="'.$cal_id.'">';
-				echo '<input type="hidden" id="userid" value="'.$userid.'">';
-				if($star_flg=="ON")
+				if($userid>0)	//
 				{
-					echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-					echo '<span  style="display: none"  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+					echo '<a href="javascript: void(0)" class="starexm">';
+					echo '<input type="hidden" id="calendar_id" value="'.$cal_id.'">';
+					echo '<input type="hidden" id="userid" value="'.$userid.'">';
+					if($star_flg=="ON")
+					{
+						echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+						echo '<span  style="display: none"  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+					}else{
+						echo '<span style="display: none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
+						echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+					}
+					echo '</a>';
 				}else{
-					echo '<span style="display: none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-					echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
+					echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="ログインしてお気に入りに追加"></span>';
 				}
-				echo '</a>';
 				$new_str = $rowR->cal_title;
 				$new_str = str_replace('男性ランキング', '', $new_str);
 				$new_str = str_replace('女性ランキング', '', $new_str);
