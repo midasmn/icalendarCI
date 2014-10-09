@@ -1,18 +1,5 @@
 <?php
-class Tbl_faq_model extends MY_Model {
-
-    // カラムを public フィールドとして定義
-    // public $calendar_id;
-    // public $yyyy;
-    // public $mm;
-    // public $dd;
-    // public $name;
-    // public $img_path;
-    // public $img_alt;
-    // public $href;
-    // public $order;
-    // // public $createdate;
-    // // public $updatedate;
+class Tbl_ad_model extends MY_Model {
 
     public function __construct() {
         parent::__construct();
@@ -23,7 +10,7 @@ class Tbl_faq_model extends MY_Model {
         // $this->db->set(array('created_at' => $now, 'updated_at' => $now));
         // $this->db->set(array('exm' => $exm, 'itemid' => $itemid, 'userid' => $userid);
         // $this->db->set($array);
-        $ret = $this->db->insert('tbl_faq', $arr_item); 
+        $ret = $this->db->insert('tbl_ad', $arr_item); 
         if ($ret === FALSE) {
             return FALSE;
         }
@@ -31,18 +18,16 @@ class Tbl_faq_model extends MY_Model {
         return  $this->db->insert_id();
     }
     //取得
-    public function get_faq_list() {
+    public function get_ad_list($calid,$positon) {
         $this->db->start_cache();
-        $this->db->select('title as faq_title');
-        $this->db->select('faq as faq_faq');
-        $this->db->select('order as faq_order');
-        $this->db->from('tbl_faq');
+        $this->db->select('src as ad_src');
+        $this->db->from('tbl_ad');
+        $this->db->where('calid', $calid); 
+        $this->db->where('position', $positon); 
         $this->db->where('onflg', 'ON'); 
-        $this->db->order_by('order','asc'); 
         $query = $this->db->get();
 // echo $this->db->last_query();
         return $query->result();
     }
-
 }
 ?>

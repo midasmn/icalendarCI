@@ -120,10 +120,20 @@ class Calendar extends CI_Controller{
         $week = '';
         //
         //公告枠
+        $this->load->model('tbl_ad_model', 'ad'); 
         if($youbi>=3){
             //広告枠
-            
-            $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><div class="thumbnail bootsnipp-thumb" style="background-color:#f5f5f5;"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;"></div></td>';
+            $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
+            $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f5f5f5;">';
+            $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
+            if($rtn_ad){
+                foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
+                $week .= $m1_ad;
+            }else{
+                $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
+            }
+            $week .= '</div>';
+            $week .= '</td>';
             $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi-1);    //空埋め
         }else{
              $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi);    //空埋め
@@ -155,7 +165,17 @@ class Calendar extends CI_Controller{
                         //公告枠
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7)-1);
 
-                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1"><div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;"><img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;"></div></td>';
+                        $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
+                        $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;">';
+                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m2');
+                        if($rtn_ad){
+                            foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
+                            $week .= $m1_ad;
+                        }else{
+                            $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
+                        }
+                        $week .= '</div>';
+                        $week .= '</td>';
                     }else{
                         $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>', 6 - ($youbi % 7));
                     }  

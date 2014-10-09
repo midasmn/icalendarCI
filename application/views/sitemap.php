@@ -47,22 +47,22 @@
 	<!--  -->
 	<hr id="1">
 
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-1">アマゾンベストセラー</a></h2></p>
 	</div>
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-2">楽天市場ランキング</a></h2></p>
 	</div>
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-3">iTunes</a></h2></p>
 	</div>
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-4">オリコン</a></h2></p>
 	</div>
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-5">Yahoo</a></h2></p>
 	</div>
-	<div class="col-xs-12 col-sm-4 col-md-3">
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-6">google画像</a></h2></p>
 	</div>
 
