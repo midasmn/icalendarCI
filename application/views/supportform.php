@@ -1,6 +1,9 @@
 <?php
 
 ?>
+<style>
+iframe{ width:100%; }
+</style>
 <div class="container  text-muted">
 	<div class="row">
 		<div class="col-sm-12" style="margin-top:30px;">

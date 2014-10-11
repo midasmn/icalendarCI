@@ -73,9 +73,9 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				$new_str = $rowR->cal_title;
 				$new_str = str_replace('男性ランキング', '', $new_str);
 				$new_str = str_replace('女性ランキング', '', $new_str);
-				$new_str = str_replace('ランキング', '', $new_str);
-				$new_str = str_replace('ベストセラー', '', $new_str);
-				$new_str = str_replace('デイリー', '', $new_str);
+				// $new_str = str_replace('ランキング', '', $new_str);
+				// $new_str = str_replace('ベストセラー', '', $new_str);
+				// $new_str = str_replace('デイリー', '', $new_str);
 				echo $new_str;
 				?>
 			</h1>
@@ -85,8 +85,8 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
-				<span><?=$mm_st?></span>
-				<span><?=$yyyy?></span>
+				<span><?=$yyyy?>年</span>
+				<span><?=$mm?>月</span>
 				<a href="/calendar/<?=$cal_id?>/<?=$next?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>

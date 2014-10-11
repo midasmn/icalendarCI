@@ -93,7 +93,7 @@ class Calendar extends CI_Controller{
         $data['cal_id'] = $calendar_id;
         $data['yyyy'] = $yyyy;
         $data['mm'] = $mm;
-        $data['mm_st'] = date('F',strtotime($yyyy."-".$mm."-1"));   //英語曜日
+        //$data['mm_st'] = date('F',strtotime($yyyy."-".$mm."-1"));   //英語曜日
         //
         $data['prev'] = str_replace("-", "/", date("Y-m",mktime(0,0,0,$mm-1,1,$yyyy))); //前月リンク用
         $data['next'] = str_replace("-", "/", date("Y-m",mktime(0,0,0,$mm+1,1,$yyyy))); //翌月リンク用
@@ -128,6 +128,7 @@ class Calendar extends CI_Controller{
             $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
             if($rtn_ad){
                 foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
+                $ad_flg = 'top';
                 $week .= $m1_ad;
             }else{
                 $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
@@ -167,8 +168,9 @@ class Calendar extends CI_Controller{
 
                         $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
                         $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;">';
-                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m2');
-                        if($rtn_ad){
+                        //
+                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
+                        if($rtn_ad&&!$ad_flg){
                             foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
                             $week .= $m1_ad;
                         }else{

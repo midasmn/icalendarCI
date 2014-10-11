@@ -54,16 +54,16 @@
 		<p><h2><a href="#cat-2">楽天市場ランキング</a></h2></p>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3">
-		<p><h2><a href="#cat-3">iTunes</a></h2></p>
+		<p><h2><a href="#cat-3">iTunesランキング</a></h2></p>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3">
-		<p><h2><a href="#cat-4">オリコン</a></h2></p>
+		<p><h2><a href="#cat-4">オリコンランキング</a></h2></p>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3">
-		<p><h2><a href="#cat-5">Yahoo</a></h2></p>
+		<p><h2><a href="#cat-5">Yahoo!検索デイリー</a></h2></p>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3">
-		<p><h2><a href="#cat-6">google画像</a></h2></p>
+		<p><h2><a href="#cat-6">Google画像検索</a></h2></p>
 	</div>
 
 	<hr>
@@ -95,25 +95,25 @@
 				case 'oricon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-4">オリコン</h3></p>';
+					echo '<p><h3 id="cat-4">オリコンランキング</h3></p>';
 					echo '</div>';
 					break;
 				case 'iTunes':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-3">iTunes</h3></p>';
+					echo '<p><h3 id="cat-3">iTunesランキング</h3></p>';
 					echo '</div>';
 					break;
 				case 'google':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3  id="cat-6">google画像</h3></p>';
+					echo '<p><h3  id="cat-6">Google画像検索</h3></p>';
 					echo '</div>';
 					break;
 				case 'yahoo':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3  id="cat-5">Yahoo</h3></p>';
+					echo '<p><h3  id="cat-5">Yahoo!検索デイリー</h3></p>';
 					echo '</div>';
 					break;
 				default:

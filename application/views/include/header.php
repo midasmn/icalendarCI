@@ -52,7 +52,7 @@
     <![endif]-->
   </head>
 <body>
-
+<div id="dev_position"></div>
 <div id="wrap">
 	<!-- ナビゲーションバー -->
 	<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0;">

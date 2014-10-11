@@ -27,7 +27,7 @@ $dayurl = '/daylist/5470/'.$lastday;
 
    <div class="row">
         <div class="col-sm-12  col-md-12">
-            <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかります。</h2>
+            <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかる</h2>
         </div>
     </div>
      <div class="row" style="margin-top:30px;">
@@ -43,7 +43,7 @@ $dayurl = '/daylist/5470/'.$lastday;
                 <img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
         
             <h4>600種のカレンダーからえらべる:</h4>
-                <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングな多彩なジャンルの人気画像を記録しています。<br />
+                <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど多彩なジャンルの人気画像を記録しています。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="/smart/" class="link-block">カレンダー一覧をみる</a>
                     <!-- </span> -->
@@ -53,8 +53,8 @@ $dayurl = '/daylist/5470/'.$lastday;
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail bootsnipp-thumb">
                 <img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
-            <h4>月の出来事がひと目でわかる:</h4>
-                <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬で蘇ります。<br />
+            <h4>月毎の出来事がひと目でわかる:</h4>
+                <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬でよみがえります。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
                     <!-- </span> -->
@@ -64,8 +64,8 @@ $dayurl = '/daylist/5470/'.$lastday;
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail bootsnipp-thumb">
                 <img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
-            <h4>その日の人気画像一覧がみれる:</h4>
-                <p>日付の画像をクリックするとその日の人気画像一覧もみれます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
+            <h4>その日の人気画像一覧がみられる:</h4>
+                <p>日付の画像をクリックするとその日の人気画像一覧もみられます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a>
                     <!-- </span> -->

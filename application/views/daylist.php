@@ -7,6 +7,21 @@ $raku_mid_url = '?scid=af_link_txt&m=';
 $cnt=1;
 ?>
 <style>
+/* オリジナルボタンスタイル */
+.btn-origin {
+color: #fff;
+background-color: #9932cc;
+border-bottom: 2px solid #9932cc;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+}
+.btn-origin:hover{
+color: #fff;
+background-color: #9400d3;
+border-bottom: none;
+margin-top: 2px;
+}
 .fc-head{
     font-weight: 300;
     text-transform: uppercase;
@@ -27,7 +42,7 @@ $cnt=1;
     font-weight: 300;
     bottom: auto;
     right: auto;
-    top: 3px;
+    top: 6px;
     left: 6px;
     text-align: left;
     text-shadow: 0 1px 1px rgba(0,0,0,0.3);
@@ -195,7 +210,7 @@ $cnt=1;
         <?php foreach ($dayitem as $rowD):?>
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
             <p class="fc-date"><span><?php echo $cnt; ?></span></p>
-            <div class="thumbnail bootsnipp-thumb">
+            <div class="thumbnail bootsnipp-thumb" style="margin-top:25px;">
                 <div>
                     <p class="lead product-title text-center">
                         <!-- <a href="https://www.google.com/search?q=<?=$serch_st?>" target="_blank"> -->
@@ -225,7 +240,7 @@ $cnt=1;
                         echo ' 楽天市場で購入';
                         echo '</a>';
                     }elseif($exm_group=='iTunes'){
-                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-default btn-block">';
+                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-origin btn-block">';
                         echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
                         echo ' iTunesで購入';
                         echo '</a>';
