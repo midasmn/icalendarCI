@@ -32,7 +32,7 @@ class Tbl_faq_model extends MY_Model {
     }
     //取得
     public function get_faq_list() {
-        $this->db->start_cache();
+        // $this->db->start_cache();
         $this->db->select('title as faq_title');
         $this->db->select('faq as faq_faq');
         $this->db->select('order as faq_order');

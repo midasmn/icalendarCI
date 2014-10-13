@@ -6,7 +6,7 @@ class Tbl_news_model extends MY_Model {
     //id降順limit1
     // about privacy terms
     public function get_list() {
-        $this->db->start_cache();
+        // $this->db->start_cache();
         $this->db->select('id');
         $this->db->select('date');
         $this->db->select('url');

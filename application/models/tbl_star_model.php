@@ -69,6 +69,7 @@ class Tbl_star_model extends MY_Model {
         $this->db->where('userid', $userid); 
         $query = $this->db->get();
         // return  $query->result();
+// echo $this->db->last_query();
         return  $query->result_array();
     }
 }

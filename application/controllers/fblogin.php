@@ -47,9 +47,10 @@ class Fblogin extends CI_Controller{
             		$userid = $rtn_id;
             	}else{
             		//インサート
-            		$rtn_id = $this->fbuser->fb_log_in($username,$email,$fb_id,$gender,$picture,$first_name,$last_name,$link,$locale);
+            		$userid = $this->fbuser->fb_log_in($username,$email,$fb_id,$gender,$picture,$first_name,$last_name,$link,$locale);
             	}
                 //
+// echo "fbusrid:".$userid;
                 //ユーザーのプロフィールを表示
                 $data["email"] = $user_profile['email'];
                 $data["is_logged_in"] = 1;

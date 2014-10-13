@@ -1,6 +1,6 @@
 <?php
 // $title = "iCalendarテスト";
-// echo "exm:".$exm;
+// echo "userid:".$userid;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,7 +27,7 @@
 	<meta property="og:title" content="<?=$og_title?>" />
 	<meta property="og:image" content="<?=$og_image?>" />
 	<meta property="og:url" content="<?=$og_url?>" />
-	<meta property="og:site_name" content="iCalendar" />
+	<meta property="og:site_name" content="iCalendar.xyz" />
 	<meta property="og:description" content="<?=$og_description?>" />
 	<meta property=”og:locale” content=”ja_JP” />
 	<meta itemprop="name" content="iCalendar" />
@@ -65,7 +65,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz">iCalendar</a></div>
+				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz">iCalendar.xyz</a></div>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">
@@ -76,6 +76,12 @@
 		       				<span class="glyphicon glyphicon-calendar"></span> カレンダ一覧 <b class="caret"></b>
 		       			</a>
 		       			<ul class="dropdown-menu">
+		       				<li class="">
+								<a href="/sitemap/">
+									<span class="glyphicon glyphicon-list-alt"></span> サイトマップ(一覧)
+								</a>
+							</li>
+							<li class="divider"></li>
 		          			<li class="">
 		          				<a href="/smart/">
 		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
@@ -91,12 +97,6 @@
 							<li class="">
 								<a href="/random/">
 									<span class="glyphicon glyphicon-align-center"></span> ランダム
-								</a>
-							</li>
-							<li class="divider"></li>
-							<li class="">
-								<a href="/sitemap/">
-									<span class="glyphicon glyphicon-list-alt"></span> サイトマップ
 								</a>
 							</li>
 							<?php
@@ -122,7 +122,7 @@
 		       			<ul class="dropdown-menu">
 		          			<li class="">
 		          				<a href="/about/">
-		          					<span class="glyphicon glyphicon-info-sign"></span> iCalendarについて
+		          					<span class="glyphicon glyphicon-info-sign"></span> iCalendar.xyzについて
 		          				</a>
 		          			</li>
 		          			<li class="divider"></li>

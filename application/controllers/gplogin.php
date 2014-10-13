@@ -65,8 +65,7 @@ class Gplogin extends CI_Controller{
                 'redirect_uri' => $this->config->item('redirect_uri', 'googleplus'),
                 'grant_type' => 'authorization_code'
             );
-            $url = 'https://accounts.google.com/o/oauth2/token';
-// echo $url;       
+            $url = 'https://accounts.google.com/o/oauth2/token';      
             $curl = curl_init();    //cURLを初期化して使用可能にする
             curl_setopt($curl,CURLOPT_URL,$url);    //オプションにURLを設定する
             curl_setopt($curl,CURLOPT_POST,true);   //メソッドをPOSTに設定
@@ -97,6 +96,7 @@ class Gplogin extends CI_Controller{
                 //
                 $userid = $this->gpuser->gp_log_in($username,$email,$fb_id,$gender,$profile_img,$first_name,$last_name,$link,$locale,$gptoken);
             }
+// echo "gpusrid:".$userid;
             //ユーザーのプロフィールを表示
             $data["email"] = $email;
             $data["is_logged_in"] = 1;
@@ -105,6 +105,7 @@ class Gplogin extends CI_Controller{
             $data["profile_img"] = $profile_img;
             $data["remember"] = $remember;
             $this->session->set_userdata($data);
+
             //ユーザーがログインしているかどうか
             if($userid)
             {   

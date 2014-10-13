@@ -9,12 +9,13 @@ class Tbl_user_model extends MY_Model {
         // $this->db->set(array('created_at' => $now, 'updated_at' => $now));
         // $this->db->set(array('exm' => $exm, 'itemid' => $itemid, 'userid' => $userid);
         // $this->db->set($array);
-        $ret = $this->db->insert('tbl_user', $arr_item); 
-        if ($ret === FALSE) {
-            return FALSE;
-        }
+        // $this->db->insert('tbl_user', $arr_item); 
+        // $userid = $this->db->insert_id();
+
+        $this->db->insert('tbl_user', $arr_item);
+        $userid = $this->db->insert_id();
 // echo $this->db->last_query();
-        return  $this->db->insert_id();
+        return  $userid;
     }
     public function can_log_in()
     {   //can_log_inファンクションを作っていく
@@ -145,6 +146,7 @@ class Tbl_user_model extends MY_Model {
             "locale" => $locale
         );
         $rtn_id = $this->db->insert("tbl_user", $data);
+        $rtn_id = $this->db->insert_id();
         return $rtn_id;
     }
     //googleplusログイン
@@ -165,6 +167,7 @@ class Tbl_user_model extends MY_Model {
             "gptoken" => $gptoken
         );
         $rtn_id = $this->db->insert("tbl_user", $data);
+        $rtn_id = $this->db->insert_id();
         return $rtn_id;
     }
 }

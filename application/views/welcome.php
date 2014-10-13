@@ -9,7 +9,7 @@ $lastmonth =  date('Y/m', strtotime('-1 month'));
 $calid = 343; //yahoo検索人物総数デイリー
 // $calurl = '/calendar/343/'.date('Y').'/'.date('m');
 $calurl = '/calendar/343/'.$lastmonth;
-$dayurl = '/daylist/5470/'.$lastday;
+$dayurl = '/daylist/343/'.$lastday;
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -21,7 +21,7 @@ $dayurl = '/daylist/5470/'.$lastday;
     <div class="row">
         <!-- <div class="col-md-4 col-md-offset-4"> -->
         <div class="col-sm-12 col-md-12" style="margin-top:30px;">    
-            <h1 class="text-center">iCalendarへようこそ</h1>
+            <h1 class="text-center" style="font-size: 26px">iCalendar.xyzへようこそ</h1>
         </div>
     </div>
 
@@ -54,7 +54,7 @@ $dayurl = '/daylist/5470/'.$lastday;
             <div class="thumbnail bootsnipp-thumb">
                 <img class="text-center" src="<?=base_url('/application/img/aircal_mini.jpg')?>"  alt="" />
             <h4>月毎の出来事がひと目でわかる:</h4>
-                <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、売れ筋商品の確認や曖昧になってしまった記憶も一瞬でよみがえります。<br />
+                <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、人気商品の確認や曖昧になってしまった記憶も一瞬でよみがえります。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
                         <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
                     <!-- </span> -->
