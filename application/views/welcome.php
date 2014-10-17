@@ -32,7 +32,9 @@ $dayurl = '/daylist/343/'.$lastday;
     </div>
      <div class="row" style="margin-top:30px;">
         <div class="thumbnail bootsnipp-thumb">
+            <a href="<?=$calurl?>" class="link-block">
             <img src="<?=base_url('/application/img/main_mini.jpg')?>"  class="img-responsive text-center" alt="iCalendarへようこそ-あの日の最も人気のあった画像を記録します。" />
+            </a>
         </div>
     </div>
 
@@ -45,7 +47,7 @@ $dayurl = '/daylist/343/'.$lastday;
             <h4>600種のカレンダーからえらべる:</h4>
                 <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど多彩なジャンルの人気画像を記録しています。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
-                        <a href="/smart/" class="link-block">カレンダー一覧をみる</a>
+                    <h3><a href="/smart/" class="link-block">カレンダー一覧をみる</a></h3>
                     <!-- </span> -->
                 </p>
             </div>
@@ -56,7 +58,7 @@ $dayurl = '/daylist/343/'.$lastday;
             <h4>月毎の出来事がひと目でわかる:</h4>
                 <p>カレンダー形式で日付ごとの人気画像がひと目でわかるので、人気商品の確認や曖昧になってしまった記憶も一瞬でよみがえります。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
-                        <a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a>
+                    <h3><a href="<?=$calurl?>" class="link-block"><?=$lastmonth?>のカレンダーをみる</a></h3>
                     <!-- </span> -->
                 </p>
             </div>
@@ -67,7 +69,7 @@ $dayurl = '/daylist/343/'.$lastday;
             <h4>その日の人気画像一覧がみられる:</h4>
                 <p>日付の画像をクリックするとその日の人気画像一覧もみられます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
-                        <a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a>
+                    <h3><a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a></h3>
                     <!-- </span> -->
                 </p>
             </div>

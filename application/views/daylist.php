@@ -80,12 +80,12 @@ margin-top: 2px;
             $new_str = str_replace('ベストセラー', '', $new_str);
             $new_str = str_replace('デイリー', '', $new_str);
             ?>
-            <a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
+            <a style="font-size:18px;"href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px;">
-        <h2 style="font-size:20px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
+        <h2 style="font-size:24px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
             <a href="/daylist/<?=$cal_id?>/<?=$prev?>">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>

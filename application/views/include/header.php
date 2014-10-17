@@ -26,6 +26,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="<?=$og_title?>" />
 	<meta property="og:image" content="<?=$og_image?>" />
+	<meta property="og:image" content="<?=$og_image2?>" />
 	<meta property="og:url" content="<?=$og_url?>" />
 	<meta property="og:site_name" content="iCalendar.xyz" />
 	<meta property="og:description" content="<?=$og_description?>" />

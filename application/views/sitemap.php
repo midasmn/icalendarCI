@@ -83,37 +83,37 @@
 				case 'rakuten':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-2">楽天市場ランキング</h3></p>';
+					echo '<p><h2 id="cat-2">楽天市場ランキング</h2></p>';
 					echo '</div>';
 					break;
 				case 'amazon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-1">アマゾンベストセラー</h3></p>';
+					echo '<p><h2 id="cat-1">アマゾンベストセラー</h2></p>';
 					echo '</div>';
 					break;
 				case 'oricon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-4">オリコンランキング</h3></p>';
+					echo '<p><h2 id="cat-4">オリコンランキング</h2></p>';
 					echo '</div>';
 					break;
 				case 'iTunes':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3 id="cat-3">iTunesランキング</h3></p>';
+					echo '<p><h2 id="cat-3">iTunesランキング</h2></p>';
 					echo '</div>';
 					break;
 				case 'google':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3  id="cat-6">Google画像検索</h3></p>';
+					echo '<p><h2 id="cat-6">Google画像検索</h2></p>';
 					echo '</div>';
 					break;
 				case 'yahoo':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
-					echo '<p><h3  id="cat-5">Yahoo!検索デイリー</h3></p>';
+					echo '<p><h2  id="cat-5">Yahoo!検索デイリー</h2></p>';
 					echo '</div>';
 					break;
 				default:
@@ -128,8 +128,15 @@
 		$new_str = str_replace('ランキング', '', $new_str);
 		$new_str = str_replace('ベストセラー', '', $new_str);
 		$new_str = str_replace('デイリー', '', $new_str);
+
+		$new_str = str_replace('アマゾン', '', $new_str);
+		$new_str = str_replace('楽天市場', '', $new_str);
+		$new_str = str_replace('Google画像', '', $new_str);
+		$new_str = str_replace('Yahoo!', '', $new_str);
+		$new_str = str_replace('オリコン', '', $new_str);
+		$new_str = str_replace('iTunes', '', $new_str);
 		// echo '<a href="/calendar/'.$rowR->cal_id.'">'.$rowR->cal_title.'</a>';
-		echo '<a href="/calendar/'.$rowR->cal_id.'">'.$new_str.'</a>';
+		echo '<h3><a href="/calendar/'.$rowR->cal_id.'">'.$new_str.'</a></h3>';
 		echo '</div>';
 		$cnt++;			
 	}

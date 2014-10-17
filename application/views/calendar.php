@@ -37,7 +37,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<?php 
 				if(!$pr_cal){
 				}else{
-					echo '<a href="/calendar/'.$pr_cal.'">前のカレンダー</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のカレンダー</a>';
 				}
 				?>
 			</div>
@@ -46,7 +46,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
 				<?php
 				if(!$nex_cal){}else{
-					echo '<a href="/calendar/'.$nex_cal.'">次のカレンダー</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のカレンダー</a>';
 			 	}?>
 			</div>
 		</div>
@@ -81,7 +81,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			</h1>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
-			<h2 style="font-size:19px;font-weight:200;line-height:15px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:2px;">
+			<h2 style="font-size:24px;font-weight:200;line-height:15px;text-transform:uppercase;letter-spacing:1px;text-align:right;padding-right:2px;">
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>

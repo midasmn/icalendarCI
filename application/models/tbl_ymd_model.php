@@ -77,5 +77,19 @@ class Tbl_ymd_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    //OGタグ要画像
+    public function get_ogimage($calendar_id,$yyyy,$mm,$dd) {
+        // $this->db->start_cache();
+        $this->db->select('tbl_ymd.img_path as img_path');
+        $this->db->from('tbl_ymd');
+        $this->db->where('tbl_ymd.calendar_id', $calendar_id); 
+        $this->db->where('tbl_ymd.yyyy', $yyyy); 
+        $this->db->where('tbl_ymd.mm', $mm); 
+        $this->db->where('tbl_ymd.dd', $dd); 
+        $this->db->where('tbl_ymd.order', 1);
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

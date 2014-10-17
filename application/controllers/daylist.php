@@ -50,6 +50,7 @@ class Daylist extends CI_Controller{
         // ogタグ初期値
         $data['og_title'] = $this->config->item('og_title', 'icalendar');
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
+        $data['og_image2'] = $this->config->item('og_image2', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
         //
@@ -100,6 +101,19 @@ class Daylist extends CI_Controller{
         }
         // $data['title'] = $yyyy."年".$mm."月".$dd."日".$data['title'];              
         // OGタグ設定
+        // OGタグ設定
+        // $lastday =  date('Ymd', strtotime('-1 day'));
+        $lastday =  date('Ymd');
+        $yyyy = substr($lastday, 0,4);
+        $mm = substr($lastday, 4,2);
+        $dd = substr($lastday, 6,2);
+        $ogimg = $this->ymd->get_ogimage($calendar_id,$yyyy,$mm,$dd);
+        foreach ($ogimg as $value) { //3回繰り返し
+            $img_path = $value->img_path; //画像URL
+            $img_path = str_replace('128x128', '200x200', $img_path);
+            $data['og_image'] = $img_path;
+        }
+
         $data['og_title'] = $data['title'];
         $data['og_url'] = $config['base_url']."/daylist/".$calendar_id."/".$yyyy."/".$mm."/".$dd;
         $data['og_description'] = $data['og_title'].'。'.$data['description'];

@@ -1,0 +1,2 @@
+Sitemap: http://icalendar.xyz/sitemap.xml
+Disallow: /Scraper/
