@@ -85,14 +85,44 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<a href="/calendar/<?=$cal_id?>/<?=$prev?>">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
+
+				<a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
 				<span><?=$yyyy?>年</span>
 				<span><?=$mm?>月</span>
+				</a>
+
 				<a href="/calendar/<?=$cal_id?>/<?=$next?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
-				<a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
+
+
+				<div class="btn-group navbar-form">
+				<select class="form-control" name="index"  onChange="location.href=value;" style="width:55px;">
+					<li>
+						<?php if($orderno==1){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
+						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/1">1位</option>
+					</li>
+					<li>
+						<?php if($orderno==2){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
+						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/2">2位</option>
+					</li>
+					<li>
+						<?php if($orderno==3){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
+						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/3">3位</option>
+					</li>
+					<li>
+						<?php if($orderno==4){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
+						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/4">4位</option>
+					</li>
+					<li>
+						<?php if($orderno==5){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
+						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/5">5位</option>
+					</li>
+				</select>
+				</div>
+				<!-- <a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
 					<span class="glyphicon glyphicon-check"></span>
-				</a>
+				</a> -->
 			</h2>
 		</div>
 

@@ -41,6 +41,9 @@ class Calendar extends CI_Controller{
         $yyyy=$this->uri->segment(3);
 // echo "<br>3:".$yyyy;
         $mm=$this->uri->segment(4);
+        //
+        $orderno=$this->uri->segment(5);
+        if(!$orderno){$orderno=1;}
         /////// ログ
         $this->load->model('tbl_logs_model', 'logr'); //ログ
         $logdata = array(  'userid' => $userid,'exm' => 'calendar' , 'calid' => $calendar_id , 'yyyy' => $yyyy, 'mm' => $mm);
@@ -94,6 +97,8 @@ class Calendar extends CI_Controller{
         $data['cal_id'] = $calendar_id;
         $data['yyyy'] = $yyyy;
         $data['mm'] = $mm;
+        //
+        $data['orderno'] = $orderno;
         //$data['mm_st'] = date('F',strtotime($yyyy."-".$mm."-1"));   //英語曜日
         //
         $data['prev'] = str_replace("-", "/", date("Y-m",mktime(0,0,0,$mm-1,1,$yyyy))); //前月リンク用
@@ -106,7 +111,8 @@ class Calendar extends CI_Controller{
         $data['cal_info'] = $this->calendar->get_calist_info($calendar_id);
         foreach ($data['cal_info'] as $rowRR) {$data['title'] = $rowRR->cal_title;}
         //DBカレンダアイテム
-        $calitem = $this->ymd->find_month_list($calendar_id,$yyyy,$mm);
+        // $calitem = $this->ymd->find_month_list($calendar_id,$yyyy,$mm);
+        $calitem = $this->ymd->find_month_listR($calendar_id,$yyyy,$mm,$orderno);
         foreach ($calitem as $value) { //3回繰り返し
             $itmarr[$value->dd]['img_path'] = $value->img_path; //画像URL
             $itmarr[$value->dd]['img_alt'] = $value->img_alt;   //画像ALT 
@@ -203,7 +209,7 @@ class Calendar extends CI_Controller{
             $data['og_image'] = $img_path;
         }
 
-        $data['og_title'] = $data['title']."カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
+        $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title'].'。'.$data['description'];
         // OGタグ設定

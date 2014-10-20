@@ -91,5 +91,25 @@ class Tbl_ymd_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    //カレンダー別月別($calendar_id,$yyyy,$mm)
+    public function find_month_listR($calendar_id,$yyyy,$mm,$orderno) {
+        // $this->db->start_cache();
+        $this->db->select('tbl_ymd.dd as dd');
+        $this->db->select('tbl_ymd.img_path as img_path');
+        $this->db->select('tbl_ymd.img_alt as img_alt');
+        $this->db->select('tbl_ymd.description as ymd_description');
+        $this->db->from('tbl_ymd');
+        $this->db->where('tbl_ymd.calendar_id', $calendar_id); 
+        $where = "(`yyyy` = ".$yyyy." or  `yyyy` = 9999 )";
+        $this->db->where($where); 
+        $this->db->where('tbl_ymd.mm', $mm); 
+        $this->db->where('tbl_ymd.order', $orderno); 
+        $this->db->group_by('tbl_ymd.dd');
+        $this->db->order_by('tbl_ymd.dd','asc'); 
+
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

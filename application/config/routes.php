@@ -50,6 +50,7 @@ $route['logout'] = "login/logout";
 // $route['calendar/?bookmark/:num'] = "calendar/index";
 $route['calendar/:num'] = "calendar/index";
 $route['calendar/:num/:num/:num'] = "calendar/index";
+$route['calendar/:num/:num/:num/:num'] = "calendar/index";
 $route['calendar/?index=/:num'] = "calendar/index";
 
 
