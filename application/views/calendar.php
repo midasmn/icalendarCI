@@ -28,6 +28,20 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	text-align: left;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
+/*ページtopスクロール*/
+#page-top{
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  bottom: 15px;
+  right: 20px;
+  width: 70px;
+  padding: 10px 5px;
+/*  background: rgba(0,0,0,.7);
+  color: #fff;*/
+  text-align: center;
+  text-decoration: none;
+}
 </style>
 	<!-- ページ -->
 	<div class="container">

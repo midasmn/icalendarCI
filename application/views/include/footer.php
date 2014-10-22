@@ -30,7 +30,6 @@ $copy = "© ".date('Y')." iCalendar.xyz ";
 			<a href="/privacy/">プライバシー</a>
 		</p>
 		<!-- リンク -->
-
 	</div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
