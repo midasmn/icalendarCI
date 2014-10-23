@@ -15,7 +15,7 @@ foreach ($daycnt as $rowD) {}
 					<div class="panel-heading">
 						<h3 class="panel-title">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#faq0">
-							登録しているカレンダーの数は?
+							登録しているジャンルの数は?
 							</a>
 						</h3>
 					</div>
@@ -23,9 +23,9 @@ foreach ($daycnt as $rowD) {}
 					<div id="faq0" class="panel-collapse collapse">
 						<div class="panel-body">
 							<ul>
-							<li>登録カレンダー数：<?=number_format($row->calcnt)?> 件</li>
-							<li>カレンダー掲載日数(延べ)：<?=number_format($rowD->daycnt)?> 日</li>
-							<li>カレンダー登録画像数(延べ)：<?=number_format($rowM->ymdcnt)?> 点</li>
+							<li>登録ジャンル数：<?=number_format($row->calcnt)?> 件</li>
+							<li>延べ掲載日数：<?=number_format($rowD->daycnt)?> 日</li>
+							<li>延べ登録画像数：<?=number_format($rowM->ymdcnt)?> 点</li>
 							</ul>
 							<?=date('Y-m-d')?> 現在
 						</div>

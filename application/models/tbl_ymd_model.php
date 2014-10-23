@@ -111,5 +111,20 @@ class Tbl_ymd_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    //
+    public function max_day_order($calendar_id,$yyyy,$mm) {
+        // $this->db->start_cache();
+        // $this->db->select('COUNT(calendar_id) as daycnt');
+        $this->db->select('max(`order`) as maxdayorder');
+        $this->db->from('tbl_ymd');
+        $this->db->where('calendar_id', $calendar_id); 
+        $this->db->where('yyyy', $yyyy); 
+        $this->db->where('mm', $mm); 
+        // $this->db->where('tbl_ymd.dd', $dd); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
+
 }
 ?>

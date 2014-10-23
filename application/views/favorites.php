@@ -38,7 +38,7 @@ position: relative;
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
 			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
-			<?=$email?><small>さんお気に入りカレンダー</small></h2> 
+			<?=$email?><small>さんお気に入りジャンル</small></h2> 
 		</div>
 		<!-- 検索窓 -->
 		<div class="col-md-4"  style="margin-top:20px;">
@@ -80,9 +80,11 @@ position: relative;
 						elseif($key2=='cal_description'){$htm_cal_description=$value;}
 						elseif($key2=='cal_id'){$htm_cal_id=$value;}
 						}
+						// }
 						echo '<tr>';
 						echo '<td style="text-align: center;vertical-align:middle;">';
-						//
+
+
 						echo '<a href="javascript: void(0)" class="starlist" data-id="'.$htm_cal_id.'">';
 						// echo '<input type="hidden" id="calendar_id" value="'.$htm_cal_id.'">';
 						echo '<input type="hidden" id="userid" value="'.$userid.'">';
@@ -95,7 +97,7 @@ position: relative;
 							echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
 						}
 						echo '</a>';
-						//
+
 						echo '</td>';
 						echo '<td>';
 						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';

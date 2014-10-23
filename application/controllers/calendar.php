@@ -118,6 +118,13 @@ class Calendar extends CI_Controller{
             $itmarr[$value->dd]['img_alt'] = $value->img_alt;   //画像ALT 
             $itmarr[$value->dd]['ymd_description'] = $value->ymd_description;   //画像ALT 
         }
+        $maxorder = $this->ymd->max_day_order($calendar_id,$yyyy,$mm);
+        foreach ($maxorder as $maxvalue) {
+            $data['maxdayorder'] = $maxvalue->maxdayorder;
+            // echo $maxvalue->maxdayorder;
+        }
+        // foreach ($rtn_max as $rowMax) {$data['title'] = $rowMax->maxdayorder;}
+        // $data['maxdayorder'] = $this->ymd->max_day_order($calendar_id,$yyyy,$mm);
         //////////////////////////
         //カレンダー配列作成
         //////////////////////////

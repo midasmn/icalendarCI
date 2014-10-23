@@ -28,20 +28,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	text-align: left;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
-/*ページtopスクロール*/
-#page-top{
-  display: block;
-  position: fixed;
-  z-index: 9999;
-  bottom: 15px;
-  right: 20px;
-  width: 70px;
-  padding: 10px 5px;
-/*  background: rgba(0,0,0,.7);
-  color: #fff;*/
-  text-align: center;
-  text-decoration: none;
-}
 </style>
 	<!-- ページ -->
 	<div class="container">
@@ -51,7 +37,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<?php 
 				if(!$pr_cal){
 				}else{
-					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のカレンダー</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のジャンル</a>';
 				}
 				?>
 			</div>
@@ -60,7 +46,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
 				<?php
 				if(!$nex_cal){}else{
-					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のカレンダー</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のジャンル</a>';
 			 	}?>
 			</div>
 		</div>
@@ -109,29 +95,28 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 
-
 				<div class="btn-group navbar-form">
-				<select class="form-control" name="index"  onChange="location.href=value;" style="width:55px;">
+				<select class="form-control" name="index"  onChange="location.href=value;" style="width:66px;">
+				<?php
+				// echo $maxdayorder;
+				// $maxdayorder = 10;
+				if($maxdayorder>=1){
+					if($maxdayorder==21){$maxdayorder=20;}
+					for ($i=1; $i <= $maxdayorder; $i++) { 
+					echo '<li>';
+						if($orderno==$i){$select_st = 'selected = "selected" ';}else{$select_st = '';} 
+					echo '<option '.$select_st.' value="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'">'.$i.'位</option>';
+					echo '</li>';
+					}
+				}else{
+				?>	
 					<li>
 						<?php if($orderno==1){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
 						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/1">1位</option>
 					</li>
-					<li>
-						<?php if($orderno==2){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
-						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/2">2位</option>
-					</li>
-					<li>
-						<?php if($orderno==3){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
-						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/3">3位</option>
-					</li>
-					<li>
-						<?php if($orderno==4){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
-						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/4">4位</option>
-					</li>
-					<li>
-						<?php if($orderno==5){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
-						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/5">5位</option>
-					</li>
+				<?php
+				}
+				?>
 				</select>
 				</div>
 				<!-- <a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
@@ -247,7 +232,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                                 <path d="M28.7817528,0.00172488695 C30.8117487,0.00431221738 31.9749312,1.12074529 31.9644402,3.10781507 C31.942147,6.67703739 32.1336065,10.2669583 31.8057648,13.8090137 C30.7147076,25.5813672 17.2181194,31.8996281 7.20714461,25.3808491 C2.71833574,22.4571656 0.196577202,18.3122624 0.0549495772,12.9357897 C-0.0342233715,9.5774348 0.00642900214,6.21519891 0.0300336062,2.85555035 C0.0405245414,1.1129833 1.21157517,0.0146615391 3.01995012,0.00819321302 C7.34746087,-0.00603710433 11.6775944,0.00431221738 16.0064164,0.00172488695 C20.2644248,0.00172488695 24.5237444,-0.00215610869 28.7817528,0.00172488695 L28.7817528,0.00172488695 Z M8.64885184,7.85611511 C7.38773662,7.99113854 6.66148108,8.42606978 6.29310958,9.33228474 C5.90114134,10.2969233 6.17774769,11.1421181 6.89875951,11.8276216 C9.35282156,14.161969 11.8108164,16.4924215 14.2976518,18.7943114 C15.3844131,19.7966007 16.5354102,19.7836177 17.6116843,18.7813283 C20.0185529,16.5495467 22.4070683,14.2982907 24.7824746,12.0327533 C25.9845979,10.8850542 26.1012707,9.56468083 25.1469132,8.60653379 C24.1361858,7.59255976 22.8449191,7.6743528 21.5890476,8.85191291 C19.9936451,10.3488554 18.3680912,11.8172352 16.8395462,13.3777945 C16.1342655,14.093159 15.7200114,14.0048744 15.0566806,13.3440386 C13.4599671,11.7484252 11.8081945,10.2060421 10.1262706,8.70001155 C9.65564653,8.27936164 9.00411403,8.05345704 8.64885184,7.85611511 L8.64885184,7.85611511 L8.64885184,7.85611511 Z"></path>
                             </svg>
                         </span>
-                        <span class="text">あとで見る</span>
+                        <span class="text">あとで</span>
                     </a>
                 </li>
             </ul>

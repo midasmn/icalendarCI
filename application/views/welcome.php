@@ -44,10 +44,10 @@ $dayurl = '/daylist/343/'.$lastday;
             <div class="thumbnail bootsnipp-thumb">
                 <img class="text-center" src="<?=base_url('/application/img/callist_mini.jpg')?>"  alt="" />
         
-            <h4>600種のカレンダーからえらべる:</h4>
+            <h4>600種のジャンルからえらべる:</h4>
                 <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど多彩なジャンルの人気画像を記録しています。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
-                    <h3><a href="/smart/" class="link-block">カレンダー一覧をみる</a></h3>
+                    <h3><a href="/smart/" class="link-block">ジャンル一覧をみる</a></h3>
                     <!-- </span> -->
                 </p>
             </div>
@@ -67,7 +67,7 @@ $dayurl = '/daylist/343/'.$lastday;
             <div class="thumbnail bootsnipp-thumb">
                 <img class="text-center"  src="<?=base_url('/application/img/daylist_mini.jpg')?>" alt="" />
             <h4>その日の人気画像一覧がみられる:</h4>
-                <p>日付の画像をクリックするとその日の人気画像一覧もみられます。(商品のカレンダーの場合は購入ボタンですぐ買い物ができます)<br />
+                <p>日付の画像をクリックするとその日の人気画像一覧もみられます。(ジャンルが商品の場合は購入ボタンですぐ買い物ができます)<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
                     <h3><a href="<?=$dayurl?>" class="link-block"><?=$lastday?>の画像を一覧をみる</a></h3>
                     <!-- </span> -->

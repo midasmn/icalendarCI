@@ -40,7 +40,7 @@ class Sitemap extends CI_Controller{
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値
-        $data['og_title'] = 'サイトマップ - iCalendar.xyz.';
+        $data['og_title'] = 'ジャンル一覧 - iCalendar.xyz.';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -62,7 +62,7 @@ class Sitemap extends CI_Controller{
             $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         }
         ///////////
-        $data['exm_title'] = "サイトマップ";
+        $data['exm_title'] = "ジャンル一覧";
         $this->load->view('include/header',$data);
         $this->load->view('sitemap',$data);
         $this->load->view('include/footer',$data);
