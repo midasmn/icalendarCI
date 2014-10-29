@@ -124,5 +124,17 @@ a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
 a("https://widgets.getpocket.com/v1/j/btn.js");
 })(this,document);
 </script>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "http://icalendar.xyz/",
+"potentialAction": {
+ "@type": "SearchAction",
+ "target": "http://icalendar.xyz/keyword/{search_term}",
+ "query-input": "required name=search_term"
+ }
+}
+</script>
 </body>
 </html>
