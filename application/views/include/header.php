@@ -74,12 +74,12 @@
 					<!-- リスト -->
 					<li class="dropdown ">
 		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
-		       				<span class="glyphicon glyphicon-calendar"></span> カレンダ一覧 <b class="caret"></b>
+		       				<span class="glyphicon glyphicon-calendar"></span> ジャンル一覧 <b class="caret"></b>
 		       			</a>
 		       			<ul class="dropdown-menu">
 		       				<li class="">
 								<a href="/sitemap/">
-									<span class="glyphicon glyphicon-list-alt"></span> サイトマップ(一覧)
+									<span class="glyphicon glyphicon-list-alt"></span> ジャンル一覧
 								</a>
 							</li>
 							<li class="divider"></li>
@@ -101,16 +101,16 @@
 								</a>
 							</li>
 							<?php
-							if($status=="LOGIN")
-							{
+							// if($status=="LOGIN")
+							// {
 								echo '<li class="divider"></li>';
 								echo '<li class="dropdown-header">おすすめ</li>';
 								echo '<li class="">';
 								echo '<a href="/report/">';
 								echo '<span class="glyphicon glyphicon-book"></span> レポート';
 								echo '</a>';
-							echo '</li>';
-							}
+								echo '</li>';
+							// }
 							?>
 						</ul>
 					</li>
@@ -174,7 +174,7 @@
                 	if($menucnt>=1)
                 	{
                 		echo '<li>';
-						echo '<option value="">お気に入りリスト</option>';
+						echo '<option value="">お気に入りジャンル</option>';
 						echo '</li>';
                 		foreach ($menu as $rowM) 
                 		{
@@ -208,7 +208,7 @@
 					echo '<b class="caret"></b>';
 					echo '</a>';
 					echo '<ul class="dropdown-menu">';
-					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入りリスト</a></li>';
+					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入りジャンル</a></li>';
 					echo '<li class="divider"></li>';
 					// echo '<li class=""><a href="/setting/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
 					// echo '<li class="divider"></li>';

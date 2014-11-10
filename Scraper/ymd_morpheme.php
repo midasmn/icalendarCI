@@ -15,6 +15,26 @@ $rtn = mysql_query("SET NAMES utf8" , $db_conn);
 mysql_select_db($dbname);
 
 
+//caltag
+function f_get_cal_tag($db_conn,$calid)
+{
+    $sql = "SELECT `id`, `tags` FROM `tbl_calendar` WHERE `id` = '$calid'";
+    $result = mysql_query($sql,$db_conn);
+    if($result)
+    {
+        while($link = mysql_fetch_row($result))
+        {
+            list($calid,$tags) = $link;
+            // $exm_url = urlencode($tags);
+            $rtn_st = $tags;
+
+        }
+    }
+    return $rtn_st;
+}
+
+
+
 ///////////////////////////////
 //Yahoo形態素
 ////////////////////////////////
@@ -75,7 +95,7 @@ function f_morpheme_update($db_conn,$id)
 
 /////////////////
 // 説明文有りかつ形態素フラグOFFかつ100以内
-// // $strSQL = 'SELECT `id`, `calendar_id`, `description` FROM `tbl_ymd` WHERE   `description` <> '' and `morpheme_flg` = "OFF"';
+// $strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE `description` <> "" and `morpheme_flg` = "OFF" limit 1';
 $strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE `description` <> "" and `morpheme_flg` = "OFF"';
 $tbl_tmp = mysql_query($strSQL, $db_conn);
 if($tbl_tmp)
@@ -83,9 +103,8 @@ if($tbl_tmp)
     while($link = mysql_fetch_row($tbl_tmp))
     {
         list($ymdid,$calid,$description) = $link;
-// echo "<br>".$ymdid ;
-// echo "<br>".$calid ;
-// echo "<br>".$description ;
+        //
+        // $st_caltag = f_get_cal_tag($db_conn,$calid);
         //yahoo形態素
         $tag = f_yahoo_morpheme($db_conn,$calid,$ymdid,$description);
         // echo "<br>".$tag;
