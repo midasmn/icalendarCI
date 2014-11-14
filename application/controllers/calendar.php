@@ -142,7 +142,7 @@ class Calendar extends CI_Controller{
             $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
             if($rtn_ad){
                 foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
-                $ad_flg = 'top';
+                // $ad_flg = 'top';
                 $week .= $m1_ad;
             }else{
                 $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
@@ -183,10 +183,10 @@ class Calendar extends CI_Controller{
                         $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
                         $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;">';
                         //
-                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
+                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m2');
                         if($rtn_ad&&!$ad_flg){
-                            foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
-                            $week .= $m1_ad;
+                            foreach ($rtn_ad as $rowad) {$m2_ad = $rowad->ad_src;}
+                            $week .= $m2_ad;
                         }else{
                             $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
                         }
