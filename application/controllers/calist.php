@@ -32,6 +32,7 @@ class Calist extends CI_Controller{
         // ログインセッション
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
+        $this->session->set_userdata('histry_url', current_url());
         // $this->session->set_flashdata('redirect_url', uri_string());
         //リダイレクト用URL
         $exm=$this->uri->segment(1);    //一覧ソートセグメント

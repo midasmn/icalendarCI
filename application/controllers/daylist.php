@@ -11,6 +11,7 @@ class Daylist extends CI_Controller{
         $this->config->load('icalendar');
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
+        $this->session->set_userdata('histry_url', current_url());
         //リダイレクト用URL
     }
 

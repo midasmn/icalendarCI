@@ -1,20 +1,14 @@
 <?php
 
-$userid = 2;
-$calendar_id = 1234;
 ?>
 
 
 
 
-<a href="javascript: void(0)" >
-	<input type="hidden" id="calendar_id" value="<?=$calendar_id?>">
-	<input type="hidden" id="userid" value="<?=$userid?>">
-	<!-- <span class="starexm glyphicon glyphicon-star" title="お気に入りから削除"></span> -->
-	<span class="starexm glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>
-	<span style="display: none" class="starexm glyphicon glyphicon-star" title="お気に入りから削除"></span>
-</a>
+<body>
 
+cal th
+<img src="<?=$cal_th_img?>">
 
 
 
@@ -35,5 +29,5 @@ $calendar_id = 1234;
      
 <!-- </head>
  
-<body>
+
 <input type="button" id="button" value="Hello" /></form> -->

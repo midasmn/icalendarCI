@@ -7,56 +7,41 @@ class Test extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->output->enable_profiler(TRUE);
+		$this->load->helper('file');
 	}
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
-		$exm = "calendar";
-		if(!$userid){$userid=1;}
-        if(!$calendar_id){$calendar_id=1;}
+		$data = array();
+		$calendar_id = 107;
+		$yyyy = 2014;
+		$mm = 10;
 
-		// $this->load->model('tbl_star_model', 'star'); 
-  //       $rtn_arr = $this->star->insert_update_chck($exm,$calendar_id,$userid);
-  //       if(count($rtn_arr)>=1)
-  //       {
-  //           //アップデート
-  //           // print_r($rtn_arr);
-  //           foreach ($rtn_arr as $key1 => $value1)
-  //           {
-  //               foreach ($value1 as $key2 => $value2)
-  //               {
-  //                   if($key2=='starflg'){$starflg=$value2;}
-  //                   if($key2=='id'){$id=$value2;}
-  //               }
-  //           }
-  //           $rtn_id = $this->star->update($exm,$calendar_id,$userid,$id,$starflg);
-  //       }else{
-  //           $rtn_id = $this->star->insert($exm,$calendar_id,$userid);          
-  //       }      
+		$cal_th = 'application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png';
+echo $cal_th;
+		$rtn = read_file($cal_th);
+		if($rtn )
+		{
+			echo "OK";
+			$cal_th_img = base_url('application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png');
+			echo $cal_th_img;
+			$data['og_image'] = $cal_th_img;
+		}
 
-  //       echo $rtn_id;
 
-		$data = array(
-		 	'title' => 'テスト',
-		 	'note' => '・テスト'
-            );
+		// echo '<img src="'.$cal_th_img.'">';
+// 		$cal_th_img = "tttt";
+
+
+// echo $cal_th_img;
+
+// 		$data = array(
+// 		 	'title' => 'テスト',
+// 		 	'note' => '・テスト',
+// 		 	'cal_th' => $cal_th_img;
+//             );
 		$this->load->view('include/header',$data);
-		$this->load->view('test',$data);
+		// $this->load->view('test',$data);
 		// $this->load->view('welcome',$data);
 		$this->load->view('include/footer',$data);
 	}

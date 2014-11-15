@@ -66,7 +66,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz">iCalendar.xyz</a></div>
+				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz/welcome">iCalendar.xyz</a></div>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">

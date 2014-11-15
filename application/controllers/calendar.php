@@ -9,7 +9,7 @@ class Calendar extends CI_Controller{
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
-        // ログインセッション
+        $this->load->helper('file');
     }
 
     public function index()
@@ -32,6 +32,7 @@ class Calendar extends CI_Controller{
         }
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
+        $this->session->set_userdata('histry_url', current_url());
         //リダイレクト用URL
         //セグメント取得
         $exm=$this->uri->segment(1);    //calendar
@@ -204,17 +205,32 @@ class Calendar extends CI_Controller{
         //////////////////////////
 
         // OGタグ設定
-        // $lastday =  date('Ymd', strtotime('-1 day'));
         $lastday =  date('Ymd');
-        $yyyy = substr($lastday, 0,4);
-        $mm = substr($lastday, 4,2);
-        $dd = substr($lastday, 6,2);
+        $lyyyy = substr($lastday, 0,4);
+        $lmm = substr($lastday, 4,2);
+        $ldd = substr($lastday, 6,2);
+        if($yyyy){}else{$yyyy=$lyyyy;}
+        if($mm){}else{$mm=$lmm;}
+        if($dd){}else{$dd=$ldd;}
+
+
+        //月カレンダーがあれば
+        $cal_th = 'application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png';
+        // echo $cal_th;
+        $rtn_th = read_file($cal_th);
+        if($rtn_th)
+        {
+            $cal_th_img = base_url('application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png');
+            $data['og_image'] = $cal_th_img;
+        }
         $ogimg = $this->ymd->get_ogimage($calendar_id,$yyyy,$mm,$dd);
-        foreach ($ogimg as $value) { //3回繰り返し
+        foreach ($ogimg as $value) 
+        { //3回繰り返し
             $img_path = $value->img_path; //画像URL
             $img_path = str_replace('128x128', '200x200', $img_path);
-            $data['og_image'] = $img_path;
+            $data['og_image2'] = $img_path;
         }
+    
 
         $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
         $data['og_url'] = "/".$this->uri->uri_string();

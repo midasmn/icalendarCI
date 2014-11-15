@@ -7,8 +7,31 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
         $this->config->load('icalendar');
+        $this->load->library('session');
 		// $this->output->enable_profiler(TRUE);
+        $top=$this->uri->segment(1);  
+        if($top=="welcome"){
+        }else{
+            $vcnt = $this->session->userdata('vcnt');
+            $histry_url = $this->session->userdata('histry_url');
+            if($vcnt)
+            {
+                $vcnt++;
+                $this->session->set_userdata('vcnt', $vcnt);
+            }else{
+                $this->session->set_userdata('vcnt', 1);
+            }
+            //
+            if($vcnt>1){
+                if($histry_url){
+                    redirect($histry_url, 'location');
+                }else{
+                }    
+            }
+        }
+        
 		$this->session->set_flashdata('redirect_url', current_url());
+        $this->session->set_userdata('histry_url', current_url());
 	}
 
 
@@ -39,7 +62,6 @@ class Welcome extends CI_Controller {
             $data['remember'] = $remember;
         }
         // ログインセッション
-
 		$exm=$this->uri->segment(1);  
 		/////// ログ
         $this->load->model('tbl_logs_model', 'logr'); //ログ
