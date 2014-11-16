@@ -1,89 +1,103 @@
-<?php
+<div class="inner-label">
+	<div class="ribbon"></div>
+		<p class="num ">1</p>
+		<p class="status up">UP</p>
+	</div>
+	<div class="inner">
+		<a href="/prof/13846/products/1102640/1/">						
+			<p class="image"><span>	
+			<!-- 2014/11/13 個別対応-->
+			<img src="http://contents.oricon.co.jp/img/_parts/common/ph-noimage02.png" alt="鍵のない箱">
+			<!-- /　2014/11/13 個別対応-->
+			</span>
+			</p>
+			<div class="wrap-text">
+				<h2 class="title">鍵のない箱</h2>
+				<p class="name">KinKi Kids</p>
+<ul class="list">
+<li>発売日：
+2014年11月12日
+</li>
+<li>推定売上枚数：8,153枚</li>
+<li>ジャニーズ・エンタテイメント
+</li>
+</ul>
+</div>
+<!-- /.wrap-text -->
+</a></div>
+<!-- /.inner -->
+<div class="unit-actions">
+<ul class="list-btn jsc-block-ranking-detail">
 
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="ja" lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>はじめて自動車保険 - おすすめの任意保険【2014年】</title>
-
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
-
-<link rel="stylesheet" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/common.css" type="text/css" media="all" />
-<link rel="stylesheet" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/layout.css" type="text/css" media="all" />
-<link rel="stylesheet" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/design.css" type="text/css" media="all" />
-<link rel="stylesheet" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/advanced.css" type="text/css" media="all" />
-<link rel="stylesheet" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/print.css" type="text/css" media="print" />
-
-<link rel="shortcut icon"  type="image/x-icon" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/favicon.ico" />
-<link rel="apple-touch-icon" href="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/images/home-icon.png" />
-<link rel="alternate" type="application/atom+xml" title="はじめて自動車保険 Atom Feed" href="http://www.hajimete-carhoken.com/feed/atom/" />
-<link rel="alternate" type="application/rss+xml" title="はじめて自動車保険 RSS Feed" href="http://www.hajimete-carhoken.com/feed/" />
-<link rel="author" href="https://plus.google.com/u/0/111539312397788681216/" />
-<script type="text/javascript" src="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/js/jquery.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/js/utility.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://www.hajimete-carhoken.com/wp-content/themes/keni6_wp_corp_130206/js/imageChange.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.hajimete-carhoken.com/js/scroll.js"></script> 
-<link rel="alternate" type="application/rss+xml" title="はじめて自動車保険 &raquo; フィード" href="http://www.hajimete-carhoken.com/feed/" />
-<link rel="alternate" type="application/rss+xml" title="はじめて自動車保険 &raquo; コメントフィード" href="http://www.hajimete-carhoken.com/comments/feed/" />
-	<style type="text/css">
-	.wp-pagenavi{float:left !important; }
-	</style>
-  <link rel='stylesheet' id='contact-form-7-css'  href='http://www.hajimete-carhoken.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.9.3' type='text/css' media='all' />
-<link rel='stylesheet' id='lightboxStyle-css'  href='http://www.hajimete-carhoken.com/wp-content/plugins/lightbox-plus/css/black/colorbox.css?ver=2.7' type='text/css' media='screen' />
-<link rel='stylesheet' id='wp-pagenavi-style-css'  href='http://www.hajimete-carhoken.com/wp-content/plugins/wp-pagenavi-style/css/css3_green_glossy.css?ver=1.0' type='text/css' media='all' />
-<script type='text/javascript' src='http://www.hajimete-carhoken.com/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
-<script type='text/javascript' src='http://www.hajimete-carhoken.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.hajimete-carhoken.com/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.hajimete-carhoken.com/wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 4.0" />
-	<style type="text/css">
-	 .wp-pagenavi
-	{
-		font-size:12px !important;
-	}
-	</style>
-	
-<!-- All in One SEO Pack 2.2.3.1 by Michael Torbert of Semper Fi Web Design[403,419] -->
-<meta name="description" itemprop="description" content="安くて良い任意保険に入る為には、自動車保険の一括見積もりサービスが便利です。当サイトでは自賠責保険や任意保険の仕組みや、交通事故が起きた時の対応方法、示談交渉、過失相殺の割合の解説などを行なっています。初めて自動車保険に入る方へ。" />
-<link rel='next' href='http://www.hajimete-carhoken.com/page/2/' />
-
-<link rel="canonical" href="http://www.hajimete-carhoken.com/" />
-<!-- /all in one seo pack -->
-<meta property="og:title" content="はじめて自動車保険" />
-<meta property="og:site_name" content="はじめて自動車保険" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://www.hajimete-carhoken.com" />
-<meta property="og:image" content="http://www.hajimete-carhoken.com/img/ogp.jpg" />
-<meta property="fb:admins" content="100002366737833" />
-<meta property="fb:app_id" content="540391715996675" />
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-37973133-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script type="text/javascript">
-$(function() {
-$('#main-contents img').parent('p').css({'margin-left':'0','margin-right':'0'});
-$('table.main tr:has(th)').next('tr:has(td)').addClass('second_tr');
-if($('table.main tr:has(th)').next('tr:has(td)')) {
-$('table.main tr:has(td)').next('tr:has(td)').removeClass('second_tr');
-}
-$('table.main tr:has(td):first-child').addClass('second_tr');
-});	 
-</script>
+<li class="buy"><a href="javascript:void(0);" class="btn-b"><span class="icon-cart01"></span>商品購入<span class="icon-arrow-bottom01"></span></a>
+<div class="box-buy" style="display: none;">
+<ul>
+<li><a href="http://www.oricon.co.jp/dealer/amazon.php?POS_CD=4534266005302" target="_blank"><span class="icon-blank"></span>amazonで購入する</a></li>
+<li><a href="http://www.hmv.co.jp/search/searchresults.asp?isbn=4534266005302&site=oricon" target="_blank"><span class="icon-blank"></span>HMVで購入する</a></li>
+<li><a href="http://www.oricon.co.jp/dealer/rakutenbooks.php?POS_CD=4534266005302" target="_blank"><span class="icon-blank"></span>楽天ブックスで購入する</a></li>
+<li><a href="http://www.oricon.co.jp/_cdsales/redirect.php?JAN=4534266005302">他のショップで購入する</a></li>
+</ul>
+</div>
+<!-- /.box-buy -->
+</li>
+</ul>
+</div>
+<!-- /.unit-action -->
+</section>
+<section class="box-rank-entry">
 
 
-</head>
+
+
+
+<div class="inner-label">
+<div class="ribbon"></div>
+<p class="num ">2</p>
+<p class="status up">UP</p>
+</div>
+<!-- /inner-label -->
+<div class="inner"><a href="/prof/27083/products/1102822/1/">						<p class="image"><span>
+<!-- 2014/11/13 個別対応-->
+<img src="http://contents.oricon.co.jp/img/_parts/common/ph-noimage02.png" alt="あたしの向こう">
+<!-- /　2014/11/13 個別対応-->
+</span></p>
+<div class="wrap-text">
+<h2 class="title">あたしの向こう</h2>
+<p class="name">aiko</p>
+<ul class="list">
+<li>発売日：
+2014年11月12日
+</li>
+<li>推定売上枚数：5,103枚</li>
+<li>ポニーキャニオン
+</li>
+</ul>
+</div>
+<!-- /.wrap-text -->
+</a></div>
+<!-- /.inner -->
+<div class="unit-actions">
+<ul class="list-btn jsc-block-ranking-detail">
+
+<li class="buy"><a href="javascript:void(0);" class="btn-b"><span class="icon-cart01"></span>商品購入<span class="icon-arrow-bottom01"></span></a>
+<div class="box-buy" style="display: none;">
+<ul>
+<li><a href="http://www.oricon.co.jp/dealer/amazon.php?POS_CD=4988013147287" target="_blank"><span class="icon-blank"></span>amazonで購入する</a></li>
+<li><a href="http://www.hmv.co.jp/search/searchresults.asp?isbn=4988013147287&site=oricon" target="_blank"><span class="icon-blank"></span>HMVで購入する</a></li>
+<li><a href="http://www.oricon.co.jp/dealer/rakutenbooks.php?POS_CD=4988013147287" target="_blank"><span class="icon-blank"></span>楽天ブックスで購入する</a></li>
+<li><a href="http://www.oricon.co.jp/_cdsales/redirect.php?JAN=4988013147287">他のショップで購入する</a></li>
+</ul>
+</div>
+<!-- /.box-buy -->
+</li>
+</ul>
+</div>
+<!-- /.unit-action -->
+</section>
+<section class="box-rank-entry">
+<div class="inner-label">
+<div class="ribbon"></div>
+<p class="num ">3</p>
+<p class="status up">UP</p>
+</div>
+<!-- /inner-label -->

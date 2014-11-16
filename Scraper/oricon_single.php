@@ -54,18 +54,25 @@ if($yyyy&&$mm){
     $mm = date("n");
     $dd = date("d");
 }
+
+// $yyyy = '2014';
+// $mm = '11';
+// $dd = '07';
+
+
 $datetete = date("Y-m-d",mktime(0,0,0,$mm,$dd-1,$yyyy)); 
 /////////////////
 $calendar_id = 348; //yahoo人物デイリー総数
 $list_title = "オリコンCDシングルデイリーランキング";
 
 $get_href = "http://www.oricon.co.jp/rank/js/d/";
+
 //http://www.oricon.co.jp/rank/ja/d/2014-08-03/ 
+
+// $get_href .= '2014-11-14'."/";
 $get_href .= $datetete."/";
-// $get_href .= $yyyy."-".$mm."-".$dd."/";
-// $get_href .= "2014-09-30/";
-// $get_url = "https://
-// echo $get_href;
+
+echo $get_href;
 
 $rtn = array();
 $img_cnt=0;
@@ -75,43 +82,44 @@ $ccnt = 0;
 //ページ取得
 $html = file_get_html($get_href);
 
-//画像
-foreach ($html->find('.item_img div a img') as $element)
-{
-    $rtn['cnt'][$ccnt] = $element->src; 
-    if (strpos($rtn['cnt'][$ccnt] , ".jpg") === FALSE)
-    {
-        if (strpos($rtn['cnt'][$ccnt] , "nopicture.gif") === FALSE)
-        {
 
-        }else{
-            $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
-            // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
-            $img_cnt++;
-        }
-    }else
-    {
-        //.jpgの場合
-        $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
-        // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
-        $img_cnt++;
-    }
-    $ccnt++;
+#inner img 
+
+
+#inner h2 #title
+
+#inner p name
+
+//画像
+foreach ($html->find('div .inner .image img') as $element)
+{
+    $rtn['img'][$img_cnt] = $element->src; 
+    echo '<br><img src="'.$rtn['img'][$img_cnt] .'">';
+    $img_cnt++;
 }
 //タイトル
-foreach ($html->find('.item_ttl h2 a') as $element)
+foreach ($html->find('div .inner .wrap-text h2') as $element)
 {
     $rtn['title'][$title_cnt] = $element->plaintext; 
-    // echo "<br>".$title_cnt."title".$rtn['title'][$title_cnt];
+    echo "<br>".$rtn['title'][$title_cnt] ;
     $title_cnt++;
 }
-//オルト
- foreach ($html->find('.item_ttl h3 a') as $element)
+
+foreach ($html->find('div .inner .wrap-text p') as $element)
 {
     $rtn['artist'][$artist_cnt] = $element->plaintext; 
-    // echo "<br>".$artist_cnt."alt".$rtn['artist'][$artist_cnt];
+    echo "<br>".$rtn['artist'][$artist_cnt] ;
     $artist_cnt++;
 }
+//オルト
+//  foreach ($html->find('div .inner wrap-text h2 p .name') as $element)
+// {
+//     $rtn['artist'][$artist_cnt] = $element->plaintext; 
+//     echo "<br>".$rtn['artist'][$artist_cnt] ;
+//     $artist_cnt++;
+// }
+
+
 $rtn_imgs = $rtn;
 //
 $cnt = count($rtn_imgs['title']);
@@ -119,9 +127,9 @@ $i = 0;
 while ($i<$cnt) 
 {
     //insert
+
     $rtn = f_insert_ymd($db_conn,$calendar_id,$yyyy,$mm,$dd,$list_title,$rtn_imgs['img'][$i],$rtn_imgs['title'][$i].'-'.$rtn_imgs['artist'][$i],"",$i+1);
     $i++;
-// echo "<br>".$i;
 }  
 
 // 解放する

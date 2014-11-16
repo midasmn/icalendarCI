@@ -9,7 +9,8 @@ $calid = 343; //yahoo検索人物総数デイリー
 // $calurl = '/calendar/343/'.date('Y').'/'.date('m');
 $calurl = '/calendar/343/'.$lastmonth;
 $dayurl = '/daylist/343/'.$lastday;
-$nowurl = '/calendar/2950/'.$lastmonth.'/4';
+// $nowurl = '/calendar/2950/'.$lastmonth.'/4';
+$nowurl = 'http://icalendar.xyz/smart/';
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -30,6 +31,16 @@ $nowurl = '/calendar/2950/'.$lastmonth.'/4';
             <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかる</h2>
         </div>
     </div>
+
+    <div class="row text-center">
+        <div class="col-sm-1 col-md-1"></div>
+        <div class="col-sm-10 col-md-10">
+        <!-- <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ<?=$lastmonth?>のカレンダーをみる</a> -->
+            <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ人気一覧をみる</a>
+        </div>
+        <div class="col-sm-1 col-md-1"></div>
+    </div>
+
      <div class="row" style="margin-top:30px;">
         <div class="thumbnail bootsnipp-thumb">
             <a href="<?=$calurl?>" class="link-block">
@@ -38,10 +49,7 @@ $nowurl = '/calendar/2950/'.$lastmonth.'/4';
         </div>
     </div>
 
-    <div class="row text-center">
-        <!-- <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ<?=$lastmonth?>のカレンダーをみる</a> -->
-        <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ先月のカレンダーをみる</a>
-    </div>
+    
 
     <div class="row" style="margin-top:50px;">
         <div class="col-xs-12 col-sm-4 col-md-4">

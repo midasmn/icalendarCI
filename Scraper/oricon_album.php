@@ -38,6 +38,9 @@ $yyyy = date('Y');
 $mm = date('m');
 $dd = date('d');
 // $dd = sprintf("%02d", $dd -1);
+// $yyyy = '2014';
+// $mm = '11';
+// $dd = '07';
 
 //日付チェック
 if($yyyy&&$mm){
@@ -78,44 +81,66 @@ $artist_cnt=0;
 $ccnt = 0;
 //ページ取得
 $html = file_get_html($get_href);
-
-//画像
-foreach ($html->find('.item_img div a img') as $element)
+foreach ($html->find('div .inner .image img') as $element)
 {
-    $rtn['cnt'][$ccnt] = $element->src; 
-    if (strpos($rtn['cnt'][$ccnt] , ".jpg") === FALSE)
-    {
-        if (strpos($rtn['cnt'][$ccnt] , "nopicture.gif") === FALSE)
-        {
-
-        }else{
-            $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
-            // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
-            $img_cnt++;
-        }
-    }else
-    {
-        //.jpgの場合
-        $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
-        // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
-        $img_cnt++;
-    }
-    $ccnt++;
+    $rtn['img'][$img_cnt] = $element->src; 
+    echo '<br><img src="'.$rtn['img'][$img_cnt] .'">';
+    $img_cnt++;
 }
 //タイトル
-foreach ($html->find('.item_ttl h2 a') as $element)
+foreach ($html->find('div .inner .wrap-text h2') as $element)
 {
     $rtn['title'][$title_cnt] = $element->plaintext; 
-    // echo "<br>".$title_cnt."title".$rtn['title'][$title_cnt];
+    echo "<br>".$rtn['title'][$title_cnt] ;
     $title_cnt++;
 }
-//オルト
- foreach ($html->find('.item_ttl h3 a') as $element)
+
+foreach ($html->find('div .inner .wrap-text p') as $element)
 {
     $rtn['artist'][$artist_cnt] = $element->plaintext; 
-    // echo "<br>".$artist_cnt."alt".$rtn['artist'][$artist_cnt];
+    echo "<br>".$rtn['artist'][$artist_cnt] ;
     $artist_cnt++;
 }
+
+//画像
+// foreach ($html->find('.item_img div a img') as $element)
+// {
+//     $rtn['cnt'][$ccnt] = $element->src; 
+//     if (strpos($rtn['cnt'][$ccnt] , ".jpg") === FALSE)
+//     {
+//         if (strpos($rtn['cnt'][$ccnt] , "nopicture.gif") === FALSE)
+//         {
+
+//         }else{
+//             $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
+//             // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
+//             $img_cnt++;
+//         }
+//     }else
+//     {
+//         //.jpgの場合
+//         $rtn['img'][$img_cnt] = $rtn['cnt'][$ccnt];
+//         // echo "<br>".$img_cnt."<img src=".$rtn['img'][$img_cnt].">";
+//         $img_cnt++;
+//     }
+//     $ccnt++;
+// }
+// //タイトル
+// foreach ($html->find('.item_ttl h2 a') as $element)
+// {
+//     $rtn['title'][$title_cnt] = $element->plaintext; 
+//     // echo "<br>".$title_cnt."title".$rtn['title'][$title_cnt];
+//     $title_cnt++;
+// }
+// //オルト
+//  foreach ($html->find('.item_ttl h3 a') as $element)
+// {
+//     $rtn['artist'][$artist_cnt] = $element->plaintext; 
+//     // echo "<br>".$artist_cnt."alt".$rtn['artist'][$artist_cnt];
+//     $artist_cnt++;
+// }
+
+
 $rtn_imgs = $rtn;
 //
 $cnt = count($rtn_imgs['title']);
