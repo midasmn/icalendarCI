@@ -10,25 +10,25 @@ class Welcome extends CI_Controller {
         $this->load->library('session');
 		// $this->output->enable_profiler(TRUE);
         $top=$this->uri->segment(1);  
-        if($top=="welcome"){
-        }else{
-            $vcnt = $this->session->userdata('vcnt');
-            $histry_url = $this->session->userdata('histry_url');
-            if($vcnt)
-            {
-                $vcnt++;
-                $this->session->set_userdata('vcnt', $vcnt);
-            }else{
-                $this->session->set_userdata('vcnt', 1);
-            }
-            //
-            if($vcnt>1){
-                if($histry_url){
-                    redirect($histry_url, 'location');
-                }else{
-                }    
-            }
-        }
+        // if($top=="welcome"){
+        // }else{
+        //     $vcnt = $this->session->userdata('vcnt');
+        //     $histry_url = $this->session->userdata('histry_url');
+        //     if($vcnt)
+        //     {
+        //         $vcnt++;
+        //         $this->session->set_userdata('vcnt', $vcnt);
+        //     }else{
+        //         $this->session->set_userdata('vcnt', 1);
+        //     }
+        //     //
+        //     if($vcnt>1){
+        //         if($histry_url){
+        //             redirect($histry_url, 'location');
+        //         }else{
+        //         }    
+        //     }
+        // }
         
 		$this->session->set_flashdata('redirect_url', current_url());
         $this->session->set_userdata('histry_url', current_url());

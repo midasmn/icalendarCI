@@ -31,6 +31,16 @@ class Sitemap extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        //パンくずURL
+        // $pan_list = $this->session->flashdata('pan_list');
+        // $pan_cal = $this->session->flashdata('pan_cal');
+        // $pan_itm = $this->session->flashdata('pan_itm');
+        // $data['pan_list']  = $pan_list;
+        // $data['pan_cal']  = $pan_cal;
+        // $data['pan_itm']  = $pan_itm;
+        $this->session->set_flashdata('pan_list', current_url());
+        // $this->session->set_flashdata('pan_cal', current_url());
+        // $this->session->set_flashdata('pan_itm', current_url());
         // ログインセッション
         //セグメント取得
         $exm=$this->uri->segment(1);  

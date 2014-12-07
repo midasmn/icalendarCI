@@ -33,6 +33,12 @@ position: relative;
 
 <!-- ページ -->
 <div class="container">
+	<!-- パンくず -->
+	<ol class="breadcrumb">
+		<li><a href="/">ホーム</a></li>
+		<li class="active"><?=$exm_title?></li>
+	</ol>
+	<!-- パンくず -->
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">

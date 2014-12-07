@@ -31,6 +31,28 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 </style>
 	<!-- ページ -->
 	<div class="container">
+		<!-- パンくず -->
+		<?php
+		$pan_st = $rowR->cal_title;
+		$pan_st = str_replace('男性ランキング', '', $pan_st);
+		$pan_st = str_replace('女性ランキング', '', $pan_st);
+		$pan_st = str_replace('ランキング', '', $pan_st);
+		$pan_st = str_replace('ベストセラー', '', $pan_st);
+		$pan_st = str_replace('デイリー', '', $pan_st);
+
+		$pan_st = str_replace('アマゾン', '', $pan_st);
+		$pan_st = str_replace('楽天市場', '', $pan_st);
+		$pan_st = str_replace('Google画像', '', $pan_st);
+		$pan_st = str_replace('Yahoo!', '', $pan_st);
+		$pan_st = str_replace('オリコン', '', $pan_st);
+		$pan_st = str_replace('iTunes', '', $pan_st);
+		?>
+		<ol class="breadcrumb">
+			<li><a href="/">ホーム</a></li>
+			<li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
+			<li class="active"><?=$pan_st?></li>
+		</ol>
+	<!-- パンくず -->
 		<!-- ページヘッダー -->
 		<div class="row" style="margin-top:20px;">
 			<div class="col-xs-6 col-sm-4 col-md-2" >

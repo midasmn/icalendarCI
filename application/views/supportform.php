@@ -5,6 +5,12 @@
 iframe{ width:100%; }
 </style>
 <div class="container  text-muted">
+	<!-- パンくず -->
+    <ol class="breadcrumb">
+        <li><a href="/">ホーム</a></li>
+        <li class="active">お問い合わせフォーム</li>
+    </ol>
+    <!-- パンくず -->
 	<div class="row">
 		<div class="col-sm-12" style="margin-top:30px;">
 			<h2><?=$note?></h2>

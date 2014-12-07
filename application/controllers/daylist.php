@@ -33,6 +33,17 @@ class Daylist extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        //パンくずURL
+        $pan_list = $this->session->flashdata('pan_list');
+        if($pan_list=="http://icalendar.xyz/smart"){$pan_list_title = '人気順リスト';}
+        if($pan_list=="http://icalendar.xyz/newer"){$pan_list_title = '新着順リスト';}
+        if($pan_list=="http://icalendar.xyz/random"){$pan_list_title = 'ランダム順リスト';}
+        if($pan_list=="http://icalendar.xyz/sitemap"){$pan_list_title = 'ジャンル一覧';}
+        $data['pan_list']  = $pan_list;
+        $data['pan_list_title']  = $pan_list_title;
+        $this->session->set_flashdata('pan_list', $pan_list);
+        // $this->session->set_flashdata('pan_cal', current_url());
+        // $this->session->set_flashdata('pan_itm', current_url());
         // ログインセッション
         //セグメント取得
         $exm=$this->uri->segment(1);    //daylist

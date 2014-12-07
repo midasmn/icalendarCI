@@ -4,6 +4,12 @@ foreach ($ymdcnt as $rowM) {}
 foreach ($daycnt as $rowD) {}
 ?>
 <div class="container  text-muted">
+	<!-- パンくず -->
+    <ol class="breadcrumb">
+        <li><a href="/">ホーム</a></li>
+        <li class="active">よくある質問</li>
+    </ol>
+    <!-- パンくず -->
 	<div class="row">
 		<div class="col-sm-12" style="margin-top:30px;">
 

@@ -29,6 +29,8 @@ class Calist extends CI_Controller{
             $data['profile_img'] = $profile_img;
             $data['remember'] = $remember;
         }
+        //パンくずURL
+        $this->session->set_flashdata('pan_list', current_url());
         // ログインセッション
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());

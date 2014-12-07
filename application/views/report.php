@@ -58,6 +58,15 @@
 }
 </style>
 <div class="container text-muted">
+    
+    <!-- パンくず -->
+    <ol class="breadcrumb">
+        <!-- <li><a href="/">ホーム</a></li> -->
+        <li class="active">レポート</li>
+    </ol>
+    <!-- パンくず -->
+
+
 	<div class="row">
 		<div class="col-sm-12 col-md-12" style="margin-top:30px;">
 			<h2>レポート:</h2>
