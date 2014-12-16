@@ -223,12 +223,13 @@ class Calendar extends CI_Controller{
 
 
         //月カレンダーがあれば
-        $cal_th = 'application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png';
+        $cal_th = 'application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'.png';
         // echo $cal_th;
         $rtn_th = read_file($cal_th);
         if($rtn_th)
         {
-            $cal_th_img = base_url('application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png');
+            // $cal_th_img = base_url('application/img/cal_th/'.$yyyy.$mm.'/'.$calendar_id.'_'.$yyyy.'_'.$mm.'.png');
+            $cal_th_img = base_url($cal_th);
             $data['og_image'] = $cal_th_img;
         }
         $ogimg = $this->ymd->get_ogimage($calendar_id,$yyyy,$mm,$dd);

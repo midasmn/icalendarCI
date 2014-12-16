@@ -30,7 +30,7 @@
 	<meta property="og:url" content="<?=$og_url?>" />
 	<meta property="og:site_name" content="iCalendar.xyz" />
 	<meta property="og:description" content="<?=$og_description?>" />
-	<meta property=”og:locale” content=”ja_JP” />
+	<meta property="og:locale" content="ja_JP” />
 	<meta itemprop="name" content="iCalendar" />
 	<meta itemprop="description" content="<?=$og_description?>" />
 	<meta property="fb:app_id" content="1459017077694190" /> 
@@ -56,6 +56,7 @@
 <div id="dev_position"></div>
 <div id="wrap">
 	<!-- ナビゲーションバー -->
+	<!-- <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0;"> -->
 	<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0;">
 		<div class="container" >
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -66,7 +67,11 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<div class="animbrand"><a class="navbar-brand" href="http://icalendar.xyz/welcome">iCalendar.xyz</a></div>
+				<!-- <div class="animbrand"> -->
+					<a class="navbar-brand" href="http://icalendar.xyz/">
+        				<!-- <img alt="iCalendar.xyz" src="/menulogo.png"> -->
+      				</a>
+			<!-- 	</div> -->
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">

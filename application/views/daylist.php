@@ -72,16 +72,16 @@ margin-top: 2px;
 <div class="container">
         <!-- 広告 -->
         <div class="row" style="margin-top:10px;" >
-            <div class="col-md-12">
-            <script type="text/javascript">
-            google_ad_client = "ca-pub-6625574146245875";
-            google_ad_slot = "6377101203";
-            google_ad_width = 728;
-            google_ad_height = 15;
-            </script>
-            <!-- icalトップテキスト -->
-            <script type="text/javascript"
-            src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- レスポンシブ -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6625574146245875"
+                 data-ad-slot="6145590005"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
             </div>
         </div>
@@ -103,7 +103,7 @@ margin-top: 2px;
         $pan_st = str_replace('iTunes', '', $pan_st);
         ?>
         <ol class="breadcrumb">
-            <li><a href="/">ホーム</a></li>
+            <li><a href="/smart/">ホーム</a></li>
             <li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
             <li><a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>"><?=$pan_st?></a></li>
             <li class="active"><?=$yyyy?>年<?=$mm?>月<?=$dd?>日</li>
@@ -364,22 +364,23 @@ margin-top: 2px;
 </div>
 </div>
 
-<!-- 広告 -->
-<div class="row">
-<div class="col-md-12" style="margin-top:20px;">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- レスポンシブ -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6625574146245875"
-     data-ad-slot="6145590005"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-</div>
-<!-- 広告 -->
+    <!-- 広告 -->
+    <div class="row" style="margin-top:10px;" >
+        <div class="col-xs-12 col-sm-12 col-md-12">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- レスポンシブ -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6625574146245875"
+             data-ad-slot="6145590005"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+    </div>
+    <!-- 広告 -->
+
 
 </div>
 <!--  -->

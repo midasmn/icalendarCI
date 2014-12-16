@@ -91,3 +91,10 @@ body {
       .social-em:hover {
         color: #f39c12;
       }
+
+.navbar-brand {
+  background: url("/menulogo.png") no-repeat left center;
+  background-size: contain;
+  height: 44px;
+  width: 44px;
+}
