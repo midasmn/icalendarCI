@@ -35,11 +35,11 @@ position: relative;
 <div class="container">
 
 	<!-- 広告 -->
-	<div class="row" style="margin-top:10px;" >
+<!-- 	<div class="row" style="margin-top:10px;" >
 		<div class="col-xs-12 col-sm-12 col-md-12">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 		<!-- レスポンシブ -->
-		<ins class="adsbygoogle"
+<!-- 		<ins class="adsbygoogle"
 		     style="display:block"
 		     data-ad-client="ca-pub-6625574146245875"
 		     data-ad-slot="6145590005"
@@ -48,7 +48,7 @@ position: relative;
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 		</div>
-	</div>
+	</div> -->
 	<!-- 広告 -->
 	<!-- パンくず -->
 	<ol class="breadcrumb">
@@ -82,7 +82,6 @@ position: relative;
 		<!-- 検索窓 -->
 
 	</div>
-	<!--  -->
 	<hr id="1">
 	<div class="row">
 		<div class="col-md-12">
@@ -175,16 +174,12 @@ position: relative;
 			</h2>
 		</div>
 	</div>
-</div>
+
 <!--  -->
 <!-- ページネーション		 -->
 <?php echo $page_link; ?> 
 <!-- ページネーション		 -->
-
-
-<!-- 広告 -->
-<div class="row" style="margin-top:10px;" >
-	<div class="col-xs-12 col-sm-12 col-md-12">
+	<!-- 広告 -->
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- レスポンシブ -->
 	<ins class="adsbygoogle"
@@ -195,9 +190,10 @@ position: relative;
 	<script>
 	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
-	</div>
+	<!-- 広告 -->
+
 </div>
-<!-- 広告 -->
+	
 
 
 </div>

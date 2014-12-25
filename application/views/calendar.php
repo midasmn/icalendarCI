@@ -32,11 +32,11 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	<!-- ページ -->
 	<div class="container">
 		<!-- 広告 -->
-		<div class="row" style="margin-top:10px;" >
+<!-- 		<div class="row" style="margin-top:10px;" >
 			<div class="col-xs-12 col-sm-12 col-md-12">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 			<!-- レスポンシブ -->
-			<ins class="adsbygoogle"
+<!-- 			<ins class="adsbygoogle"
 			     style="display:block"
 			     data-ad-client="ca-pub-6625574146245875"
 			     data-ad-slot="6145590005"
@@ -45,7 +45,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 			</div>
-		</div>
+		</div> -->
 		<!-- 広告 -->
 
 		<!-- パンくず -->
@@ -275,25 +275,24 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
             </ul>
+
+			<!-- 広告 -->
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- レスポンシブ -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-6625574146245875"
+			     data-ad-slot="6145590005"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			<!-- 広告 -->
+
 		</div>
 		<!-- SNS -->
 	</div>
 
-	<!-- 広告 -->
-	<div class="row" style="margin-top:10px;" >
-		<div class="col-xs-12 col-sm-12 col-md-12">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- レスポンシブ -->
-		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-6625574146245875"
-		     data-ad-slot="6145590005"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		</div>
-	</div>
-	<!-- 広告 -->
+
 
 </div>

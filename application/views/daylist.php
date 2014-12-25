@@ -71,21 +71,6 @@ margin-top: 2px;
 <!-- ページ -->
 <div class="container">
         <!-- 広告 -->
-        <div class="row" style="margin-top:10px;" >
-            <div class="col-xs-12 col-sm-12 col-md-12">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- レスポンシブ -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-6625574146245875"
-                 data-ad-slot="6145590005"
-                 data-ad-format="auto"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            </div>
-        </div>
-        <!-- 広告 -->
     <!-- パンくず -->
         <?php
         $pan_st = $rowR->cal_title;
@@ -347,8 +332,6 @@ margin-top: 2px;
         <?php $cnt++; ?>
         <?php endforeach;?>
     </div>
-
-
     <!--  -->
     <div class="row">
         <div class="col-md-10"></div>
@@ -359,28 +342,24 @@ margin-top: 2px;
                 </h2>
             </div>
         </div>
-    </div>
-
-</div>
-</div>
-
+    
     <!-- 広告 -->
-    <div class="row" style="margin-top:10px;" >
-        <div class="col-xs-12 col-sm-12 col-md-12">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- レスポンシブ -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-6625574146245875"
-             data-ad-slot="6145590005"
-             data-ad-format="auto"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        </div>
-    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- レスポンシブ -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6625574146245875"
+         data-ad-slot="6145590005"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <!-- 広告 -->
 
+    
 
+
+
+    </div>
 </div>
 <!--  -->
