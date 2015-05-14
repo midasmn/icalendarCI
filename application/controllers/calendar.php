@@ -89,6 +89,12 @@ class Calendar extends CI_Controller{
         $rtn_id = array_search($calendar_id,$ch_arr);
         $data['pr_cal'] = $ch_arr[$rtn_id-1]; //前月リンク用
         $data['nex_cal'] = $ch_arr[$rtn_id+1]; //翌月リンク用
+        // 
+        $pr_cal_title_info = $this->calendar->get_calist_info($data['pr_cal'] );
+        foreach ($pr_cal_title_info as $rowRRR) {$data['pr_cal_title'] = $rowRRR->cal_title;}
+        $nex_cal_title_info = $this->calendar->get_calist_info($data['nex_cal']);
+        foreach ($nex_cal_title_info as $rowRRR) {$data['nex_cal_title'] = $rowRRR->cal_title;}
+        // 
         if($rtn_id==0){$data['pr_cal'] = "";}elseif($rtn_id==$total_cnt){$data['nex_cal'] = "";}
         //日付チェック
         if($yyyy&&$mm){
@@ -148,14 +154,16 @@ class Calendar extends CI_Controller{
             //広告枠
             $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
             $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f5f5f5;">';
-            $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
-            if($rtn_ad){
-                foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
-                // $ad_flg = 'top';
-                $week .= $m1_ad;
-            }else{
-                $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
-            }
+            // $rtn_ad = $this->ad->get_ad_list($calendar_id,'m1');
+            // if($rtn_ad){
+            //     foreach ($rtn_ad as $rowad) {$m1_ad = $rowad->ad_src;}
+            //     // $ad_flg = 'top';
+            //     $week .= $m1_ad;
+            // }else{
+            //     $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
+            // }
+            $week .= '<a href="https://m.hapitas.jp/register?i=20410711&route=blog_banner_120x120_01" target="_blank"><img src="http://img.hapitas.jp/img/images/friend/bnr/120x120_01.png" border="0" alt="日々の生活にhappyをプラスする｜ハピタス"></a>';
+
             $week .= '</div>';
             $week .= '</td>';
             $week .= str_repeat('<td class="col-xs-1 col-sm-1 col-md-1"></td>',$youbi-1);    //空埋め
@@ -192,13 +200,16 @@ class Calendar extends CI_Controller{
                         $week .= '<td class="col-xs-1 col-sm-1 col-md-1">';
                         $week .= '<div class="thumbnail bootsnipp-thumb" style="background-color:#f0f0f0;">';
                         //
-                        $rtn_ad = $this->ad->get_ad_list($calendar_id,'m2');
-                        if($rtn_ad&&!$ad_flg){
-                            foreach ($rtn_ad as $rowad) {$m2_ad = $rowad->ad_src;}
-                            $week .= $m2_ad;
-                        }else{
-                            $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
-                        }
+                        // $rtn_ad = $this->ad->get_ad_list($calendar_id,'m2');
+                        // if($rtn_ad&&!$ad_flg){
+                        //     foreach ($rtn_ad as $rowad) {$m2_ad = $rowad->ad_src;}
+                        //     $week .= $m2_ad;
+                        // }else{
+                        //     $week .= '<img src="//icalendar.xyz/application/img/ad.jpg"  class="img-responsive" alt="広告枠" style="background-color:#f0f0f0;">';
+                        // }
+
+                        $week .= '<a href="https://m.hapitas.jp/register?i=20410711&route=blog_banner_120x120_01" target="_blank"><img src="http://img.hapitas.jp/img/images/friend/bnr/120x120_01.png" border="0" alt="日々の生活にhappyをプラスする｜ハピタス"></a>';
+
                         $week .= '</div>';
                         $week .= '</td>';
                     }else{
@@ -255,6 +266,9 @@ class Calendar extends CI_Controller{
             $this->load->model('tbl_calendar_model', 'calendarM');   
             $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         }
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);

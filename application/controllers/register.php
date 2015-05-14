@@ -20,6 +20,11 @@ class Register extends CI_Controller{
         $data['description'] = $this->config->item('description', 'icalendar');
         $data['keywords'] = $this->config->item('keywords', 'icalendar');
 
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
 
         $this->load->view('include/header',$data);
         $this->load->view('register',$data);

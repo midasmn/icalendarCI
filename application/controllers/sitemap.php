@@ -72,6 +72,11 @@ class Sitemap extends CI_Controller{
             $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         }
         ///////////
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+
         $data['exm_title'] = "ジャンル一覧";
         $this->load->view('include/header',$data);
         $this->load->view('sitemap',$data);

@@ -70,7 +70,7 @@ class Welcome extends CI_Controller {
         /////// ログ
 
 		$this->load->model('tbl_calendar_model','calendar');
-		$this->load->model('tbl_ymd_model');
+		$this->load->model('tbl_ymd_model','ymd');
 
 		//メニューお気に入りセレクト
 		if($userid<>-1){
@@ -79,7 +79,11 @@ class Welcome extends CI_Controller {
 		// ogタグ初期値
         $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
         // ogタグ
-	
+	   
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+
 		$this->load->view('include/header',$data);
 		$this->load->view('welcome',$data);
 		$this->load->view('include/footer',$data);

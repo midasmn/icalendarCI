@@ -1,6 +1,10 @@
 <?php
-// $title = "iCalendarテスト";
-// echo "userid:".$userid;
+foreach ($calcnt as $row) {}
+foreach ($ymdcnt as $rowM) {}
+foreach ($daycnt as $rowD) {}
+$jan_cnt = number_format($row->calcnt);
+$daycnt = number_format($rowD->daycnt);
+$ymdcnt = number_format($rowM->ymdcnt);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,8 +29,8 @@
 	<!-- OGP -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="<?=$og_title?>" />
-	<meta property="og:image" content="<?=$og_image?>" />
-	<meta property="og:image" content="<?=$og_image2?>" />
+	<meta property="og:image" content="http://faceapglezon.info/ogimage/icalendar.php?url=<?php echo current_url();?>" />
+<!-- 	<meta property="og:image" content="<?=$og_image?>" /> -->
 	<meta property="og:url" content="<?=$og_url?>" />
 	<meta property="og:site_name" content="iCalendar.xyz" />
 	<meta property="og:description" content="<?=$og_description?>" />
@@ -79,7 +83,7 @@
 					<!-- リスト -->
 					<li class="dropdown ">
 		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
-		       				<span class="glyphicon glyphicon-calendar"></span> ジャンル一覧 <b class="caret"></b>
+		       				 ジャンル一覧 <b class="caret"></b>
 		       			</a>
 		       			<ul class="dropdown-menu">
 		       				<li class="">
@@ -165,7 +169,15 @@
 						</ul>
 					</li>
 					<!-- ガイド -->
+
+
+
+
 				</ul>
+				<p class="navbar-text">登録:<?=$jan_cnt?>ジャンル
+					<span class="glyphicon glyphicon-calendar"> </span>掲載日数:<?=$daycnt?>日
+					<i class="fa fa-camera"> </i>画像数:<?=$ymdcnt?>点
+				</p>
 
 				<?php
 				if($status=="LOGIN")

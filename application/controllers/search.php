@@ -137,6 +137,10 @@ class Search extends CI_Controller{
         if($userid<>-1){
             $data['menu'] = $this->calendar->menu_favorites_arr($userid);
         }
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('list',$data);

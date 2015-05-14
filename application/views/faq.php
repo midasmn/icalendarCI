@@ -2,6 +2,7 @@
 foreach ($calcnt as $row) {}
 foreach ($ymdcnt as $rowM) {}
 foreach ($daycnt as $rowD) {}
+
 ?>
 <div class="container  text-muted">
 	<!-- パンくず -->

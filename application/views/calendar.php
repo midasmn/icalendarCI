@@ -74,9 +74,21 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		<div class="row" style="margin-top:20px;">
 			<div class="col-xs-6 col-sm-4 col-md-2" >
 				<?php 
+				$pr_cal_title = str_replace('男性ランキング', '', $pr_cal_title);
+				$pr_cal_title = str_replace('女性ランキング', '', $pr_cal_title);
+				$pr_cal_title = str_replace('ランキング', '', $pr_cal_title);
+				$pr_cal_title = str_replace('ベストセラー', '', $pr_cal_title);
+				$pr_cal_title = str_replace('デイリー', '', $pr_cal_title);
+				//
+				$nex_cal_title = str_replace('男性ランキング', '', $nex_cal_title);
+				$nex_cal_title = str_replace('女性ランキング', '', $nex_cal_title);
+				$nex_cal_title = str_replace('ランキング', '', $nex_cal_title);
+				$nex_cal_title = str_replace('ベストセラー', '', $nex_cal_title);
+				$nex_cal_title = str_replace('デイリー', '', $nex_cal_title);
 				if(!$pr_cal){
 				}else{
-					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のジャンル</a>';
+					// echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のジャンル</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">'.$pr_cal_title.'</a>';
 				}
 				?>
 			</div>
@@ -85,10 +97,13 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
 				<?php
 				if(!$nex_cal){}else{
-					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のジャンル</a>';
+					// echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のジャンル</a>';
+					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">'.$nex_cal_title.'</a>';
 			 	}?>
 			</div>
 		</div>
+
+
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
 				<?php

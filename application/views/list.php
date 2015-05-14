@@ -92,7 +92,7 @@ position: relative;
 						<th class="col-md-1 fc-head">画像</th>
 						<th class="col-md-5 fc-head">タイトル</th>
 						<th class="col-md-4  fc-head hidden-xs">詳細</th>
-						<th class="col-md-1  fc-head">URL</th>
+						<!-- <th class="col-md-1  fc-head">URL</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -140,7 +140,11 @@ position: relative;
 
 						echo '</td>';
 						echo '<td>';
+						// echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
+						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
 						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
+						echo '</a>';
+
 						echo '</td>';
 						echo '<td style="vertical-align:middle;">';
 						$new_str = str_replace('男性ランキング', '', $htm_cal_title);
@@ -148,14 +152,22 @@ position: relative;
 						$new_str = str_replace('ランキング', '', $new_str);
 						$new_str = str_replace('ベストセラー', '', $new_str);
 						$new_str = str_replace('デイリー', '', $new_str);
+
+						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
 						echo $new_str;
+						echo '</a>';
+
 						echo '</td>';
 						echo '<td style="vertical-align: middle;" class="hidden-xs">';
+
+						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
 						echo $htm_cal_description;
+						echo '</a>';
+
 						echo '</td>';
-						echo '<td style="vertical-align:middle;">';
-						echo '<a class="btn btn-block btn-info" href="/calendar/'.$htm_cal_id.'">開く</a>';
-						echo '</td>';
+						// echo '<td style="vertical-align:middle;">';
+						// echo '<a class="btn btn-block btn-info" href="/calendar/'.$htm_cal_id.'">開く</a>';
+						// echo '</td>';
 						echo '</tr>';
 					// <!-- 1件目 -->
 					}
@@ -197,3 +209,13 @@ position: relative;
 
 
 </div>
+
+<script>
+$(function(){
+	$(".listclick").click(function(){
+    	window.location=$(this).find("a").attr("href");
+    	return false;
+    });
+});
+</script>
+

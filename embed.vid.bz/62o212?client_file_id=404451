@@ -1,0 +1,101 @@
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                        <title>860401.flv</title>
+                        <meta name="keywords" content="860401.flv" />
+                        <meta name="description" content="860401.flv" />
+                        <!--FB Meta Tags-->
+                        <meta property="og:title" content="860401.flv" />
+                        <meta property="og:description" content="860401.flv" />
+                        <meta property="og:image" content="http://static.vidcache.net/2d6b5372439e60e8c0777c0bab859d76d07b90c3.jpeg?client_file_id=900901" />
+                        <meta name="medium" content="video" />
+                        <meta property="og:video" content="http://stream.vidcache.net/748dc0c4c4e9c5bee1b4da0f930fde4157550f3c.flv?client_file_id=900900"/> 
+                        <meta name="og:video:height" content="400"/> 
+                        <meta name="og:video:width" content="600"/>
+                        <meta name="og:video:type" content="application/x-shockwave-flash" />
+                        <!--End FB Tags-->
+
+                        <!-- Load jQuery -->
+                        <script src="//bowercdn.net/c/jquery-1.9.1/jquery.min.js"></script>
+                        <!-- Load SWF Object -->
+                        <script type="text/javascript" src="http://yourupload.com/jwplayer/swfobject.js"></script>
+                        <!-- Load JWPlayer -->
+                        <script type="text/javascript" src="http://yourupload.com/jwplayer/jwplayer.js"></script>
+
+                        </head>
+                        <body style="margin:0;padding:0;background:#000;overflow:hidden;">
+                          <h1 style="display: none;">860401.flv</h1>
+                          <p style="display: none;">860401.flv</p>
+                          <div id="player">Loading the player...</div>
+                          <script type="text/javascript">
+                          var resizePlayer = function(){
+                            jwplayer().resize($(window).width(),$(window).height());
+                          }
+                          $(window).resize(resizePlayer);
+                          jwplayer("player").setup({
+                            'id': 'player',
+                            'modes': [
+                              {
+                              type: 'flash',
+                                src: 'http://vid.bz/jwplayer/player.swf'
+                              },
+                            {
+                                type: 'html5'
+                            }
+                            ],
+                            'file': 'http://stream.vidcache.net/748dc0c4c4e9c5bee1b4da0f930fde4157550f3c.flv?client_file_id=900900',
+                            'image': 'http://static.vidcache.net/2d6b5372439e60e8c0777c0bab859d76d07b90c3.jpeg?client_file_id=900901',
+                            'height': $(window).height()-5,
+                            'width':  $(window).width(),
+                            'primary': 'flash',
+                            'logo': {
+                              'file': 'http://vid.bz/jwplayer/vidbz-logo-small-white.png',
+                              'link':  'http://vid.bz/watch/62o212',
+                              'linktarget': '_self_',
+                              'hide': 'false',
+                              'margin': '35',
+                              'out': '0.5',
+                              'over': '1',
+                              'position': 'bottom-left'
+                            },
+                            'provider': 'http',
+                            'startparam': 'start',
+                            'controlbar': 'over',
+                            'strecthing': 'strecthing',
+                            'skin': 'http://vid.bz/jwplayer/modieus/modieus.zip',
+                            'plugins': {
+                              'http://vid.bz/jwplayer/ads.v5.js': {
+                                url: 'http://rotate.vidcache.net/rotate/vidbz/300x250',
+                                width: 300,
+                                height: 250
+                              }
+                            }
+                          });
+                          </script>
+                          <!-- Piwik -->
+                          <script type="text/javascript">
+                            var _paq = _paq || [];
+                            _paq.push(['trackPageView']);
+                            _paq.push(['enableLinkTracking']);
+                            (function() {
+                              var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.esited.com/";
+                              _paq.push(['setTrackerUrl', u+'piwik.php']);
+                              _paq.push(['setSiteId', 13]);
+                              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+                              g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                            })();
+                          </script>
+                          <noscript><p><img src="http://stats.esited.com/piwik.php?idsite=13" style="border:0;" alt="" /></p></noscript>
+                          <!-- End Piwik Code -->
+                          <div style="display: none;">
+                            <script id="_wauz1s" type="text/javascript">
+                              var _wau = _wau || []; _wau.push(["small", "z38tr1by66m4", "z1s"]);
+                                (function() {var s=document.createElement("script"); s.async=true;
+                                s.src="http://widgets.amung.us/small.js";
+                                document.getElementsByTagName("head")[0].appendChild(s);
+                              })();
+                            </script>
+                          </div>
+                          <script src="http://pu.plugrush.com/3y4z.js" type="text/javascript"></script>
+                        </body>
+                        </html>

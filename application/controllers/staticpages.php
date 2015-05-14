@@ -56,6 +56,11 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('about',$data);
@@ -106,6 +111,11 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('terms',$data);
@@ -157,6 +167,11 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('privacy',$data);
@@ -259,6 +274,11 @@ class Staticpages extends CI_Controller{
             $this->load->model('tbl_calendar_model', 'calendarM');   
             $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         }
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('supportform',$data);
@@ -309,6 +329,11 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
         ///////////
         $this->load->view('include/header',$data);
         $this->load->view('news');
@@ -359,6 +384,13 @@ class Staticpages extends CI_Controller{
         $this->load->model('tbl_report_model', 'report'); //アイテム
         //カレンダー情報
         $data['report'] = $this->report->get_list();
+
+
+        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        $data['calcnt'] = $this->calendar->count_calist_all();
+        $data['daycnt'] = $this->ymd->count_day_all();
+        $data['ymdcnt'] = $this->ymd->count_ymd_all();
 
         $this->load->view('include/header',$data);
         $this->load->view('report');
