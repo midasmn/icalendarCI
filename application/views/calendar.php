@@ -31,23 +31,6 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 </style>
 	<!-- ページ -->
 	<div class="container">
-		<!-- 広告 -->
-<!-- 		<div class="row" style="margin-top:10px;" >
-			<div class="col-xs-12 col-sm-12 col-md-12">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-			<!-- レスポンシブ -->
-<!-- 			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-6625574146245875"
-			     data-ad-slot="6145590005"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-			</div>
-		</div> -->
-		<!-- 広告 -->
-
 		<!-- パンくず -->
 		<?php
 		$pan_st = $rowR->cal_title;
@@ -69,10 +52,10 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			<li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
 			<li class="active"><?=$pan_st?></li>
 		</ol>
-	<!-- パンくず -->
+		<!-- パンくず -->
 		<!-- ページヘッダー -->
 		<div class="row" style="margin-top:20px;">
-			<div class="col-xs-6 col-sm-4 col-md-2" >
+			<div class="col-xs-6 col-sm-4 col-md-3" >
 				<?php 
 				$pr_cal_title = str_replace('男性ランキング', '', $pr_cal_title);
 				$pr_cal_title = str_replace('女性ランキング', '', $pr_cal_title);
@@ -92,18 +75,51 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				}
 				?>
 			</div>
-			<div class="col-sm-4 col-md-8" >
+			<div class="col-sm-4 col-md-6" >
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 text-right" >
+			<div class="col-xs-6 col-sm-4 col-md-3 text-right" >
 				<?php
 				if(!$nex_cal){}else{
 					// echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のジャンル</a>';
 					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">'.$nex_cal_title.'</a>';
 			 	}?>
 			</div>
-		</div>
+		</div><!-- .ページヘッダー -->
+	</div>
+		<!-- 広告 -->
 
-
+    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+		<!-- スマートフォン向けコンテンツ -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ical_sp_btm -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:320px;height:100px"
+		     data-ad-client="ca-pub-6625574146245875"
+		     data-ad-slot="5295238802"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ビッグバナー大 -->
+		<ins class="adsbygoogle"
+				style="display:inline-block;width:970px;height:90px"
+				data-ad-client="ca-pub-6625574146245875"
+				data-ad-slot="8563765200"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
+	
+	<div class="container">
 		<div class="col-xs-12 col-sm-7 col-md-7">
 			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
 				<?php
@@ -178,9 +194,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				</a> -->
 			</h2>
 		</div>
-
-	</div>
-	<!-- ページ -->
+	</div><!-- .container -->
 	<!--  -->
 	<div class="container">
 	 	<table class="table table-condensed">
@@ -290,24 +304,35 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
                     </a>
                 </li>
             </ul>
-
-			<!-- 広告 -->
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- レスポンシブ -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-6625574146245875"
-			     data-ad-slot="6145590005"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-			<!-- 広告 -->
-
 		</div>
-		<!-- SNS -->
 	</div>
 
+	<!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+		<!-- スマートフォン向 nend -->
+      	<script type="text/javascript">
+		var nend_params = {"media":26557,"site":140390,"spot":373963,"type":1,"oriented":1};
+		</script>
+		<script type="text/javascript" src="http://js1.nend.net/js/nendAdLoader.js"></script>
+		<!-- .スマートフォン向 nend -->
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ビッグバナー大 -->
+		<ins class="adsbygoogle"
+				style="display:inline-block;width:970px;height:90px"
+				data-ad-client="ca-pub-6625574146245875"
+				data-ad-slot="8563765200"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
 
-
-</div>
+	</div> <!-- .wrap  -->

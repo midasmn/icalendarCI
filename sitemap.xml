@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>http://icalendar.xyz/statsitemap.xml</loc>
+<lastmod>2014-12-20T18:02:24+00:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>http://icalendar.xyz/calsitemap1.xml</loc>
+<lastmod>2014-12-20T18:02:24+00:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>http://icalendar.xyz/dailysitemap1.xml</loc>
+<lastmod>2014-12-20T18:02:24+00:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>http://icalendar.xyz/dailysitemap2.xml</loc>
+<lastmod>2014-12-20T18:02:24+00:00</lastmod>
+</sitemap>
+</sitemapindex>

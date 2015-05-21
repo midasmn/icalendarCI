@@ -33,29 +33,45 @@ position: relative;
 
 <!-- ページ -->
 <div class="container">
-
-	<!-- 広告 -->
-<!-- 	<div class="row" style="margin-top:10px;" >
-		<div class="col-xs-12 col-sm-12 col-md-12">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-		<!-- レスポンシブ -->
-<!-- 		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-6625574146245875"
-		     data-ad-slot="6145590005"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		</div>
-	</div> -->
-	<!-- 広告 -->
 	<!-- パンくず -->
 	<ol class="breadcrumb">
 		<li><a href="/smart/">ホーム</a></li>
 		<li class="active"><?=$exm_title?></li>
 	</ol>
 	<!-- パンくず -->
+
+	<!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+		<!-- スマートフォン向けコンテンツ -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ical_sp_btm -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:320px;height:100px"
+		     data-ad-client="ca-pub-6625574146245875"
+		     data-ad-slot="5295238802"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ビッグバナー大 -->
+		<ins class="adsbygoogle"
+				style="display:inline-block;width:970px;height:90px"
+				data-ad-client="ca-pub-6625574146245875"
+				data-ad-slot="8563765200"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
+	
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
@@ -191,18 +207,38 @@ position: relative;
 <!-- ページネーション		 -->
 <?php echo $page_link; ?> 
 <!-- ページネーション		 -->
+
 	<!-- 広告 -->
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- レスポンシブ -->
-	<ins class="adsbygoogle"
-	     style="display:block"
-	     data-ad-client="ca-pub-6625574146245875"
-	     data-ad-slot="6145590005"
-	     data-ad-format="auto"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	<!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+		<!-- スマートフォン向けコンテンツ -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ical_sp_btm -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:320px;height:100px"
+		     data-ad-client="ca-pub-6625574146245875"
+		     data-ad-slot="5295238802"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ビッグバナー大 -->
+		<ins class="adsbygoogle"
+				style="display:inline-block;width:970px;height:90px"
+				data-ad-client="ca-pub-6625574146245875"
+				data-ad-slot="8563765200"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
 
 </div>
 	

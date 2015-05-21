@@ -10,7 +10,8 @@ $calid = 343; //yahoo検索人物総数デイリー
 $calurl = '/calendar/343/'.$lastmonth;
 $dayurl = '/daylist/343/'.$lastday;
 // $nowurl = '/calendar/2950/'.$lastmonth.'/4';
-$nowurl = 'http://icalendar.xyz/smart/';
+// $nowurl = 'http://icalendar.xyz/smart/';
+$nowurl = 'http://icalendar.xyz/calendar/6875';
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -36,7 +37,7 @@ $nowurl = 'http://icalendar.xyz/smart/';
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-10 col-md-10">
         <!-- <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ<?=$lastmonth?>のカレンダーをみる</a> -->
-            <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ人気一覧をみる</a>
+            <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ人気カレンダーをみる</a>
         </div>
         <div class="col-sm-1 col-md-1"></div>
     </div>

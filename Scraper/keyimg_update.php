@@ -36,7 +36,6 @@ if($tbl_tmp)
     while($link = mysql_fetch_row($tbl_tmp))
     {
         list($id) = $link;
-
         $rtn = f_keyimg_update($db_conn,$id);
         // echo "<br>".$rtn ;
     }

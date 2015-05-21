@@ -54,6 +54,10 @@
 	<hr id="1">
 
 	<div class="col-xs-12 col-sm-6 col-md-3">
+		<p><h2><a href="#cat-0">スポーツ順位</a></h2></p>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-md-3">
 		<p><h2><a href="#cat-1">アマゾンベストセラー</a></h2></p>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3">
@@ -86,6 +90,12 @@
 		}else{
 			$old_st = $new_st;
 			switch ($new_st) {
+				case 'sports':
+					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
+					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
+					echo '<p><h2  id="cat-0">スポーツ順位</h2></p>';
+					echo '</div>';
+					break;
 				case 'rakuten':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';

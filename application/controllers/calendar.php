@@ -6,9 +6,11 @@ class Calendar extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         $this->config->load('icalendar');
+        
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
         $this->load->library('session');
+        $this->load->library('user_agent');
         $this->load->helper('file');
     }
 
@@ -16,6 +18,13 @@ class Calendar extends CI_Controller{
     {
         $userid=-1;
         $data = array();
+        // モバイルフラグ
+        if($this->agent->is_mobile())
+        {
+            $data['mobile'] = "SP";//mob
+        }else{
+            $data['mobile'] = "PC";//PC
+        }
         // ログインセッション
         if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
             $email=$this->session->userdata("email");
@@ -252,15 +261,14 @@ class Calendar extends CI_Controller{
         }
     
 
-        $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
+        // $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
+        $data['og_title'] = $data['yyyy'].'年'.$data['mm'].'月'.$data['dd'].'日付'.$data['title']."-画像カレンダー";
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title'].'。'.$data['description'];
         // OGタグ設定
         $data['keywords'] = $data['title'].','.$data['yyyy'].'年'.$data['mm'].'月,'.$data['keywords'];
         $data['description'] = $data['og_description'];
         $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
-        
-
         //メニューお気に入りセレクト
         if($userid<>-1){
             $this->load->model('tbl_calendar_model', 'calendarM');   

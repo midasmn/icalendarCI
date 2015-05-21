@@ -301,28 +301,33 @@ margin-top: 2px;
         if($cnt==1){
         ?>
         <!-- ad -->
-        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-            <p class="fc-date"><span>スポンサー</span></p>
-            <div class="thumbnail bootsnipp-thumb" style="margin-top:25px;">
-                <div>
-                    <p class="lead product-title text-center">
-                    <!-- adソース -->
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- レスポンシブ -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-6625574146245875"
-                         data-ad-slot="6145590005"
-                         data-ad-format="auto">
-                    </ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                    <!-- adソース -->
-                    </p>
-                </div>
-            </div>
+        <!-- 広告 -->
+        <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+          <!-- ＜スポンサーリンク＞ -->
+          <?php 
+          if($mobile=="SP")
+          {
+          ?>
+            <!-- スマートフォン向 nend -->
+            <script type="text/javascript">
+            var nend_params = {"media":26557,"site":140390,"spot":373963,"type":1,"oriented":1};
+            </script>
+            <script type="text/javascript" src="http://js1.nend.net/js/nendAdLoader.js"></script>
+            <!-- .スマートフォン向 nend -->
+          <?php }else{ ?>
+          <!-- PC向けコンテンツ -->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- ビッグバナー大 -->
+            <ins class="adsbygoogle"
+                    style="display:inline-block;width:970px;height:90px"
+                    data-ad-client="ca-pub-6625574146245875"
+                    data-ad-slot="8563765200"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          <?php }; ?>
         </div>
+        <!-- 広告 -->
         <!-- ad -->
         <?php
         }
