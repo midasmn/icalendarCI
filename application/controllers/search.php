@@ -7,7 +7,7 @@ class Search extends CI_Controller{
         $this->load->helper('array');
         $this->load->helper('form');
         $this->config->load('icalendar');
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
     }
 
     public function index()
@@ -41,6 +41,9 @@ class Search extends CI_Controller{
         $data['exm']=$exm;
         //
         $keyword = $this->input->post("keyword");
+
+
+ehoc "keyword=".$keyword;
         if(!$keyword){
             $keyword = $this->session->flashdata('keyword');
         }
@@ -137,10 +140,9 @@ class Search extends CI_Controller{
         if($userid<>-1){
             $data['menu'] = $this->calendar->menu_favorites_arr($userid);
         }
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        $// 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('list',$data);

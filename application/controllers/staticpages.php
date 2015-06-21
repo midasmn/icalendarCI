@@ -386,11 +386,9 @@ class Staticpages extends CI_Controller{
         $data['report'] = $this->report->get_list();
 
 
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
 
         $this->load->view('include/header',$data);
         $this->load->view('report');

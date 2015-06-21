@@ -134,9 +134,9 @@ class Daylist extends CI_Controller{
         $data['description'] = $data['og_description'];
         $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
         // OGタグ設定
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('daylist',$data);

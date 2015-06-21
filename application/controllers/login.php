@@ -32,11 +32,9 @@ class Login extends CI_Controller{
             // $this->session->set_flashdata('redirect_url', uri_string());
             //リダイレクト用URL
         }
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         // // ログインセッション
         $this->load->view('include/header',$data);
         $this->load->view('login',$data);
@@ -86,11 +84,9 @@ class Login extends CI_Controller{
             'note' => 'ログイン',
             'message' => 'loginerr'
             );
-            $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-            $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-            $data['calcnt'] = $this->calendar->count_calist_all();
-            $data['daycnt'] = $this->ymd->count_day_all();
-            $data['ymdcnt'] = $this->ymd->count_ymd_all();
+            // 登録件数
+            $this->load->model('tbl_count_model', 'count');  
+            $data['day_cnt'] = $this->count->get_count();
             // $data['message'] = validation_errors();
             $this->load->view('include/header',$data);
             $this->load->view('login',$data);

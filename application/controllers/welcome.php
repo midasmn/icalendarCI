@@ -80,9 +80,9 @@ class Welcome extends CI_Controller {
         $data['og_image'] = "http://icalendar.xyz/application/img/main.jpg" ;
         // ogタグ
 	   
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
 
 		$this->load->view('include/header',$data);
 		$this->load->view('welcome',$data);

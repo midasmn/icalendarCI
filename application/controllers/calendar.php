@@ -45,6 +45,11 @@ class Calendar extends CI_Controller{
         if($pan_list=="http://icalendar.xyz/newer"){$pan_list_title = '新着順リスト';}
         if($pan_list=="http://icalendar.xyz/random"){$pan_list_title = 'ランダム順リスト';}
         if($pan_list=="http://icalendar.xyz/sitemap"){$pan_list_title = 'ジャンル一覧';}
+        if($pan_list=="http://icalendar.xyz/keyword")
+        {
+            $keyword = $this->session->flashdata('keyword');
+            $pan_list_title = '['.$keyword.']検索結果';
+        }
         $data['pan_list']  = $pan_list;
         $data['pan_list_title']  = $pan_list_title;
         $this->session->set_flashdata('pan_list', $pan_list);
@@ -274,9 +279,11 @@ class Calendar extends CI_Controller{
             $this->load->model('tbl_calendar_model', 'calendarM');   
             $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         }
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
+        // $data['daycnt'] = $this->ymd->count_day_all();
+        // $data['ymdcnt'] = $this->ymd->count_ymd_all();
         //メニューお気に入りセレクト
         $this->load->view('include/header',$data);
         $this->load->view('calendar',$data);

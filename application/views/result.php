@@ -1,4 +1,6 @@
 <?php
+// foreach ($keyitem as $cnt_key => $keyitem){}
+// $keyword_total_cnt = count($keyitem);
 ?>
 <style>
 .fc-head{
@@ -75,9 +77,9 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト(<?=number_format($total_cnt)?>件)</small></h2> 
+			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?>
+			<small>(<?=number_format($total_cnt)?>件)</small></h2> 
 		</div>
-
 
 	</div>
 	<hr id="1">
@@ -86,86 +88,68 @@ position: relative;
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th class="col-md-1 fc-head"><span class="glyphicon glyphicon-star"></span></th>
 						<th class="col-md-1 fc-head">画像</th>
-						<th class="col-md-5 fc-head">タイトル</th>
-						<th class="col-md-4  fc-head hidden-xs">詳細</th>
-						<!-- <th class="col-md-1  fc-head">URL</th> -->
+						<th class="col-md-2 fc-head">年月日</th>
+						<th class="col-md-1 fc-head">順位</th>
+						<th class="col-md-3 fc-head hidden-xs">カレンダー名</th>
+						<th class="col-md-5 fc-head hidden-xs">アイテム名</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
-					foreach ($calist as $key1 => $item)
+					foreach ($keyitem as $key1 => $item)
 					{
 						foreach ($item as $key2 => $value)
 						{
 					// <!-- 1件目 -->
-						if($key2=='cal_img'){$htm_cal_img=$value;}
-						elseif($key2=='cal_title'){$htm_cal_title=$value;}
-						elseif($key2=='cal_description'){$htm_cal_description=$value;}
-						elseif($key2=='cal_id'){$htm_cal_id=$value;}
+						if($key2=='key_img_path'){$htm_key_img=$value;}
+						elseif($key2=='key_calendar_id'){$key_calendar_id=$value;}
+						elseif($key2=='key_yyyy'){$htm_key_yyyy=$value;}
+						elseif($key2=='key_mm'){$htm_key_mm=$value;}
+						elseif($key2=='key_dd'){$htm_key_dd=$value;}
+						elseif($key2=='key_name'){$htm_key_name=$value;}
+						elseif($key2=='key_img_alt'){$htm_key_img_alt=$value;}
+						elseif($key2=='key_order'){$htm_key_order=$value;}
 						}
 						// }
 						echo '<tr>';
-						echo '<td style="text-align: center;vertical-align:middle;">';
-						if($userid>0)
-						{
-							//ログイン中
-							echo '<a href="javascript: void(0)" class="starlist" data-id="'.$htm_cal_id.'">';
-							echo '<input type="hidden" id="calendar_id" value="'.$htm_cal_id.'">';
-							echo '<input type="hidden" id="userid" value="'.$userid.'">';
-							//
-							$st_flg = "OFF";
-							foreach($star as $data) 	//スター配列と比較
-							{
-								if ($data['itemid'] == $htm_cal_id) {$st_flg = "ON";}
-							}
-							if($st_flg=="ON")
-							{
-								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-								echo '<span  style="display: none"  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-							}else{
-								echo '<span  style="display: none" class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-							}
-							echo '</a>';
-						}else{
-							echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="ログインしてお気に入りに追加"></span>';
-						}
-						//
-						
-						//
-
-						echo '</td>';
+				
 						echo '<td>';
-						// echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
-						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
-						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
+						echo '<a href="/calendar/'.$key_calendar_id.'/'.$htm_key_yyyy.'/'.$htm_key_mm.'/'.$htm_key_order.'" style="text-decoration: none;">';
+						echo '<img src="'.$htm_key_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
 						echo '</a>';
-
 						echo '</td>';
-						echo '<td style="vertical-align:middle;">';
-						$new_str = str_replace('男性ランキング', '', $htm_cal_title);
+
+						echo '<td style="vertical-align: middle;text-align: center;" >';
+						echo '<a href="/calendar/'.$key_calendar_id.'/'.$htm_key_yyyy.'/'.$htm_key_mm.'/'.$htm_key_order.'" style="text-decoration: none;">';
+						echo $htm_key_yyyy.'年'.$htm_key_mm.'月'.$htm_key_dd.'日';
+						echo '</a>';
+						echo '</td>';
+
+						echo '<td style="vertical-align: middle;text-align: center;" >';
+						echo '<a href="/calendar/'.$key_calendar_id.'/'.$htm_key_yyyy.'/'.$htm_key_mm.'/'.$htm_key_order.'" style="text-decoration: none;">';
+						echo $htm_key_order.'位';
+						echo '</a>';
+						echo '</td>';
+
+						echo '<td style="vertical-align:middle;text-align: left;" class="hidden-xs">';
+						$new_str = str_replace('男性ランキング', '', $htm_key_name);
 						$new_str = str_replace('女性ランキング', '', $new_str);
 						$new_str = str_replace('ランキング', '', $new_str);
 						$new_str = str_replace('ベストセラー', '', $new_str);
 						$new_str = str_replace('デイリー', '', $new_str);
-
-						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
+						echo '<a href="/calendar/'.$key_calendar_id.'/'.$htm_key_yyyy.'/'.$htm_key_mm.'/'.$htm_key_order.'" style="text-decoration: none;">';
 						echo $new_str;
 						echo '</a>';
-
 						echo '</td>';
-						echo '<td style="vertical-align: middle;" class="hidden-xs">';
 
-						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
-						echo $htm_cal_description;
+						echo '<td style="vertical-align:middle;text-align: left;" class="hidden-xs">';
+						$htm_key_img_alt = mb_strimwidth($htm_key_img_alt, 0, 60, "...");
+						echo '<a href="/calendar/'.$key_calendar_id.'/'.$htm_key_yyyy.'/'.$htm_key_mm.'/'.$htm_key_order.'" style="text-decoration: none;">';
+						echo $htm_key_img_alt;
 						echo '</a>';
-
 						echo '</td>';
-						// echo '<td style="vertical-align:middle;">';
-						// echo '<a class="btn btn-block btn-info" href="/calendar/'.$htm_cal_id.'">開く</a>';
-						// echo '</td>';
+						
 						echo '</tr>';
 					// <!-- 1件目 -->
 					}
@@ -228,12 +212,5 @@ position: relative;
 
 </div>
 
-<script>
-$(function(){
-	$(".listclick").click(function(){
-    	window.location=$(this).find("a").attr("href");
-    	return false;
-    });
-});
-</script>
+
 

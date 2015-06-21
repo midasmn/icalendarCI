@@ -49,7 +49,19 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		?>
 		<ol class="breadcrumb">
 			<li><a href="/smart/">ホーム</a></li>
-			<li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
+			<?php
+			if($pan_list=="http://icalendar.xyz/keyword")
+			{
+			?>
+				<li><a href="javascript:window.history.go(-1);"><?=$pan_list_title?></a></li>
+			<?php
+			}else{
+			?>
+				<li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
+			<?php
+			}
+			?>
+			
 			<li class="active"><?=$pan_st?></li>
 		</ol>
 		<!-- パンくず -->

@@ -4,6 +4,8 @@ body {
   height: 100%;
   /* html と body 要素はパディングやマージンを持てません。*/
 }
+
+.container {width: auto;}
 #wrap {
   min-height: 100%;
   height: auto !important;

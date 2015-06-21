@@ -168,7 +168,6 @@ class Tbl_ymd_model extends MY_Model {
         $this->db->like('tbl_ymd_morpheme.tag', $keyword, 'both'); 
         // $this->db->order_by('tbl_ymd.yyyy','desc'); 
         $this->db->order_by('tbl_ymd_morpheme.ymdid','desc'); 
-
         // if(!$offset){$offset=1;}
         $this->db->limit($limit,$offset);
         $query = $this->db->get();
@@ -184,12 +183,11 @@ class Tbl_ymd_model extends MY_Model {
         $this->db->join('tbl_ymd_morpheme', 'tbl_ymd.id = tbl_ymd_morpheme.ymdid', 'inner');
         $this->db->like('tbl_ymd_morpheme.tag', $keyword, 'both'); 
         // $this->db->order_by('tbl_ymd.yyyy','desc'); 
-
         $query = $this->db->get();
 
     // echo $this->db->last_query();
-        return $query->result();
-        // return $query->result_array();
+        // return $query->result();
+        return $query->result_array();
     }
     
 

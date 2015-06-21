@@ -198,5 +198,15 @@ class Tbl_calendar_model extends MY_Model {
 // echo $this->db->last_query();
         return $query->result();
     }
+    // カレンダー名
+    public function get_calendar_name($calid) {
+        // $this->db->start_cache();
+        $this->db->select('title as cal_name');
+        $this->db->from('tbl_calendar');
+        $this->db->where('id', $calid); 
+        $query = $this->db->get();
+// echo $this->db->last_query();
+        return $query->result();
+    }
 }
 ?>

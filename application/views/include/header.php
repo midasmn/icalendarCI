@@ -1,10 +1,17 @@
 <?php
 foreach ($calcnt as $row) {}
-foreach ($ymdcnt as $rowM) {}
-foreach ($daycnt as $rowD) {}
-$jan_cnt = number_format($row->calcnt);
-$daycnt = number_format($rowD->daycnt);
-$ymdcnt = number_format($rowM->ymdcnt);
+foreach ($keyitem as $rowKey) {}
+foreach ($day_cnt as $rowD) {
+	foreach ($rowD as $key2 => $value)
+	{
+		if($key2=='category_cnt'){$jan_cnt=number_format($value);}
+		elseif($key2=='day_cnt'){$daycnt=number_format($value);}
+		elseif($key2=='item_cnt'){$ymdcnt=number_format($value);}
+	}
+}
+$keyword = $this->input->post('keyword');
+if(!$keyword){$keyword=$flash_keyword;}
+$keyword_total_cnt = count($rowKey);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -67,9 +74,10 @@ $ymdcnt = number_format($rowM->ymdcnt);
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-bootsnipp-collapse">
 				  <span class="sr-only">Toggle navigation</span>
+<!-- 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span> -->
+				  MENU
 				</button>
 				<!-- <div class="animbrand"> -->
 					<a class="navbar-brand" href="http://icalendar.xyz/">
@@ -255,4 +263,46 @@ $ymdcnt = number_format($rowM->ymdcnt);
   		</div>
 	</nav>
 	<!-- ナビゲーションバー -->
-    <script type="text/javascript">window.alert = function(){}</script>
+
+	<!-- 検索窓 -->
+<style>
+.search-wrap {
+  <!-- height: 3.125rem; -->
+  height: 24px;
+  text-align: left; }
+
+.search-group {
+  -webkit-animation: slide-right 500ms cubic-bezier(0.65, -1, 0.25, 1.75); }
+
+.search-group input[type="search"] {
+  -webkit-appearance: none;
+  background: url("/search.svg") no-repeat;
+  background-position: 1rem 1rem;
+  background-size: 1.3rem;
+  border: none;
+  font: 400 1.35rem 'Source Sans Pro', sans-serif;
+  height: 3.125rem;
+  padding-left: 3rem;
+  text-align: left;
+  width: 95%; }
+
+.search-group input[type="search"]:focus {
+  outline: none; }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  background: white url("/delete.svg") center no-repeat;
+  cursor: pointer;
+  height: 3.12rem;
+  left: 0;
+  position: absolute;
+  width: 3.125rem; }	
+</style>
+	<nav class="search-wrap">
+      <form class="search ng-pristine ng-valid" role="search" action="/keyword/" method="POST">
+        <div class="form-group search-group">
+          <input autofocus="true" name="keyword" value="<?=$keyword?>" type="search" class="form-control ng-pristine ng-valid" ng-model="searchText" typeahead="tag for tag in getTypeheadSuggestions($viewValue)">
+        </div>
+      </form>
+    </nav>
+	<!-- .検索窓 -->

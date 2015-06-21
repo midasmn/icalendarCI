@@ -95,8 +95,8 @@ function f_morpheme_update($db_conn,$id)
 
 /////////////////
 // 説明文有りかつ形態素フラグOFFかつ100以内
-// $strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE `description` <> "" and `morpheme_flg` = "OFF" limit 1';
-$strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE `description` <> "" and `morpheme_flg` = "OFF"';
+// $strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE `description` <> "" and `morpheme_flg` = "OFF"';
+$strSQL = 'SELECT `id`, `calendar_id`, `img_alt` FROM `tbl_ymd` WHERE  `morpheme_flg` = "OFF" ORDER BY `createdate` DESC';
 $tbl_tmp = mysql_query($strSQL, $db_conn);
 if($tbl_tmp)
 {
