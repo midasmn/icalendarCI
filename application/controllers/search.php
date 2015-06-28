@@ -123,10 +123,6 @@ ehoc "keyword=".$keyword;
         $data['page_link'] = $this->pagination->create_links();
         // OGタグ設定
         $data['title'] = $keyword.'の'.$data['title'];
-
-        // $data['og_url'] = $config['base_url']."/".$config['per_page'];
-        // $data['og_description'] = $data['og_title']." - イメージカレンダー : iCalendar.xyz." ;
-        // OGタグ設定
         // OGタグ設定
         $data['og_title'] = $data['title'];
         $data['og_url'] = "/".$this->uri->uri_string();
@@ -134,7 +130,7 @@ ehoc "keyword=".$keyword;
         // OGタグ設定
         $data['keywords'] = $keyword.','.$data['keywords'];
         $data['description'] = $data['og_description'];
-        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+        $data['title'] = $data['og_title'] ." : インテリカレンダー";
 
         //メニューお気に入りセレクト
         if($userid<>-1){

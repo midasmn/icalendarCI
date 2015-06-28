@@ -23,13 +23,14 @@ $nowurl = 'http://icalendar.xyz/calendar/6875';
     <div class="row">
         <!-- <div class="col-md-4 col-md-offset-4"> -->
         <div class="col-sm-12 col-md-12" style="margin-top:30px;">    
-            <h1 class="text-center" style="font-size: 26px">iCalendar.xyzへようこそ</h1>
+            <h1 class="text-center" style="font-size: 26px">集合知ランキング画像カレンダー 【インテリカレンダー】</h1>
         </div>
     </div>
 
    <div class="row">
         <div class="col-sm-12  col-md-12">
-            <h2 class="text-muted text-center">画像カレンダーでその日の出来事が一瞬でわかる</h2>
+            <h2 class="text-muted text-center">みんなの意見はだいたい正しい。<br><br>
+その日に、最も人気のあった画像を記録する集合知ランキング画像カレンダーです。</h2>
         </div>
     </div>
 

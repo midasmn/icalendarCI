@@ -267,13 +267,13 @@ class Calendar extends CI_Controller{
     
 
         // $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
-        $data['og_title'] = $data['yyyy'].'年'.$data['mm'].'月'.$data['dd'].'日付'.$data['title']."-画像カレンダー";
+        $data['og_title'] = $data['yyyy'].'年'.$data['mm'].'月'.$data['dd'].'日付'.$data['title']."-インテリカレンダー";
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title'].'。'.$data['description'];
         // OGタグ設定
         $data['keywords'] = $data['title'].','.$data['yyyy'].'年'.$data['mm'].'月,'.$data['keywords'];
         $data['description'] = $data['og_description'];
-        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+        $data['title'] = $data['og_title'] ." : インテリカレンダー";
         //メニューお気に入りセレクト
         if($userid<>-1){
             $this->load->model('tbl_calendar_model', 'calendarM');   

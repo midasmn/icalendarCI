@@ -42,7 +42,7 @@ class Staticpages extends CI_Controller{
         $data['descriptiondb'] = $this->static->get_description('about');
         //staticDB
         // OGタグ設定
-        $data['og_title'] = 'iCalendarついて - iCalendar.xyz.';
+        $data['og_title'] = 'インテリカレンダーついて - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -97,7 +97,7 @@ class Staticpages extends CI_Controller{
         $data['descriptiondb'] = $this->static->get_description('terms');
         //staticDB
         // OGタグ設定
-        $data['og_title'] = '利用規約 - iCalendar.xyz.';
+        $data['og_title'] = '利用規約 - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -153,7 +153,7 @@ class Staticpages extends CI_Controller{
         $data['descriptiondb'] = $this->static->get_description('privacy');
         //staticDB
         // OGタグ設定
-        $data['og_title'] = 'プライバシーポリシー - iCalendar.xyz.';
+        $data['og_title'] = 'プライバシーポリシー - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -204,7 +204,7 @@ class Staticpages extends CI_Controller{
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
         // OGタグ設定
-        $data['og_title'] = 'よくある質問(FAQ) - iCalendar.xyz.';
+        $data['og_title'] = 'よくある質問(FAQ) - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -260,7 +260,7 @@ class Staticpages extends CI_Controller{
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
         // OGタグ設定
-        $data['og_title'] = 'お問い合わせ - iCalendar.xyz.';
+        $data['og_title'] = 'お問い合わせ - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -311,7 +311,7 @@ class Staticpages extends CI_Controller{
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
         // OGタグ設定
-        $data['og_title'] = '最新情報 - iCalendar.xyz.';
+        $data['og_title'] = '最新情報 - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
@@ -366,7 +366,7 @@ class Staticpages extends CI_Controller{
         $this->session->set_flashdata('redirect_url', current_url());
         //リダイレクト用URL
         // OGタグ設定
-        $data['og_title'] = 'レポート - iCalendar.xyz.';
+        $data['og_title'] = 'レポート - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');

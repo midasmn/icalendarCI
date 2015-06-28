@@ -132,7 +132,7 @@ class Daylist extends CI_Controller{
         // OGタグ設定
         $data['keywords'] = $data['title'].','.$data['keywords'];
         $data['description'] = $data['og_description'];
-        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+        $data['title'] = $data['og_title'] ." : インテリカレンダー";
         // OGタグ設定
         // 登録件数
         $this->load->model('tbl_count_model', 'count');  

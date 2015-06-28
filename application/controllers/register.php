@@ -11,7 +11,7 @@ class Register extends CI_Controller{
     public function index()
     {
         $data = array();
-        $data['og_title'] =  'ID(無料)を登録する - iCalendar.xyz.';
+        $data['og_title'] =  'ID(無料)を登録する - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');

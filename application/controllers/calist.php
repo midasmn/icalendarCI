@@ -111,7 +111,7 @@ class Calist extends CI_Controller{
         $this->pagination->initialize($config); 
         $data['page_link'] = $this->pagination->create_links();
         // OGタグ設定
-        $data['og_title'] = $data['title']." - iCalendar.xyz.";
+        $data['og_title'] = $data['title']." - インテリカレンダー";
         $data['og_url'] = $config['base_url']."/".$config['per_page'];
         // $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['title'].'。'.$data['description'];

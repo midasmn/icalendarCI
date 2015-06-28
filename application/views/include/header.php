@@ -39,10 +39,10 @@ $keyword_total_cnt = count($rowKey);
 	<meta property="og:image" content="http://faceapglezon.info/ogimage/icalendar.php?url=<?php echo current_url();?>" />
 <!-- 	<meta property="og:image" content="<?=$og_image?>" /> -->
 	<meta property="og:url" content="<?=$og_url?>" />
-	<meta property="og:site_name" content="iCalendar.xyz" />
+	<meta property="og:site_name" content="インテリカレンダー" />
 	<meta property="og:description" content="<?=$og_description?>" />
 	<meta property="og:locale" content="ja_JP” />
-	<meta itemprop="name" content="iCalendar" />
+	<meta itemprop="name" content="インテリカレンダー" />
 	<meta itemprop="description" content="<?=$og_description?>" />
 	<meta property="fb:app_id" content="1459017077694190" /> 
 	<meta property="article:publisher" content="https://www.facebook.com/icalendar.xyz" />
@@ -140,7 +140,7 @@ $keyword_total_cnt = count($rowKey);
 		       			<ul class="dropdown-menu">
 		          			<li class="">
 		          				<a href="/about/">
-		          					<span class="glyphicon glyphicon-info-sign"></span> iCalendar.xyzについて
+		          					<span class="glyphicon glyphicon-info-sign"></span> インテリカレンダーについて
 		          				</a>
 		          			</li>
 		          			<li class="divider"></li>
@@ -267,13 +267,9 @@ $keyword_total_cnt = count($rowKey);
 	<!-- 検索窓 -->
 <style>
 .search-wrap {
-  <!-- height: 3.125rem; -->
-  height: 24px;
-  text-align: left; }
-
-.search-group {
-  -webkit-animation: slide-right 500ms cubic-bezier(0.65, -1, 0.25, 1.75); }
-
+  height: 3.125rem;
+  text-align: left;
+}
 .search-group input[type="search"] {
   -webkit-appearance: none;
   background: url("/search.svg") no-repeat;
@@ -284,7 +280,7 @@ $keyword_total_cnt = count($rowKey);
   height: 3.125rem;
   padding-left: 3rem;
   text-align: left;
-  width: 95%; }
+  }
 
 .search-group input[type="search"]:focus {
   outline: none; }
@@ -293,16 +289,21 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   background: white url("/delete.svg") center no-repeat;
   cursor: pointer;
-  height: 3.12rem;
   left: 0;
   position: absolute;
-  width: 3.125rem; }	
+  width: 3.125rem; 
+  }	
 </style>
-	<nav class="search-wrap">
-      <form class="search ng-pristine ng-valid" role="search" action="/keyword/" method="POST">
-        <div class="form-group search-group">
-          <input autofocus="true" name="keyword" value="<?=$keyword?>" type="search" class="form-control ng-pristine ng-valid" ng-model="searchText" typeahead="tag for tag in getTypeheadSuggestions($viewValue)">
-        </div>
-      </form>
-    </nav>
+
+
+
+		<nav class="search-wrap">
+	      <form class="search ng-valid ng-dirty" role="search" action="/keyword/" method="POST">
+	        <div class="form-group search-group">
+	          <input class="col-xs-11 col-sm-11 col-md-11 ng-valid ng-dirty" autofocus="true" name="keyword" value="<?=$keyword?>" type="search"  ng-model="searchText" typeahead="tag for tag in getTypeheadSuggestions($viewValue)" >
+	        </div>
+	      </form>
+	    </nav>
+
+
 	<!-- .検索窓 -->

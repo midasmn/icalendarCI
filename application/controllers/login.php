@@ -14,7 +14,7 @@ class Login extends CI_Controller{
         $data = array();
         //OGタグ
         // $data['og_title'] = $this->config->item('og_title', 'icalendar');
-        $data['og_title'] = 'ログイン - iCalendar.xyz';
+        $data['og_title'] = 'ログイン - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');

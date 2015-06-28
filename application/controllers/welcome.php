@@ -39,7 +39,7 @@ class Welcome extends CI_Controller {
 	{
 		$userid=-1;
         $data = array();
-        $data['og_title'] = 'iCalendarにようこそ - iCalendar.xyz.';
+        $data['og_title'] = 'インテリカレンダーにようこそ - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');

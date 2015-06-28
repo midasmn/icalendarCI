@@ -15,12 +15,12 @@ class Setting extends CI_Controller{
     {
         $userid=-1;
         $data = array();
-        $data['og_title'] = '登録情報設定 - iCalendar.xyz.';
+        $data['og_title'] = '登録情報設定 - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
         //
-        $data['title'] = '登録情報設定 - iCalendar.xyz.';
+        $data['title'] = '登録情報設定 - インテリカレンダー';
         $data['description'] = $this->config->item('description', 'icalendar');
         $data['keywords'] = $this->config->item('keywords', 'icalendar');
 

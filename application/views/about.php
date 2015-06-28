@@ -21,7 +21,7 @@ foreach ($descriptiondb as $row) {}
 	<!-- パンくず -->
     <ol class="breadcrumb">
         <li><a href="/">ホーム</a></li>
-        <li class="active">iCalendarについて</li>
+        <li class="active">インテリカレンダーについて</li>
     </ol>
     <!-- パンくず -->
 	<div class="row">

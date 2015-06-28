@@ -7,6 +7,7 @@ class Keyword extends CI_Controller{
         $this->load->helper('array');
         $this->load->helper('form');
         $this->config->load('icalendar');
+        $this->load->library('user_agent');
         // $this->output->enable_profiler(TRUE);
     }
 
@@ -14,6 +15,13 @@ class Keyword extends CI_Controller{
     {
         $userid=-1;
         $data = array();
+        // モバイルフラグ
+        if($this->agent->is_mobile())
+        {
+            $data['mobile'] = "SP";//mob
+        }else{
+            $data['mobile'] = "PC";//PC
+        }
         // ログインセッション
         if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
             $email=$this->session->userdata("email");
@@ -104,7 +112,7 @@ class Keyword extends CI_Controller{
         // OGタグ設定
         $data['keywords'] = $keyword.','.$data['keywords'];
         $data['description'] = $data['og_description'];
-        $data['title'] = $data['og_title'] ." : iCalendar.xyz.";
+        $data['title'] = $data['og_title'] ." : インテリカレンダー";
 
         // 登録件数
         $this->load->model('tbl_count_model', 'count');  

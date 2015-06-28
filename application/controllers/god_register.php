@@ -39,16 +39,16 @@ class God_register extends CI_Controller{
             $this->load->library("email", array("mailtype"=>"html"));
             $this->load->model("tbl_user_model","user");
             //送信元の情報
-            $this->email->from("info@icalendar.xyz<iCalendar[iカレンダー]>", "[iCalendar]");
+            $this->email->from("info@icalendar.xyz<インテリカレンダー>", "[インテリカレンダー]");
             //送信先の設定
             $this->email->to($this->input->post("email"));
             //タイトルの設定
-            $this->email->subject("[iCalendar]仮登録のお知らせ");
+            $this->email->subject("[インテリカレンダー]仮登録のお知らせ");
             //メッセージの本文
             $message = "<p>会員登録ありがとうございます。</p>";
             $message =  "<p>".$this->input->post("email")." 様</p>";
-            $message .=  "<p>ようこそ、【iCalendar】へ。</p>";
-            $message .=  "<p>このたびは【iCalendar】に会員登録をいただき、ありがとうございます。</p>";
+            $message .=  "<p>ようこそ、【インテリカレンダー】へ。</p>";
+            $message .=  "<p>このたびは【インテリカレンダー】に会員登録をいただき、ありがとうございます。</p>";
             $message .=  "<p>下記のURLから会員登録を完了させてください</p>";
             // 各ユーザーにランダムキーをパーマリンクに含むURLを送信する
             $message .= '<p><a href="'.base_url(). 'register/register_user/'.$key.'">'.base_url().'register/register_user/'.$key.'</a></p>';
@@ -56,10 +56,10 @@ class God_register extends CI_Controller{
             $message .= '<p>その場合はお手数ですが、再度最初からご登録をお願い致します。</p>';
             $message .= '<p>▼ご登録情報▼</p>';
             $message .= '<p>メールアドレス：'.$this->input->post("email").'</p>';
-            $message .= '<p>■iCalendarのトップページへ</p>';
+            $message .= '<p>■インテリカレンダーのトップページへ</p>';
             $message .= '<p><a href="http://icalendar.xyz">http://icalendar.xyz</a></p>';
             $message .= '<p>——————————————————————————————————</p>';
-            $message .= '<p>このメールに返信されても、iCalendarに関するお問い合わせにはお答えできません。</p>';
+            $message .= '<p>このメールに返信されても、インテリカレンダーに関するお問い合わせにはお答えできません。</p>';
             $message .= '<p>お問い合わせはこちら: <a href="http://icalendar.xyz/supportform">http://icalendar.xyz/supportform/</a></p>';
             $message .= '<p>——————————————————————————————————';
             $message .= "<p>© ".date('Y')." atomb.it.</p>";

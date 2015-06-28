@@ -50,7 +50,7 @@ class Sitemap extends CI_Controller{
         $rtn = $this->logr->insert($logdata);
         /////// ログ
         // ogタグ初期値
-        $data['og_title'] = 'ジャンル一覧 - iCalendar.xyz.';
+        $data['og_title'] = 'ジャンル一覧 - インテリカレンダー';
         $data['og_image'] = $this->config->item('og_image', 'icalendar');
         $data['og_url'] = $this->config->item('og_url', 'icalendar');
         $data['og_description'] = $this->config->item('og_description', 'icalendar');
