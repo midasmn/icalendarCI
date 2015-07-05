@@ -27,23 +27,10 @@
 			<h2>最新情報:</h2>	
 		</div>
 
-		<?php
-		foreach ($news as $row) 
-		{
-			echo '<div class="col-md-12">';
-			echo '<h4>';
-			echo '<div class="col-md-2">';
-			echo $row->date;
-			echo '</div>';
-			echo '<div class="col-md-8">';
-			echo '<a href="'.$row->url.'">'.$row->headline.'</a>';
-			echo '</div>';
-			echo '<div class="col-md-2">';
-			echo '</div>';
-			echo '</h4>';
-			echo '</div>';
-		}
-		?>
+		<div class="row col-md-12 text-center" style="margin-top: 50px;">
+			<a class="twitter-timeline" href="https://twitter.com/icalendar_xyz" data-widget-id="617614926517944320">@icalendar_xyzさんのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
 
 
 	</div>

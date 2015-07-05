@@ -267,7 +267,7 @@ class Calendar extends CI_Controller{
     
 
         // $data['og_title'] = $data['title']."-画像カレンダー".$data['yyyy'].'年'.$data['mm'].'月';
-        $data['og_title'] = $data['yyyy'].'年'.$data['mm'].'月'.$data['dd'].'日付'.$data['title']."-インテリカレンダー";
+        $data['og_title'] = $data['yyyy'].'年'.$data['mm'].'月'.$data['dd'].'日付'.$data['title']."";
         $data['og_url'] = "/".$this->uri->uri_string();
         $data['og_description'] = $data['og_title'].'。'.$data['description'];
         // OGタグ設定

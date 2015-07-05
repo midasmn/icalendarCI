@@ -56,11 +56,15 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        // $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        // $data['calcnt'] = $this->calendar->count_calist_all();
+        // $data['daycnt'] = $this->ymd->count_day_all();
+        // $data['ymdcnt'] = $this->ymd->count_ymd_all();
+
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('about',$data);
@@ -111,15 +115,18 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+
+        // $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        // $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        // $data['calcnt'] = $this->calendar->count_calist_all();
+        // $data['daycnt'] = $this->ymd->count_day_all();
+        // $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('terms',$data);
-
 		$this->load->view('include/footer',$data);
 	}
 	public function privacy()
@@ -167,11 +174,14 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        // $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        // $data['calcnt'] = $this->calendar->count_calist_all();
+        // $data['daycnt'] = $this->ymd->count_day_all();
+        // $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('privacy',$data);
@@ -228,6 +238,9 @@ class Staticpages extends CI_Controller{
         //     $this->load->model('tbl_calendar_model', 'calendarM');   
         //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
         // }
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('faq');
@@ -279,11 +292,15 @@ class Staticpages extends CI_Controller{
         $data['calcnt'] = $this->calendar->count_calist_all();
         $data['daycnt'] = $this->ymd->count_day_all();
         $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
 		$this->load->view('include/header',$data);
 		$this->load->view('supportform',$data);
 		$this->load->view('include/footer',$data);
 	}
+
     public function news()
     {
         $userid=-1;
@@ -321,24 +338,27 @@ class Staticpages extends CI_Controller{
         $data['keywords'] = $this->config->item('keywords', 'icalendar');
         // OGタグ設定
 
-        $this->load->model('tbl_news_model', 'news'); //アイテム
+        // カレンダーテーブル
+        $this->load->model('tbl_calendar_model', 'calendar');   //カレンダー
         //カレンダー情報
-        $data['news'] = $this->news->get_list();
-        //メニューお気に入りセレクト
-        // if($userid<>-1){
-        //     $this->load->model('tbl_calendar_model', 'calendarM');   
-        //     $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
-        // }
-        $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
-        $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
-        $data['calcnt'] = $this->calendar->count_calist_all();
-        $data['daycnt'] = $this->ymd->count_day_all();
-        $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        $data['cal_info'] = $this->calendar->find_calist_all();
+        $total_cnt = count($data['cal_info'] );    
+        $data['total_cnt'] = $total_cnt;  
+
+        // $this->load->model('tbl_calendar_model', 'calendar'); //アイテム
+        // $this->load->model('tbl_ymd_model', 'ymd'); //アイテム
+        // $data['calcnt'] = $this->calendar->count_calist_all();
+        // $data['daycnt'] = $this->ymd->count_day_all();
+        // $data['ymdcnt'] = $this->ymd->count_ymd_all();
+        // 登録件数
+        $this->load->model('tbl_count_model', 'count');  
+        $data['day_cnt'] = $this->count->get_count();
         ///////////
         $this->load->view('include/header',$data);
         $this->load->view('news');
         $this->load->view('include/footer',$data);
     }
+
     public function report()
     {
         $userid=-1;
