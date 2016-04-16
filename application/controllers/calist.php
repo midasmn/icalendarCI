@@ -23,21 +23,6 @@ class Calist extends CI_Controller{
         }else{
             $data['mobile'] = "PC";//PC
         }
-
-        // ログインセッション
-        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
-            $email=$this->session->userdata("email");
-            $userid=$this->session->userdata("userid");
-            $status=$this->session->userdata("status");
-            $profile_img=$this->session->userdata("profile_img");
-            $remember=$this->session->userdata("remember");
-            //
-            $data['email'] = $email;
-            $data['userid'] = $userid;
-            $data['status'] = $status;
-            $data['profile_img'] = $profile_img;
-            $data['remember'] = $remember;
-        }
         //パンくずURL
         $this->session->set_flashdata('pan_list', current_url());
         // ログインセッション
@@ -48,13 +33,6 @@ class Calist extends CI_Controller{
         //リダイレクト用URL
         $exm=$this->uri->segment(1);    //一覧ソートセグメント
         $data['exm']=$exm;
-        // スター
-        if($userid==-1)
-        {}else{
-            $this->load->model('tbl_star_model', 'star'); //ログ
-            $data['star'] = $this->star->get_calendar_starlist($userid) ;
-        }
-        // スター
         // ogタグ初期値
         $data['og_title'] = $this->config->item('og_title', 'icalendar');
         $data['og_image'] = $this->config->item('og_image', 'icalendar');

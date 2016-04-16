@@ -9,6 +9,7 @@ class Daylist extends CI_Controller{
         $this->output->cache(360);
         $this->load->library('session');
         $this->config->load('icalendar');
+        $this->load->library('user_agent');
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
         $this->session->set_userdata('histry_url', current_url());
@@ -19,19 +20,12 @@ class Daylist extends CI_Controller{
     {
         $userid=-1;
         $data = array();
-        // ログインセッション
-        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
-            $email=$this->session->userdata("email");
-            $userid=$this->session->userdata("userid");
-            $status=$this->session->userdata("status");
-            $profile_img=$this->session->userdata("profile_img");
-            $remember=$this->session->userdata("remember");
-            //
-            $data['email'] = $email;
-            $data['userid'] = $userid;
-            $data['status'] = $status;
-            $data['profile_img'] = $profile_img;
-            $data['remember'] = $remember;
+        // モバイルフラグ
+        if($this->agent->is_mobile())
+        {
+            $data['mobile'] = "SP";//mob
+        }else{
+            $data['mobile'] = "PC";//PC
         }
         //パンくずURL
         $pan_list = $this->session->flashdata('pan_list');

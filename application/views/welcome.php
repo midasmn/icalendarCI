@@ -11,7 +11,10 @@ $calurl = '/calendar/343/'.$lastmonth;
 $dayurl = '/daylist/343/'.$lastday;
 // $nowurl = '/calendar/2950/'.$lastmonth.'/4';
 // $nowurl = 'http://icalendar.xyz/smart/';
-$nowurl = 'http://icalendar.xyz/calendar/6875';
+// $nowurl = '/calendar/343/';
+$nowurl = '/smart/';
+
+
 ?>
 <!-- SNSボタン -->
 <link href="<?=base_url('/application/views/assets/css/normalize.min.css')?>" rel="stylesheet">
@@ -23,14 +26,14 @@ $nowurl = 'http://icalendar.xyz/calendar/6875';
     <div class="row">
         <!-- <div class="col-md-4 col-md-offset-4"> -->
         <div class="col-sm-12 col-md-12" style="margin-top:30px;">    
-            <h1 class="text-center" style="font-size: 26px">集合知ランキング画像カレンダー 【インテリカレンダー】</h1>
+            <h1 class="text-center" style="font-size: 26px">【インテリカレンダー】<br>集合知画像ランキング</h1>
         </div>
     </div>
 
    <div class="row">
         <div class="col-sm-12  col-md-12">
-            <h2 class="text-muted text-center">みんなの意見はだいたい正しい。<br><br>
-その日に、最も人気のあった画像を記録する集合知ランキング画像カレンダーです。</h2>
+            <h2 class="text-muted text-center">みんなの意見は大体正しい。<br><br>
+その日に、最も人気のあった画像を記録する集合知画像ランキングカレンダーです。</h2>
         </div>
     </div>
 
@@ -38,7 +41,7 @@ $nowurl = 'http://icalendar.xyz/calendar/6875';
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-10 col-md-10">
         <!-- <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ<?=$lastmonth?>のカレンダーをみる</a> -->
-            <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ人気カレンダーをみる</a>
+            <a href="<?=$nowurl?>" class="btn-primary btn btn-lg btn-block">今すぐ人気カレンダーを見る</a>
         </div>
         <div class="col-sm-1 col-md-1"></div>
     </div>
@@ -51,8 +54,6 @@ $nowurl = 'http://icalendar.xyz/calendar/6875';
         </div>
     </div>
 
-    
-
     <div class="row" style="margin-top:50px;">
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail bootsnipp-thumb">
@@ -61,7 +62,7 @@ $nowurl = 'http://icalendar.xyz/calendar/6875';
             <h4>600種のジャンルからえらべる:</h4>
                 <p>アマゾンベストセラー、楽天ランキング、オリコンランキング、iTunesランキングなど多彩なジャンルの人気画像を記録しています。<br />
                     <!-- <span class="glyphicon glyphicon-hand-right"> -->
-                    <h3><a href="/smart/" class="btn-block btn btn-warning">ジャンル一覧をみる</a></h3>
+                    <h3><a href="/sitemap/" class="btn-block btn btn-warning">ジャンル一覧をみる</a></h3>
                     <!-- </span> -->
                 </p>
             </div>

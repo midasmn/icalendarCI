@@ -8,6 +8,7 @@ class Sitemap extends CI_Controller{
         // $this->load->helper('url');
         // $this->output->enable_profiler(TRUE);
         // $this->output->cache(360);
+        $this->load->library('user_agent');
         $this->load->helper('form');
         //リダイレクト用URL
         $this->session->set_flashdata('redirect_url', current_url());
@@ -17,27 +18,14 @@ class Sitemap extends CI_Controller{
     {
         $userid=-1;
         $data = array();
-        // ログインセッション
-        if($this->session->userdata("is_logged_in")){   //ログインしている場合の処理
-            $email=$this->session->userdata("email");
-            $userid=$this->session->userdata("userid");
-            $status=$this->session->userdata("status");
-            $profile_img=$this->session->userdata("profile_img");
-            $remember=$this->session->userdata("remember");
-            //
-            $data['email'] = $email;
-            $data['userid'] = $userid;
-            $data['status'] = $status;
-            $data['profile_img'] = $profile_img;
-            $data['remember'] = $remember;
+        // モバイルフラグ
+        if($this->agent->is_mobile())
+        {
+            $data['mobile'] = "SP";//mob
+        }else{
+            $data['mobile'] = "PC";//PC
         }
         //パンくずURL
-        // $pan_list = $this->session->flashdata('pan_list');
-        // $pan_cal = $this->session->flashdata('pan_cal');
-        // $pan_itm = $this->session->flashdata('pan_itm');
-        // $data['pan_list']  = $pan_list;
-        // $data['pan_cal']  = $pan_cal;
-        // $data['pan_itm']  = $pan_itm;
         $this->session->set_flashdata('pan_list', current_url());
         // $this->session->set_flashdata('pan_cal', current_url());
         // $this->session->set_flashdata('pan_itm', current_url());
@@ -66,15 +54,9 @@ class Sitemap extends CI_Controller{
         $total_cnt = count($data['cal_info'] );    
         $data['total_cnt'] = $total_cnt;  
         //////////////////////////
-        //メニューお気に入りセレクト
-        if($userid<>-1){
-            $this->load->model('tbl_calendar_model', 'calendarM');   
-            $data['menu'] = $this->calendarM->menu_favorites_arr($userid);
-        }
         // 登録件数
         $this->load->model('tbl_count_model', 'count');  
         $data['day_cnt'] = $this->count->get_count();
-
         $data['exm_title'] = "ジャンル一覧";
         $this->load->view('include/header',$data);
         $this->load->view('sitemap',$data);

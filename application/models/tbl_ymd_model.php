@@ -120,7 +120,7 @@ class Tbl_ymd_model extends MY_Model {
         $this->db->where('calendar_id', $calendar_id); 
         $this->db->where('yyyy', $yyyy); 
         $this->db->where('mm', $mm); 
-        // $this->db->where('tbl_ymd.dd', $dd); 
+        // $this->db->limit(10);
         $query = $this->db->get();
 // echo $this->db->last_query();
         return $query->result();

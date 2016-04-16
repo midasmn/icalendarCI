@@ -76,8 +76,6 @@ class Tbl_calendar_model extends MY_Model {
     //検索リスト全件
     public function search_calist_all($arr_tag) {
         // $this->db->start_cache();
-
-
         $this->db->select('tbl_calendar.id as cal_id');
         $this->db->from('tbl_calendar');
         $this->db->where('tbl_calendar.onflg', 'ON'); 

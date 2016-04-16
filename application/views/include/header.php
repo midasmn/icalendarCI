@@ -42,6 +42,8 @@ $keyword_total_cnt = count($rowKey);
 	<meta property="og:site_name" content="インテリカレンダー" />
 	<meta property="og:description" content="<?=$og_description?>" />
 	<meta property="og:locale" content="ja_JP” />
+	<!-- bingmastertools -->
+	<meta name="msvalidate.01" content="16F2AAB151C9B16A6C0B7CEE62D45BEB" />
 	<meta itemprop="name" content="インテリカレンダー" />
 	<meta itemprop="description" content="<?=$og_description?>" />
 	<meta property="fb:app_id" content="1459017077694190" /> 
@@ -62,6 +64,12 @@ $keyword_total_cnt = count($rowKey);
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- nend -->
+    <script type="text/javascript">
+var nend_params = {"media":26557,"site":140390,"spot":565363,"type":2,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+	<!-- .nend -->
   </head>
 <body>
 <div id="dev_position"></div>
@@ -89,221 +97,37 @@ $keyword_total_cnt = count($rowKey);
 			<div class="collapse navbar-collapse navbar-bootsnipp-collapse">
 				<ul class="nav navbar-nav">
 					<!-- リスト -->
-					<li class="dropdown ">
-		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
-		       				 ジャンル一覧 <b class="caret"></b>
-		       			</a>
-		       			<ul class="dropdown-menu">
-		       				<li class="">
-								<a href="/sitemap/">
-									<span class="glyphicon glyphicon-list-alt"></span> ジャンル一覧
-								</a>
-							</li>
-							<li class="divider"></li>
-		          			<li class="">
-		          				<a href="/smart/">
-		          					<span class="glyphicon glyphicon glyphicon-star"></span> 人気順
-		          				</a>
-		          			</li>
-		          			<li class="divider"></li>
-							<li class="">
-								<a href="/newer/">
-		          					<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> 新着順
-								</a>
-							</li>
-							<li class="divider"></li>
-							<li class="">
-								<a href="/random/">
-									<span class="glyphicon glyphicon-align-center"></span> ランダム
-								</a>
-							</li>
-							<?php
-							// if($status=="LOGIN")
-							// {
-								echo '<li class="divider"></li>';
-								echo '<li class="dropdown-header">おすすめ</li>';
-								echo '<li class="">';
-								echo '<a href="/report/">';
-								echo '<span class="glyphicon glyphicon-book"></span> レポート';
-								echo '</a>';
-								echo '</li>';
-							// }
-							?>
-						</ul>
+					<li class="">
+		       			<a href="/sitemap/">
+							<i class="fa fa-tags"></i> ジャンル一覧
+						</a>
 					</li>
 					<!-- リスト -->
-					<!-- ガイド -->
-					<li class="dropdown ">
-		       			<a href="" class="dropdown-toggle" data-toggle="dropdown">
-		       				<span class="glyphicon glyphicon-book"></span> ガイド <b class="caret"></b>
-		       			</a>
-		       			<ul class="dropdown-menu">
-		          			<li class="">
-		          				<a href="/about/">
-		          					<span class="glyphicon glyphicon-info-sign"></span> インテリカレンダーについて
-		          				</a>
-		          			</li>
-		          			<li class="divider"></li>
-							<li class="">
-								<a href="/terms/">
-									<span class="glyphicon glyphicon-list-alt"></span> 利用規約
-								</a>
-							</li>
-							<li class="">
-								<a href="/privacy/">
-									<span class="glyphicon glyphicon-list-alt"></span> プライバシーポリシー
-								</a>
-							</li>
-							<li class="divider"></li>
-							<li class="dropdown-header">よくある質問</li>
-							<li class="">
-								<a href="/faq/">
-									<span class="glyphicon glyphicon-book"></span> FAQ
-								</a>
-							</li>  
-							<li class="divider"></li>
-							<li class="dropdown-header">最新情報</li>
-							<li class="">
-								<a href="/news/">
-									<span class="glyphicon glyphicon-book"></span> ニュース
-								</a>
-							</li>  
-							<li class="divider"></li>
-							<li class="">
-								<a href="/supportform/">
-									<span class="glyphicon glyphicon-envelope"></span> お問い合わせフォーム
-								</a>
-							</li> 
-						</ul>
-					</li>
-					<!-- ガイド -->
-
-
-
-
 				</ul>
-				<p class="navbar-text">登録:<?=$jan_cnt?>ジャンル
-					<span class="glyphicon glyphicon-calendar"> </span>掲載日数:<?=$daycnt?>日
-					<i class="fa fa-camera"> </i>画像数:<?=$ymdcnt?>点
-				</p>
+				<ul class="nav navbar-nav">
+					<!-- リスト -->
+					<li class="">
+		       			<a href="/smart/">
+							<i class="fa fa-heart"></i> 人気順一覧
+						</a>
+					</li>
+					<!-- リスト -->
+				</ul>
 
-				<?php
-				if($status=="LOGIN")
-				{
-				// <!-- お気に入りセレクト -->
-				echo '<div class="btn-group navbar-form">';
-				// echo '<form action="/calendar/" method="GET">';
-                // echo '<select class="form-control" name="index"  onchange="submit(this.form)">';
-                echo '<select class="form-control" name="index"  onChange="location.href=value;" style="width: 100;">';
-                	$menucnt = count($menu);
-                	if($menucnt>=1)
-                	{
-                		echo '<li>';
-						echo '<option value="">お気に入りジャンル</option>';
-						echo '</li>';
-                		foreach ($menu as $rowM) 
-                		{
-                			if($cal_id==$rowM->m_cal_id){$select_st = 'selected = "selected" ';}else{$select_st = '';}
-                			echo '<li>';
-              				echo '<option '.$select_st.' value="/calendar/'.$rowM->m_cal_id.'">'.$rowM->m_cal_title.'</option>';
-              				echo '</li>';
-                  		}
-                  	//ゼロ件
-                	}else{
-                			echo '<li>';
-                  			echo '<option selected value="">お気に入りを表示します</option>';
-                  			echo '</li>';
-                	}
-                echo '</select>';
-                echo '</form>';
-            	echo '</div>';
-				// <!-- お気に入りセレクト -->
-					echo '<!-- ログイン後 -->';
-					echo '<ul class="nav navbar-nav navbar-right">';
-					// echo '<li><a href="/add/">';
-					// echo '<span class="glyphicon glyphicon-plus"></span> 新規</a>';
-					// echo '</li>';
-					// echo '<li class="">';
-					// echo '<a href="/mycalendar/">';
-					// echo '<span class="glyphicon glyphicon-calendar"></span> マイカレンダー</a>';
-					// echo '</li>';
-					echo '<li class="dropdown ">';
-					echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-					echo '<img src="'.$profile_img.'" width="18px" class="user-avatar-mini"> '.$email;
-					echo '<b class="caret"></b>';
-					echo '</a>';
-					echo '<ul class="dropdown-menu">';
-					echo '<li class=""><a href="/favorites/"><span class="glyphicon glyphicon-star"></span> お気に入りジャンル</a></li>';
-					echo '<li class="divider"></li>';
-					// echo '<li class=""><a href="/setting/"><span class="glyphicon glyphicon-edit"></span> 設定</a></li>';
-					// echo '<li class="divider"></li>';
-					echo '<li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> ログアウト</a>';
-					echo '</li>';
-					echo '</ul>';
-					echo '</li>';
-					echo '</ul>';
-					echo '<!-- ログイン後 -->';
-				}else{
-					echo '<!-- ログイン前 -->';
-					echo '<ul class="nav navbar-nav navbar-right">';
-            		echo '<li id="nav-register-btn" class="">';
-            		echo '<a href="/register/"><span class="glyphicon glyphicon-user"></span> 登録</a>';
-            		echo '</li>';
-       				echo '<li id="nav-login-btn" class="">';
-       				echo '<a href="/login/">';
-       				echo '<span class="glyphicon glyphicon-log-in"></span> ログイン</a>';
-       				echo '</li>';
-         			echo '</ul>';
-					echo '<!-- ログイン前 -->';
-				}
-				?>
+				<ul class="nav navbar-nav navbar-right">
+        			<li class="">
+        				登録:<?=$jan_cnt?>ジャンル
+        			</li>
+   					<li class="">
+   						<span class="glyphicon glyphicon-calendar"> </span>掲載日数:<?=$daycnt?>日
+   					</li>
+   					<li  class="">
+   						<i class="fa fa-camera"> </i>画像数:<?=$ymdcnt?>点
+   					</li>
+     			</ul>
+
 				
 
   			</div><!-- /.navbar-collapse -->
   		</div>
 	</nav>
-	<!-- ナビゲーションバー -->
-
-	<!-- 検索窓 -->
-<style>
-.search-wrap {
-  height: 3.125rem;
-  text-align: left;
-}
-.search-group input[type="search"] {
-  -webkit-appearance: none;
-  background: url("/search.svg") no-repeat;
-  background-position: 1rem 1rem;
-  background-size: 1.3rem;
-  border: none;
-  font: 400 1.35rem 'Source Sans Pro', sans-serif;
-  height: 3.125rem;
-  padding-left: 3rem;
-  text-align: left;
-  }
-
-.search-group input[type="search"]:focus {
-  outline: none; }
-
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  background: white url("/delete.svg") center no-repeat;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  width: 3.125rem; 
-  }	
-</style>
-
-
-
-		<nav class="search-wrap">
-	      <form class="search ng-valid ng-dirty" role="search" action="/keyword/" method="POST">
-	        <div class="form-group search-group">
-	          <input class="col-xs-11 col-sm-11 col-md-11 ng-valid ng-dirty" autofocus="true" name="keyword" value="<?=$keyword?>" type="search"  ng-model="searchText" typeahead="tag for tag in getTypeheadSuggestions($viewValue)" >
-	        </div>
-	      </form>
-	    </nav>
-
-
-	<!-- .検索窓 -->

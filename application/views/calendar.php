@@ -1,6 +1,5 @@
 <?php
 foreach ($cal_info as $rowR) {}
-foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_flg = $value;}}
 ?>
 <style>
 .fc-head{
@@ -34,88 +33,39 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 		<!-- パンくず -->
 		<?php
 		$pan_st = $rowR->cal_title;
-		$pan_st = str_replace('男性ランキング', '', $pan_st);
-		$pan_st = str_replace('女性ランキング', '', $pan_st);
-		$pan_st = str_replace('ランキング', '', $pan_st);
-		$pan_st = str_replace('ベストセラー', '', $pan_st);
-		$pan_st = str_replace('デイリー', '', $pan_st);
-
-		$pan_st = str_replace('アマゾン', '', $pan_st);
-		$pan_st = str_replace('楽天市場', '', $pan_st);
-		$pan_st = str_replace('Google画像', '', $pan_st);
-		$pan_st = str_replace('Yahoo!', '', $pan_st);
-		$pan_st = str_replace('オリコン', '', $pan_st);
-		$pan_st = str_replace('iTunes', '', $pan_st);
+		// $pan_st = str_replace('男性ランキング', '', $pan_st);
+		// $pan_st = str_replace('女性ランキング', '', $pan_st);
+		// $pan_st = str_replace('ランキング', '', $pan_st);
+		// $pan_st = str_replace('ベストセラー', '', $pan_st);
+		// $pan_st = str_replace('デイリー', '', $pan_st);
+		// $pan_st = str_replace('アマゾン', '', $pan_st);
+		// $pan_st = str_replace('楽天市場', '', $pan_st);
+		// $pan_st = str_replace('Google画像', '', $pan_st);
+		// $pan_st = str_replace('Yahoo!', '', $pan_st);
+		// $pan_st = str_replace('オリコン', '', $pan_st);
+		// $pan_st = str_replace('iTunes', '', $pan_st);
 		?>
 		<ol class="breadcrumb">
-			<li><a href="/smart/">ホーム</a></li>
-			<?php
-			if($pan_list=="http://icalendar.xyz/keyword")
-			{
-			?>
-				<li><a href="javascript:window.history.go(-1);"><?=$pan_list_title?></a></li>
-			<?php
-			}else{
-			?>
+			<li><a href="/smart/">インテリカレンダーホーム</a></li>
+
 				<li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
-			<?php
-			}
-			?>
-			
+	
+
+
+
 			<li class="active"><?=$pan_st?></li>
 		</ol>
 		<!-- パンくず -->
-		<!-- ページヘッダー -->
-		<div class="row" style="margin-top:20px;">
-			<div class="col-xs-6 col-sm-4 col-md-3" >
-				<?php 
-				$pr_cal_title = str_replace('男性ランキング', '', $pr_cal_title);
-				$pr_cal_title = str_replace('女性ランキング', '', $pr_cal_title);
-				$pr_cal_title = str_replace('ランキング', '', $pr_cal_title);
-				$pr_cal_title = str_replace('ベストセラー', '', $pr_cal_title);
-				$pr_cal_title = str_replace('デイリー', '', $pr_cal_title);
-				//
-				$nex_cal_title = str_replace('男性ランキング', '', $nex_cal_title);
-				$nex_cal_title = str_replace('女性ランキング', '', $nex_cal_title);
-				$nex_cal_title = str_replace('ランキング', '', $nex_cal_title);
-				$nex_cal_title = str_replace('ベストセラー', '', $nex_cal_title);
-				$nex_cal_title = str_replace('デイリー', '', $nex_cal_title);
-				if(!$pr_cal){
-				}else{
-					// echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">前のジャンル</a>';
-					echo '<a style="font-size:18px;" href="/calendar/'.$pr_cal.'">'.$pr_cal_title.'</a>';
-				}
-				?>
-			</div>
-			<div class="col-sm-4 col-md-6" >
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 text-right" >
-				<?php
-				if(!$nex_cal){}else{
-					// echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">次のジャンル</a>';
-					echo '<a style="font-size:18px;" href="/calendar/'.$nex_cal.'">'.$nex_cal_title.'</a>';
-			 	}?>
-			</div>
-		</div><!-- .ページヘッダー -->
 	</div>
-		<!-- 広告 -->
-
-    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+	<!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 10px;text-align: center;">
       <!-- ＜スポンサーリンク＞ -->
       <?php 
       if($mobile=="SP")
       {
       ?>
-		<!-- スマートフォン向けコンテンツ -->
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- ical_sp_btm -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:320px;height:100px"
-		     data-ad-client="ca-pub-6625574146245875"
-		     data-ad-slot="5295238802"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+		<!-- ネンド -->
+		<!-- .ネンド -->
       <?php }else{ ?>
       <!-- PC向けコンテンツ -->
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -133,33 +83,28 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	
 	<div class="container">
 		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
-				<?php
-				if($userid>0)	//
+			<!-- <h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"> -->
+			<h1 class="input-group input-group-lg">
+			<select class="form-control" name="index"  onChange="location.href=value;">
+			<?php
+			foreach ($cal_all as $rowCalall) 
+			{
+				$h1_cal_id = $rowCalall->cal_id;
+				$h1_cal_title = $rowCalall->cal_title;
+				// $h1_cal_title = str_replace('男性ランキング', '', $h1_cal_title);
+				// $h1_cal_title = str_replace('女性ランキング', '', $h1_cal_title);
+				echo '<li>';
+				if($h1_cal_id==$cal_id)
 				{
-					echo '<a href="javascript: void(0)" class="starexm">';
-					echo '<input type="hidden" id="calendar_id" value="'.$cal_id.'">';
-					echo '<input type="hidden" id="userid" value="'.$userid.'">';
-					if($star_flg=="ON")
-					{
-						echo '<span class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-						echo '<span  style="display: none"  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-					}else{
-						echo '<span style="display: none" class="startoggle glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-						echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-					}
-					echo '</a>';
+					$select_st = 'selected = "selected" ';
 				}else{
-					echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="ログインしてお気に入りに追加"></span>';
+						$select_st = '';
 				}
-				$new_str = $rowR->cal_title;
-				$new_str = str_replace('男性ランキング', '', $new_str);
-				$new_str = str_replace('女性ランキング', '', $new_str);
-				// $new_str = str_replace('ランキング', '', $new_str);
-				// $new_str = str_replace('ベストセラー', '', $new_str);
-				// $new_str = str_replace('デイリー', '', $new_str);
-				echo $new_str;
-				?>
+				echo '<option '. $select_st .' value="/calendar/'.$h1_cal_id.'/'.$yyyy.'/'.$mm.'">'.$h1_cal_title.'</option>';
+				echo '</li> ';
+			}
+			echo '</select>';
+			?>
 			</h1>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
@@ -176,39 +121,42 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 				<a href="/calendar/<?=$cal_id?>/<?=$next?>">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
-
-				<div class="btn-group navbar-form">
-				<select class="form-control" name="index"  onChange="location.href=value;" style="width:66px;">
-				<?php
-				// echo $maxdayorder;
-				// $maxdayorder = 10;
-				if($maxdayorder>=1){
-					if($maxdayorder==21){$maxdayorder=20;}
-					for ($i=1; $i <= $maxdayorder; $i++) { 
-					echo '<li>';
-						if($orderno==$i){$select_st = 'selected = "selected" ';}else{$select_st = '';} 
-					echo '<option '.$select_st.' value="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'">'.$i.'位</option>';
-					echo '</li>';
-					}
-				}else{
-				?>	
-					<li>
-						<?php if($orderno==1){$select_st = 'selected = "selected" ';}else{$select_st = '';} ?>
-						<option <?=$select_st?> value="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>/1">1位</option>
-					</li>
-				<?php
-				}
-				?>
-				</select>
-				</div>
-				<!-- <a href="/calendar/<?=$cal_id?>/<?php echo str_replace("-", "/",date("Y-m"));?>" title="今月へ">
-					<span class="glyphicon glyphicon-check"></span>
-				</a> -->
 			</h2>
+		</div>
+
+
+	</div>
+	
+
+	<div class="container">
+		<div class="row" style="margin-top:5px;text-align: center;">
+		<?php
+		if($maxdayorder>=1)
+		{
+
+			if($maxdayorder>10){$maxdayorder=10;}
+			for ($i=1; $i <= $maxdayorder; $i++) 
+			{ 
+				if($orderno==$i)
+				{
+					echo '<a href="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'"><button class="btn btn-primary"><small>'.$i.'位</small></button></a>';
+				}else{
+					echo '<a href="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'"><button class="btn btn-default"><small>'.$i.'位</small></button></a>';
+				} 
+			}
+		}else{
+			if($orderno==1)
+			{
+				echo '<a href="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'"><button class="btn btn-primary"><small>'.$i.'位</small></button></a>';
+			}else{
+				echo '<a href="/calendar/'.$cal_id.'/'.$yyyy.'/'.$mm.'/'.$i.'"><button class="btn btn-default"><small>'.$i.'位</small></button></a>';
+			} 
+		}
+		?>
 		</div>
 	</div><!-- .container -->
 	<!--  -->
-	<div class="container">
+	<div class="container" style="margin-top:10px">
 	 	<table class="table table-condensed">
 		    <!-- <tr class="fc-head"> -->
 		    <tr>
@@ -226,6 +174,7 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 			?>
 			<!-- カレンダーメイン -->
 		</table>
+
 		<div class="col-xs-12 col-sm-12 col-md-12" >
             <ul class="rrssb-buttons clearfix">
                 <li class="facebook">
@@ -320,17 +269,13 @@ foreach ($starflg as $key1 => $item){foreach ($item as $key2 => $value){$star_fl
 	</div>
 
 	<!-- 広告 -->
-    <div class="col-md-12" style="margin-top: 20px;text-align: center;">
+    <div class="col-md-12" style="margin-top: 10px;text-align: center;">
       <!-- ＜スポンサーリンク＞ -->
       <?php 
       if($mobile=="SP")
       {
       ?>
 		<!-- スマートフォン向 nend -->
-      	<script type="text/javascript">
-		var nend_params = {"media":26557,"site":140390,"spot":373963,"type":1,"oriented":1};
-		</script>
-		<script type="text/javascript" src="http://js1.nend.net/js/nendAdLoader.js"></script>
 		<!-- .スマートフォン向 nend -->
       <?php }else{ ?>
       <!-- PC向けコンテンツ -->

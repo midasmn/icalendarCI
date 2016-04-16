@@ -21,14 +21,19 @@ $copy = "© ".date('Y')." インテリカレンダー";
 			</ul>
 		</div>
 		<!-- ソーシャルボタン -->
-
-		<!-- リンク -->
-		<p><?=$copy?>
+		<div>
+		<p>
+			<a href="/about/"> インテリカレンダーについて</a> | 
+			<a href="/supportform/">
+				<span class="glyphicon glyphicon-envelope"></span> お問い合わせフォーム
+			</a>
+		</p>
+		</div>
+		<div>
+			<p><?=$copy?></p>
 			<!-- <a href="http://atomb.it" target="_blank">atomb.it</a>. |  -->
 			<!-- <a href="/terms/" target="_blank" rel="publisher">利用規約</a> |  -->
-			<a href="/terms/" >利用規約</a> | 
-			<a href="/privacy/">プライバシー</a>
-		</p>
+		</div>
 		<!-- リンク -->
 	</div>
 </footer>
@@ -39,44 +44,13 @@ $copy = "© ".date('Y')." インテリカレンダー";
 <!-- SNSボタン用 -->
 <script src="<?php echo base_url('/application/views/assets/js/modernizr-2.6.2-respond-1.1.0.min.js') ?>"></script>
 <script src="<?php echo base_url('/application/views/assets/js/rrssb.min.js') ?>"></script>
- <!-- カレンダー一覧お気に入り -->
-<script>
-$(document).ready(function() {
-	$(".starexm").click(function(){
-		var calendar_id = $("#calendar_id").val();
-		var userid = $("#userid").val();
-		$.post('/ajax/star_list', {
-    		calendar_id: calendar_id,
-			userid: userid
-			}, function(rs) {
- 			var e = rs ;
- 			$(".startoggle").toggle();
-		});
-    });
-});
-</script>
-<!-- カレンダー一覧お気に入り -->
-<script>
-$(document).ready(function() {
-	$(".starlist").click(function(){
-		var id = $(this).data('id');
-		var userid = $("#userid").val();
-		$.post('/ajax/star_list', {
-    		calendar_id: id,
-			userid: userid
-			}, function(rs) {
- 			$(".startoggle_"+id).toggle();
-		});
-    });
-});
-</script>
-<!-- カレンダー一覧お気に入り -->
+
  <script>
 // click | hover | focus | manual 
-$('.tooltip-tool').tooltip({
-  selector: "a[data-toggle=tooltip]"
+$('.tooltip-tool').hover({
+  selector: "a[data-toggle=hover]"
 })
-$("a[data-toggle=popover]").popover()
+$("a[data-toggle=popover]").hover()
 </script>
 <!-- ページトップ -->
 <script>
@@ -136,5 +110,13 @@ a("https://widgets.getpocket.com/v1/j/btn.js");
  }
 }
 </script>
+<script type="text/javascript">
+  amzn_assoc_ad_type = "link_enhancement_widget";
+  amzn_assoc_tracking_id = "mittellogeblo-22";
+  amzn_assoc_placement = "";
+  amzn_assoc_marketplace = "amazon";
+  amzn_assoc_region = "JP";
+</script>
+<script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=JP"></script>
 </body>
 </html>

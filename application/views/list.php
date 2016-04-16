@@ -35,7 +35,7 @@ position: relative;
 <div class="container">
 	<!-- パンくず -->
 	<ol class="breadcrumb">
-		<li><a href="/smart/">ホーム</a></li>
+		<li><a href="/smart/">インテリカレンダーホーム</a></li>
 		<li class="active"><?=$exm_title?></li>
 	</ol>
 	<!-- パンくず -->
@@ -48,15 +48,6 @@ position: relative;
       {
       ?>
 		<!-- スマートフォン向けコンテンツ -->
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- ical_sp_btm -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:320px;height:100px"
-		     data-ad-client="ca-pub-6625574146245875"
-		     data-ad-slot="5295238802"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
       <?php }else{ ?>
       <!-- PC向けコンテンツ -->
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -75,7 +66,7 @@ position: relative;
 	<!-- 一覧 -->
 	<div class="row" style="margin-top:20px;"  id="listroot">
 		<div class="col-md-8">
-			<h2 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;"><?=$exm_title?><small>カレンダーリスト(<?=number_format($total_cnt)?>件)</small></h2> 
+			<h1 style="font-size:28px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">インテリカレンダー<?=$exm_title?><small>リスト(<?=number_format($total_cnt)?>件)</small></h1> 
 		</div>
 
 
@@ -86,7 +77,6 @@ position: relative;
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th class="col-md-1 fc-head"><span class="glyphicon glyphicon-star"></span></th>
 						<th class="col-md-1 fc-head">画像</th>
 						<th class="col-md-5 fc-head">タイトル</th>
 						<th class="col-md-4  fc-head hidden-xs">詳細</th>
@@ -108,64 +98,27 @@ position: relative;
 						// }
 						echo '<tr>';
 						echo '<td style="text-align: center;vertical-align:middle;">';
-						if($userid>0)
-						{
-							//ログイン中
-							echo '<a href="javascript: void(0)" class="starlist" data-id="'.$htm_cal_id.'">';
-							echo '<input type="hidden" id="calendar_id" value="'.$htm_cal_id.'">';
-							echo '<input type="hidden" id="userid" value="'.$userid.'">';
-							//
-							$st_flg = "OFF";
-							foreach($star as $data) 	//スター配列と比較
-							{
-								if ($data['itemid'] == $htm_cal_id) {$st_flg = "ON";}
-							}
-							if($st_flg=="ON")
-							{
-								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-								echo '<span  style="display: none"  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-							}else{
-								echo '<span  style="display: none" class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star" title="お気に入りから削除"></span>';
-								echo '<span  class="startoggle_'.$htm_cal_id.' glyphicon glyphicon-star-empty" title="お気に入りに追加"></span>';
-							}
-							echo '</a>';
-						}else{
-							echo '<span  class="startoggle glyphicon glyphicon-star-empty" title="ログインしてお気に入りに追加"></span>';
-						}
-						//
-						
-						//
-
-						echo '</td>';
-						echo '<td>';
-						// echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
 						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
-						echo '<img src="'.$htm_cal_img.'" class="img-responsive" alt="" style="background-color:#428bca;">';
+						echo '<img src="'.$htm_cal_img.'" class="img-responsive" title="'.$htm_cal_title.'" alt="'.$htm_cal_title.'" style="background-color:#428bca;">';
 						echo '</a>';
 
 						echo '</td>';
 						echo '<td style="vertical-align:middle;">';
-						$new_str = str_replace('男性ランキング', '', $htm_cal_title);
-						$new_str = str_replace('女性ランキング', '', $new_str);
-						$new_str = str_replace('ランキング', '', $new_str);
-						$new_str = str_replace('ベストセラー', '', $new_str);
-						$new_str = str_replace('デイリー', '', $new_str);
-
+						// $new_str = str_replace('男性ランキング', '', $htm_cal_title);
+						// $new_str = str_replace('女性ランキング', '', $new_str);
+						// $new_str = str_replace('ランキング', '', $new_str);
+						// $new_str = str_replace('ベストセラー', '', $new_str);
+						// $new_str = str_replace('デイリー', '', $new_str);
 						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
+						$new_str = $htm_cal_title;
 						echo $new_str;
 						echo '</a>';
-
 						echo '</td>';
 						echo '<td style="vertical-align: middle;" class="hidden-xs">';
-
 						echo '<a href="/calendar/'.$htm_cal_id.'" style="text-decoration: none;">';
 						echo $htm_cal_description;
 						echo '</a>';
-
 						echo '</td>';
-						// echo '<td style="vertical-align:middle;">';
-						// echo '<a class="btn btn-block btn-info" href="/calendar/'.$htm_cal_id.'">開く</a>';
-						// echo '</td>';
 						echo '</tr>';
 					// <!-- 1件目 -->
 					}
@@ -198,15 +151,6 @@ position: relative;
       {
       ?>
 		<!-- スマートフォン向けコンテンツ -->
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- ical_sp_btm -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:320px;height:100px"
-		     data-ad-client="ca-pub-6625574146245875"
-		     data-ad-slot="5295238802"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
       <?php }else{ ?>
       <!-- PC向けコンテンツ -->
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

@@ -88,42 +88,66 @@ margin-top: 2px;
         $pan_st = str_replace('iTunes', '', $pan_st);
         ?>
         <ol class="breadcrumb">
-            <li><a href="/smart/">ホーム</a></li>
+            <li><a href="/smart/">インテリカレンダーホーム</a></li>
             <li><a href="<?=$pan_list?>"><?=$pan_list_title?></a></li>
             <li><a href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>"><?=$pan_st?></a></li>
             <li class="active"><?=$yyyy?>年<?=$mm?>月<?=$dd?>日</li>
         </ol>
     <!-- パンくず -->
+
+
+    <!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 10px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+        <!-- ネンド -->
+        <!-- .ネンド -->
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ビッグバナー大 -->
+        <ins class="adsbygoogle"
+                style="display:inline-block;width:970px;height:90px"
+                data-ad-client="ca-pub-6625574146245875"
+                data-ad-slot="8563765200"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
+
     <!-- 一覧 -->
     <div class="row" style="margin-top:20px;">
         <div class="col-md-12" id="listroot">
             <?php
             $new_str = $rowR->cal_title;
-            $new_str = str_replace('男性ランキング', '', $new_str);
-            $new_str = str_replace('女性ランキング', '', $new_str);
-            $new_str = str_replace('ランキング', '', $new_str);
-            $new_str = str_replace('ベストセラー', '', $new_str);
-            $new_str = str_replace('デイリー', '', $new_str);
+            // $new_str = str_replace('男性ランキング', '', $new_str);
+            // $new_str = str_replace('女性ランキング', '', $new_str);
+            // $new_str = str_replace('ランキング', '', $new_str);
+            // $new_str = str_replace('ベストセラー', '', $new_str);
+            // $new_str = str_replace('デイリー', '', $new_str);
             ?>
             <a style="font-size:18px;"href="/calendar/<?=$cal_id?>/<?=$yyyy?>/<?=$mm?>" ><?=$new_str?></a>
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px;">
-        <h2 style="font-size:24px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
+        <h1 style="font-size:24px;font-weight:200;1px;text-shadow:1px1px 0 rgba(0,0,0,0.1);color:#621;">
             <a href="/daylist/<?=$cal_id?>/<?=$prev?>">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <?=$yyyy?>年<?=$mm?>月<?=$dd?>日
+            インテリカレンダー<?=$yyyy?>年<?=$mm?>月<?=$dd?>日
             <a href="/daylist/<?=$cal_id?>/<?=$next?>">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
-        </h2>
+        </h1>
     </div>
     <!--  -->
-
     <hr >
-
     <!-- SNS -->
     <div class="col-xs-12 col-sm-12 col-md-12" >
         <!-- <div class="share-container clearfix"> -->
@@ -242,34 +266,65 @@ margin-top: 2px;
                     </p>
                 </div>
                 
-                <!-- <a href="" target="_blank"> -->
-                    <img class="product-cover" src="<?php echo $rowD->img_path;?>" alt="<?php echo $rowD->img_alt;?>">
-                <!-- </a> -->
-                <div class="caption">
-                    <p>
-                    <?php
-                    $exm_group = $rowR->cal_group;
-                    if($exm_group=='amazon'){
-                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-warning btn-block">';
-                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-                        echo ' アマゾンで購入';
-                        echo '</a>';
-                    }elseif($exm_group=='rakuten'){
-                        //楽天UR
-                        $raku_html = urlencode($rowD->href.$raku_mid_url.$rowD->href);
-                        $raku_url = $raku_pre_url.$raku_html;
-                        echo '<a href="'.$raku_url.'" target="_blank" class="btn btn-danger btn-block">';
-                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-                        echo ' 楽天市場で購入';
-                        echo '</a>';
-                    }elseif($exm_group=='iTunes'){
-                        echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-origin btn-block">';
-                        echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
-                        echo ' iTunesで購入';
-                        echo '</a>';
-                    }
-                    ?>
-                    </p>
+                <?php
+                $exm_group = $rowR->cal_group;
+                if($exm_group=='amazon')
+                {
+                    echo '<a href="'.$rowD->href.'" target="_blank" >';
+                    $img_path_ = str_replace('_SL160_SL160_', '_SL500_SL500_', $rowD->img_path);
+                    echo '<img class="product-cover" src="'.$img_path_.'" title="「'.$rowD->img_alt.'」をアマゾンで購入" alt="'.$rowD->img_alt.'をアマゾンで購入">';
+                    echo '</a>';
+                    echo '<div class="caption">';
+                    echo '<p>';
+                    echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-warning btn-block">';
+                    echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                    echo ' アマゾンで購入';
+                    echo '</a>';
+                    echo '</p>';
+                }
+                elseif($exm_group=='oricon')
+                {
+                    // echo '<a href="'.$rowD->href.'" target="_blank" >';
+                    $img_path_ = str_replace('_SL160_', '_SL500_SL500_', $rowD->img_path);
+                    echo '<img class="product-cover" src="'.$img_path_.'" title="「'.$rowD->img_alt.'」をアマゾンで購入" alt="'.$rowD->img_alt.'をアマゾンで購入">';
+                    // echo '</a>';
+                    echo '<div class="caption">';
+                    // echo '<p>';
+                    // echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-warning btn-block">';
+                    // echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                    // echo ' アマゾンで購入';
+                    // echo '</a>';
+                    // echo '</p>';
+                }elseif($exm_group=='rakuten'){
+                    //楽天UR
+                    $raku_html = urlencode($rowD->href.$raku_mid_url.$rowD->href);
+                    $raku_url = $raku_pre_url.$raku_html;
+                    echo '<a href="'.$raku_url.'" target="_blank" >';
+                    $img_path_ = str_replace('_ex=128x128', '_ex=300x300', $rowD->img_path);
+                    echo '<img class="product-cover" src="'.$img_path_.'" title="「'.$rowD->img_alt.'」を楽天で購入" alt="「'.$rowD->img_alt.'」を楽天で購入">';
+                    echo '</a>';
+                    echo '<div class="caption">';
+                    echo '<p>';
+                    echo '<a href="'.$raku_url.'" target="_blank" class="btn btn-danger btn-block">';
+                    echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                    echo ' 楽天市場で購入';
+                    echo '</a>';
+                    echo '<p>';
+                }elseif($exm_group=='iTunes'){
+                    echo '<a href="'.$rowD->href.'" target="_blank" >';
+                    echo '<img class="product-cover" src="'.$rowD->img_path.'" title="「'.$rowD->img_alt.'」をiTunesで購入" alt="「'.$rowD->img_alt.'」をiTunesで購入">';
+                    echo '</a>';
+                    echo '<div class="caption">';
+                    echo '<p>';
+                    echo '<a href="'.$rowD->href.'" target="_blank" class="btn btn-origin btn-block">';
+                    echo '<span class="glyphicon glyphicon-shopping-cart"></span>';
+                    echo ' iTunesで購入';
+                    echo '</a>';
+                    echo '<p>';
+                }else{
+                    echo '<img class="product-cover" src="'.$rowD->img_path.'" alt="'.$rowD->img_alt.'">';
+                }
+                ?>
                     <p class="product-description">
                         <?php
                         if($exm_group=='google'){
@@ -297,46 +352,33 @@ margin-top: 2px;
             </div>
         </div>
         
-        <?php
-        if($cnt==1){
-        ?>
-        <!-- ad -->
-        <!-- 広告 -->
-        <div class="col-md-12" style="margin-top: 20px;text-align: center;">
-          <!-- ＜スポンサーリンク＞ -->
-          <?php 
-          if($mobile=="SP")
-          {
-          ?>
-            <!-- スマートフォン向 nend -->
-            <script type="text/javascript">
-            var nend_params = {"media":26557,"site":140390,"spot":373963,"type":1,"oriented":1};
-            </script>
-            <script type="text/javascript" src="http://js1.nend.net/js/nendAdLoader.js"></script>
-            <!-- .スマートフォン向 nend -->
-          <?php }else{ ?>
-          <!-- PC向けコンテンツ -->
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- ビッグバナー大 -->
-            <ins class="adsbygoogle"
-                    style="display:inline-block;width:970px;height:90px"
-                    data-ad-client="ca-pub-6625574146245875"
-                    data-ad-slot="8563765200"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          <?php }; ?>
-        </div>
-        <!-- 広告 -->
-        <!-- ad -->
-        <?php
-        }
-        ?>
-        
-    
         <?php $cnt++; ?>
         <?php endforeach;?>
     </div>
+
+    <!-- 広告 -->
+    <div class="col-md-12" style="margin-top: 10px;text-align: center;">
+      <!-- ＜スポンサーリンク＞ -->
+      <?php 
+      if($mobile=="SP")
+      {
+      ?>
+        <!-- ネンド -->
+        <!-- .ネンド -->
+      <?php }else{ ?>
+      <!-- PC向けコンテンツ -->
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ビッグバナー大 -->
+        <ins class="adsbygoogle"
+                style="display:inline-block;width:970px;height:90px"
+                data-ad-client="ca-pub-6625574146245875"
+                data-ad-slot="8563765200"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <?php }; ?>
+    </div>
+    <!-- 広告 -->
     <!--  -->
     <div class="row">
         <div class="col-md-10"></div>
@@ -347,24 +389,8 @@ margin-top: 2px;
                 </h2>
             </div>
         </div>
-    
-    <!-- 広告 -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- レスポンシブ -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-6625574146245875"
-         data-ad-slot="6145590005"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <!-- 広告 -->
 
     
-
-
-
     </div>
 </div>
 <!--  -->
