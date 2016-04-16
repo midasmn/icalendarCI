@@ -70,6 +70,29 @@ position: relative;
 		</div>
 
 
+		<!-- 検索窓 -->
+  		<div class="col-md-4"  style="margin-top:20px;">
+ 		<?php
+ 		// $exm = 'sitemap';・
+ // echo "<br>exm=".$exm;
+ 		$hidden = array('exm' => $exm);
+ 		echo form_open("/search/",'',$hidden);	//フォームを開く
+ 
+ 		echo '<div class="input-group">';
+ 		$search_st = 'class="form-control" placeholder="キーワード (スペース区切り)" type="text"';
+ 		$keyword = $this->input->post('keyword');
+ 		if(!$keyword){$keyword=$flash_keyword;}
+ 		echo form_input('keyword', $keyword,$search_st);	//Emailの入力フィールドを出力	
+ 		echo '<div class="input-group-btn">';
+ 		echo '<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>';
+ 		echo '</div>';
+ 		echo '</div>';
+ 		echo form_close();	//フォームを閉じる
+		?>
+  		</div>
+  		<!-- 検索窓 -->
+
+
 	</div>
 	<hr id="1">
 	<div class="row">
@@ -142,7 +165,6 @@ position: relative;
 <!-- ページネーション		 -->
 <?php echo $page_link; ?> 
 <!-- ページネーション		 -->
-
 	<!-- 広告 -->
     <div class="col-md-12" style="margin-top: 20px;text-align: center;">
       <!-- ＜スポンサーリンク＞ -->

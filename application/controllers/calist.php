@@ -50,7 +50,7 @@ class Calist extends CI_Controller{
         switch ($exm) {
             case 'smart':
             	$data['title'] = "人気順カレンダーリスト";
-                $data['exm_title'] = "人気順";
+                $data['exm_title'] = "人気順一覧";
                 break;
             case 'newer':
             	$data['title'] = "新着順カレンダーリスト";
@@ -99,10 +99,6 @@ class Calist extends CI_Controller{
         $data['title'] = $data['og_title'];
 
         // OGタグ設定
-        //メニューお気に入りセレクト
-        if($userid<>-1){
-            $data['menu'] = $this->calendar->menu_favorites_arr($userid);
-        }
         // 登録件数
         $this->load->model('tbl_count_model', 'count');  
         $data['day_cnt'] = $this->count->get_count();

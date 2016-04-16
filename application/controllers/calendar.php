@@ -24,6 +24,7 @@ class Calendar extends CI_Controller{
         }
         //パンくずURL
         $pan_list = $this->session->flashdata('pan_list');
+// echo "<br>pan=".$pan_list;
         if($pan_list=="http://icalendar.xyz/smart"){$pan_list_title = '人気順一覧';}
         elseif($pan_list=="http://icalendar.xyz/sitemap"){$pan_list_title = 'ジャンル一覧';}
         else{$pan_list_title = 'ジャンル一覧';$pan_list=="http://icalendar.xyz/sitemap";$this->session->set_flashdata('pan_list', $pan_list);}
