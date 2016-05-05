@@ -157,6 +157,7 @@ foreach ($cal_info as $rowR) {}
 	</div><!-- .container -->
 	<!--  -->
 	<div class="container" style="margin-top:10px">
+	
 	 	<table class="table table-condensed">
 		    <!-- <tr class="fc-head"> -->
 		    <tr>
@@ -174,6 +175,12 @@ foreach ($cal_info as $rowR) {}
 			?>
 			<!-- カレンダーメイン -->
 		</table>
+
+
+
+
+
+
 
 		<div class="col-xs-12 col-sm-12 col-md-12" >
             <ul class="rrssb-buttons clearfix">

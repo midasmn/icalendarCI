@@ -107,47 +107,52 @@
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-1">アマゾンベストセラー</h2></p>';
+					$tag_btn = "btn-warning";
 					// echo '</div>';
 					break;
 				case 'rakuten':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-2">楽天市場ランキング</h2></p>';
+					$tag_btn = "btn-danger";
 					// echo '</div>';
 					break;
 				case 'iTunes':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-3">iTunesランキング</h2></p>';
+					$tag_btn = "btn-success";
 					// echo '</div>';
 					break;
 				case 'oricon':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-4">オリコンランキング</h2></p>';
-					// echo '</div>';
+					$tag_btn = "btn-success";
 					break;
 				case 'recochoku':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-5">レコチョクランキング</h2></p>';
-					// echo '</div>';
+					$tag_btn = "btn-success";
 					break;
 				case 'sports':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2  id="cat-6">スポーツ順位</h2></p>';
+					$tag_btn = "btn-primary";
 					break;
 				case 'yahoo':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2  id="cat-7">Yahoo!検索デイリー</h2></p>';
-					// echo '</div>';
+					$tag_btn = "btn-danger";
 					break;
 				case 'google':
 					echo '<div class="col-xs-12 col-sm-12 col-md-12"></div>';
 					echo '<div class="col-xs-12 col-sm-12 col-md-12">';
 					echo '<p><h2 id="cat-8">Google画像検索</h2></p>';
+					$tag_btn = "btn-primary";
 					// echo '</div>';
 					break;
 				
@@ -161,26 +166,30 @@
 		// echo '<div class="col-xs-1 col-sm-1 col-md-1">';
 		$st = $rowR->cal_title;
 		$new_str = $st;
-		// $new_str = str_replace('男性ランキング', '', $st);
-		// $new_str = str_replace('女性ランキング', '', $new_str);
-		// $new_str = str_replace('ランキング', '', $new_str);
-		// $new_str = str_replace('ベストセラー', '', $new_str);
-		// $new_str = str_replace('デイリー', '', $new_str);
-		// $new_str = str_replace('アマゾン', '', $new_str);
-		// $new_str = str_replace('楽天市場', '', $new_str);
-		// $new_str = str_replace('Google画像', '', $new_str);
-		// $new_str = str_replace('Yahoo!', '', $new_str);
-		// $new_str = str_replace('オリコン', '', $new_str);
-		// $new_str = str_replace('iTunes', '', $new_str);
-		// $new_str = str_replace('「', '', $new_str);
-		// $new_str = str_replace('」', '', $new_str);
-		// $new_str = str_replace('[', '', $new_str);
-		// $new_str = str_replace(']', '', $new_str);
-		// $new_str = str_replace('プロ野球(NPB)', '', $new_str);
+		$new_str = str_replace('男性ランキング', '', $st);
+		$new_str = str_replace('女性ランキング', '', $new_str);
+		$new_str = str_replace('ランキング', '', $new_str);
+		$new_str = str_replace('ベストセラー', '', $new_str);
+		$new_str = str_replace('デイリー', '', $new_str);
+		$new_str = str_replace('アマゾン', '', $new_str);
+		$new_str = str_replace('楽天市場', '', $new_str);
+		$new_str = str_replace('Google画像', '', $new_str);
+		$new_str = str_replace('Yahoo!', '', $new_str);
+		$new_str = str_replace('オリコン', '', $new_str);
+		$new_str = str_replace('iTunes', '', $new_str);
+		$new_str = str_replace('「', '', $new_str);
+		$new_str = str_replace('」', '', $new_str);
+		$new_str = str_replace('[', '', $new_str);
+		$new_str = str_replace(']', '', $new_str);
+		$new_str = str_replace('プロ野球(NPB)', '', $new_str);
 		if($rowR->cal_id==378){
 			$new_str = '楽天総合';
 		}
-		echo '<a href="/calendar/'.$rowR->cal_id.'"><button class="btn btn-default" stlye="margin: 10px 10px 0 0;"><small><i class="fa fa-tag"></i>  '.$new_str.'</small></button></a>';
+		echo '<a href="/calendar/'.$rowR->cal_id.'" stlye="margin:0 5px 5px; padding: 5px;">';
+		echo '<button class="btn '.$tag_btn.'" >';
+		echo '<small><i class="fa fa-tag">';
+		echo '</i>  '.$new_str.'</small></button>';
+		echo '</a>';
 
 		$cnt++;			
 	}

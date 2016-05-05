@@ -332,7 +332,7 @@ margin-top: 2px;
                         $serch_st = urlencode($yyyy."年".$mm."月".$dd."日 ".$rowD->img_alt);
                         //google検索
                         echo '<a href="https://www.google.com/search?q='.$serch_st.'" target="_blank" class="btn btn-primary btn-block">';
-                        echo '<span class="glyphicon glyphicon-search"></span>';
+                        echo '<i class="fa fa-google" aria-hidden="true"></i>';
                         // echo ' google検索で「'.$yyyy.'年'.$mm.'月'.$dd.'日 '.$rowD->img_alt.'」を見る';
                         echo ' google検索';
                         echo '</a>';
@@ -342,6 +342,17 @@ margin-top: 2px;
                         echo '<span class="glyphicon glyphicon-camera"></span>';
                         // echo ' google画像検索で「'.$rowD->img_alt.'」を見る';
                         echo ' google画像検索';
+                        echo '</a>';
+                        // wiki
+                        echo '<a href="https://ja.wikipedia.org/wiki/'.$serch_im_st.'" target="_blank" class="btn btn-default btn-block">';
+                        echo '<i class="fa fa-wikipedia-w" aria-hidden="true"></i>';
+                        echo ' Wikipedia検索';
+                        echo '</a>';
+                        // youtube
+                        echo '<a href="https://www.youtube.com/results?search_query='.$serch_im_st.'" target="_blank" class="btn btn-danger btn-block">';
+                        echo '<i class="fa fa-youtube" aria-hidden="true"></i>';
+                        // echo ' google画像検索で「'.$rowD->img_alt.'」を見る';
+                        echo ' Youtube検索';
                         echo '</a>';
                         }
                         ?>

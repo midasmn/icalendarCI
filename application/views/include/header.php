@@ -16,6 +16,9 @@ $keyword_total_cnt = count($rowKey);
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+  	<!-- 多言語 -->
+  	<script src="//j.wovn.io/1" data-wovnio="key=VNyF4" async></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
